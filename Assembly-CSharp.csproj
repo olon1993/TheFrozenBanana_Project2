@@ -53,7 +53,12 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\Development\Scott\Locomotion2d.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\ILocomotion.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\PlayerInputManager.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\IAnimationManager.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\PlatformController.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\RaycastController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
