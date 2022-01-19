@@ -18,8 +18,8 @@ public class MeleeWeapon : MonoBehaviour, IWeapon
     [SerializeField] private int _maxAmmo;
     [SerializeField] private int _currentAmmo;
 
-    [SerializeField] Transform PointOfInteraction;
-    [SerializeField] float RadiusOfInteraction;
+    [SerializeField] private Transform _pointOfInteraction;
+    [SerializeField] private float _radiusOfInteraction;
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -35,7 +35,12 @@ public class MeleeWeapon : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        Collider[] colliders = Physics.OverlapSphere(PointOfInteraction.position, RadiusOfInteraction);
+        if (_showDebugLog)
+        {
+            Debug.Log("Attacking with " + name);
+        }
+
+        Collider[] colliders = Physics.OverlapSphere(_pointOfInteraction.position, _radiusOfInteraction);
         foreach (Collider collider in colliders)
         {
             IHealth health = collider.GetComponent<IHealth>();
@@ -93,6 +98,12 @@ public class MeleeWeapon : MonoBehaviour, IWeapon
     {
         get { return _ammoTypeDefinition; }
         set { _ammoTypeDefinition = value; }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(_pointOfInteraction.position, _radiusOfInteraction);
     }
 
 }

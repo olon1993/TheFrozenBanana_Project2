@@ -10,6 +10,7 @@ public class PlayerInputManager : MonoBehaviour
 
     // Dependencies
     private ILocomotion _locomotion;
+    private ICombatant _combatant;
     
     // Movement
     public bool IsMovementEnabled = true;
@@ -22,22 +23,33 @@ public class PlayerInputManager : MonoBehaviour
     void Awake()
     {
         _locomotion = transform.GetComponent<ILocomotion>();
-        //_animationStateManager = transform.GetComponent<IAnimationManager>();
-
         if (_locomotion == null)
         {
-            Debug.LogError("ILocomotion not found on " + gameObject.name);
+            Debug.LogError("ILocomotion not found on " + name);
         }
+
+        _combatant = transform.GetComponent<ICombatant>();
+        if (_combatant == null)
+        {
+            Debug.LogError("ICombatant not found on " + name);
+        }
+        
+        //_animationStateManager = transform.GetComponent<IAnimationManager>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Locomotion
         _locomotion.HorizontalMovement = Input.GetAxisRaw("Horizontal");
         _locomotion.VerticalMovement = Input.GetAxisRaw("Vertical");
         _locomotion.IsJumping = Input.GetButtonDown("Jump");
         _locomotion.IsJumpCancelled = Input.GetButtonUp("Jump");
         _locomotion.IsDashing = Input.GetButtonDown("Fire3");
+
+        // Combatant
+        _combatant.IsAttacking = Input.GetButtonDown("Fire1");
 
         if (_showDebugLog)
         {
