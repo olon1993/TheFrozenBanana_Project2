@@ -38,3 +38,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.csproj
+obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
