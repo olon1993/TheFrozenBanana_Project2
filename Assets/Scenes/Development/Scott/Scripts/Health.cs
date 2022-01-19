@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IHealth
 {
     [SerializeField] private bool _showDebugLog = false;
 
