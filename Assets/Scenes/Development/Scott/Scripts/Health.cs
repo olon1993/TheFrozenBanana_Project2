@@ -42,7 +42,10 @@ public class Health : MonoBehaviour, IHealth
         }
         else
         {
-            HurtSoundEffect.Play();
+            if(HurtSoundEffect != null)
+            {
+                HurtSoundEffect.Play();
+            }
         }
 
         return false;
@@ -66,7 +69,14 @@ public class Health : MonoBehaviour, IHealth
         }
         else
         {
-            Destroy(gameObject, DieSoundEffect.clip.length);
+            if(DieSoundEffect != null)
+            {
+                Destroy(gameObject, DieSoundEffect.clip.length);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -15,6 +15,8 @@ public class Combatant : MonoBehaviour, ICombatant
     private IList<IWeapon> _weapons;
     private IWeapon _currentWeapon;
 
+    private int _horizontalFacingDirection = 1;
+
     //**************************************************\\
     //******************** Methods *********************\\
     //**************************************************\\
@@ -100,5 +102,21 @@ public class Combatant : MonoBehaviour, ICombatant
     }
 
     public bool IsAttacking { get; set; }
+
+    public int HorizontalFacingDirection 
+    {
+        get { return _horizontalFacingDirection; }
+        set
+        {
+            if(_horizontalFacingDirection != value && value != 0)
+            {
+                _horizontalFacingDirection = value;
+                if (Mathf.Sign(CurrentWeapon.PointOfOrigin.localPosition.x) != Mathf.Sign(_horizontalFacingDirection))
+                {
+                    CurrentWeapon.PointOfOrigin.transform.localPosition *= -1;
+                }
+            }
+        }
+    }
 
 }

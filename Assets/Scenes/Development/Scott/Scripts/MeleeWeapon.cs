@@ -18,8 +18,10 @@ public class MeleeWeapon : MonoBehaviour, IWeapon
     [SerializeField] private int _maxAmmo;
     [SerializeField] private int _currentAmmo;
 
-    [SerializeField] private Transform _pointOfInteraction;
+    [SerializeField] private Transform _pointOfOrigin;
     [SerializeField] private float _radiusOfInteraction;
+
+    private bool _is2D = true;
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -40,8 +42,48 @@ public class MeleeWeapon : MonoBehaviour, IWeapon
             Debug.Log("Attacking with " + name);
         }
 
-        Collider[] colliders = Physics.OverlapSphere(_pointOfInteraction.position, _radiusOfInteraction);
+        if (_is2D)
+        {
+            HandleDamage2D();
+        }
+        else
+        {
+            HandleDamage();
+        }
+    }
+
+    private void HandleDamage()
+    {
+        Collider[] colliders = Physics.OverlapSphere(_pointOfOrigin.position, _radiusOfInteraction);
         foreach (Collider collider in colliders)
+        {
+            IHealth health = collider.GetComponent<IHealth>();
+            if (health == null)
+            {
+                continue;
+            }
+
+            if (_showDebugLog)
+            {
+                Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
+            }
+
+            bool isDead = health.TakeDamage(Damage);
+
+            if (_showDebugLog)
+            {
+                if (isDead == false)
+                {
+                    Debug.Log(collider.gameObject.name + " health = " + health.CurrentHealth + " / " + health.MaxHealth);
+                }
+            }
+        }
+    }
+
+    private void HandleDamage2D()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_pointOfOrigin.position, _radiusOfInteraction);
+        foreach (Collider2D collider in colliders)
         {
             IHealth health = collider.GetComponent<IHealth>();
             if (health == null)
@@ -100,10 +142,16 @@ public class MeleeWeapon : MonoBehaviour, IWeapon
         set { _ammoTypeDefinition = value; }
     }
 
+    public Transform PointOfOrigin
+    {
+        get { return _pointOfOrigin; }
+        set { _pointOfOrigin = value; }
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(_pointOfInteraction.position, _radiusOfInteraction);
+        Gizmos.DrawWireSphere(_pointOfOrigin.position, _radiusOfInteraction);
     }
 
 }

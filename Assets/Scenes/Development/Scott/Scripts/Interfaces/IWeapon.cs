@@ -8,6 +8,7 @@ public interface IWeapon
     int MaxAmmo { get; set; }
     int CurrentAmmo { get; set; }
     AmmoType AmmoTypeDefinition { get; set; }
+    Transform PointOfOrigin { get; set; }
 
     public enum DamageType
     {

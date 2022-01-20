@@ -8,4 +8,5 @@ public interface ICombatant
     IList<IWeapon> Weapons { get; set; }
     IWeapon CurrentWeapon { get; set; }
     bool IsAttacking { get; set; }
+    int HorizontalFacingDirection { get; set; }
 }

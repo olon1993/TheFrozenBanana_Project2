@@ -49,6 +49,7 @@ public class PlayerInputManager : MonoBehaviour
         _locomotion.IsDashing = Input.GetButtonDown("Fire3");
 
         // Combatant
+        _combatant.HorizontalFacingDirection = (int)Input.GetAxisRaw("Horizontal");
         _combatant.IsAttacking = Input.GetButtonDown("Fire1");
 
         if (_showDebugLog)

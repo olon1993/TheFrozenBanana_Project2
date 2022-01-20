@@ -6,7 +6,7 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     //********************* Fields *********************\\
     //**************************************************\\
 
-    [SerializeField] Transform PointOfInstantiation;
+    [SerializeField] private Transform _pointOfOrigin;
     [SerializeField] Transform PointOfTargetting;
     [SerializeField] Projectile Projectile;
     [SerializeField] private bool _isLimitedAmmo;
@@ -34,14 +34,14 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         }
 
         // Instantiate the weapon gameObject
-        Instantiate(Projectile, PointOfInstantiation.position, PointOfTargetting.rotation);
+        Instantiate(Projectile, _pointOfOrigin.position, PointOfTargetting.rotation);
     }
 
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Vector3 direction = transform.TransformDirection(Vector3.forward) * 5;
-        Gizmos.DrawRay(PointOfInstantiation.position, direction);
+        Gizmos.DrawRay(_pointOfOrigin.position, direction);
     }
 
     //**************************************************\\
@@ -70,5 +70,11 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     {
         get { return _ammoType; }
         set { _ammoType = value; }
+    }
+
+    public Transform PointOfOrigin
+    {
+        get { return _pointOfOrigin; }
+        set { _pointOfOrigin = value; }
     }
 }
