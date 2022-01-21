@@ -26,7 +26,7 @@ public class PlatformController : RaycastController
     private float _percentBetweenWaypoints;
 
     private List<PassengerMovement> _passengerMovement;
-    private Dictionary<Transform, Locomotion2d> _passengerDictionary = new Dictionary<Transform, Locomotion2d>();
+    private Dictionary<Transform, PhysicsObject> _passengerDictionary = new Dictionary<Transform, PhysicsObject>();
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -184,7 +184,7 @@ public class PlatformController : RaycastController
         {
             if (!_passengerDictionary.ContainsKey(passenger.Transform))
             {
-                _passengerDictionary.Add(passenger.Transform, passenger.Transform.GetComponent<Locomotion2d>());
+                _passengerDictionary.Add(passenger.Transform, passenger.Transform.GetComponent<PhysicsObject>());
             }
 
             if(passenger.MoveBeforePlatform == beforeMovePlatform)

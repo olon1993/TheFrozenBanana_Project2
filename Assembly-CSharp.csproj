@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\PlatformController.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\Damage.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\AnimationStateManager.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\ILocomotion.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\Combatant.cs" />
     <Compile Include="Assets\Scenes\Development\Richard\Scripts\WaypointNavigator.cs" />
@@ -74,7 +75,7 @@
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\IHealth.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\IWeapon.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\TagSelectorAttribute.cs" />
-    <Compile Include="Assets\Scenes\Development\Scott\Scripts\AnimationStateManager.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\PhysicsObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
