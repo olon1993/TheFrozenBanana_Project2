@@ -68,7 +68,7 @@ public class Locomotion2d : RaycastController, ILocomotion
 
         if (IsDashing)
         {
-            Debug.Log("Dash");
+            _velocity.x += _dashSpeed;
         }
 
         Move(_velocity * Time.deltaTime);
@@ -97,6 +97,8 @@ public class Locomotion2d : RaycastController, ILocomotion
     {
         int wallDirectionX = (_collisions.Left) ? -1 : 1;
         bool isWallSliding = false;
+
+        // Slide down wall
         if ((_collisions.Left || _collisions.Right) && !_collisions.Below && _velocity.y < 0)
         {
             isWallSliding = true;
@@ -106,6 +108,7 @@ public class Locomotion2d : RaycastController, ILocomotion
                 _velocity.y = -_wallSlideSpeedMax;
             }
 
+            // Stick to wall for a short time to perform wall jumps easier
             if (_timeToWallUnstick > 0)
             {
                 _velocityXSmoothing = 0;
@@ -128,18 +131,22 @@ public class Locomotion2d : RaycastController, ILocomotion
 
         if (IsJumping)
         {
+            // Wall Jumps
             if (isWallSliding)
             {
+                // Jump towards wall that you're sliding down
                 if (wallDirectionX == HorizontalMovement)
                 {
                     _velocity.x = -wallDirectionX * _wallJumpClimb.x;
                     _velocity.y = _wallJumpClimb.y;
                 }
+                // Jump off wall
                 else if (HorizontalMovement == 0)
                 {
                     _velocity.x = -wallDirectionX * _wallJumpOff.x;
                     _velocity.y = _wallJumpOff.y;
                 }
+                // Jump away from wall
                 else
                 {
                     _velocity.x = -wallDirectionX * _wallLeap.x;
@@ -147,8 +154,10 @@ public class Locomotion2d : RaycastController, ILocomotion
                 }
             }
 
+            // Jump from the ground
             if (_collisions.Below)
             {
+                // Jump while sliding down a slope
                 if (_collisions.SlidingDownMaxSlope)
                 {
                     if(HorizontalMovement != -Mathf.Sign(_collisions.SlopeNormal.x))
@@ -157,6 +166,7 @@ public class Locomotion2d : RaycastController, ILocomotion
                         _velocity.x = _maxJumpVelocity * _collisions.SlopeNormal.x;
                     }
                 }
+                // Normal jump
                 else
                 {
                     _velocity.y = _maxJumpVelocity;
@@ -175,11 +185,12 @@ public class Locomotion2d : RaycastController, ILocomotion
 
     public void Move(Vector2 moveAmount, bool isStandingOnPlatform = false)
     {
+
         UpdateRacastOrigins();
         _collisions.Reset();
         _collisions.PreviousVelocity = moveAmount;
 
-        if(moveAmount.y < 0)
+        if (moveAmount.y < 0)
         {
             DescendSlope(ref moveAmount);
         }
@@ -190,8 +201,8 @@ public class Locomotion2d : RaycastController, ILocomotion
         }
 
         DetectHorizontalCollisions(ref moveAmount);
-        
-        if(moveAmount.y != 0)
+
+        if (moveAmount.y != 0)
         {
             DetectVerticalCollisions(ref moveAmount);
         }

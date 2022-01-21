@@ -54,26 +54,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\Locomotion2d.cs" />
+    <Compile Include="Assets\Scenes\Development\Richard\Scripts\Waypoint.cs" />
+    <Compile Include="Assets\Scenes\Development\Richard\Scripts\NavigationController.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\RaycastController.cs" />
+    <Compile Include="Assets\Scenes\Development\Richard\Scripts\CarSpawner.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\PlatformController.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Damage.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\ILocomotion.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Combatant.cs" />
+    <Compile Include="Assets\Scenes\Development\Richard\Scripts\WaypointNavigator.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Health.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\PlayerInputManager.cs" />
-    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\IAnimationManager.cs" />
-    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\ICombatant.cs" />
-    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\IWeapon.cs" />
-    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\IHealth.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\MeleeWeapon.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\ProjectileWeapon.cs" />
-    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Damage.cs" />
-    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Health.cs" />
-    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Projectile.cs" />
-    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Combatant.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\BreakablePlatformController.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\ICombatant.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\IAnimationManager.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\IHealth.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\IWeapon.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\TagSelectorAttribute.cs" />
-    <Compile Include="Assets\Scenes\Development\Richard\Scripts\WaypointNavigator.cs" />
-    <Compile Include="Assets\Scenes\Development\Richard\Scripts\Waypoint.cs" />
-    <Compile Include="Assets\Scenes\Development\Richard\Scripts\CarSpawner.cs" />
-    <Compile Include="Assets\Scenes\Development\Richard\Scripts\NavigationController.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\AnimationStateManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

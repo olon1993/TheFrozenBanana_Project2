@@ -10,5 +10,5 @@ public interface IAnimationManager
 
 public enum AnimationState
 {
-    IDLE, WALK, RUN, JUMP, AIRBORNE, LAND, ATTACK_01, ATTACK_02, ATTACK_03
+    IDLE_LEFT, IDLE_RIGHT, WALK_LEFT, WALK_RIGHT
 }

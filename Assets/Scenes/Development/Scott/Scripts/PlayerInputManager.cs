@@ -10,6 +10,7 @@ public class PlayerInputManager : MonoBehaviour
 
     // Dependencies
     private ILocomotion _locomotion;
+    private IAnimationManager _animationManager;
     private ICombatant _combatant;
     
     // Movement
@@ -34,22 +35,42 @@ public class PlayerInputManager : MonoBehaviour
             Debug.LogError("ICombatant not found on " + name);
         }
         
-        //_animationStateManager = transform.GetComponent<IAnimationManager>();
+        _animationManager = transform.GetComponent<IAnimationManager>();
+        if (_animationManager == null)
+        {
+            Debug.LogError("IAnimationManager not found on " + name);
+        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
         // Locomotion
-        _locomotion.HorizontalMovement = Input.GetAxisRaw("Horizontal");
-        _locomotion.VerticalMovement = Input.GetAxisRaw("Vertical");
+        _locomotion.HorizontalMovement = horizontal;
+        _locomotion.VerticalMovement = vertical;
         _locomotion.IsJumping = Input.GetButtonDown("Jump");
         _locomotion.IsJumpCancelled = Input.GetButtonUp("Jump");
         _locomotion.IsDashing = Input.GetButtonDown("Fire3");
 
+        // Animation
+        if (horizontal != 0)
+        {
+            if(horizontal > 0)
+            {
+                _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
+            }
+            else
+            {
+                _animationManager.RequestStateChange(AnimationState.IDLE_LEFT);
+            }
+        }
+
         // Combatant
-        _combatant.HorizontalFacingDirection = (int)Input.GetAxisRaw("Horizontal");
+        _combatant.HorizontalFacingDirection = (int)horizontal;
         _combatant.IsAttacking = Input.GetButtonDown("Fire1");
 
         if (_showDebugLog)
@@ -59,6 +80,8 @@ public class PlayerInputManager : MonoBehaviour
             Debug.Log("IsJumping: " + _locomotion.IsJumping);
             Debug.Log("IsJumpCancelled: " + _locomotion.IsJumpCancelled);
             Debug.Log("IsDashing: " + _locomotion.IsDashing);
+
+            Debug.Log("IsAttacking: " + _combatant.IsAttacking);
         }
     }
 }
