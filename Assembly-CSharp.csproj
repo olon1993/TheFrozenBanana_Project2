@@ -75,7 +75,8 @@
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\IHealth.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\Interfaces\IWeapon.cs" />
     <Compile Include="Assets\Scenes\Development\Scott\Scripts\TagSelectorAttribute.cs" />
-    <Compile Include="Assets\Scenes\Development\Scott\Scripts\PhysicsObject.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\PhysicsObject2D.cs" />
+    <Compile Include="Assets\Scenes\Development\Scott\Scripts\DestroyOnCollision.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -15,8 +15,8 @@ public class AnimationStateManager : MonoBehaviour, IAnimationManager
 
     private const string IDLE_RIGHT_NAME = "Idle_right";
     private const string IDLE_LEFT_NAME = "Idle_left";
-    private const string WALK_RIGHT_NAME = "Walk_right";
-    private const string WALK_LEFT_NAME = "Walk_left";
+    private const string WALK_RIGHT_NAME = "Run_right";
+    private const string WALK_LEFT_NAME = "Run_left";
 
     //**************************************************\\
     //******************** Methods *********************\\
