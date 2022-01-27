@@ -26,7 +26,8 @@ public class PlatformController : RaycastController
     private float _percentBetweenWaypoints;
 
     private List<PassengerMovement> _passengerMovement;
-    private Dictionary<Transform, PhysicsObject> _passengerDictionary = new Dictionary<Transform, PhysicsObject>();
+    private Dictionary<Transform, PhysicsObject2D> _passengerDictionary = new Dictionary<Transform, PhysicsObject2D>();
+    private List<Transform> _illegalPassengers = new List<Transform>();
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -182,9 +183,24 @@ public class PlatformController : RaycastController
     {
         foreach(PassengerMovement passenger in _passengerMovement)
         {
-            if (!_passengerDictionary.ContainsKey(passenger.Transform))
+            if(_illegalPassengers.Contains(passenger.Transform))
             {
-                _passengerDictionary.Add(passenger.Transform, passenger.Transform.GetComponent<PhysicsObject>());
+                continue;
+            }
+
+            if (_passengerDictionary.ContainsKey(passenger.Transform) == false)
+            {
+                PhysicsObject2D physicsObject2D = passenger.Transform.GetComponent<PhysicsObject2D>();
+
+                if(physicsObject2D == null)
+                {
+                    _illegalPassengers.Add(passenger.Transform);
+                    continue;
+                }
+                else
+                {
+                    _passengerDictionary.Add(passenger.Transform, passenger.Transform.GetComponent<PhysicsObject2D>());
+                }
             }
 
             if(passenger.MoveBeforePlatform == beforeMovePlatform)
