@@ -6,9 +6,11 @@ public class CarSpawner : MonoBehaviour
 {
     public GameObject carPrefab;
     public int carsToSpawn;
+    public int variance = 5;
 
     private void Start()
     {
+        carsToSpawn = carsToSpawn + Random.Range(-variance, variance);
         StartCoroutine(Spawn());
     }
 
