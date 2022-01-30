@@ -16,16 +16,6 @@ public class PlayerMovement : MonoBehaviour
         InteractWithCar();
     }
 
-    private void LateUpdate()
-    {
-        if (getInCar)
-        {
-            car.GetComponent<NavigationController>().PlayerEntersVehicle(gameObject);
-            getInCar = false;
-            car = null;
-            gameObject.SetActive(false);
-        }
-    }
 
     void Move()
     {
@@ -44,11 +34,21 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Entering Vehicle");
                 gameObject.transform.position = car.transform.position;
                 gameObject.transform.SetParent(car.transform);
                 getInCar = true;
             }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (getInCar)
+        {
+            car.GetComponent<NavigationController>().PlayerEntersVehicle(gameObject);
+            getInCar = false;
+            car = null;
+            gameObject.SetActive(false);
         }
     }
 }
