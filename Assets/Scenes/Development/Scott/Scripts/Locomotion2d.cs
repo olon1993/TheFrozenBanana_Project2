@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Locomotion2d : PhysicsObject, ILocomotion
+public class Locomotion2d : PhysicsObject2D, ILocomotion
 {
 
     //**************************************************\\
@@ -45,6 +45,11 @@ public class Locomotion2d : PhysicsObject, ILocomotion
     {
         CalculateVelocity();
         HandleWallSliding();
+
+        if(_velocity.x != 0)
+        {
+            HorizontalLook = _velocity.x;
+        }
 
         if (IsDashing)
         {
@@ -223,7 +228,11 @@ public class Locomotion2d : PhysicsObject, ILocomotion
 
                 if(!_collisions.ClimbingSlope || slopeAngle > _maxSlopeAngle)
                 {
-                    moveAmount.x = (hit.distance - _skinWidth) * directionX;
+                    if(moveAmount.x != 0)
+                    {
+                        moveAmount.x = (hit.distance - _skinWidth) * directionX;
+                    }
+
                     rayLength = hit.distance;
 
                     if (_collisions.ClimbingSlope)
@@ -263,7 +272,7 @@ public class Locomotion2d : PhysicsObject, ILocomotion
     //******************* Properties *******************\\
     //**************************************************\\
 
-    public float HorizontalLook { get { throw new NotImplementedException(); } set { } }
+    public float HorizontalLook { get; set; } = 1;
 
     public float VerticalLook { get { throw new NotImplementedException(); } set { } }
 

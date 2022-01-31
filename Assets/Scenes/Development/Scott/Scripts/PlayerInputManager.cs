@@ -61,6 +61,17 @@ public class PlayerInputManager : MonoBehaviour
         {
             if(horizontal > 0)
             {
+                _animationManager.RequestStateChange(AnimationState.WALK_RIGHT);
+            }
+            else
+            {
+                _animationManager.RequestStateChange(AnimationState.WALK_LEFT);
+            }
+        }
+        else
+        {
+            if(_locomotion.HorizontalLook > 0)
+            {
                 _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
             }
             else
