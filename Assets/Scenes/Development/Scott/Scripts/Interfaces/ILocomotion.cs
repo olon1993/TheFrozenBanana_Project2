@@ -13,4 +13,5 @@ public interface ILocomotion
     bool IsJumpCancelled { get; set; }
     bool IsGrounded { get; }
     bool IsDashing { get; set; }
+    public bool IsDashCancelled { get; set; }
 }

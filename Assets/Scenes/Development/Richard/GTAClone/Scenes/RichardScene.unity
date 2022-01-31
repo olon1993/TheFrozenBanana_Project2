@@ -255,8 +255,7 @@ MonoBehaviour:
   width: 2.5
   branches:
   - {fileID: 1155058526}
-  - {fileID: 0}
-  branchRatio: 1
+  branchRatio: 0.504
 --- !u!4 &9612107
 Transform:
   m_ObjectHideFlags: 0
