@@ -51,9 +51,9 @@ public class Locomotion2d : PhysicsObject2D, ILocomotion
             HorizontalLook = Mathf.Clamp(_velocity.x, -1, 1);
         }
 
-        if (IsDashing)
+        if (IsDashing && IsGrounded)
         {
-            _velocity.x += _dashSpeed;
+            _velocity.x += _dashSpeed * HorizontalMovement;
         }
 
         Move(_velocity * Time.deltaTime);
@@ -281,4 +281,6 @@ public class Locomotion2d : PhysicsObject2D, ILocomotion
     public bool IsJumpCancelled { get; set; }
 
     public bool IsDashing { get; set; }
+
+    public bool IsDashCancelled { get; set; }
 }

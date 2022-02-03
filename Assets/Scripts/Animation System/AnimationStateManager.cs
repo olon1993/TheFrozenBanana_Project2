@@ -17,6 +17,10 @@ public class AnimationStateManager : MonoBehaviour, IAnimationManager
     private const string IDLE_LEFT_NAME = "Idle_left";
     private const string WALK_RIGHT_NAME = "Run_right";
     private const string WALK_LEFT_NAME = "Run_left";
+    private const string DASH_START_RIGHT_NAME = "Dash_start_right";
+    private const string DASH_STOP_RIGHT_NAME = "Dash_stop_right";
+    private const string DASH_START_LEFT_NAME = "Dash_start_left";
+    private const string DASH_STOP_LEFT_NAME = "Dash_stop_left";
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -67,6 +71,18 @@ public class AnimationStateManager : MonoBehaviour, IAnimationManager
                 break;
             case AnimationState.WALK_LEFT:
                 _animator.Play(WALK_LEFT_NAME);
+                break;
+            case AnimationState.DASH_START_RIGHT:
+                _animator.Play(DASH_START_RIGHT_NAME);
+                break;
+            case AnimationState.DASH_START_LEFT:
+                _animator.Play(DASH_START_LEFT_NAME);
+                break;
+            case AnimationState.DASH_STOP_RIGHT:
+                _animator.Play(DASH_STOP_RIGHT_NAME);
+                break;
+            case AnimationState.DASH_STOP_LEFT:
+                _animator.Play(DASH_STOP_LEFT_NAME);
                 break;
         }
     }

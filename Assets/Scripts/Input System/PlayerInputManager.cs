@@ -54,29 +54,58 @@ public class PlayerInputManager : MonoBehaviour
         _locomotion.VerticalMovement = vertical;
         _locomotion.IsJumping = Input.GetButtonDown("Jump");
         _locomotion.IsJumpCancelled = Input.GetButtonUp("Jump");
-        _locomotion.IsDashing = Input.GetButtonDown("Fire3");
+        _locomotion.IsDashing = _locomotion.IsJumping ? false : Input.GetButton("Fire3");
+        _locomotion.IsDashCancelled = _locomotion.IsDashing && Mathf.Abs(horizontal) <= Mathf.Epsilon;
 
-        // Animation
-        if (horizontal != 0)
+    // Animation
+        if(_locomotion.IsDashCancelled)
         {
-            if(horizontal > 0)
+            if(_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_RIGHT)
             {
-                _animationManager.RequestStateChange(AnimationState.WALK_RIGHT);
+                _animationManager.RequestStateChange(AnimationState.DASH_STOP_RIGHT);
             }
-            else
+            else if(_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_LEFT)
             {
-                _animationManager.RequestStateChange(AnimationState.WALK_LEFT);
+                _animationManager.RequestStateChange(AnimationState.DASH_STOP_LEFT);
             }
         }
         else
         {
-            if(_locomotion.HorizontalLook > 0)
+            if (horizontal != 0)
             {
-                _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
+                if(horizontal > 0)
+                {
+                    if(_locomotion.IsDashing && _locomotion.IsGrounded)
+                    {
+                        _animationManager.RequestStateChange(AnimationState.DASH_START_RIGHT);
+                    }
+                    else
+                    {
+                    _animationManager.RequestStateChange(AnimationState.WALK_RIGHT);
+                    }
+                }
+                else
+                {
+                    if (_locomotion.IsDashing && _locomotion.IsGrounded)
+                    {
+                        _animationManager.RequestStateChange(AnimationState.DASH_START_LEFT);
+                    }
+                    else
+                    {
+                        _animationManager.RequestStateChange(AnimationState.WALK_LEFT);
+                    }
+                }
             }
             else
             {
-                _animationManager.RequestStateChange(AnimationState.IDLE_LEFT);
+                if(_locomotion.HorizontalLook > 0)
+                {
+                    _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
+                }
+                else
+                {
+                    _animationManager.RequestStateChange(AnimationState.IDLE_LEFT);
+                }
             }
         }
 
