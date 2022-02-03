@@ -48,7 +48,7 @@ public class Locomotion2d : PhysicsObject2D, ILocomotion
 
         if(_velocity.x != 0)
         {
-            HorizontalLook = _velocity.x;
+            HorizontalLook = Mathf.Clamp(_velocity.x, -1, 1);
         }
 
         if (IsDashing)

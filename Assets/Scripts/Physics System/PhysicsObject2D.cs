@@ -358,4 +358,8 @@ public class PhysicsObject2D : RaycastController
     public Vector3 Movement { get { return new Vector3(HorizontalMovement, VerticalMovement); } }
 
     public bool IsGrounded { get { return _collisions.Below; } }
+
+    public bool IsRightCollision { get { return _collisions.Right; } }
+
+    public bool IsLeftCollision { get { return _collisions.Left; } }
 }

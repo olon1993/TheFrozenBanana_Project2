@@ -12,5 +12,7 @@ public interface ILocomotion
     bool IsJumping { get; set; }
     bool IsJumpCancelled { get; set; }
     bool IsGrounded { get; }
+    bool IsRightCollision { get; }
+    bool IsLeftCollision { get; }
     bool IsDashing { get; set; }
 }

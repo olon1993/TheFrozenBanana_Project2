@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeWeapon : MonoBehaviour, IWeapon
+public class MeleeWeapon : MonoBehaviour, IMeleeWeapon
 {
     [SerializeField] private bool _showDebugLog = false;
 
@@ -42,6 +42,7 @@ public class MeleeWeapon : MonoBehaviour, IWeapon
             Debug.Log("Attacking with " + name);
         }
 
+        // This should be broken out into a 2d and a 3d version of this mechanic
         if (_is2D)
         {
             HandleDamage2D();
@@ -147,6 +148,8 @@ public class MeleeWeapon : MonoBehaviour, IWeapon
         get { return _pointOfOrigin; }
         set { _pointOfOrigin = value; }
     }
+
+    public float AttackRange { get { return _radiusOfInteraction; } }
 
     void OnDrawGizmos()
     {
