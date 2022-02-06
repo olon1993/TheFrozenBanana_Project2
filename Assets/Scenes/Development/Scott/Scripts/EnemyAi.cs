@@ -235,12 +235,7 @@ public class EnemyAi : MonoBehaviour
     private void DetermineIsJumping()
     {
         // Is colliding with object in facing direction?
-        if (_locomotion.IsRightCollision && _locomotion.HorizontalLook == 1)
-        {
-            // Jump
-            _locomotion.IsJumping = true;
-        }
-        else if (_locomotion.IsLeftCollision && _locomotion.HorizontalLook == -1)
+        if ((_locomotion.IsRightCollision && _locomotion.HorizontalLook == 1) || (_locomotion.IsLeftCollision && _locomotion.HorizontalLook == -1))
         {
             // Jump
             _locomotion.IsJumping = true;
