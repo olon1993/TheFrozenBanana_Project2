@@ -13963,6 +13963,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1657494127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6861679069533389165, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+  m_PrefabInstance: {fileID: 6861679069460060250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1657494128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657494127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2bda1806d892b4ea34d69861f9c5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxStamina: 100
+  _currentStamina: 100
 --- !u!1 &1787577991
 GameObject:
   m_ObjectHideFlags: 0
@@ -15095,6 +15114,10 @@ PrefabInstance:
     - target: {fileID: 6861679069533389154, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
       propertyPath: _dashSpeed
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861679069533389154, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: _dashStaminaCost
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861679069533389156, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
       propertyPath: ImmutableAnimationStates.Array.size
