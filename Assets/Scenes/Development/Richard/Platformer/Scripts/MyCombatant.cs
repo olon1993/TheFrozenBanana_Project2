@@ -63,10 +63,11 @@ public class MyCombatant : MonoBehaviour, ICombatant
 
     private void Update()
     {
-        UpdateHorizontalFacingDirection((int)_inputManager.Horizontal);
+        // TODO: Pretty sure we can remove this UpdateHorizontalFacingDirection but will leave it until certain
+        // UpdateHorizontalFacingDirection((int)_inputManager.Horizontal);
         if (_inputManager.Attack)
         {
-            CurrentWeapon.Attack();
+            _currentWeapon.Attack();
         }
     }
 

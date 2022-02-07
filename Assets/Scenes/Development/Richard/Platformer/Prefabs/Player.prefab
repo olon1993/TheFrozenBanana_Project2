@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 197569816080811415}
   - component: {fileID: 6861679069533389154}
   - component: {fileID: 6107046617164948203}
+  - component: {fileID: 4895349761288511183}
   - component: {fileID: 6861679069533389156}
   - component: {fileID: 6861679069533389158}
   - component: {fileID: 6861679069533389159}
@@ -563,6 +564,7 @@ MonoBehaviour:
   _wallLeap: {x: 18, y: 17}
   _dashStaminaCost: 1
   _staminaIdleReplenishAmount: 0.1
+  _staminaDrainFrequency: 0.1
 --- !u!114 &6861679069533389154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,6 +605,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ImmutableAnimationStates: 
+--- !u!114 &4895349761288511183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6861679069533389165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46d7d33af4febc41842cbbcf9e631e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6861679069533389156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,7 +642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472aaede3656b7d4e86365f2121e5deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showDebugLog: 0
 --- !u!114 &6861679069533389159
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -110,7 +110,7 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
     void Dash()
     {
         // Already dashing
-        if(IsDashing)
+        if(IsDashing && IsGrounded)
         {
             // Not moving
             if (Mathf.Abs(_velocity.x) <= Mathf.Epsilon)
