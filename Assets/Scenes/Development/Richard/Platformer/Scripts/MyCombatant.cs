@@ -15,6 +15,7 @@ public class MyCombatant : MonoBehaviour, ICombatant
     private IList<IWeapon> _weapons;
     private IWeapon _currentWeapon;
     private IInputManager _inputManager;
+    MyAnimationStateManager _animationManager;
 
     private int _horizontalFacingDirection = 1;
 
@@ -29,6 +30,13 @@ public class MyCombatant : MonoBehaviour, ICombatant
         if (_health == null)
         {
             Debug.LogError("IHealth not found on " + gameObject.name);
+        }
+
+        _animationManager = GetComponent<MyAnimationStateManager>();
+
+        if (_animationManager == null)
+        {
+            Debug.LogError("MyAnimationStateManager not found on " + gameObject.name);
         }
 
         _inputManager = GetComponent<IInputManager>();
@@ -68,6 +76,7 @@ public class MyCombatant : MonoBehaviour, ICombatant
         if (_inputManager.Attack)
         {
             _currentWeapon.Attack();
+            _animationManager.RequestStateChange(MyAnimationState.ATTACK);
         }
     }
 

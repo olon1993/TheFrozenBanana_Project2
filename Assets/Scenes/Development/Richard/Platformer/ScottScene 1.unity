@@ -13375,27 +13375,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1311044478 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6861679070271612050, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
-  m_PrefabInstance: {fileID: 6861679069460060250}
-  m_PrefabAsset: {fileID: 0}
---- !u!111 &1311044482
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311044478}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: ffd7bac5125cd8746aa707faddcc1461, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: ffd7bac5125cd8746aa707faddcc1461, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &1348952550
 GameObject:
   m_ObjectHideFlags: 0
@@ -15113,6 +15092,14 @@ PrefabInstance:
       propertyPath: walkRightAnim
       value: 
       objectReference: {fileID: 7400000, guid: c76fb74ef83185c45b0bc66f2b1efe5a, type: 2}
+    - target: {fileID: 6107046617164948203, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: ImmutableAnimationStates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107046617164948203, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: ImmutableAnimationStates.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6861679069533389153, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -15157,9 +15144,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6861679069533389158, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6861679069533389165, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861679070126637391, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: _showDebugLog
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6861679070271612048, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
       propertyPath: m_Enabled

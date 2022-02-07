@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum MyAnimationState
 {
-    IDLE, WALK, DASH
+    IDLE, WALK, DASH, ATTACK
 }
 
 public class MyAnimationStateManager : MonoBehaviour
@@ -65,6 +65,9 @@ public class MyAnimationStateManager : MonoBehaviour
             case MyAnimationState.DASH:
                 _animator.SetTrigger("dash");
                 break;
+            case MyAnimationState.ATTACK:
+                _animator.SetTrigger("punch");
+                break;
         }
 
         Debug.Log("Current animation state: " + _currentAnimationState);
@@ -72,7 +75,7 @@ public class MyAnimationStateManager : MonoBehaviour
 
     private bool CanInterrupt()
     {
-        if (ImmutableAnimationStates.Contains(_currentAnimationState))
+        if (ImmutableAnimationStates.Contains(_currentAnimationState) && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
         {
             return false;
         }

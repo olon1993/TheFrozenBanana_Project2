@@ -447,13 +447,9 @@ GameObject:
   - component: {fileID: 6861679069533389153}
   - component: {fileID: 6861679069533389152}
   - component: {fileID: 4494970642446540962}
-  - component: {fileID: 6861679069533389155}
   - component: {fileID: 197569816080811415}
-  - component: {fileID: 6861679069533389154}
   - component: {fileID: 6107046617164948203}
   - component: {fileID: 4895349761288511183}
-  - component: {fileID: 6861679069533389156}
-  - component: {fileID: 6861679069533389158}
   - component: {fileID: 6861679069533389159}
   - component: {fileID: 1657494128}
   m_Layer: 7
@@ -521,20 +517,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   IsMovementEnabled: 1
---- !u!114 &6861679069533389155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6861679069533389165}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df68f630ae8dd4e4f8ab26742460ae25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugLog: 0
-  IsMovementEnabled: 1
 --- !u!114 &197569816080811415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,33 +547,6 @@ MonoBehaviour:
   _dashStaminaCost: 1
   _staminaIdleReplenishAmount: 0.1
   _staminaDrainFrequency: 0.1
---- !u!114 &6861679069533389154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6861679069533389165}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 615e2cdfec0532b46acab4653bec1ca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugLog: 1
-  CollisionMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _maxJumpHeight: 3.5
-  _timeToJumpApex: 0.4
-  _maxSlopeAngle: 30
-  _walkSpeed: 8
-  _dashSpeed: 20
-  _wallSlideSpeedMax: 3
-  _minJumpHeight: 1
-  _wallStickTime: 0.25
-  _wallJumpClimb: {x: 7.5, y: 16}
-  _wallJumpOff: {x: 8.5, y: 7}
-  _wallLeap: {x: 18, y: 17}
 --- !u!114 &6107046617164948203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,31 +570,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b46d7d33af4febc41842cbbcf9e631e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6861679069533389156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6861679069533389165}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48db935ea92f92f4aa4aeef8bb13cec0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ImmutableAnimationStates: 0400000005000000
---- !u!114 &6861679069533389158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6861679069533389165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 472aaede3656b7d4e86365f2121e5deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6861679069533389159
