@@ -1,7 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyAnimationStateManager : MonoBehaviour, IAnimationManager
+public enum MyAnimationState
+{
+    IDLE, WALK, DASH
+}
+
+public class MyAnimationStateManager : MonoBehaviour
 {
     //**************************************************\\
     //********************* Fields *********************\\
@@ -9,18 +14,9 @@ public class MyAnimationStateManager : MonoBehaviour, IAnimationManager
 
     // Dependencies
     private Animator _animator;
-    private AnimationState _currentAnimationState;
+    private MyAnimationState _currentAnimationState;
 
-    [SerializeField] List<AnimationState> ImmutableAnimationStates;
-
-    private const string IDLE_RIGHT_NAME = "Idle_right";
-    private const string IDLE_LEFT_NAME = "Idle_left";
-    private const string WALK_RIGHT_NAME = "Run_right";
-    private const string WALK_LEFT_NAME = "Run_left";
-    private const string DASH_START_RIGHT_NAME = "Dash_start_right";
-    private const string DASH_STOP_RIGHT_NAME = "Dash_stop_right";
-    private const string DASH_START_LEFT_NAME = "Dash_start_left";
-    private const string DASH_STOP_LEFT_NAME = "Dash_stop_left";
+    [SerializeField] List<MyAnimationState> ImmutableAnimationStates;
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -36,11 +32,11 @@ public class MyAnimationStateManager : MonoBehaviour, IAnimationManager
             Debug.LogError("Animator not found on " + gameObject.name);
         }
 
-        RequestStateChange(AnimationState.IDLE_RIGHT);
+        RequestStateChange(MyAnimationState.IDLE);
     }
 
     // Call this method externally whenever the animation state must be updated
-    public void RequestStateChange(AnimationState newState)
+    public void RequestStateChange(MyAnimationState newState)
     {
         // Do no further processing if the requested state is already active
         // This is important for RequestStateChange being used in Update or Coroutines
@@ -60,36 +56,23 @@ public class MyAnimationStateManager : MonoBehaviour, IAnimationManager
         // New animations need to be added to this switch statement
         switch (newState)
         {
-            case AnimationState.IDLE_RIGHT:
-                _animator.Play(IDLE_RIGHT_NAME);
+            case MyAnimationState.IDLE:
+                _animator.SetTrigger("idle");
                 break;
-            case AnimationState.IDLE_LEFT:
-                _animator.Play(IDLE_LEFT_NAME);
+            case MyAnimationState.WALK:
+                _animator.SetTrigger("walk");
                 break;
-            case AnimationState.WALK_RIGHT:
-                _animator.Play(WALK_RIGHT_NAME);
-                break;
-            case AnimationState.WALK_LEFT:
-                _animator.Play(WALK_LEFT_NAME);
-                break;
-            case AnimationState.DASH_START_RIGHT:
-                _animator.Play(DASH_START_RIGHT_NAME);
-                break;
-            case AnimationState.DASH_START_LEFT:
-                _animator.Play(DASH_START_LEFT_NAME);
-                break;
-            case AnimationState.DASH_STOP_RIGHT:
-                _animator.Play(DASH_STOP_RIGHT_NAME);
-                break;
-            case AnimationState.DASH_STOP_LEFT:
-                _animator.Play(DASH_STOP_LEFT_NAME);
+            case MyAnimationState.DASH:
+                _animator.SetTrigger("dash");
                 break;
         }
+
+        Debug.Log("Current animation state: " + _currentAnimationState);
     }
 
     private bool CanInterrupt()
     {
-        if (ImmutableAnimationStates.Contains(_currentAnimationState) && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+        if (ImmutableAnimationStates.Contains(_currentAnimationState))
         {
             return false;
         }
@@ -101,9 +84,8 @@ public class MyAnimationStateManager : MonoBehaviour, IAnimationManager
     //******************* Properties *******************\\
     //**************************************************\\
 
-    public AnimationState GetCurrentAnimationState()
+    public MyAnimationState GetCurrentAnimationState()
     {
         return _currentAnimationState;
     }
-
 }

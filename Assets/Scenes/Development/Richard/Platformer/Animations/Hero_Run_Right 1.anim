@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hero_Dash_Stop_Right
+  m_Name: Hero_Run_Right 1
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,22 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: e9f08cb88cc0bba47a5c032aaa148294, type: 3}
+      value: {fileID: 21300000, guid: 34c036313143eb6429b187e44a2ab68c, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: 74969bc68b45ab64da8ad95275e7320b, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 6267c9c1755e5d64a910d2f8f48e3723, type: 3}
+      value: {fileID: 21300000, guid: bcfc0fbf39f25f244ac49c702604142a, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 46ce61c287b17e94ba27c1bcedb6619d, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 690da6f0e8bbf374f90de5cd99dcf7d7, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: fb254804dc3c14d47ac3fa2c7ff54d1e, type: 3}
+      value: {fileID: 21300000, guid: 043f41027e1f7c44485b3c0303c3601d, type: 3}
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: 0f5cbc4c17ccb2048babe98f4a4932c5, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 6
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -44,12 +48,12 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666667
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0

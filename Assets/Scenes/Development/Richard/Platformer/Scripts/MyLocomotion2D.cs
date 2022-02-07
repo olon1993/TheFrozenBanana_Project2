@@ -34,9 +34,11 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
     Stamina stamina;
     [SerializeField] float _dashStaminaCost;
     [SerializeField] float _staminaIdleReplenishAmount;
+    [SerializeField] float _staminaDrainFrequency = 0.1f;
+    float staminaDrainTimer = 0;
 
     // Animation
-    private IAnimationManager _animationManager;
+    private MyAnimationStateManager _animationManager;
 
 
 
@@ -51,7 +53,7 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
         _inputManager = GetComponent<IInputManager>();
         stamina = GetComponent<Stamina>();
 
-        _animationManager = transform.GetComponent<IAnimationManager>();
+        _animationManager = transform.GetComponent<MyAnimationStateManager>();
         if (_animationManager == null)
         {
             Debug.LogError("IAnimationManager not found on " + name);
@@ -73,7 +75,8 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
 
         if (_velocity.x != 0)
         {
-            HorizontalLook = Mathf.Clamp(_velocity.x, -1, 1);
+            HorizontalLook = _velocity.x > 0 ? 1 : -1;
+            transform.localScale = new Vector3(HorizontalLook, 1, 1);
         }
 
         Dash();
@@ -106,20 +109,44 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
 
     void Dash()
     {
-        if(IsDashing && Mathf.Abs(_velocity.x) <= Mathf.Epsilon)
+        // Already dashing
+        if(IsDashing)
         {
-            IsDashCancelled = true;
-            IsDashing = false;
+            // Not moving
+            if (Mathf.Abs(_velocity.x) <= Mathf.Epsilon)
+            {
+                IsDashCancelled = true;
+                IsDashing = false;
+                return;
+            }
+            if (_inputManager.Dash)
+            {
+                if (stamina == null || staminaDrainTimer < _staminaDrainFrequency)
+                {
+                    _velocity.x += _dashSpeed * HorizontalMovement;
+                    staminaDrainTimer += Time.deltaTime;
+                    return;
+                }
+                if (stamina.UseStamina(_dashStaminaCost))
+                {
+                    staminaDrainTimer = 0f; 
+                    _velocity.x += _dashSpeed * HorizontalMovement;
+                    return;
+                }
+                IsDashCancelled = true;
+                IsDashing = false;
+                return;
+            }
         }
-        else if (_inputManager.Dash && IsGrounded && (stamina == null || stamina.UseStamina(_dashStaminaCost)))
+
+        if (_inputManager.Dash && IsGrounded && (stamina == null || stamina.UseStamina(_dashStaminaCost)))
         {
             IsDashing = true;
             _velocity.x += _dashSpeed * HorizontalMovement;
+            return;
         }
-        else
-        {
-            IsDashing = false;
-        }
+
+        IsDashing = false;
     }
 
     protected override void CalculateVelocity()
@@ -323,56 +350,23 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
 
     void Animation()
     {
-        if (IsDashCancelled)
+        if (Mathf.Abs(_velocity.x) <= Mathf.Epsilon && Mathf.Abs(_velocity.y) <= Mathf.Epsilon)
         {
-            if (_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_RIGHT)
-            {
-                _animationManager.RequestStateChange(AnimationState.DASH_STOP_RIGHT);
-            }
-            else if (_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_LEFT)
-            {
-                _animationManager.RequestStateChange(AnimationState.DASH_STOP_LEFT);
-            }
+            stamina.ReplenishStamina(_staminaIdleReplenishAmount);
+
+            _animationManager.RequestStateChange(MyAnimationState.IDLE);
+            return;
         }
-        else
+
+        if (Mathf.Abs(_velocity.x) > Mathf.Epsilon && IsGrounded)
         {
-            if (_velocity.x != 0)
+            if (IsDashing)
             {
-                if (_velocity.x > 0)
-                {
-                    if (IsDashing && IsGrounded)
-                    {
-                        _animationManager.RequestStateChange(AnimationState.DASH_START_RIGHT);
-                    }
-                    else
-                    {
-                        _animationManager.RequestStateChange(AnimationState.WALK_RIGHT);
-                    }
-                }
-                else
-                {
-                    if (IsDashing && IsGrounded)
-                    {
-                        _animationManager.RequestStateChange(AnimationState.DASH_START_LEFT);
-                    }
-                    else
-                    {
-                        _animationManager.RequestStateChange(AnimationState.WALK_LEFT);
-                    }
-                }
+                _animationManager.RequestStateChange(MyAnimationState.DASH);
             }
             else
             {
-                stamina.ReplenishStamina(_staminaIdleReplenishAmount);
-
-                if (HorizontalLook > 0)
-                {
-                    _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
-                }
-                else
-                {
-                    _animationManager.RequestStateChange(AnimationState.IDLE_LEFT);
-                }
+                _animationManager.RequestStateChange(MyAnimationState.WALK);
             }
         }
     }

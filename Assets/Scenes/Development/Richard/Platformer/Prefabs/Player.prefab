@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.48521835, g: 1, b: 0.4666667, a: 1}
+  m_Color: {r: 0.04545462, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -283,8 +283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 1.5981979, y: 0}
+  m_SizeDelta: {x: -6.8035, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6298244738093857188
 GameObject:
@@ -590,7 +590,6 @@ MonoBehaviour:
   _wallJumpClimb: {x: 7.5, y: 16}
   _wallJumpOff: {x: 8.5, y: 7}
   _wallLeap: {x: 18, y: 17}
-  _dashStaminaCost: 1
 --- !u!114 &6107046617164948203
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,4 +14,5 @@ public interface IInputManager
 
     bool CancelJump { get; }
     bool Dash { get; }
+    bool Attack { get; }
 }

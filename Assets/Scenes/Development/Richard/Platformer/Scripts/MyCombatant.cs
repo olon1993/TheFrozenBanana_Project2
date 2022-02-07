@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Combatant : MonoBehaviour, ICombatant
+public class MyCombatant : MonoBehaviour, ICombatant
 {
     // [SerializeField] private bool _showDebugLog = false;
 
@@ -14,6 +14,7 @@ public class Combatant : MonoBehaviour, ICombatant
     private IHealth _health;
     private IList<IWeapon> _weapons;
     private IWeapon _currentWeapon;
+    private IInputManager _inputManager;
 
     private int _horizontalFacingDirection = 1;
 
@@ -28,6 +29,13 @@ public class Combatant : MonoBehaviour, ICombatant
         if (_health == null)
         {
             Debug.LogError("IHealth not found on " + gameObject.name);
+        }
+
+        _inputManager = GetComponent<IInputManager>();
+
+        if (_inputManager == null)
+        {
+            Debug.LogError("IInputManager not found on " + gameObject.name);
         }
 
         _currentWeapon = transform.GetComponentInChildren<IWeapon>();
@@ -55,9 +63,22 @@ public class Combatant : MonoBehaviour, ICombatant
 
     private void Update()
     {
-        if (IsAttacking)
+        UpdateHorizontalFacingDirection((int)_inputManager.Horizontal);
+        if (_inputManager.Attack)
         {
             CurrentWeapon.Attack();
+        }
+    }
+
+    void UpdateHorizontalFacingDirection(int value)
+    {
+        if (_horizontalFacingDirection != value && value != 0)
+        {
+            _horizontalFacingDirection = value;
+            if (Mathf.Sign(CurrentWeapon.PointOfOrigin.localPosition.x) != Mathf.Sign(_horizontalFacingDirection))
+            {
+                CurrentWeapon.PointOfOrigin.transform.localPosition *= -1;
+            }
         }
     }
 
@@ -89,12 +110,12 @@ public class Combatant : MonoBehaviour, ICombatant
         }
     }
 
-    public IWeapon CurrentWeapon 
+    public IWeapon CurrentWeapon
     {
         get { return _currentWeapon; }
         set
         {
-            if(_currentWeapon != value)
+            if (_currentWeapon != value)
             {
                 _currentWeapon = value;
             }
@@ -103,20 +124,13 @@ public class Combatant : MonoBehaviour, ICombatant
 
     public bool IsAttacking { get; set; }
 
-    public int HorizontalFacingDirection 
+    public int HorizontalFacingDirection
     {
         get { return _horizontalFacingDirection; }
         set
         {
-            if(_horizontalFacingDirection != value && value != 0)
-            {
-                _horizontalFacingDirection = value;
-                if (Mathf.Sign(CurrentWeapon.PointOfOrigin.localPosition.x) != Mathf.Sign(_horizontalFacingDirection))
-                {
-                    CurrentWeapon.PointOfOrigin.transform.localPosition *= -1;
-                }
-            }
+            _horizontalFacingDirection = value;
         }
     }
-
 }
+

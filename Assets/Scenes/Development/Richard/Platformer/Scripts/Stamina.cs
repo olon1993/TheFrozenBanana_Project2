@@ -33,7 +33,6 @@ public class Stamina : MonoBehaviour
             StaminaDrained();
             return false;
         }
-
         _currentStamina -= amount;
         UpdateStaminaBar();
         return true;
