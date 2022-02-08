@@ -171,7 +171,7 @@ public class PhysicsObject2D : RaycastController
         }
     }
 
-    protected void DetectVerticalCollisions(ref Vector2 moveAmount)
+    protected virtual void DetectVerticalCollisions(ref Vector2 moveAmount)
     {
         float directionY = Mathf.Sign(moveAmount.y);
         float rayLength = Mathf.Abs(moveAmount.y) + _skinWidth;

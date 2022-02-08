@@ -19,6 +19,8 @@ public class Locomotion2d : PhysicsObject2D, ILocomotion
     [SerializeField] protected float _minJumpHeight = 1f;
     protected float _maxJumpVelocity;
     protected float _minJumpVelocity;
+    [SerializeField] private float _coyoteTimeMargin = 0.25f;
+    private float _coyoteTime;
 
     // Wall Jump / Slide
     [SerializeField] protected float _wallStickTime = 0.25f;
@@ -39,6 +41,8 @@ public class Locomotion2d : PhysicsObject2D, ILocomotion
         _gravityStrength = -(2 * _maxJumpHeight) / Mathf.Pow(_timeToJumpApex, 2);
         _maxJumpVelocity = Mathf.Abs(_gravityStrength) * _timeToJumpApex;
         _minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(_gravityStrength) * _minJumpHeight);
+
+        _coyoteTime = -1f;
     }
 
     protected override void Update()
@@ -140,7 +144,7 @@ public class Locomotion2d : PhysicsObject2D, ILocomotion
             }
 
             // Jump from the ground
-            if (_collisions.Below)
+            if (_collisions.Below || Time.time <= _coyoteTime)
             {
                 // Jump while sliding down a slope
                 if (_collisions.SlidingDownMaxSlope)
@@ -242,6 +246,99 @@ public class Locomotion2d : PhysicsObject2D, ILocomotion
 
                     _collisions.Left = directionX == -1;
                     _collisions.Right = directionX == 1;
+                }
+            }
+        }
+    }
+
+    protected override void DetectVerticalCollisions(ref Vector2 moveAmount)
+    {
+        float directionY = Mathf.Sign(moveAmount.y);
+        float rayLength = Mathf.Abs(moveAmount.y) + _skinWidth;
+
+        for (int i = 0; i < _verticalRayCount; i++)
+        {
+            Vector2 rayOrigin;
+
+            if (directionY == -1)
+            {
+                rayOrigin = _raycastOrigins.BottomLeft;
+            }
+            else
+            {
+                rayOrigin = _raycastOrigins.TopLeft;
+            }
+
+            rayOrigin += Vector2.right * (_verticalRaySpacing * i + moveAmount.x);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, CollisionMask);
+
+            if (_showDebugLog)
+            {
+                Debug.DrawRay(rayOrigin, Vector2.up * directionY, Color.red);
+            }
+
+            if (hit)
+            {
+                if (hit.collider.CompareTag("PassableObstacle"))
+                {
+                    if (directionY == 1 || hit.distance == 0)
+                    {
+                        continue;
+                    }
+
+                    if (_collisions.FallingThroughPlatform)
+                    {
+                        continue;
+                    }
+
+                    if (VerticalMovement == -1)
+                    {
+                        _collisions.FallingThroughPlatform = true;
+                        Invoke("ResetFallingThroughPlatform", 0.25f);
+                        continue;
+                    }
+                }
+
+                _collisions.Below = directionY == -1;
+                _collisions.Above = directionY == 1;
+
+                if (_collisions.ClimbingSlope)
+                {
+                    moveAmount.x = moveAmount.y / Mathf.Tan(_collisions.SlopeAngle * Mathf.Rad2Deg) * Mathf.Sign(moveAmount.x);
+                }
+
+                moveAmount.y = (hit.distance - _skinWidth) * directionY;
+                rayLength = hit.distance;
+                _coyoteTime = Time.time + _coyoteTimeMargin;
+            }
+        }
+
+        if (_collisions.ClimbingSlope)
+        {
+            float directionX = Mathf.Sign(moveAmount.x);
+            rayLength = Mathf.Abs(moveAmount.x) + _skinWidth;
+            Vector2 rayOrigin;
+
+            if (directionX == -1)
+            {
+                rayOrigin = _raycastOrigins.BottomLeft;
+            }
+            else
+            {
+                rayOrigin = _raycastOrigins.BottomRight;
+            }
+
+            rayOrigin += Vector2.up * moveAmount.y;
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, CollisionMask);
+
+            if (hit)
+            {
+                float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+                if (slopeAngle != _collisions.SlopeAngle)
+                {
+                    moveAmount.x = (hit.distance - _skinWidth) * directionX;
+                    _collisions.SlopeAngle = slopeAngle;
+                    _collisions.SlopeNormal = hit.normal;
                 }
             }
         }

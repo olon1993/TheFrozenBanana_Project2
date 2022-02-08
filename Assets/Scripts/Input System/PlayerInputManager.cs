@@ -49,22 +49,40 @@ public class PlayerInputManager : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        // Locomotion
-        _locomotion.HorizontalMovement = horizontal;
-        _locomotion.VerticalMovement = vertical;
-        _locomotion.IsJumping = Input.GetButtonDown("Jump");
-        _locomotion.IsJumpCancelled = Input.GetButtonUp("Jump");
-        _locomotion.IsDashing = _locomotion.IsJumping ? false : Input.GetButton("Fire3");
-        _locomotion.IsDashCancelled = _locomotion.IsDashing && Mathf.Abs(horizontal) <= Mathf.Epsilon;
+        // Combatant
+        _combatant.HorizontalFacingDirection = (int)horizontal;
+        _combatant.IsAttacking = Input.GetButtonDown("Fire1");
 
-    // Animation
-        if(_locomotion.IsDashCancelled)
+        if (_combatant.IsAttacking == false)
         {
-            if(_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_RIGHT)
+            // Locomotion
+            _locomotion.HorizontalMovement = horizontal;
+            _locomotion.VerticalMovement = vertical;
+            _locomotion.IsJumping = Input.GetButtonDown("Jump");
+            _locomotion.IsJumpCancelled = Input.GetButtonUp("Jump");
+            _locomotion.IsDashing = _locomotion.IsJumping ? false : Input.GetButton("Fire3");
+            _locomotion.IsDashCancelled = _locomotion.IsDashing && Mathf.Abs(horizontal) <= Mathf.Epsilon;
+        }
+
+        // Animation
+        if (_combatant.IsAttacking)
+        {
+            if (_locomotion.HorizontalLook > 0)
+            {
+                _animationManager.RequestStateChange(AnimationState.ATTACK_RIGHT);
+            }
+            else
+            {
+                _animationManager.RequestStateChange(AnimationState.ATTACK_LEFT);
+            }
+        }
+        else if (_locomotion.IsDashCancelled)
+        {
+            if (_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_RIGHT)
             {
                 _animationManager.RequestStateChange(AnimationState.DASH_STOP_RIGHT);
             }
-            else if(_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_LEFT)
+            else if (_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_LEFT)
             {
                 _animationManager.RequestStateChange(AnimationState.DASH_STOP_LEFT);
             }
@@ -73,15 +91,15 @@ public class PlayerInputManager : MonoBehaviour
         {
             if (horizontal != 0)
             {
-                if(horizontal > 0)
+                if (horizontal > 0)
                 {
-                    if(_locomotion.IsDashing && _locomotion.IsGrounded)
+                    if (_locomotion.IsDashing && _locomotion.IsGrounded)
                     {
                         _animationManager.RequestStateChange(AnimationState.DASH_START_RIGHT);
                     }
                     else
                     {
-                    _animationManager.RequestStateChange(AnimationState.WALK_RIGHT);
+                        _animationManager.RequestStateChange(AnimationState.WALK_RIGHT);
                     }
                 }
                 else
@@ -98,7 +116,7 @@ public class PlayerInputManager : MonoBehaviour
             }
             else
             {
-                if(_locomotion.HorizontalLook > 0)
+                if (_locomotion.HorizontalLook > 0)
                 {
                     _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
                 }
@@ -108,10 +126,6 @@ public class PlayerInputManager : MonoBehaviour
                 }
             }
         }
-
-        // Combatant
-        _combatant.HorizontalFacingDirection = (int)horizontal;
-        _combatant.IsAttacking = Input.GetButtonDown("Fire1");
 
         if (_showDebugLog)
         {
