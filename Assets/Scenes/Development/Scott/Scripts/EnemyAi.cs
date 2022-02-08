@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class EnemyAi : MonoBehaviour
 {
-    [SerializeField] private bool _showDebugLog = false;
+    [SerializeField] protected bool _showDebugLog = false;
 
     //**************************************************\\
     //********************* Fields *********************\\
     //**************************************************\\
 
     // Dependencies
-    private ILocomotion _locomotion;
-    private IAnimationManager _animationManager;
-    private ICombatant _combatant;
+    protected ILocomotion _locomotion;
+    protected IAnimationManager _animationManager;
+    protected ICombatant _combatant;
 
     // Movement
     [SerializeField] protected Vector3[] _localWaypoints;
@@ -43,7 +43,7 @@ public class EnemyAi : MonoBehaviour
     //**************************************************\\
 
     // Start is called before the first frame update
-    void Awake()
+    protected void Awake()
     {
         _locomotion = transform.GetComponent<ILocomotion>();
         if (_locomotion == null)
@@ -73,7 +73,7 @@ public class EnemyAi : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         Reset();
 
@@ -95,13 +95,13 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    private void Reset()
+    protected void Reset()
     {
         _locomotion.IsJumping = false;
         _combatant.IsAttacking = false;
     }
 
-    private void DetermineAttackInput()
+    protected virtual void DetermineAttackInput()
     {
         if(Time.time < _nextAttackTime)
         {
@@ -121,7 +121,7 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    private void DetermineHorizontalInput()
+    protected void DetermineHorizontalInput()
     {
         TargetInfo targetInfo = GetTargetPositionAndErrorMargin();
 
@@ -185,8 +185,7 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-
-    private TargetInfo GetTargetPositionAndErrorMargin()
+    protected TargetInfo GetTargetPositionAndErrorMargin()
     {
         // Is player nearby?
         Collider2D enemy = Physics2D.OverlapCircle(transform.position, _aggressiveRadius, _enemyLayerMask);
@@ -232,7 +231,7 @@ public class EnemyAi : MonoBehaviour
         return new TargetInfo(_globalWaypoints[toWayPointIndex], _waypointErrorMargin);
     }
 
-    private void DetermineIsJumping()
+    protected virtual void DetermineIsJumping()
     {
         // Is colliding with object in facing direction?
         if (_locomotion.IsRightCollision && _locomotion.HorizontalLook == 1)
@@ -267,7 +266,11 @@ public class EnemyAi : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _aggressiveRadius);
     }
 
-    private struct TargetInfo
+    //**************************************************\\
+    //******************* Properties *******************\\
+    //**************************************************\\
+
+    protected struct TargetInfo
     {
         public TargetInfo(Vector2 position, float errorMargin)
         {
