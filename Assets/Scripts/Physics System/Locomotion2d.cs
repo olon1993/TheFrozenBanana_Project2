@@ -52,7 +52,7 @@ public class Locomotion2d : PhysicsObject2D, ILocomotion
 
         if(_velocity.x != 0)
         {
-            HorizontalLook = Mathf.Clamp(_velocity.x, -1, 1);
+			HorizontalLook = Mathf.Sign(_velocity.x);
         }
 
         if (IsDashing && IsGrounded)
