@@ -85,13 +85,18 @@ public class EnemyAi : MonoBehaviour
             DetermineIsJumping();
         }
 
+        CalculateAnimationState();
+
         if (_showDebugLog)
         {
+            Debug.Log("Horizontal: " + _locomotion.HorizontalMovement);
+            Debug.Log("Vertical: " + _locomotion.VerticalMovement);
             Debug.Log("Horizontal Look: " + _locomotion.HorizontalLook);
             Debug.Log("Right Collision: " + _locomotion.IsRightCollision);
             Debug.Log("Left Collision: " + _locomotion.IsLeftCollision);
             Debug.Log("Jumping: " + _locomotion.IsJumping);
             Debug.Log("Attacking: " + _combatant.IsAttacking);
+            Debug.Log("Attack Facing: " + _combatant.HorizontalFacingDirection);
         }
     }
 
@@ -132,16 +137,6 @@ public class EnemyAi : MonoBehaviour
                 Debug.Log("Horizontal input on " + name + " is set to zero. Current time is less than next move time.");
             }
 
-
-            if (_locomotion.HorizontalLook > 0)
-            {
-                _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
-            }
-            else
-            {
-                _animationManager.RequestStateChange(AnimationState.IDLE_LEFT);
-            }
-
             _locomotion.HorizontalMovement = 0;
             return;
         }
@@ -157,15 +152,6 @@ public class EnemyAi : MonoBehaviour
                 Debug.Log("Horizontal input on " + name + " is set to zero. Distance from target position is within target error margin.");
             }
 
-            if (_locomotion.HorizontalLook > 0)
-            {
-                _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
-            }
-            else
-            {
-                _animationManager.RequestStateChange(AnimationState.IDLE_LEFT);
-            }
-
             _locomotion.HorizontalMovement = 0;
             return;
         }
@@ -173,16 +159,8 @@ public class EnemyAi : MonoBehaviour
         // Set horizontal movement and facing based on target location
         float horizontal = Mathf.Clamp(targetInfo.Position.x - transform.position.x, -1, 1);
         _combatant.HorizontalFacingDirection = (int)horizontal;
+        _locomotion.HorizontalLook = (int)horizontal;
         _locomotion.HorizontalMovement = horizontal;
-
-        if (horizontal > 0)
-        {
-            _animationManager.RequestStateChange(AnimationState.WALK_RIGHT);
-        }
-        else
-        {
-            _animationManager.RequestStateChange(AnimationState.WALK_LEFT);
-        }
     }
 
     protected TargetInfo GetTargetPositionAndErrorMargin()
@@ -238,6 +216,72 @@ public class EnemyAi : MonoBehaviour
         {
             // Jump
             _locomotion.IsJumping = true;
+        }
+    }
+
+    private void CalculateAnimationState()
+    {
+        // Animation
+        if (_combatant.IsAttacking)
+        {
+            if (_combatant.HorizontalFacingDirection > 0)
+            {
+                _animationManager.RequestStateChange(AnimationState.ATTACK_RIGHT);
+            }
+            else
+            {
+                _animationManager.RequestStateChange(AnimationState.ATTACK_LEFT);
+            }
+        }
+        else if (_locomotion.IsDashCancelled)
+        {
+            if (_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_RIGHT)
+            {
+                _animationManager.RequestStateChange(AnimationState.DASH_STOP_RIGHT);
+            }
+            else if (_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_LEFT)
+            {
+                _animationManager.RequestStateChange(AnimationState.DASH_STOP_LEFT);
+            }
+        }
+        else
+        {
+            if (_locomotion.HorizontalMovement != 0)
+            {
+                if (_locomotion.HorizontalMovement > 0)
+                {
+                    if (_locomotion.IsDashing && _locomotion.IsGrounded)
+                    {
+                        _animationManager.RequestStateChange(AnimationState.DASH_START_RIGHT);
+                    }
+                    else
+                    {
+                        _animationManager.RequestStateChange(AnimationState.WALK_RIGHT);
+                    }
+                }
+                else
+                {
+                    if (_locomotion.IsDashing && _locomotion.IsGrounded)
+                    {
+                        _animationManager.RequestStateChange(AnimationState.DASH_START_LEFT);
+                    }
+                    else
+                    {
+                        _animationManager.RequestStateChange(AnimationState.WALK_LEFT);
+                    }
+                }
+            }
+            else
+            {
+                if (_locomotion.HorizontalLook > 0)
+                {
+                    _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
+                }
+                else
+                {
+                    _animationManager.RequestStateChange(AnimationState.IDLE_LEFT);
+                }
+            }
         }
     }
 
