@@ -64,6 +64,24 @@ public class PlayerInputManager : MonoBehaviour
             _locomotion.IsDashCancelled = _locomotion.IsDashing && Mathf.Abs(horizontal) <= Mathf.Epsilon;
         }
 
+        CalculateAnimationState();
+
+        if (_showDebugLog)
+        {
+            Debug.Log("Horizontal: " + _locomotion.HorizontalMovement);
+            Debug.Log("Vertical: " + _locomotion.VerticalMovement);
+            Debug.Log("Horizontal Look: " + _locomotion.HorizontalLook);
+            Debug.Log("Right Collision: " + _locomotion.IsRightCollision);
+            Debug.Log("IsJumping: " + _locomotion.IsJumping);
+            Debug.Log("IsJumpCancelled: " + _locomotion.IsJumpCancelled);
+            Debug.Log("IsDashing: " + _locomotion.IsDashing);
+
+            Debug.Log("IsAttacking: " + _combatant.IsAttacking);
+        }
+    }
+
+    private void CalculateAnimationState()
+    {
         // Animation
         if (_combatant.IsAttacking)
         {
@@ -89,9 +107,9 @@ public class PlayerInputManager : MonoBehaviour
         }
         else
         {
-            if (horizontal != 0)
+            if (_locomotion.HorizontalMovement != 0)
             {
-                if (horizontal > 0)
+                if (_locomotion.HorizontalMovement > 0)
                 {
                     if (_locomotion.IsDashing && _locomotion.IsGrounded)
                     {
@@ -125,17 +143,6 @@ public class PlayerInputManager : MonoBehaviour
                     _animationManager.RequestStateChange(AnimationState.IDLE_LEFT);
                 }
             }
-        }
-
-        if (_showDebugLog)
-        {
-            Debug.Log("Horizontal: " + _locomotion.HorizontalMovement);
-            Debug.Log("Vertical: " + _locomotion.VerticalMovement);
-            Debug.Log("IsJumping: " + _locomotion.IsJumping);
-            Debug.Log("IsJumpCancelled: " + _locomotion.IsJumpCancelled);
-            Debug.Log("IsDashing: " + _locomotion.IsDashing);
-
-            Debug.Log("IsAttacking: " + _combatant.IsAttacking);
         }
     }
 }
