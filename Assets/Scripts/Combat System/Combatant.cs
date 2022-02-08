@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Combatant : MonoBehaviour, ICombatant
 {
-    [SerializeField] private bool _showDebugLog = false;
+    // [SerializeField] private bool _showDebugLog = false;
 
     //**************************************************\\
     //********************* Fields *********************\\

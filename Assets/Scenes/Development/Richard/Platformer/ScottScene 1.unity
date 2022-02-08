@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_Follow: {fileID: 128129339}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -14309,7 +14309,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -15048,6 +15048,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 197569816080811415, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: _dashStaminaCost
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 197569816080811415, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: _staminaIdleReplenishAmount
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595911095532709265, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595911095532709265, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857881942857992593, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107046617164948203, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: dashLeftAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: 1059525c4b43ca041911b6baf6d56de5, type: 2}
+    - target: {fileID: 6107046617164948203, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: idleLeftAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: 062bab0e5ad635643b758673b8cb5ef6, type: 2}
+    - target: {fileID: 6107046617164948203, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: walkLeftAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: 3be8a1b7e3bbeca4b9ccaf52bf2eeeb9, type: 2}
+    - target: {fileID: 6107046617164948203, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: dashRightAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: bc9e9a1cae77a894fbeb18d2b72aad98, type: 2}
+    - target: {fileID: 6107046617164948203, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: idleRightAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: ffd7bac5125cd8746aa707faddcc1461, type: 2}
+    - target: {fileID: 6107046617164948203, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: walkRightAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: c76fb74ef83185c45b0bc66f2b1efe5a, type: 2}
+    - target: {fileID: 6107046617164948203, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: ImmutableAnimationStates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107046617164948203, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: ImmutableAnimationStates.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6861679069533389153, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -15092,29 +15144,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6861679069533389154, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
-      propertyPath: _dashSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6861679069533389156, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
-      propertyPath: ImmutableAnimationStates.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6861679069533389156, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
-      propertyPath: ImmutableAnimationStates.Array.data[0]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6861679069533389156, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
-      propertyPath: ImmutableAnimationStates.Array.data[1]
-      value: 5
+    - target: {fileID: 6861679069533389158, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6861679069533389165, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6861679070126637391, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: _showDebugLog
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861679070271612048, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861679070271612048, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 34cd6a660f18dfe429a74de04c74c1b3, type: 2}
     - target: {fileID: 6861679070271612051, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6861679069533389155, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+    - {fileID: 6861679069533389154, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+    - {fileID: 6861679069533389156, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
