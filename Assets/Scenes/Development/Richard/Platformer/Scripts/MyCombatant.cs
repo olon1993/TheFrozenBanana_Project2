@@ -76,7 +76,11 @@ public class MyCombatant : MonoBehaviour, ICombatant
         if (_inputManager.Attack)
         {
             _currentWeapon.Attack();
-            _animationManager.RequestStateChange(MyAnimationState.ATTACK);
+            IsAttacking = true;
+        }
+        else
+        {
+            IsAttacking = false;
         }
     }
 

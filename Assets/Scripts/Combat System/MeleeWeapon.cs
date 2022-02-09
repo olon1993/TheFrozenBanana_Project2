@@ -21,6 +21,8 @@ public class MeleeWeapon : MonoBehaviour, IMeleeWeapon
     [SerializeField] private Transform _pointOfOrigin;
     [SerializeField] private float _radiusOfInteraction;
 
+    [SerializeField] float delayToHit = 0f;
+
     private bool _is2D = true;
 
     //**************************************************\\
@@ -45,7 +47,7 @@ public class MeleeWeapon : MonoBehaviour, IMeleeWeapon
         // This should be broken out into a 2d and a 3d version of this mechanic
         if (_is2D)
         {
-            HandleDamage2D();
+            Invoke("HandleDamage2D", delayToHit);
         }
         else
         {
