@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum MyAnimationState
 {
-    IDLE, WALK, DASH, ATTACK
+    IDLE, WALK, DASH, ATTACK, JUMP_STRAIGHT, FALL_STRAIGHT, WALLSLIDE_LEFT, WALLSLIDE_RIGHT
 }
 
 public class MyAnimationStateManager : MonoBehaviour
@@ -61,6 +61,34 @@ public class MyAnimationStateManager : MonoBehaviour
     void LocomotionChecks()
     {
         Vector2 _velocity = _locomotion2D.Velocity;
+
+        if(_locomotion2D.IsWallSliding)
+        {
+            if(_locomotion2D.WallDirectionX < 0)
+            {
+                RequestStateChange(MyAnimationState.WALLSLIDE_RIGHT);
+                return;
+            }
+            if(_locomotion2D.WallDirectionX > 0)
+            {
+                RequestStateChange(MyAnimationState.WALLSLIDE_LEFT);
+                return;
+            }
+        }
+
+        if(!_locomotion2D.IsGrounded)
+        {
+            if(_velocity.y > 0)
+            {
+                RequestStateChange(MyAnimationState.JUMP_STRAIGHT);
+                return;
+            }
+            if (_velocity.y < 0)
+            {
+                RequestStateChange(MyAnimationState.FALL_STRAIGHT);
+                return;
+            }
+        }
         if (Mathf.Abs(_velocity.x) <= Mathf.Epsilon && Mathf.Abs(_velocity.y) <= Mathf.Epsilon)
         {
 
@@ -123,6 +151,18 @@ public class MyAnimationStateManager : MonoBehaviour
                 break;
             case MyAnimationState.ATTACK:
                 _animator.SetTrigger("punch");
+                break;
+            case MyAnimationState.JUMP_STRAIGHT:
+                _animator.SetTrigger("jumpStraight");
+                break;
+            case MyAnimationState.FALL_STRAIGHT:
+                _animator.SetTrigger("fallStraight");
+                break;
+            case MyAnimationState.WALLSLIDE_RIGHT:
+                _animator.SetTrigger("wallSlideRight");
+                break;
+            case MyAnimationState.WALLSLIDE_LEFT:
+                _animator.SetTrigger("wallSlideLeft");
                 break;
         }
 

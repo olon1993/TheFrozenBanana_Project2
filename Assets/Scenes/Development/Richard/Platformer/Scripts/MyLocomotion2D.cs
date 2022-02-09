@@ -29,6 +29,8 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
     [SerializeField] protected Vector2 _wallJumpClimb;
     [SerializeField] protected Vector2 _wallJumpOff;
     [SerializeField] protected Vector2 _wallLeap;
+    int wallDirectionX;
+    bool isWallSliding;
 
     // Stamina
     Stamina stamina;
@@ -156,8 +158,8 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
 
     protected void HandleWallSliding()
     {
-        int wallDirectionX = (_collisions.Left) ? -1 : 1;
-        bool isWallSliding = false;
+        wallDirectionX = (_collisions.Left) ? -1 : 1;
+        isWallSliding = false;
 
         // Slide down wall
         if ((_collisions.Left || _collisions.Right) && !_collisions.Below && _velocity.y < 0)
@@ -363,4 +365,8 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
     public bool IsDashCancelled { get; set; }
 
     public Vector2 Velocity { get { return _velocity; } }
+
+    public bool IsWallSliding { get { return isWallSliding; } }
+
+    public int WallDirectionX { get { return wallDirectionX; } }
 }
