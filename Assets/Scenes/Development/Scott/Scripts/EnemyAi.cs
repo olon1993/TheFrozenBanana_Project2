@@ -2,18 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAi : MonoBehaviour
+public class EnemyAi : Actor
 {
-    [SerializeField] protected bool _showDebugLog = false;
-
     //**************************************************\\
     //********************* Fields *********************\\
     //**************************************************\\
-
-    // Dependencies
-    protected ILocomotion _locomotion;
-    protected IAnimationManager _animationManager;
-    protected ICombatant _combatant;
 
     // Movement
     [SerializeField] protected Vector3[] _localWaypoints;
@@ -43,25 +36,9 @@ public class EnemyAi : MonoBehaviour
     //**************************************************\\
 
     // Start is called before the first frame update
-    protected void Awake()
+    protected override void Awake()
     {
-        _locomotion = transform.GetComponent<ILocomotion>();
-        if (_locomotion == null)
-        {
-            Debug.LogError("ILocomotion not found on " + name);
-        }
-
-        _combatant = transform.GetComponent<ICombatant>();
-        if (_combatant == null)
-        {
-            Debug.LogError("ICombatant not found on " + name);
-        }
-
-        _animationManager = transform.GetComponent<IAnimationManager>();
-        if (_animationManager == null)
-        {
-            Debug.LogError("IAnimationManager not found on " + name);
-        }
+        base.Awake();
 
         _globalWaypoints = new Vector3[_localWaypoints.Length];
         for (int i = 0; i < _globalWaypoints.Length; i++)
@@ -73,7 +50,7 @@ public class EnemyAi : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    private void Update()
     {
         Reset();
 
@@ -100,13 +77,13 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    protected void Reset()
+    private void Reset()
     {
         _locomotion.IsJumping = false;
         _combatant.IsAttacking = false;
     }
 
-    protected virtual void DetermineAttackInput()
+    private void DetermineAttackInput()
     {
         if(Time.time < _nextAttackTime)
         {
@@ -126,7 +103,7 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    protected void DetermineHorizontalInput()
+    private void DetermineHorizontalInput()
     {
         TargetInfo targetInfo = GetTargetPositionAndErrorMargin();
 
@@ -163,7 +140,7 @@ public class EnemyAi : MonoBehaviour
         _locomotion.HorizontalMovement = horizontal;
     }
 
-    protected TargetInfo GetTargetPositionAndErrorMargin()
+    private TargetInfo GetTargetPositionAndErrorMargin()
     {
         // Is player nearby?
         Collider2D enemy = Physics2D.OverlapCircle(transform.position, _aggressiveRadius, _enemyLayerMask);
@@ -209,7 +186,7 @@ public class EnemyAi : MonoBehaviour
         return new TargetInfo(_globalWaypoints[toWayPointIndex], _waypointErrorMargin);
     }
 
-    protected virtual void DetermineIsJumping()
+    private void DetermineIsJumping()
     {
         // Is colliding with object in facing direction?
         if ((_locomotion.IsRightCollision && _locomotion.HorizontalLook == 1) || (_locomotion.IsLeftCollision && _locomotion.HorizontalLook == -1))
@@ -219,73 +196,7 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    private void CalculateAnimationState()
-    {
-        // Animation
-        if (_combatant.IsAttacking)
-        {
-            if (_combatant.HorizontalFacingDirection > 0)
-            {
-                _animationManager.RequestStateChange(AnimationState.ATTACK_RIGHT);
-            }
-            else
-            {
-                _animationManager.RequestStateChange(AnimationState.ATTACK_LEFT);
-            }
-        }
-        else if (_locomotion.IsDashCancelled)
-        {
-            if (_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_RIGHT)
-            {
-                _animationManager.RequestStateChange(AnimationState.DASH_STOP_RIGHT);
-            }
-            else if (_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_LEFT)
-            {
-                _animationManager.RequestStateChange(AnimationState.DASH_STOP_LEFT);
-            }
-        }
-        else
-        {
-            if (_locomotion.HorizontalMovement != 0)
-            {
-                if (_locomotion.HorizontalMovement > 0)
-                {
-                    if (_locomotion.IsDashing && _locomotion.IsGrounded)
-                    {
-                        _animationManager.RequestStateChange(AnimationState.DASH_START_RIGHT);
-                    }
-                    else
-                    {
-                        _animationManager.RequestStateChange(AnimationState.WALK_RIGHT);
-                    }
-                }
-                else
-                {
-                    if (_locomotion.IsDashing && _locomotion.IsGrounded)
-                    {
-                        _animationManager.RequestStateChange(AnimationState.DASH_START_LEFT);
-                    }
-                    else
-                    {
-                        _animationManager.RequestStateChange(AnimationState.WALK_LEFT);
-                    }
-                }
-            }
-            else
-            {
-                if (_locomotion.HorizontalLook > 0)
-                {
-                    _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
-                }
-                else
-                {
-                    _animationManager.RequestStateChange(AnimationState.IDLE_LEFT);
-                }
-            }
-        }
-    }
-
-    protected void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         if (_localWaypoints != null)
         {
@@ -309,7 +220,7 @@ public class EnemyAi : MonoBehaviour
     //******************* Properties *******************\\
     //**************************************************\\
 
-    protected struct TargetInfo
+    private struct TargetInfo
     {
         public TargetInfo(Vector2 position, float errorMargin)
         {

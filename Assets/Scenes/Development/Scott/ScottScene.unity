@@ -519,6 +519,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3885952128610958614, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3885952127342286944, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
@@ -1010,7 +1014,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 748cfb5c5b70a9b4da269ce941418082, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11496,6 +11500,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3885952128610958614, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
 --- !u!4 &1044516516 stripped
@@ -11570,6 +11578,10 @@ PrefabInstance:
     - target: {fileID: 3885952127342286949, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
       propertyPath: m_CollisionDetection
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885952128610958614, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
@@ -12075,6 +12087,10 @@ PrefabInstance:
     - target: {fileID: 388510137705139676, guid: 4a2f0c03f2726e94ba5ad007afe1e634, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 388510137705139679, guid: 4a2f0c03f2726e94ba5ad007afe1e634, type: 3}
+      propertyPath: _terminalFallingVelocity
+      value: -45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a2f0c03f2726e94ba5ad007afe1e634, type: 3}

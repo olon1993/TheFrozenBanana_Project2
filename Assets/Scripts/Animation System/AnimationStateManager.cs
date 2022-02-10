@@ -23,6 +23,12 @@ public class AnimationStateManager : MonoBehaviour, IAnimationManager
     private const string DASH_STOP_LEFT_NAME = "Dash_stop_left";
     private const string ATTACK_RIGHT_NAME = "Attack_right";
     private const string ATTACK_LEFT_NAME = "Attack_left";
+    private const string JUMP_RIGHT_NAME = "Jump_right";
+    private const string JUMP_LEFT_NAME = "Jump_left";
+    private const string FALL_RIGHT_NAME = "Fall_right";
+    private const string FALL_LEFT_NAME = "Fall_left";
+    private const string WALL_SLIDE_LEFT_NAME = "Wall_slide_left";
+    private const string WALL_SLIDE_RIGHT_NAME = "Wall_slide_right";
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -91,6 +97,24 @@ public class AnimationStateManager : MonoBehaviour, IAnimationManager
                 break;
             case AnimationState.ATTACK_LEFT:
                 _animator.Play(ATTACK_LEFT_NAME);
+                break;
+            case AnimationState.JUMP_LEFT:
+                _animator.Play(JUMP_LEFT_NAME);
+                break;
+            case AnimationState.JUMP_RIGHT:
+                _animator.Play(JUMP_RIGHT_NAME);
+                break;
+            case AnimationState.FALL_LEFT:
+                _animator.Play(FALL_LEFT_NAME);
+                break;
+            case AnimationState.FALL_RIGHT:
+                _animator.Play(FALL_RIGHT_NAME);
+                break;
+            case AnimationState.WALL_SLIDE_LEFT:
+                _animator.Play(WALL_SLIDE_LEFT_NAME);
+                break;
+            case AnimationState.WALL_SLIDE_RIGHT:
+                _animator.Play(WALL_SLIDE_RIGHT_NAME);
                 break;
         }
     }

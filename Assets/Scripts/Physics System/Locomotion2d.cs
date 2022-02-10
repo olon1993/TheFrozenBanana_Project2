@@ -14,6 +14,7 @@ public class Locomotion2d : PhysicsObject2D, ILocomotion
     [SerializeField] protected float _walkSpeed = 6f;
     [SerializeField] protected float _dashSpeed = 11f;
     [SerializeField] protected float _wallSlideSpeedMax = 3f;
+    [SerializeField] protected float _terminalFallingVelocity = -30f;
 
     // Jumping
     [SerializeField] protected float _minJumpHeight = 1f;
@@ -80,6 +81,11 @@ public class Locomotion2d : PhysicsObject2D, ILocomotion
         float targetVelocityX = HorizontalMovement * _walkSpeed;
         _velocity.x = Mathf.SmoothDamp(_velocity.x, targetVelocityX, ref _velocityXSmoothing, _collisions.Below ? _smoothTimeGrounded : _smoothTimeAirborne);
         _velocity.y += _gravityStrength * Time.deltaTime;
+
+        if(_velocity.y < _terminalFallingVelocity)
+        {
+            _velocity.y = _terminalFallingVelocity;
+        }
     }
 
     protected void HandleWallSliding()
