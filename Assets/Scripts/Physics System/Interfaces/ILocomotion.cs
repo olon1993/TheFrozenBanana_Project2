@@ -7,6 +7,7 @@ public interface ILocomotion
     float HorizontalMovement { get; set; }
     float VerticalMovement { get; set; }
     Vector3 Movement { get; }
+    Vector3 Velocity { get; }
     float HorizontalLook { get; set; }
     float VerticalLook { get; set; }
     bool IsJumping { get; set; }
