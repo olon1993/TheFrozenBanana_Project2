@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
+  IsMovementEnabled: 1
   _localWaypoints: []
   _speed: 6
   _isCyclical: 0
@@ -91,7 +92,7 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  _aggressiveRadius: 8
+  _aggressiveRadius: 4
   _enemyErrorMargin: 1.25
   _attackWaitTime: 1
 --- !u!61 &4971852634683505688
@@ -142,6 +143,7 @@ MonoBehaviour:
   _walkSpeed: 8
   _dashSpeed: 20
   _wallSlideSpeedMax: 3
+  _terminalFallingVelocity: -30
   _minJumpHeight: 1
   _wallStickTime: 0.25
   _wallJumpClimb: {x: 7.5, y: 16}
@@ -162,7 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805f95fcc11ce714aaeb4a7e237f9d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImmutableAnimationStates: 
+  fallDelayTime: 0.3
+  ImmutableAnimationStates: 03000000
 --- !u!114 &6352824015547409335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46d7d33af4febc41842cbbcf9e631e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugLog: 0
 --- !u!114 &4971852634683505695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +305,7 @@ Animator:
   m_GameObject: {fileID: 4971852634884839914}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c3f194f919acecd49be860466a6d1e43, type: 2}
+  m_Controller: {fileID: 9100000, guid: 34cd6a660f18dfe429a74de04c74c1b3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -364,6 +368,7 @@ MonoBehaviour:
   _pointOfOrigin: {fileID: 4971852635676864937}
   _radiusOfInteraction: 0.5
   delayToHit: 0
+  attackActionTime: 0.1
 --- !u!114 &4971852635020901430
 MonoBehaviour:
   m_ObjectHideFlags: 0

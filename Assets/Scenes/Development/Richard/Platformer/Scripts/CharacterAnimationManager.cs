@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum CharacterAnimationState
 {
-    IDLE, WALK, DASH, ATTACK, JUMP_STRAIGHT, FALL_STRAIGHT, WALLSLIDE
+    IDLE, WALK, DASH, ATTACK, JUMP_STRAIGHT, JUMP_SIDE, FALL_STRAIGHT, FALL_SIDE, WALLSLIDE
 }
 
 public class CharacterAnimationManager : MonoBehaviour
@@ -81,7 +81,10 @@ public class CharacterAnimationManager : MonoBehaviour
             }
             if (_velocity.y > 0)
             {
-                RequestStateChange(CharacterAnimationState.JUMP_STRAIGHT);
+                if (Mathf.Abs(_velocity.x) > Mathf.Epsilon)
+                    RequestStateChange(CharacterAnimationState.JUMP_SIDE);
+                else
+                    RequestStateChange(CharacterAnimationState.JUMP_STRAIGHT);
                 return;
             }
             if (_velocity.y < 0)
@@ -89,7 +92,10 @@ public class CharacterAnimationManager : MonoBehaviour
                 if (fallDelayTimer > fallDelayTime)
                 {
                     fallDelayTimer = 0f;
-                    RequestStateChange(CharacterAnimationState.FALL_STRAIGHT);
+                    if (Mathf.Abs(_velocity.x) > Mathf.Epsilon)
+                        RequestStateChange(CharacterAnimationState.FALL_SIDE);
+                    else
+                        RequestStateChange(CharacterAnimationState.FALL_STRAIGHT);
                     return;
                 }
                 else
@@ -154,8 +160,14 @@ public class CharacterAnimationManager : MonoBehaviour
             case CharacterAnimationState.JUMP_STRAIGHT:
                 _animator.SetTrigger("jumpStraight");
                 break;
+            case CharacterAnimationState.JUMP_SIDE:
+                _animator.SetTrigger("jumpSide");
+                break;
             case CharacterAnimationState.FALL_STRAIGHT:
                 _animator.SetTrigger("fallStraight");
+                break;
+            case CharacterAnimationState.FALL_SIDE:
+                _animator.SetTrigger("fallSide");
                 break;
             case CharacterAnimationState.WALLSLIDE:
                 _animator.SetTrigger("wallSlide");

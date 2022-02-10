@@ -17,8 +17,6 @@ public class AltCombatant : MonoBehaviour, ICombatant
 
     bool canAttack = true;
 
-    public bool CanAttack { get; }
-
     private int _horizontalFacingDirection = 1;
 
     //**************************************************\\
@@ -86,7 +84,6 @@ public class AltCombatant : MonoBehaviour, ICombatant
             Debug.Log("Reset canAttack" + canAttack);
     }
 
-    // Fairly sure we don't need the UpdateHorizontalFacingDirection method below
     void UpdateHorizontalFacingDirection(int value)
     {
         if (_horizontalFacingDirection != value && value != 0)
@@ -141,6 +138,8 @@ public class AltCombatant : MonoBehaviour, ICombatant
 
     public bool IsAttacking { get; set; }
 
+    public bool CanAttack { get; }
+
     public int HorizontalFacingDirection
     {
         get { return _horizontalFacingDirection; }
@@ -150,4 +149,3 @@ public class AltCombatant : MonoBehaviour, ICombatant
         }
     }
 }
-

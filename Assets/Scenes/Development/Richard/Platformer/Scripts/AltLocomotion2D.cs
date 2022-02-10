@@ -40,8 +40,6 @@ public class AltLocomotion2D : PhysicsObject2D, ILocomotion
     // Animation
     CharacterAnimationManager _animationManager;
 
-
-
     //**************************************************\\
     //******************** Methods *********************\\
     //**************************************************\\

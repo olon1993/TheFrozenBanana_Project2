@@ -47,7 +47,7 @@ public class CharacterController : MonoBehaviour
 
         if (_characterAnimation == null)
         {
-            Debug.LogError("No CharacterAnimation component found on " + gameObject.name);
+            Debug.Log("No CharacterAnimation component found on " + gameObject.name);
         }
     }
 

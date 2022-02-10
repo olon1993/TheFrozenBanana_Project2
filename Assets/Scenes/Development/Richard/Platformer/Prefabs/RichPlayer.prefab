@@ -539,6 +539,7 @@ MonoBehaviour:
   _walkSpeed: 8
   _dashSpeed: 20
   _wallSlideSpeedMax: 3
+  _terminalFallingVelocity: -30
   _minJumpHeight: 1
   _wallStickTime: 0.25
   _wallJumpClimb: {x: 7.5, y: 16}
@@ -559,6 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805f95fcc11ce714aaeb4a7e237f9d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallDelayTime: 0.3
   ImmutableAnimationStates: 03000000
 --- !u!114 &4895349761288511183
 MonoBehaviour:
@@ -572,6 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46d7d33af4febc41842cbbcf9e631e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugLog: 0
 --- !u!114 &6861679069533389159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,6 +692,7 @@ MonoBehaviour:
   _pointOfOrigin: {fileID: 6861679068400110801}
   _radiusOfInteraction: 0.25
   delayToHit: 0.125
+  attackActionTime: 0.1
 --- !u!114 &6861679070126637390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,7 +717,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6861679070271612051}
   - component: {fileID: 6861679070271612049}
-  - component: {fileID: 515435141925167960}
   - component: {fileID: 6861679070271612048}
   m_Layer: 7
   m_Name: Graphics
@@ -787,18 +790,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &515435141925167960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6861679070271612050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7d604e2f020f9541902d066f8d0ecb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &6861679070271612048
 Animator:
   serializedVersion: 3

@@ -114,8 +114,10 @@ public class EnemyAIController : CharacterController
         }
 
         // Set horizontal movement and facing based on target location
-        horizontal = Mathf.Sign(targetInfo.Position.x - transform.position.x);
-        transform.localScale = new Vector3(horizontal, 1, 1);
+        if (Mathf.Abs(targetInfo.Position.x - transform.position.x) > _waypointErrorMargin)
+        {
+            horizontal = Mathf.Sign(targetInfo.Position.x - transform.position.x);
+        }
     }
 
     protected TargetInfo GetTargetPositionAndErrorMargin()
