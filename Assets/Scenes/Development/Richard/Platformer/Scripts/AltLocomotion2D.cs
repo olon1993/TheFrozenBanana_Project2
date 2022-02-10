@@ -3,20 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyLocomotion2D : PhysicsObject2D, ILocomotion
+public class AltLocomotion2D : PhysicsObject2D, ILocomotion
 {
 
     //**************************************************\\
     //********************* Fields *********************\\
     //**************************************************\\
 
-    // Dependencies
-    IInputManager _inputManager;
-
     // Speed and smoothing
     [SerializeField] protected float _walkSpeed = 6f;
     [SerializeField] protected float _dashSpeed = 11f;
     [SerializeField] protected float _wallSlideSpeedMax = 3f;
+    [SerializeField] protected float _terminalFallingVelocity = -30f;
 
     // Jumping
     [SerializeField] protected float _minJumpHeight = 1f;
@@ -40,7 +38,7 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
     float staminaDrainTimer = 0;
 
     // Animation
-    private MyAnimationStateManager _animationManager;
+    CharacterAnimationManager _animationManager;
 
 
 
@@ -52,10 +50,9 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
     {
         base.Start();
 
-        _inputManager = GetComponent<IInputManager>();
         stamina = GetComponent<Stamina>();
 
-        _animationManager = transform.GetComponent<MyAnimationStateManager>();
+        _animationManager = transform.GetComponent<CharacterAnimationManager>();
         if (_animationManager == null)
         {
             Debug.LogError("IAnimationManager not found on " + name);
@@ -69,100 +66,53 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
 
     protected override void Update()
     {
-        HorizontalMovement = _inputManager.Horizontal;
-        VerticalMovement = _inputManager.Vertical;
+       // Deliberately blank to override base class
+    }
+
+    public void HandleMovement(Vector2 directionInput, bool jump, bool cancelJump, bool dash)
+    {
+        HorizontalMovement = directionInput.x;
+        VerticalMovement = directionInput.y;
 
         CalculateVelocity();
+
         HandleWallSliding();
 
-        if (_velocity.x != 0)
-        {
-            HorizontalLook = _velocity.x > 0 ? 1 : -1;
-            transform.localScale = new Vector3(HorizontalLook, 1, 1);
-        }
+        HandleJumping(jump, cancelJump);
 
-        Dash();
+        FaceSameDirectionAsMoving();
+
+        Dash(dash);
 
         Move(_velocity * Time.deltaTime);
 
-        if (_collisions.Above || _collisions.Below)
-        {
-            if (_collisions.SlidingDownMaxSlope)
-            {
-                _velocity.y += _collisions.SlopeNormal.y * -_gravityStrength * Time.deltaTime;
-            }
-            else
-            {
-                _velocity.y = 0;
-            }
-        }
-        Stamina();
-    }
+        SteepSlopeCheck();
 
-    void Stamina()
-    {
-        if(Mathf.Abs(_velocity.x) <= Mathf.Epsilon && Mathf.Abs(_velocity.y) <= Mathf.Epsilon)
-        {
-            stamina.ReplenishStamina(_staminaIdleReplenishAmount);
-        }
-    }
+        Idle();
 
-    void Dash()
-    {
-        // Already dashing
-        if(IsDashing && IsGrounded)
-        {
-            // Not moving
-            if (Mathf.Abs(_velocity.x) <= Mathf.Epsilon)
-            {
-                IsDashCancelled = true;
-                IsDashing = false;
-                return;
-            }
-            if (_inputManager.Dash)
-            {
-                if (stamina == null || staminaDrainTimer < _staminaDrainFrequency)
-                {
-                    _velocity.x += _dashSpeed * HorizontalMovement;
-                    staminaDrainTimer += Time.deltaTime;
-                    return;
-                }
-                if (stamina.UseStamina(_dashStaminaCost))
-                {
-                    staminaDrainTimer = 0f; 
-                    _velocity.x += _dashSpeed * HorizontalMovement;
-                    return;
-                }
-                IsDashCancelled = true;
-                IsDashing = false;
-                return;
-            }
-        }
-
-        if (_inputManager.Dash && IsGrounded && (stamina == null || stamina.UseStamina(_dashStaminaCost)))
-        {
-            IsDashing = true;
-            _velocity.x += _dashSpeed * HorizontalMovement;
-            return;
-        }
-
-        IsDashing = false;
+        _animationManager.LocomotionChecks();
     }
 
     protected override void CalculateVelocity()
     {
         float targetVelocityX = HorizontalMovement * _walkSpeed;
         _velocity.x = Mathf.SmoothDamp(_velocity.x, targetVelocityX, ref _velocityXSmoothing, _collisions.Below ? _smoothTimeGrounded : _smoothTimeAirborne);
-        _velocity.y += _gravityStrength * Time.deltaTime;
-    }
 
+        _velocity.y += _gravityStrength * Time.deltaTime;
+
+        if (_velocity.y < _terminalFallingVelocity)
+        {
+            _velocity.y = _terminalFallingVelocity;
+        }
+    }
+    
     protected void HandleWallSliding()
     {
         wallDirectionX = (_collisions.Left) ? -1 : 1;
         isWallSliding = false;
 
         // Slide down wall
-        if ((_collisions.Left || _collisions.Right) && !_collisions.Below && _velocity.y < 0)
+        if (!IsGrounded && (_collisions.Left || _collisions.Right) && !_collisions.Below && _velocity.y <= 0)
         {
             isWallSliding = true;
 
@@ -190,9 +140,12 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
             {
                 _timeToWallUnstick = _wallStickTime;
             }
-        }
+        }      
+    }
 
-        if (_inputManager.Jump)
+    void HandleJumping(bool jump, bool cancelJump)
+    {
+        if (jump)
         {
             // Wall Jumps
             if (isWallSliding)
@@ -239,12 +192,86 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
             IsJumping = true;
         }
 
-        if (_inputManager.CancelJump)
+        if (cancelJump)
         {
             if (_velocity.y > _minJumpVelocity)
             {
                 _velocity.y = _minJumpVelocity;
             }
+        }
+    }
+
+    void FaceSameDirectionAsMoving()
+    {
+        if (_velocity.x != 0)
+        {
+            HorizontalLook = _velocity.x > 0 ? 1 : -1;
+            transform.localScale = new Vector3(HorizontalLook, 1, 1);
+        }
+    }
+
+    void Dash(bool dash)
+    {
+        // Already dashing
+        if(IsDashing && IsGrounded)
+        {
+            // Not moving
+            if (Mathf.Abs(_velocity.x) <= Mathf.Epsilon)
+            {
+                IsDashCancelled = true;
+                IsDashing = false;
+                return;
+            }
+            if (dash)
+            {
+                if (stamina == null || staminaDrainTimer < _staminaDrainFrequency)
+                {
+                    _velocity.x += _dashSpeed * HorizontalMovement;
+                    staminaDrainTimer += Time.deltaTime;
+                    return;
+                }
+                if (stamina.UseStamina(_dashStaminaCost))
+                {
+                    staminaDrainTimer = 0f; 
+                    _velocity.x += _dashSpeed * HorizontalMovement;
+                    return;
+                }
+                IsDashCancelled = true;
+                IsDashing = false;
+                return;
+            }
+        }
+
+        if (dash && IsGrounded && (stamina == null || stamina.UseStamina(_dashStaminaCost)))
+        {
+            IsDashing = true;
+            _velocity.x += _dashSpeed * HorizontalMovement;
+            return;
+        }
+
+        IsDashing = false;
+    }
+
+    void SteepSlopeCheck()
+    {
+        if (_collisions.Above || _collisions.Below)
+        {
+            if (_collisions.SlidingDownMaxSlope)
+            {
+                _velocity.y += _collisions.SlopeNormal.y * -_gravityStrength * Time.deltaTime;
+            }
+            else
+            {
+                _velocity.y = 0;
+            }
+        }
+    }
+
+    void Idle()
+    {
+        if(Mathf.Abs(_velocity.x) <= Mathf.Epsilon && Mathf.Abs(_velocity.y) <= Mathf.Epsilon)
+        {
+            stamina.ReplenishStamina(_staminaIdleReplenishAmount);
         }
     }
 
@@ -363,8 +390,6 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
     public bool IsDashing { get; set; }
 
     public bool IsDashCancelled { get; set; }
-
-    public Vector2 Velocity { get { return _velocity; } }
 
     public bool IsWallSliding { get { return isWallSliding; } }
 

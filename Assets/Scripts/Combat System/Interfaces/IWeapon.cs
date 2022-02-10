@@ -9,6 +9,7 @@ public interface IWeapon
     int CurrentAmmo { get; set; }
     AmmoType AmmoTypeDefinition { get; set; }
     Transform PointOfOrigin { get; set; }
+    public float AttackActionTime { get; }
 
     public enum DamageType
     {

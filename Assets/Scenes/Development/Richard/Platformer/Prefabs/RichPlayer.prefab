@@ -399,7 +399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6861679068400110800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1, y: 0, z: 0}
+  m_LocalPosition: {x: 0.867, y: -0.207, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6861679070126637385}
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 6861679069533389159}
   - component: {fileID: 1657494128}
   m_Layer: 7
-  m_Name: Player
+  m_Name: RichPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,8 +544,8 @@ MonoBehaviour:
   _wallJumpClimb: {x: 7.5, y: 16}
   _wallJumpOff: {x: 8.5, y: 7}
   _wallLeap: {x: 18, y: 17}
-  _dashStaminaCost: 1
-  _staminaIdleReplenishAmount: 0.1
+  _dashStaminaCost: 5
+  _staminaIdleReplenishAmount: 0.05
   _staminaDrainFrequency: 0.1
 --- !u!114 &6107046617164948203
 MonoBehaviour:
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805f95fcc11ce714aaeb4a7e237f9d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImmutableAnimationStates: 
+  ImmutableAnimationStates: 03000000
 --- !u!114 &4895349761288511183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,8 +585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
-  _maxHealth: 25
-  _currentHealth: 25
+  _maxHealth: 100
+  _currentHealth: 100
   HealthBar: {fileID: 0}
   HurtSoundEffect: {fileID: 0}
   DieSoundEffect: {fileID: 0}
@@ -680,14 +680,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc412adf619b5804c9988c670a4fa2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showDebugLog: 0
+  _showDebugLog: 1
   _damage: {fileID: 6861679070126637390}
   _ammoTypeDefinition: 0
   _isLimitedAmmo: 0
   _maxAmmo: 0
   _currentAmmo: 0
   _pointOfOrigin: {fileID: 6861679068400110801}
-  _radiusOfInteraction: 0.5
+  _radiusOfInteraction: 0.25
+  delayToHit: 0.125
 --- !u!114 &6861679070126637390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,6 +713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6861679070271612051}
   - component: {fileID: 6861679070271612049}
+  - component: {fileID: 515435141925167960}
   - component: {fileID: 6861679070271612048}
   m_Layer: 7
   m_Name: Graphics
@@ -771,8 +773,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 535150603
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 12dd12e3a4a8c0f49a78a4abdfc418a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -785,6 +787,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &515435141925167960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6861679070271612050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d604e2f020f9541902d066f8d0ecb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &6861679070271612048
 Animator:
   serializedVersion: 3
@@ -795,7 +809,7 @@ Animator:
   m_GameObject: {fileID: 6861679070271612050}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c3f194f919acecd49be860466a6d1e43, type: 2}
+  m_Controller: {fileID: 9100000, guid: 34cd6a660f18dfe429a74de04c74c1b3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

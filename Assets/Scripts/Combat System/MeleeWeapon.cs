@@ -22,8 +22,14 @@ public class MeleeWeapon : MonoBehaviour, IMeleeWeapon
     [SerializeField] private float _radiusOfInteraction;
 
     [SerializeField] float delayToHit = 0f;
+    [SerializeField] float attackActionTime = 0.1f;
 
     private bool _is2D = true;
+
+    public float AttackActionTime
+    {
+        get { return attackActionTime; }
+    }
 
     //**************************************************\\
     //******************** Methods *********************\\

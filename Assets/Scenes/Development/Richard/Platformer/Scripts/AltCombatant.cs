@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class MyCombatant : MonoBehaviour, ICombatant
+public class AltCombatant : MonoBehaviour, ICombatant
 {
-    // [SerializeField] private bool _showDebugLog = false;
+    [SerializeField] private bool _showDebugLog = false;
 
     //**************************************************\\
     //********************* Fields *********************\\
@@ -14,8 +14,10 @@ public class MyCombatant : MonoBehaviour, ICombatant
     private IHealth _health;
     private IList<IWeapon> _weapons;
     private IWeapon _currentWeapon;
-    private IInputManager _inputManager;
-    MyAnimationStateManager _animationManager;
+
+    bool canAttack = true;
+
+    public bool CanAttack { get; }
 
     private int _horizontalFacingDirection = 1;
 
@@ -25,25 +27,16 @@ public class MyCombatant : MonoBehaviour, ICombatant
 
     void Awake()
     {
+        GetDependencies();
+    }
+
+    void GetDependencies()
+    {
         _health = transform.GetComponent<IHealth>();
 
         if (_health == null)
         {
             Debug.LogError("IHealth not found on " + gameObject.name);
-        }
-
-        _animationManager = GetComponent<MyAnimationStateManager>();
-
-        if (_animationManager == null)
-        {
-            Debug.LogError("MyAnimationStateManager not found on " + gameObject.name);
-        }
-
-        _inputManager = GetComponent<IInputManager>();
-
-        if (_inputManager == null)
-        {
-            Debug.LogError("IInputManager not found on " + gameObject.name);
         }
 
         _currentWeapon = transform.GetComponentInChildren<IWeapon>();
@@ -59,8 +52,11 @@ public class MyCombatant : MonoBehaviour, ICombatant
         }
     }
 
-    // Start is called before the first frame update
     void Start()
+    {
+        GetWeaponsList();
+    }
+    void GetWeaponsList()
     {
         IList<IWeapon> weapons = transform.GetComponents<IWeapon>().ToList();
         foreach (IWeapon weapon in weapons)
@@ -69,21 +65,28 @@ public class MyCombatant : MonoBehaviour, ICombatant
         }
     }
 
-    private void Update()
+    public void OnAttack()
     {
-        // TODO: Pretty sure we can remove this UpdateHorizontalFacingDirection but will leave it until certain
-        // UpdateHorizontalFacingDirection((int)_inputManager.Horizontal);
-        if (_inputManager.Attack)
+        if (canAttack)
         {
             _currentWeapon.Attack();
             IsAttacking = true;
-        }
-        else
-        {
-            IsAttacking = false;
+            canAttack = false;
+            StartCoroutine(AttackTimer(_currentWeapon.AttackActionTime));
         }
     }
 
+    IEnumerator AttackTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
+        canAttack = true;
+        IsAttacking = false;
+
+        if(_showDebugLog)
+            Debug.Log("Reset canAttack" + canAttack);
+    }
+
+    // Fairly sure we don't need the UpdateHorizontalFacingDirection method below
     void UpdateHorizontalFacingDirection(int value)
     {
         if (_horizontalFacingDirection != value && value != 0)
@@ -143,7 +146,7 @@ public class MyCombatant : MonoBehaviour, ICombatant
         get { return _horizontalFacingDirection; }
         set
         {
-            _horizontalFacingDirection = value;
+            UpdateHorizontalFacingDirection(value);
         }
     }
 }

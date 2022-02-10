@@ -77,4 +77,6 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         get { return _pointOfOrigin; }
         set { _pointOfOrigin = value; }
     }
+
+    public float AttackActionTime { get; }
 }

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour
 {
-
     //**************************************************\\
     //********************* Fields *********************\\
     //**************************************************\\
@@ -13,7 +12,6 @@ public class Stamina : MonoBehaviour
     float _currentStamina;
 
     [SerializeField] Slider staminaBar;
-
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -53,6 +51,7 @@ public class Stamina : MonoBehaviour
 
     void UpdateStaminaBar()
     {
+        if(staminaBar != null)
         staminaBar.value = _currentStamina / _maxStamina;
     }
 
