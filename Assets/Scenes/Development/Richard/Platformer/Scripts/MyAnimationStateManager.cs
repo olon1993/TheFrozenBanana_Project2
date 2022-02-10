@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ public class MyAnimationStateManager : MonoBehaviour
     // Dependencies
     private Animator _animator;
     private MyAnimationState _currentAnimationState;
+    private MyCombatant _combatant;
+    private MyLocomotion2D _locomotion2D;
 
     [SerializeField] List<MyAnimationState> ImmutableAnimationStates;
 
@@ -32,7 +35,60 @@ public class MyAnimationStateManager : MonoBehaviour
             Debug.LogError("Animator not found on " + gameObject.name);
         }
 
+        _combatant = GetComponent<MyCombatant>();
+
+        if (_combatant == null)
+        {
+            Debug.LogError("Combatant not found on " + gameObject.name);
+        }
+
+        _locomotion2D = GetComponent<MyLocomotion2D>();
+
+        if (_locomotion2D == null)
+        {
+            Debug.LogError("Locomotion2D not found on " + gameObject.name);
+        }
+
         RequestStateChange(MyAnimationState.IDLE);
+    }
+
+    void Update()
+    {
+        if (CombatantChecks()) return;
+        LocomotionChecks();
+    }
+
+    void LocomotionChecks()
+    {
+        Vector2 _velocity = _locomotion2D.Velocity;
+        if (Mathf.Abs(_velocity.x) <= Mathf.Epsilon && Mathf.Abs(_velocity.y) <= Mathf.Epsilon)
+        {
+
+            RequestStateChange(MyAnimationState.IDLE);
+            return;
+        }
+
+        if (Mathf.Abs(_velocity.x) > Mathf.Epsilon && _locomotion2D.IsGrounded)
+        {
+            if (_locomotion2D.IsDashing)
+            {
+                RequestStateChange(MyAnimationState.DASH);
+            }
+            else
+            {
+                RequestStateChange(MyAnimationState.WALK);
+            }
+        }
+    }
+
+    bool CombatantChecks()
+    {
+        if (_combatant.IsAttacking)
+        {
+            RequestStateChange(MyAnimationState.ATTACK);
+            return true;
+        }
+        else return false;
     }
 
     // Call this method externally whenever the animation state must be updated

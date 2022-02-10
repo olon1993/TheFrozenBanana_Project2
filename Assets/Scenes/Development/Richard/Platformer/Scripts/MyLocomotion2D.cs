@@ -94,8 +94,6 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
                 _velocity.y = 0;
             }
         }
-
-        Animation();
         Stamina();
     }
 
@@ -348,29 +346,6 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
         _collisions.FallingThroughPlatform = false;
     }
 
-    void Animation()
-    {
-        if (Mathf.Abs(_velocity.x) <= Mathf.Epsilon && Mathf.Abs(_velocity.y) <= Mathf.Epsilon)
-        {
-            stamina.ReplenishStamina(_staminaIdleReplenishAmount);
-
-            _animationManager.RequestStateChange(MyAnimationState.IDLE);
-            return;
-        }
-
-        if (Mathf.Abs(_velocity.x) > Mathf.Epsilon && IsGrounded)
-        {
-            if (IsDashing)
-            {
-                _animationManager.RequestStateChange(MyAnimationState.DASH);
-            }
-            else
-            {
-                _animationManager.RequestStateChange(MyAnimationState.WALK);
-            }
-        }
-    }
-
     //**************************************************\\
     //******************* Properties *******************\\
     //**************************************************\\
@@ -386,4 +361,6 @@ public class MyLocomotion2D : PhysicsObject2D, ILocomotion
     public bool IsDashing { get; set; }
 
     public bool IsDashCancelled { get; set; }
+
+    public Vector2 Velocity { get { return _velocity; } }
 }
