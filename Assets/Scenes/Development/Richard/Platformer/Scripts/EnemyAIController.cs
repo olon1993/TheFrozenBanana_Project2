@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAIController : CharacterController
+public class EnemyAIController : CharacterControllerAlt
 {
     //**************************************************\\
     //********************* Fields *********************\\
@@ -120,6 +120,33 @@ public class EnemyAIController : CharacterController
         }
     }
 
+    protected virtual void DetermineIsJumping()
+    {
+        if (horizontal != 0) return;
+        // Is colliding with object in facing direction?
+        // Would be better to get this info from a call to a seperate raycaster component
+        if ((_locomotion2D.IsRightCollision && _locomotion2D.HorizontalLook == 1) || (_locomotion2D.IsLeftCollision && _locomotion2D.HorizontalLook == -1))
+        {
+            // Jump
+            jump = true;
+            return;
+        }
+        jump = false;
+    }
+
+    protected override void DebugInfo()
+    {
+        base.DebugInfo();
+
+        if (_showDebugLog)
+        {
+            Debug.Log("Horizontal Look: " + _locomotion2D.HorizontalLook);
+            Debug.Log("Right Collision: " + _locomotion2D.IsRightCollision);
+            Debug.Log("Left Collision: " + _locomotion2D.IsLeftCollision);
+            Debug.Log("Attack Facing: " + _combatant.HorizontalFacingDirection);
+        }
+    }
+
     protected TargetInfo GetTargetPositionAndErrorMargin()
     {
         // Is player nearby?
@@ -164,32 +191,6 @@ public class EnemyAIController : CharacterController
         }
 
         return new TargetInfo(_globalWaypoints[toWayPointIndex], _waypointErrorMargin);
-    }
-
-    protected virtual void DetermineIsJumping()
-    {
-        if (horizontal != 0) return;
-        // Is colliding with object in facing direction?
-        if ((_locomotion2D.IsRightCollision && _locomotion2D.HorizontalLook == 1) || (_locomotion2D.IsLeftCollision && _locomotion2D.HorizontalLook == -1))
-        {
-            // Jump
-            jump = true;
-            return;
-        }
-        jump = false;
-    }
-
-    protected override void DebugInfo()
-    {
-        base.DebugInfo();
-
-        if (_showDebugLog)
-        {
-            Debug.Log("Horizontal Look: " + _locomotion2D.HorizontalLook);
-            Debug.Log("Right Collision: " + _locomotion2D.IsRightCollision);
-            Debug.Log("Left Collision: " + _locomotion2D.IsLeftCollision);
-            Debug.Log("Attack Facing: " + _combatant.HorizontalFacingDirection);
-        }
     }
 
     protected void OnDrawGizmos()

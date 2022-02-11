@@ -66,15 +66,13 @@ public class CharacterAnimationManager : MonoBehaviour
         RequestStateChange(CharacterAnimationState.ATTACK);
     }
 
-    public void LocomotionChecks()
+    public void LocomotionAnimationChecks(Vector2 _velocity, bool isGrounded, bool isWallSiding, bool isDashing)
     {
         if (_combatant.IsAttacking) return;
 
-        Vector2 _velocity = _locomotion2D.Velocity;
-
-        if(!_locomotion2D.IsGrounded)
+        if(!isGrounded)
         {
-            if (_locomotion2D.IsWallSliding)
+            if (isWallSiding)
             {
                 RequestStateChange(CharacterAnimationState.WALLSLIDE);
                 return;
@@ -113,7 +111,7 @@ public class CharacterAnimationManager : MonoBehaviour
 
         if (Mathf.Abs(_velocity.x) > Mathf.Epsilon && Mathf.Abs(_velocity.y) <= Mathf.Epsilon)
         {
-            if (_locomotion2D.IsDashing)
+            if (isDashing)
             {
                 RequestStateChange(CharacterAnimationState.DASH);
             }

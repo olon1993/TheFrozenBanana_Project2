@@ -64,7 +64,7 @@ public class AltLocomotion2D : PhysicsObject2D, ILocomotion
 
     protected override void Update()
     {
-       // Deliberately blank to override base class
+       // Deliberately left blank to override base class
     }
 
     public void HandleMovement(Vector2 directionInput, bool jump, bool cancelJump, bool dash)
@@ -88,7 +88,7 @@ public class AltLocomotion2D : PhysicsObject2D, ILocomotion
 
         Idle();
 
-        _animationManager.LocomotionChecks();
+        HandleAnimation();
     }
 
     protected override void CalculateVelocity()
@@ -272,6 +272,13 @@ public class AltLocomotion2D : PhysicsObject2D, ILocomotion
             stamina.ReplenishStamina(_staminaIdleReplenishAmount);
         }
     }
+
+    private void HandleAnimation()
+    {
+        if (_animationManager != null)
+            _animationManager.LocomotionAnimationChecks(_velocity, IsGrounded, IsWallSliding, IsDashing);
+    }
+
 
     protected override void DetectHorizontalCollisions(ref Vector2 moveAmount)
     {

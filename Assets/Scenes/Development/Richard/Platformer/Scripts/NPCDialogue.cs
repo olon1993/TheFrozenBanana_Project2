@@ -13,10 +13,12 @@ public class NPCDialogue : MonoBehaviour
     [SerializeField] GameObject dialogueBox;
     bool helperTextActive;
     bool dialogueActive;
+    RaycastController raycastController;
 
     //**************************************************\\
     //******************** Methods *********************\\
     //**************************************************\\
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Player") && !helperTextActive)

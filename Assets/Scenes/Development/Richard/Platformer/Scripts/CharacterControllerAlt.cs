@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterControllerAlt : MonoBehaviour
 {
     [SerializeField] protected bool _showDebugLog = false;
 
@@ -57,7 +57,7 @@ public class CharacterController : MonoBehaviour
 
         DetermineAttack();
 
-        Movement();
+        HandleLocomotion();
 
         DebugInfo();
     }
@@ -77,9 +77,9 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    protected virtual void Movement()
+    protected virtual void HandleLocomotion()
     {
-        if(IsMovementEnabled)
+        if(IsMovementEnabled && _locomotion2D !=null)
             _locomotion2D.HandleMovement(new Vector2(horizontal, vertical), jump, cancelJump, dash);
     }
 
