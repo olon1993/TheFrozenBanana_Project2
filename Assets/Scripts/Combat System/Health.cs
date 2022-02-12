@@ -14,13 +14,20 @@ public class Health : MonoBehaviour, IHealth
     [SerializeField] private int _currentHealth;
 
     [SerializeField] Image HealthBar;
-    [SerializeField] AudioSource HurtSoundEffect;
-    [SerializeField] AudioSource DieSoundEffect;
+    [SerializeField] AudioClip HurtSoundEffect;
+    [SerializeField] AudioClip DieSoundEffect;
     [SerializeField] List<Damage> DamageMultipliers;
+
+    AudioSource audioSource;
 
     //**************************************************\\
     //******************** Methods *********************\\
     //**************************************************\\
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // Returns true if the Die method is called
     public virtual bool TakeDamage(Damage damage)
@@ -43,9 +50,9 @@ public class Health : MonoBehaviour, IHealth
         }
         else
         {
-            if(HurtSoundEffect != null)
+            if(audioSource != null)
             {
-                HurtSoundEffect.Play();
+                audioSource.PlayOneShot(HurtSoundEffect);
             }
         }
 
@@ -59,9 +66,9 @@ public class Health : MonoBehaviour, IHealth
             Debug.Log(gameObject.name + " has died!");
         }
 
-        if(DieSoundEffect != null)
+        if(audioSource != null)
         {
-            DieSoundEffect.Play();
+            audioSource.PlayOneShot(DieSoundEffect);
         }
 
         if (gameObject.CompareTag("Player"))
@@ -70,9 +77,9 @@ public class Health : MonoBehaviour, IHealth
         }
         else
         {
-            if(DieSoundEffect != null)
+            if(audioSource != null)
             {
-                Destroy(gameObject, DieSoundEffect.clip.length);
+                Destroy(gameObject, DieSoundEffect.length);
             }
             else
             {
