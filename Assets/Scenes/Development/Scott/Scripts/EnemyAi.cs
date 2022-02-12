@@ -134,7 +134,7 @@ public class EnemyAi : Actor
         }
 
         // Set horizontal movement and facing based on target location
-        float horizontal = Mathf.Clamp(targetInfo.Position.x - transform.position.x, -1, 1);
+        float horizontal = Mathf.Sign(targetInfo.Position.x - transform.position.x);
         _combatant.HorizontalFacingDirection = (int)horizontal;
         _locomotion.HorizontalLook = (int)horizontal;
         _locomotion.HorizontalMovement = horizontal;
