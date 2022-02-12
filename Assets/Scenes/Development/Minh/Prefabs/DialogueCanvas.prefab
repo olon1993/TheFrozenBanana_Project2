@@ -320,15 +320,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3890781381776493048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e044079940a294795dd994efef1028, type: 3}
+  m_Script: {fileID: 11500000, guid: 60c238b9448705b45a624e16ef59b60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textComponent: {fileID: 3890781381248952871}
-  lines:
-  - This is Minh's dialogue box
-  - It's pretty boring at the moment
-  - But he's a very talented artist
-  - So, pretty soon it will look
-  - Amazing!!
-  textSpeed: 0.15
+  textComponent: {fileID: 0}
+  lines: []
+  textSpeed: 0
   index: 0
