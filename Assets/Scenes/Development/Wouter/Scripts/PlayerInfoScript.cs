@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerInfoScript : MonoBehaviour
 {
+	// This script handles the Stats bars of the player.
+
 	[SerializeField] private Slider hpBar, staminaBar;
 	private GameObject player;
 	private Health refPlayerHealth;
@@ -47,8 +49,12 @@ public class PlayerInfoScript : MonoBehaviour
 		if (!playerReady) {
 			return;
 		}
-		UpdateHpBar();
-		UpdateStaminaBar();
+		try {
+			UpdateHpBar();
+			UpdateStaminaBar();
+		} catch (NullReferenceException nre) {
+			Debug.Log("Player Object destroyed: " + nre);
+		}
 	}
 
 	private void UpdateHpBar() {
