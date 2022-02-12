@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeleeWeapon : MonoBehaviour, IMeleeWeapon
 {
-    [SerializeField] private bool _showDebugLog = false;
+    [SerializeField] protected bool _showDebugLog = false;
 
     //**************************************************\\
     //********************* Fields *********************\\
@@ -18,8 +18,8 @@ public class MeleeWeapon : MonoBehaviour, IMeleeWeapon
     [SerializeField] private int _maxAmmo;
     [SerializeField] private int _currentAmmo;
 
-    [SerializeField] private Transform _pointOfOrigin;
-    [SerializeField] private float _radiusOfInteraction;
+    [SerializeField] protected Transform _pointOfOrigin;
+    [SerializeField] protected float _radiusOfInteraction;
 
     [SerializeField] float delayToHit = 0f;
     [SerializeField] float attackActionTime = 0.1f;
@@ -72,15 +72,12 @@ public class MeleeWeapon : MonoBehaviour, IMeleeWeapon
                 continue;
             }
 
-            if (_showDebugLog)
-            {
-                Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
-            }
-
             bool isDead = health.TakeDamage(Damage);
 
             if (_showDebugLog)
             {
+                Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
+
                 if (isDead == false)
                 {
                     Debug.Log(collider.gameObject.name + " health = " + health.CurrentHealth + " / " + health.MaxHealth);
@@ -89,7 +86,7 @@ public class MeleeWeapon : MonoBehaviour, IMeleeWeapon
         }
     }
 
-    private void HandleDamage2D()
+    protected virtual void HandleDamage2D()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(_pointOfOrigin.position, _radiusOfInteraction);
         foreach (Collider2D collider in colliders)
@@ -100,15 +97,12 @@ public class MeleeWeapon : MonoBehaviour, IMeleeWeapon
                 continue;
             }
 
-            if (_showDebugLog)
-            {
-                Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
-            }
-
             bool isDead = health.TakeDamage(Damage);
 
             if (_showDebugLog)
             {
+                Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
+                
                 if (isDead == false)
                 {
                     Debug.Log(collider.gameObject.name + " health = " + health.CurrentHealth + " / " + health.MaxHealth);

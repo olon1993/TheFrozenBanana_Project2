@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +23,7 @@ public class Health : MonoBehaviour, IHealth
     //**************************************************\\
 
     // Returns true if the Die method is called
-    public bool TakeDamage(Damage damage)
+    public virtual bool TakeDamage(Damage damage)
     {
         CurrentHealth -= damage.DamageAmount;
         
