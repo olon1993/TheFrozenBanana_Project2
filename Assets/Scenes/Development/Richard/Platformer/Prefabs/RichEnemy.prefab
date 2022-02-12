@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 1836322751404914927}
   - component: {fileID: 5694401411710525331}
   - component: {fileID: 6352824015547409335}
-  - component: {fileID: 4971852634683505695}
   - component: {fileID: 2001293008135808776}
+  - component: {fileID: 890335658}
   m_Layer: 10
   m_Name: RichEnemy
   m_TagString: Enemy
@@ -140,8 +140,9 @@ MonoBehaviour:
   _maxJumpHeight: 3.5
   _timeToJumpApex: 0.4
   _maxSlopeAngle: 80
-  _walkSpeed: 8
-  _dashSpeed: 20
+  movementIsControllable: 1
+  _walkSpeed: 5
+  _dashSpeed: 15
   _wallSlideSpeedMax: 3
   _terminalFallingVelocity: -30
   _minJumpHeight: 1
@@ -179,25 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
---- !u!114 &4971852634683505695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4971852634683505685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugLog: 0
-  _maxHealth: 25
-  _currentHealth: 25
-  HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
-  DamageMultipliers: []
 --- !u!114 &2001293008135808776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +194,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxStamina: 100
   staminaBar: {fileID: 0}
+--- !u!114 &890335658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4971852634683505685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugLog: 0
+  _maxHealth: 25
+  _currentHealth: 25
+  HealthBar: {fileID: 0}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
+  DamageMultipliers: []
+  damageForce: 500
+  invincibleTime: 0.5
 --- !u!1 &4971852634884839914
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2998eb3380f4888438b801b02a09c6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 1
+  _damageAmount: 2
   _damageType: 0
 --- !u!1 &4971852635676864936
 GameObject:

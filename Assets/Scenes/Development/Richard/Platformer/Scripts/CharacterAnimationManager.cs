@@ -17,7 +17,6 @@ public class CharacterAnimationManager : MonoBehaviour
     private Animator _animator;
     private CharacterAnimationState _currentAnimationState;
     private AltCombatant _combatant;
-    private AltLocomotion2D _locomotion2D;
 
     // Timer
     [SerializeField] float fallDelayTime = 0.3f;
@@ -51,13 +50,6 @@ public class CharacterAnimationManager : MonoBehaviour
         if (_combatant == null)
         {
             Debug.LogError("Combatant not found on " + gameObject.name);
-        }
-
-        _locomotion2D = GetComponent<AltLocomotion2D>();
-
-        if (_locomotion2D == null)
-        {
-            Debug.LogError("Locomotion2D not found on " + gameObject.name);
         }
     }
 

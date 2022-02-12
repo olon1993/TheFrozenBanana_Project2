@@ -10,6 +10,8 @@ public class AltLocomotion2D : PhysicsObject2D, ILocomotion
     //********************* Fields *********************\\
     //**************************************************\\
 
+    [SerializeField] bool movementIsControllable = true;
+
     // Speed and smoothing
     [SerializeField] protected float _walkSpeed = 6f;
     [SerializeField] protected float _dashSpeed = 11f;
@@ -69,8 +71,15 @@ public class AltLocomotion2D : PhysicsObject2D, ILocomotion
 
     public void HandleMovement(Vector2 directionInput, bool jump, bool cancelJump, bool dash)
     {
-        HorizontalMovement = directionInput.x;
-        VerticalMovement = directionInput.y;
+        if (movementIsControllable)
+        {
+            HorizontalMovement = directionInput.x;
+            VerticalMovement = directionInput.y;
+        }
+        else
+        {
+            jump = cancelJump = dash = false;
+        }
 
         CalculateVelocity();
 
@@ -378,6 +387,20 @@ public class AltLocomotion2D : PhysicsObject2D, ILocomotion
     protected void ResetFallingThroughPlatform()
     {
         _collisions.FallingThroughPlatform = false;
+    }
+
+    public void ApplyDamageForce(float forceAmount, float direction, float invincibleTime)
+    {
+        Debug.Log("Applying Damage Force: " + gameObject.name);
+         StartCoroutine(ForceTimer(forceAmount * direction, invincibleTime));
+    }
+
+    IEnumerator ForceTimer(float movementAmount, float time)
+    {
+        movementIsControllable = false;
+        HorizontalMovement = movementAmount;
+        yield return new WaitForSeconds(time);
+        movementIsControllable = true;   
     }
 
     //**************************************************\\
