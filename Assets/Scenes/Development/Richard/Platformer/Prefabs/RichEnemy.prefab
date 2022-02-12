@@ -94,7 +94,7 @@ MonoBehaviour:
     m_Bits: 128
   _aggressiveRadius: 4
   _enemyErrorMargin: 1.25
-  _attackWaitTime: 1
+  _attackWaitTime: 1.5
 --- !u!61 &4971852634683505688
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -206,15 +206,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showDebugLog: 0
-  _maxHealth: 25
-  _currentHealth: 25
+  _showDebugLog: 1
+  _maxHealth: 50
+  _currentHealth: 50
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
+  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
   DamageMultipliers: []
-  damageForce: 500
-  invincibleTime: 0.5
+  damageForce: 10
+  invincibleTime: 0.1
 --- !u!1 &4971852634884839914
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,8 +326,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4971852635020901425}
-  - component: {fileID: 4971852635020901431}
   - component: {fileID: 4971852635020901430}
+  - component: {fileID: 1412772143}
   m_Layer: 10
   m_Name: Unarmmed
   m_TagString: Untagged
@@ -350,28 +350,6 @@ Transform:
   m_Father: {fileID: 4971852636193735860}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4971852635020901431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4971852635020901424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc412adf619b5804c9988c670a4fa2bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugLog: 0
-  _damage: {fileID: 4971852635020901430}
-  _ammoTypeDefinition: 0
-  _isLimitedAmmo: 0
-  _maxAmmo: 0
-  _currentAmmo: 0
-  _pointOfOrigin: {fileID: 4971852635676864937}
-  _radiusOfInteraction: 0.5
-  delayToHit: 0
-  attackActionTime: 0.1
 --- !u!114 &4971852635020901430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,6 +364,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 2
   _damageType: 0
+--- !u!114 &1412772143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4971852635020901424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d57d4902e2a07f41b2c0a3e878e96db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugLog: 0
+  _damage: {fileID: 4971852635020901430}
+  _ammoTypeDefinition: 0
+  _isLimitedAmmo: 0
+  _maxAmmo: 0
+  _currentAmmo: 0
+  _pointOfOrigin: {fileID: 4971852635676864937}
+  _radiusOfInteraction: 0.25
+  delayToHit: 0.125
+  attackActionTime: 0.1
+  _is2D: 1
 --- !u!1 &4971852635676864936
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4971852635676864936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1, y: 0, z: 0}
+  m_LocalPosition: {x: 0.841, y: -0.199, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4971852635020901425}

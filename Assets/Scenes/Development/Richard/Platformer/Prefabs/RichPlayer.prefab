@@ -450,8 +450,8 @@ GameObject:
   - component: {fileID: 197569816080811415}
   - component: {fileID: 6107046617164948203}
   - component: {fileID: 4895349761288511183}
-  - component: {fileID: 6861679069533389159}
   - component: {fileID: 1657494128}
+  - component: {fileID: -3969853765802467894}
   m_Layer: 7
   m_Name: RichPlayer
   m_TagString: Player
@@ -536,6 +536,7 @@ MonoBehaviour:
   _maxJumpHeight: 3.5
   _timeToJumpApex: 0.4
   _maxSlopeAngle: 80
+  movementIsControllable: 1
   _walkSpeed: 8
   _dashSpeed: 20
   _wallSlideSpeedMax: 3
@@ -575,25 +576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
---- !u!114 &6861679069533389159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6861679069533389165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugLog: 0
-  _maxHealth: 100
-  _currentHealth: 100
-  HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
-  DamageMultipliers: []
 --- !u!114 &1657494128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,6 +590,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxStamina: 100
   staminaBar: {fileID: 7881256887216971511}
+--- !u!114 &-3969853765802467894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6861679069533389165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugLog: 0
+  _maxHealth: 0
+  _currentHealth: 0
+  HealthBar: {fileID: 0}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
+  DamageMultipliers: []
+  damageForce: 500
+  invincibleTime: 2
 --- !u!1 &6861679069743027351
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,8 +650,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6861679070126637385}
-  - component: {fileID: 6861679070126637391}
   - component: {fileID: 6861679070126637390}
+  - component: {fileID: 231067554}
   m_Layer: 0
   m_Name: Unarmmed
   m_TagString: Untagged
@@ -671,28 +674,6 @@ Transform:
   m_Father: {fileID: 6861679069097490892}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6861679070126637391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6861679070126637384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc412adf619b5804c9988c670a4fa2bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugLog: 1
-  _damage: {fileID: 6861679070126637390}
-  _ammoTypeDefinition: 0
-  _isLimitedAmmo: 0
-  _maxAmmo: 0
-  _currentAmmo: 0
-  _pointOfOrigin: {fileID: 6861679068400110801}
-  _radiusOfInteraction: 0.25
-  delayToHit: 0.125
-  attackActionTime: 0.1
 --- !u!114 &6861679070126637390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,8 +686,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2998eb3380f4888438b801b02a09c6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 1
+  _damageAmount: 5
   _damageType: 0
+--- !u!114 &231067554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6861679070126637384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d57d4902e2a07f41b2c0a3e878e96db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugLog: 1
+  _damage: {fileID: 6861679070126637390}
+  _ammoTypeDefinition: 0
+  _isLimitedAmmo: 0
+  _maxAmmo: 0
+  _currentAmmo: 0
+  _pointOfOrigin: {fileID: 6861679068400110801}
+  _radiusOfInteraction: 0.25
+  delayToHit: 0.125
+  attackActionTime: 0.1
+  _is2D: 1
 --- !u!1 &6861679070271612050
 GameObject:
   m_ObjectHideFlags: 0

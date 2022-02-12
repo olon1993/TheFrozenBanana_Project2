@@ -185,10 +185,10 @@ GameObject:
   - component: {fileID: 8881265600065632583}
   - component: {fileID: 3260014850067586619}
   - component: {fileID: 4184607229703217695}
-  - component: {fileID: 2793608851991936439}
   - component: {fileID: 8790305953423795872}
   - component: {fileID: 7078380784560137944}
   - component: {fileID: 317127354}
+  - component: {fileID: 179084010}
   m_Layer: 11
   m_Name: RichFriendlyNPC
   m_TagString: NPC
@@ -285,8 +285,9 @@ MonoBehaviour:
   _maxJumpHeight: 3.5
   _timeToJumpApex: 0.4
   _maxSlopeAngle: 80
-  _walkSpeed: 8
-  _dashSpeed: 20
+  movementIsControllable: 1
+  _walkSpeed: 5
+  _dashSpeed: 15
   _wallSlideSpeedMax: 3
   _terminalFallingVelocity: -30
   _minJumpHeight: 1
@@ -324,25 +325,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
---- !u!114 &2793608851991936439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2793608851991936445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugLog: 0
-  _maxHealth: 25
-  _currentHealth: 25
-  HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
-  DamageMultipliers: []
 --- !u!114 &8790305953423795872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +374,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &179084010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793608851991936445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugLog: 0
+  _maxHealth: 5
+  _currentHealth: 5
+  HealthBar: {fileID: 0}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
+  DamageMultipliers: []
+  damageForce: 5
+  invincibleTime: 0.5
 --- !u!1 &2793608852335814727
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +823,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3890781381776493051, guid: cb41ce4465ce31145b108a3a253437c3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -750
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890781381776493051, guid: cb41ce4465ce31145b108a3a253437c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -275
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3890781381776493044, guid: cb41ce4465ce31145b108a3a253437c3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cb41ce4465ce31145b108a3a253437c3, type: 3}
 --- !u!224 &2737591810622195497 stripped
 RectTransform:
@@ -832,3 +844,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3890781381776493048, guid: cb41ce4465ce31145b108a3a253437c3, type: 3}
   m_PrefabInstance: {fileID: 1153823320706128357}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &346319734230343210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737591809264701469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e044079940a294795dd994efef1028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 0}
+  lines:
+  - hi
+  - i'm working now
+  textSpeed: 0.1
+  index: 0
