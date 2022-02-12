@@ -627,8 +627,8 @@ GameObject:
   m_Component:
   - component: {fileID: 127018803}
   - component: {fileID: 127018806}
-  - component: {fileID: 127018805}
   - component: {fileID: 127018804}
+  - component: {fileID: 127018805}
   m_Layer: 6
   m_Name: Destructable Physics Object
   m_TagString: Untagged
@@ -681,16 +681,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 127018802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
+  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
   DamageMultipliers: []
+  damageForce: 0
+  invincibleTime: 0
 --- !u!61 &127018806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -968,8 +970,8 @@ GameObject:
   m_Component:
   - component: {fileID: 165657102}
   - component: {fileID: 165657105}
-  - component: {fileID: 165657104}
   - component: {fileID: 165657103}
+  - component: {fileID: 165657104}
   m_Layer: 6
   m_Name: Destructable Physics Object
   m_TagString: Untagged
@@ -1022,16 +1024,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 165657101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
+  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
   DamageMultipliers: []
+  damageForce: 0
+  invincibleTime: 0
 --- !u!61 &165657105
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1705,8 +1709,8 @@ GameObject:
   m_Component:
   - component: {fileID: 456161178}
   - component: {fileID: 456161180}
-  - component: {fileID: 456161179}
   - component: {fileID: 456161182}
+  - component: {fileID: 456161179}
   m_Layer: 6
   m_Name: Destructable Physics Object
   m_TagString: Untagged
@@ -1738,16 +1742,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 456161177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
+  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
   DamageMultipliers: []
+  damageForce: 0
+  invincibleTime: 0
 --- !u!61 &456161180
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1887,8 +1893,8 @@ GameObject:
   m_Component:
   - component: {fileID: 577895706}
   - component: {fileID: 577895709}
-  - component: {fileID: 577895708}
   - component: {fileID: 577895707}
+  - component: {fileID: 577895708}
   m_Layer: 6
   m_Name: Destructable Physics Object
   m_TagString: Untagged
@@ -1941,16 +1947,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 577895705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
+  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
   DamageMultipliers: []
+  damageForce: 0
+  invincibleTime: 0
 --- !u!61 &577895709
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12946,8 +12954,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1083512038}
   - component: {fileID: 1083512041}
-  - component: {fileID: 1083512040}
   - component: {fileID: 1083512039}
+  - component: {fileID: 1083512040}
   m_Layer: 6
   m_Name: Destructable Physics Object
   m_TagString: Untagged
@@ -13000,16 +13008,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1083512037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
+  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
   DamageMultipliers: []
+  damageForce: 0
+  invincibleTime: 0
 --- !u!61 &1083512041
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13264,8 +13274,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1348952551}
   - component: {fileID: 1348952554}
-  - component: {fileID: 1348952553}
   - component: {fileID: 1348952552}
+  - component: {fileID: 1348952553}
   m_Layer: 6
   m_Name: Destructable Physics Object
   m_TagString: Untagged
@@ -13318,16 +13328,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1348952550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
+  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
   DamageMultipliers: []
+  damageForce: 0
+  invincibleTime: 0
 --- !u!61 &1348952554
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13364,8 +13376,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1386677618}
   - component: {fileID: 1386677621}
-  - component: {fileID: 1386677620}
   - component: {fileID: 1386677619}
+  - component: {fileID: 1386677620}
   m_Layer: 6
   m_Name: Destructable Physics Object
   m_TagString: Untagged
@@ -13418,16 +13430,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1386677617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
+  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
   DamageMultipliers: []
+  damageForce: 0
+  invincibleTime: 0
 --- !u!61 &1386677621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14162,8 +14176,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1791428159}
   - component: {fileID: 1791428162}
-  - component: {fileID: 1791428161}
   - component: {fileID: 1791428160}
+  - component: {fileID: 1791428161}
   m_Layer: 6
   m_Name: Destructable Physics Object
   m_TagString: Untagged
@@ -14214,16 +14228,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1791428158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 0}
+  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
   DamageMultipliers: []
+  damageForce: 0
+  invincibleTime: 0
 --- !u!61 &1791428162
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15061,6 +15077,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 890335658, guid: f36ce930d7df36044bb3b7fe9182e382, type: 3}
+      propertyPath: DieSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+    - target: {fileID: 890335658, guid: f36ce930d7df36044bb3b7fe9182e382, type: 3}
       propertyPath: _currentHealth
       value: 50
       objectReference: {fileID: 0}
@@ -15068,6 +15088,10 @@ PrefabInstance:
       propertyPath: invincibleTime
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 890335658, guid: f36ce930d7df36044bb3b7fe9182e382, type: 3}
+      propertyPath: HurtSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
     - target: {fileID: 4971852634683505685, guid: f36ce930d7df36044bb3b7fe9182e382, type: 3}
       propertyPath: m_Name
       value: RichEnemy
