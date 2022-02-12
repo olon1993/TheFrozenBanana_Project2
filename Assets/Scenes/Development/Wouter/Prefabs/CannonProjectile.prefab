@@ -132,7 +132,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e51fa43b56df54b409d8d14e9b82e7ae, type: 3}
   - {fileID: 21300000, guid: 197bc010e45092848a1aa504a8c26763, type: 3}
   - {fileID: 21300000, guid: 8493f4465414a0047ac9b93c966f7703, type: 3}
-  refreshRate: 0.1
+  refreshRate: 0.05
 --- !u!1 &7464781323375529169
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 818464276136426293}
   - component: {fileID: -177956607087270411}
+  - component: {fileID: 2389265849837922526}
   m_Layer: 0
   m_Name: CannonProjectile
   m_TagString: Untagged
@@ -159,7 +160,7 @@ Transform:
   m_GameObject: {fileID: 7464781323375529169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 4309604834769505275}
   m_Father: {fileID: 0}
@@ -179,3 +180,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileImage: {fileID: 6314262998790170960}
   velocity: 8
+--- !u!114 &2389265849837922526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464781323375529169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2998eb3380f4888438b801b02a09c6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 2
+  _damageType: 1

@@ -8,10 +8,14 @@ public class PlayerProjectile : MonoBehaviour {
 	[SerializeField] private float velocity;
 	private bool active;
 	private Vector3 direction;
-	//private Damage dmg;
+	private Damage dmg;
 
 	private void Awake() {
 		active = false;
+		dmg = gameObject.GetComponentInChildren<Damage>();
+		if (dmg == null) {
+			Debug.LogError("Damage could not be found");
+		}
 	}
 
 	// This is called from the child, as the child contains the collider
@@ -36,7 +40,7 @@ public class PlayerProjectile : MonoBehaviour {
 		if (hpScript != null) {
 			Debug.Log("I actually Hit something!!");
 			// Do damage
-			// hpScript.TakeDamage(dmg);
+			hpScript.TakeDamage(dmg);
 		} else {
 			Debug.Log("Damn! Nothing special hit...");
 		}
