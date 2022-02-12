@@ -50,8 +50,8 @@ public class PlayerProjectile : MonoBehaviour {
 	}
 
 	// Setup gives the target to go to and the rotation of the projectile renderer
-	public void Setup(Vector3 target, Quaternion projectileRotation) {
-		direction = target - gameObject.transform.position;
+	public void Setup(Vector3 start, Vector3 target, Quaternion projectileRotation) {
+		direction = target - start;
 		projectileImage.transform.rotation = projectileRotation;
 		active = true;
 	}

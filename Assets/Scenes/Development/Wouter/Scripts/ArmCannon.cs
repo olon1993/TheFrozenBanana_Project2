@@ -52,6 +52,9 @@ public class ArmCannon : MonoBehaviour
 		Vector2 mousePos = Input.mousePosition;
 		Vector3 pos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
 		target.position = pos;
+		if (Vector2.Distance(gameObject.transform.position, target.position) < 1) {
+			target.position = gameObject.transform.position + new Vector3(_locomotion.HorizontalLook,0,0);
+		}
 	}
 
 	// This updates the rotation of the weapon graphics
@@ -62,7 +65,7 @@ public class ArmCannon : MonoBehaviour
 		Vector2 vBase = new Vector2(_locomotion.HorizontalLook, 0);
 		Vector2 vDir = target.position - gameObject.transform.position;
 		float angle = Vector2.Angle(vBase, vDir) * _locomotion.HorizontalLook;
-		if (target.position.y < 0) {
+		if (target.position.y < gameObject.transform.position.y) {
 			angle = -angle;
 		}
 		weaponObject.transform.localScale = new Vector3(_locomotion.HorizontalLook * localScale.x, localScale.y, localScale.z);
@@ -95,7 +98,7 @@ public class ArmCannon : MonoBehaviour
 			rot *= Quaternion.Euler(0,0,180);
 		}
 		GameObject proj = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity, null) as GameObject;
-		proj.GetComponent<PlayerProjectile>().Setup(target.position, rot);
+		proj.GetComponent<PlayerProjectile>().Setup(gameObject.transform.position, target.position, rot);
 		Destroy(proj, 3f);
 	}
 }
