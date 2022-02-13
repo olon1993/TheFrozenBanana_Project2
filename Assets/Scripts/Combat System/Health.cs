@@ -18,23 +18,23 @@ public class Health : MonoBehaviour, IHealth
     [SerializeField] AudioClip DieSoundEffect;
     [SerializeField] List<Damage> DamageMultipliers;
 
-    protected AudioSource audioSource;
+    AudioManager audioManager;
 
     //**************************************************\\
     //******************** Methods *********************\\
     //**************************************************\\
 
-    protected virtual void Awake()
+    void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource = null)
+        audioManager = FindObjectOfType<AudioManager>();
+        if (audioManager == null)
         {
-            Debug.Log("No audioSource attached to " + gameObject.name);
+            Debug.Log("No AudioManager in scene");
         }
     }
 
     // Returns true if the Die method is called
-    public virtual bool TakeDamage(Damage damage)
+    public bool TakeDamage(Damage damage)
     {
         CurrentHealth -= damage.DamageAmount;
         
@@ -54,9 +54,9 @@ public class Health : MonoBehaviour, IHealth
         }
         else
         {
-            if(audioSource != null)
+            if(audioManager != null)
             {
-                audioSource.PlayOneShot(HurtSoundEffect);
+                audioManager.PlayClip(HurtSoundEffect);
             }
         }
 
@@ -70,9 +70,9 @@ public class Health : MonoBehaviour, IHealth
             Debug.Log(gameObject.name + " has died!");
         }
 
-        if(audioSource != null)
+        if(audioManager != null)
         {
-            audioSource.PlayOneShot(DieSoundEffect);
+            audioManager.PlayClip(DieSoundEffect);
         }
 
         if (gameObject.CompareTag("Player"))
@@ -81,7 +81,7 @@ public class Health : MonoBehaviour, IHealth
         }
         else
         {
-            if(audioSource != null)
+            if(audioManager != null)
             {
                 Destroy(gameObject, DieSoundEffect.length);
             }
