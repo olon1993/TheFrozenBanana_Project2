@@ -18,15 +18,19 @@ public class Health : MonoBehaviour, IHealth
     [SerializeField] AudioClip DieSoundEffect;
     [SerializeField] List<Damage> DamageMultipliers;
 
-    AudioSource audioSource;
+    protected AudioSource audioSource;
 
     //**************************************************\\
     //******************** Methods *********************\\
     //**************************************************\\
 
-    private void Awake()
+    protected virtual void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        if (audioSource = null)
+        {
+            Debug.Log("No audioSource attached to " + gameObject.name);
+        }
     }
 
     // Returns true if the Die method is called
