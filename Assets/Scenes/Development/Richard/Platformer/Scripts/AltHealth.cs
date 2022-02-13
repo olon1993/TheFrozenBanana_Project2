@@ -10,8 +10,9 @@ public class AltHealth : Health
     [SerializeField] float invincibleTime = 2f;
     bool invincible;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         locomotion2D = GetComponent<AltLocomotion2D>();
     }
     public bool TakeDamage(Damage damage, float direction)
@@ -26,7 +27,7 @@ public class AltHealth : Health
         StartCoroutine(InvincibleCountdown());
 
         if (locomotion2D != null)
-            locomotion2D.ApplyDamageForce(damageForce, direction, invincibleTime);
+            StartCoroutine( locomotion2D.ApplyDamageForce(damageForce, direction, invincibleTime));
 
         return base.TakeDamage(damage);
     }

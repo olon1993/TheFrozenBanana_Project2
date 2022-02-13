@@ -14976,6 +14976,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3969853765802467894, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: DieSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+    - target: {fileID: -3969853765802467894, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
+      propertyPath: HurtSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
     - target: {fileID: 3595911095532709265, guid: c5786013ab2f6284a972cd3648a2dac4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -15041,6 +15049,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 179084010, guid: 723521426f950024f879014262a0d7f1, type: 3}
+      propertyPath: DieSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+    - target: {fileID: 179084010, guid: 723521426f950024f879014262a0d7f1, type: 3}
+      propertyPath: HurtSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
     - target: {fileID: 2793608851991936433, guid: 723521426f950024f879014262a0d7f1, type: 3}
       propertyPath: m_RootOrder
       value: 6

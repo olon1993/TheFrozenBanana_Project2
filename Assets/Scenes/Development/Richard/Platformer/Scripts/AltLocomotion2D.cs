@@ -80,14 +80,13 @@ public class AltLocomotion2D : PhysicsObject2D, ILocomotion
         {
             jump = cancelJump = dash = false;
         }
+        FaceDirectionBasedOnInput(directionInput.x);
 
         CalculateVelocity();
 
         HandleWallSliding();
 
         HandleJumping(jump, cancelJump);
-
-        FaceSameDirectionAsMoving();
 
         Dash(dash);
 
@@ -208,11 +207,11 @@ public class AltLocomotion2D : PhysicsObject2D, ILocomotion
         }
     }
 
-    void FaceSameDirectionAsMoving()
+    void FaceDirectionBasedOnInput(float horizontalInput)
     {
-        if (_velocity.x != 0)
+        if (horizontalInput != 0)
         {
-            HorizontalLook = _velocity.x > 0 ? 1 : -1;
+            HorizontalLook = horizontalInput > 0 ? 1 : -1;
             transform.localScale = new Vector3(HorizontalLook, 1, 1);
         }
     }
@@ -389,16 +388,19 @@ public class AltLocomotion2D : PhysicsObject2D, ILocomotion
         _collisions.FallingThroughPlatform = false;
     }
 
-    public void ApplyDamageForce(float forceAmount, float direction, float invincibleTime)
+    public IEnumerator ApplyDamageForce(float forceAmount, float direction, float invincibleTime)
     {
         Debug.Log("Applying Damage Force: " + gameObject.name);
-         StartCoroutine(ForceTimer(forceAmount * direction, invincibleTime));
+        movementIsControllable = false;
+        HorizontalMovement = forceAmount * direction;
+        yield return new WaitForSeconds(invincibleTime);
+        movementIsControllable = true;
     }
 
-    IEnumerator ForceTimer(float movementAmount, float time)
+    IEnumerator ForceTimer(float forceAmount, float time)
     {
         movementIsControllable = false;
-        HorizontalMovement = movementAmount;
+        HorizontalMovement = forceAmount;
         yield return new WaitForSeconds(time);
         movementIsControllable = true;   
     }
