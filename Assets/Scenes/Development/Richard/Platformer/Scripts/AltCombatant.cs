@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AltCombatant : MonoBehaviour, ICombatant
+public class AltCombatant : MonoBehaviour
 {
     [SerializeField] private bool _showDebugLog = false;
 
@@ -11,7 +11,7 @@ public class AltCombatant : MonoBehaviour, ICombatant
     //********************* Fields *********************\\
     //**************************************************\\
 
-    private IHealth _health;
+    private AltHealth _health;
     private IList<IWeapon> _weapons;
     private IWeapon _currentWeapon;
 
@@ -30,7 +30,7 @@ public class AltCombatant : MonoBehaviour, ICombatant
 
     void GetDependencies()
     {
-        _health = transform.GetComponent<IHealth>();
+        _health = transform.GetComponent<AltHealth>();
 
         if (_health == null)
         {
@@ -100,7 +100,7 @@ public class AltCombatant : MonoBehaviour, ICombatant
     //******************* Properties *******************\\
     //**************************************************\\
 
-    public IHealth Health
+    public AltHealth Health
     {
         get { return _health; }
         set
