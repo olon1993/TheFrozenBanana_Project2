@@ -42,5 +42,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 *.csproj
-*.meta
 obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
