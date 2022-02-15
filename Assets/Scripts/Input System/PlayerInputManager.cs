@@ -1,52 +1,66 @@
 using UnityEngine;
 
-public class PlayerInputManager : Actor
+namespace TheFrozenBanana
 {
-    //**************************************************\\
-    //********************* Fields *********************\\
-    //**************************************************\\
-    
-    // Movement
-    public bool IsMovementEnabled = true;
-
-    //**************************************************\\
-    //******************** Methods *********************\\
-    //**************************************************\\
-
-    // Update is called once per frame
-    void Update()
+    public class PlayerInputManager : Actor, IInputManager
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        //**************************************************\\
+        //********************* Fields *********************\\
+        //**************************************************\\
 
-        // Combatant
-        _combatant.HorizontalFacingDirection = (int)horizontal;
-        _combatant.IsAttacking = Input.GetButtonDown("Fire1");
+        // Movement
+        public bool IsMovementEnabled = true;
+        private float _horizontal;
+        private float _vertical;
+        private bool _isJump;
+        private bool _isJumpCancelled;
+        private bool _isDash;
+        private bool _isDashCancelled;
+        private bool _isAttack;
 
-        if (_combatant.IsAttacking == false)
+        //**************************************************\\
+        //******************** Methods *********************\\
+        //**************************************************\\
+
+        // Update is called once per frame
+        void Update()
         {
-            // Locomotion
-            _locomotion.HorizontalMovement = horizontal;
-            _locomotion.VerticalMovement = vertical;
-            _locomotion.IsJumping = Input.GetButtonDown("Jump");
-            _locomotion.IsJumpCancelled = Input.GetButtonUp("Jump");
-            _locomotion.IsDashing = _locomotion.IsJumping ? false : Input.GetButton("Fire3");
-            _locomotion.IsDashCancelled = _locomotion.IsDashing && Mathf.Abs(horizontal) <= Mathf.Epsilon;
+            _horizontal = Input.GetAxisRaw("Horizontal");
+            _vertical = Input.GetAxisRaw("Vertical");
+
+            _isJump = Input.GetButtonDown("Jump");
+            _isJumpCancelled = Input.GetButtonUp("Jump");
+
+            _isDash = Input.GetButton("Fire3");
+            _isDashCancelled = Input.GetButtonUp("Fire3");
+
+            _isAttack = Input.GetButtonDown("Fire1");
+
+            CalculateAnimationState();
+
+            if (_showDebugLog)
+            {
+                Debug.Log("Horizontal: " + _horizontal);
+                Debug.Log("Vertical: " + _vertical);
+                Debug.Log("IsJumping: " + _isJump);
+                Debug.Log("IsJumpCancelled: " + _isJumpCancelled);
+                Debug.Log("IsDashing: " + _isDash);
+                Debug.Log("IsAttacking: " + _isAttack);
+            }
         }
 
-        CalculateAnimationState();
+        public float Horizontal { get { return _horizontal; } }
 
-        if (_showDebugLog)
-        {
-            Debug.Log("Horizontal: " + _locomotion.HorizontalMovement);
-            Debug.Log("Vertical: " + _locomotion.VerticalMovement);
-            Debug.Log("Horizontal Look: " + _locomotion.HorizontalLook);
-            Debug.Log("Right Collision: " + _locomotion.IsRightCollision);
-            Debug.Log("IsJumping: " + _locomotion.IsJumping);
-            Debug.Log("IsJumpCancelled: " + _locomotion.IsJumpCancelled);
-            Debug.Log("IsDashing: " + _locomotion.IsDashing);
+        public float Vertical { get { return _vertical; } }
 
-            Debug.Log("IsAttacking: " + _combatant.IsAttacking);
-        }
+        public bool IsJump { get { return _isJump; } }
+
+        public bool IsJumpCancelled { get { return _isJumpCancelled; } }
+
+        public bool IsDash { get { return _isDash; } }
+
+        public bool IsDashCancelled { get { return _isDashCancelled; } }
+
+        public bool IsAttack { get { return _isAttack; } }
     }
 }
