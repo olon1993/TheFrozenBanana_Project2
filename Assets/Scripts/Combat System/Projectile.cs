@@ -1,70 +1,73 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+namespace TheFrozenBanana
 {
-    [SerializeField] private bool _showDebugLog = false;
-
-    //**************************************************\\
-    //********************* Fields *********************\\
-    //**************************************************\\
-
-    // Dependencies
-    [SerializeField] public Damage Damage;
-    private Rigidbody _rigidbody;
-
-    [SerializeField] int DamageAmount;
-    [SerializeField] IWeapon.DamageType DamageTypeDefinition;
-    [SerializeField] public float ProjectileSpeed;
-
-    //**************************************************\\
-    //******************** Methods *********************\\
-    //**************************************************\\
-
-    private void Awake()
+    public class Projectile : MonoBehaviour
     {
-        _rigidbody = transform.GetComponent<Rigidbody>();
+        [SerializeField] private bool _showDebugLog = false;
 
-        if (_rigidbody == null)
+        //**************************************************\\
+        //********************* Fields *********************\\
+        //**************************************************\\
+
+        // Dependencies
+        [SerializeField] public Damage Damage;
+        private Rigidbody _rigidbody;
+
+        [SerializeField] int DamageAmount;
+        [SerializeField] IWeapon.DamageType DamageTypeDefinition;
+        [SerializeField] public float ProjectileSpeed;
+
+        //**************************************************\\
+        //******************** Methods *********************\\
+        //**************************************************\\
+
+        private void Awake()
         {
-            Debug.LogError("No Rigidbody found on " + gameObject.name);
-        }
+            _rigidbody = transform.GetComponent<Rigidbody>();
 
-        Damage = new Damage();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Damage.DamageAmount = DamageAmount;
-        Damage.DamageType = DamageTypeDefinition;
-
-        _rigidbody.velocity = gameObject.transform.forward * ProjectileSpeed;
-    }
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        IHealth health = collider.GetComponent<IHealth>();
-        if (health == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        if (_showDebugLog)
-        {
-            Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
-        }
-
-        bool isDead = health.TakeDamage(Damage);
-
-        if (_showDebugLog)
-        {
-            if (isDead == false)
+            if (_rigidbody == null)
             {
-                Debug.Log(collider.gameObject.name + " health = " + health.CurrentHealth + " / " + health.MaxHealth);
+                Debug.LogError("No Rigidbody found on " + gameObject.name);
             }
+
+            Damage = new Damage();
         }
 
-        Destroy(gameObject);
+        // Start is called before the first frame update
+        void Start()
+        {
+            Damage.DamageAmount = DamageAmount;
+            Damage.DamageType = DamageTypeDefinition;
+
+            _rigidbody.velocity = gameObject.transform.forward * ProjectileSpeed;
+        }
+
+        private void OnTriggerEnter(Collider collider)
+        {
+            IHealth health = collider.GetComponent<IHealth>();
+            if (health == null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            if (_showDebugLog)
+            {
+                Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
+            }
+
+            bool isDead = health.TakeDamage(Damage);
+
+            if (_showDebugLog)
+            {
+                if (isDead == false)
+                {
+                    Debug.Log(collider.gameObject.name + " health = " + health.CurrentHealth + " / " + health.MaxHealth);
+                }
+            }
+
+            Destroy(gameObject);
+        }
     }
 }

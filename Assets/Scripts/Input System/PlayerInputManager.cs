@@ -2,8 +2,10 @@ using UnityEngine;
 
 namespace TheFrozenBanana
 {
-    public class PlayerInputManager : Actor, IInputManager
+    public class PlayerInputManager : MonoBehaviour, IInputManager
     {
+        [SerializeField] protected bool _showDebugLog = false;
+
         //**************************************************\\
         //********************* Fields *********************\\
         //**************************************************\\
@@ -36,7 +38,7 @@ namespace TheFrozenBanana
 
             _isAttack = Input.GetButtonDown("Fire1");
 
-            CalculateAnimationState();
+            //CalculateAnimationState();
 
             if (_showDebugLog)
             {

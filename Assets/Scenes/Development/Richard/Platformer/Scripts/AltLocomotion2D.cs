@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TheFrozenBanana;
 
 public class AltLocomotion2D : PhysicsObject2D, ILocomotion
 {

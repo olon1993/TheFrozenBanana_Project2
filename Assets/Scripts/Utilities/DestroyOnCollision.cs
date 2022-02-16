@@ -3,85 +3,89 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-public class DestroyOnCollision : MonoBehaviour
+namespace TheFrozenBanana
 {
-    [SerializeField] private bool _showDebugLog = false;
-
-    //**************************************************\\
-    //********************* Fields *********************\\
-    //**************************************************\\
-
-    [TagSelector] public string[] TagFilterArray = new string[] { };
-    [SerializeField] private bool _destroyAfterSoundFx = false;
-    private AudioSource _audioSource;
-
-    //**************************************************\\
-    //******************** Methods *********************\\
-    //**************************************************\\
-
-    private void Start()
+    [RequireComponent(typeof(AudioSource))]
+    public class DestroyOnCollision : MonoBehaviour
     {
-        _audioSource = GetComponent<AudioSource>();
-        if(_audioSource == null)
-        {
-            Debug.LogError("AudioSource not found on " + gameObject.name);
-        }
-    }
+        [SerializeField] private bool _showDebugLog = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        foreach (string tag in TagFilterArray)
+        //**************************************************\\
+        //********************* Fields *********************\\
+        //**************************************************\\
+
+        [TagSelector] public string[] TagFilterArray = new string[] { };
+        [SerializeField] private bool _destroyAfterSoundFx = false;
+        private AudioSource _audioSource;
+
+        //**************************************************\\
+        //******************** Methods *********************\\
+        //**************************************************\\
+
+        private void Start()
         {
-            if (other.gameObject.CompareTag(tag))
+            _audioSource = GetComponent<AudioSource>();
+            if (_audioSource == null)
             {
-                if (_showDebugLog)
-                {
-                    Debug.Log("Collision with " + tag + " has caused DestroyOnCollision to trigger on " + name);
-                }
+                Debug.LogError("AudioSource not found on " + gameObject.name);
+            }
+        }
 
-                if (_audioSource.clip != null && _destroyAfterSoundFx)
-                {
-                    _audioSource.Play();
-                    Destroy(gameObject, _audioSource.clip.length);
-                }
-                else
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            foreach (string tag in TagFilterArray)
+            {
+                if (other.gameObject.CompareTag(tag))
                 {
                     if (_showDebugLog)
                     {
-                        Debug.Log("Clilp was null");
+                        Debug.Log("Collision with " + tag + " has caused DestroyOnCollision to trigger on " + name);
                     }
-                    Destroy(gameObject);
+
+                    if (_audioSource.clip != null && _destroyAfterSoundFx)
+                    {
+                        _audioSource.Play();
+                        Destroy(gameObject, _audioSource.clip.length);
+                    }
+                    else
+                    {
+                        if (_showDebugLog)
+                        {
+                            Debug.Log("Clilp was null");
+                        }
+                        Destroy(gameObject);
+                    }
                 }
             }
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        foreach (string tag in TagFilterArray)
+        private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag(tag))
+            foreach (string tag in TagFilterArray)
             {
-                if (_showDebugLog)
-                {
-                    Debug.Log("Collision with " + tag + " has caused DestroyOnCollision to trigger on " + name);
-                }
-
-                if(_audioSource.clip != null && _destroyAfterSoundFx)
-                {
-                    _audioSource.Play();
-                    Destroy(gameObject, _audioSource.clip.length);
-                }
-                else
+                if (other.gameObject.CompareTag(tag))
                 {
                     if (_showDebugLog)
                     {
-                        Debug.Log("Clilp was null");
+                        Debug.Log("Collision with " + tag + " has caused DestroyOnCollision to trigger on " + name);
                     }
-                    Destroy(gameObject);
+
+                    if (_audioSource.clip != null && _destroyAfterSoundFx)
+                    {
+                        _audioSource.Play();
+                        Destroy(gameObject, _audioSource.clip.length);
+                    }
+                    else
+                    {
+                        if (_showDebugLog)
+                        {
+                            Debug.Log("Clilp was null");
+                        }
+                        Destroy(gameObject);
+                    }
                 }
             }
         }
     }
 }
+

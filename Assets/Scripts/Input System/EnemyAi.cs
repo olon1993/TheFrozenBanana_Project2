@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace TheFrozenBanana
 {
-    public class EnemyAi : Actor, IInputManager
+    public class EnemyAi : MonoBehaviour, IInputManager
     {
+        [SerializeField] protected bool _showDebugLog = false;
+
         //**************************************************\\
         //********************* Fields *********************\\
         //**************************************************\\
@@ -24,11 +26,14 @@ namespace TheFrozenBanana
         private int _fromWaypointIndex;
         private float _distanceFromNextWaypoint;
         [SerializeField] private float _waypointErrorMargin = 0.1f;
+        [SerializeField] private LayerMask _collisionLayerMask;
 
         // Combat
         [SerializeField] private LayerMask _enemyLayerMask;
         [SerializeField] private float _aggressiveRadius = 3;
         [SerializeField] private float _enemyErrorMargin = 1f;
+        [SerializeField] private Transform _target;
+        [SerializeField] private float _targetRange = 1f;
 
         [SerializeField] protected float _attackWaitTime;
         private float _nextAttackTime;
@@ -46,10 +51,8 @@ namespace TheFrozenBanana
         //**************************************************\\
 
         // Start is called before the first frame update
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             _globalWaypoints = new Vector3[_localWaypoints.Length];
             for (int i = 0; i < _globalWaypoints.Length; i++)
             {
@@ -62,17 +65,16 @@ namespace TheFrozenBanana
         // Update is called once per frame
         private void Update()
         {
-            Reset();
+            _isJump = false;
+            _isAttack = false;
 
             DetermineAttackInput();
             DetermineHorizontalInput();
 
-            if (_horizontal != 0)
+            if (Mathf.Abs(_horizontal) > 0)
             {
                 DetermineIsJumping();
             }
-
-            CalculateAnimationState();
 
             if (_showDebugLog)
             {
@@ -83,12 +85,6 @@ namespace TheFrozenBanana
             }
         }
 
-        private void Reset()
-        {
-            _isJump = false;
-            _isAttack = false;
-        }
-
         private void DetermineAttackInput()
         {
             if (Time.time < _nextAttackTime)
@@ -97,15 +93,12 @@ namespace TheFrozenBanana
             }
 
             // Is player in attacking range?
-            if (_combatant.CurrentWeapon is IMeleeWeapon)
+            Collider2D enemy = Physics2D.OverlapCircle(_target.position, _targetRange, _enemyLayerMask);
+            if (enemy != null)
             {
-                Collider2D enemy = Physics2D.OverlapCircle(_combatant.CurrentWeapon.PointOfOrigin.position, (_combatant.CurrentWeapon as IMeleeWeapon).AttackRange, _enemyLayerMask);
-                if (enemy != null)
-                {
-                    // Attack if applicable
-                    _isAttack = true;
-                    _nextAttackTime = Time.time + _attackWaitTime;
-                }
+                // Attack if applicable
+                _isAttack = true;
+                _nextAttackTime = Time.time + _attackWaitTime;
             }
         }
 
@@ -113,7 +106,7 @@ namespace TheFrozenBanana
         {
             TargetInfo targetInfo = GetTargetPositionAndErrorMargin();
 
-            if (Time.time < _nextMoveTime)
+            if (targetInfo.IsEnemy == false && Time.time < _nextMoveTime)
             {
                 if (_showDebugLog)
                 {
@@ -141,9 +134,12 @@ namespace TheFrozenBanana
 
             // Set horizontal movement and facing based on target location
             float horizontal = Mathf.Sign(targetInfo.Position.x - transform.position.x);
-            _combatant.HorizontalFacingDirection = (int)horizontal;
-            _locomotion.HorizontalLook = (int)horizontal;
             _horizontal = horizontal;
+
+            if (_horizontal != 0 && (int)Mathf.Sign(_horizontal) != (int)Mathf.Sign(_target.localPosition.x))
+            {
+                _target.localPosition *= -1;
+            }
         }
 
         private TargetInfo GetTargetPositionAndErrorMargin()
@@ -157,7 +153,7 @@ namespace TheFrozenBanana
                     Debug.Log(name + " has targetted " + enemy.name + " as an enemy.");
                 }
 
-                return new TargetInfo(enemy.transform.position, _enemyErrorMargin);
+                return new TargetInfo(enemy.transform.position, _enemyErrorMargin, true);
             }
 
             if (_isWaypointsSet == false)
@@ -195,11 +191,8 @@ namespace TheFrozenBanana
         private void DetermineIsJumping()
         {
             // Is colliding with object in facing direction?
-            if ((_locomotion.IsRightCollision && _locomotion.HorizontalLook == 1) || (_locomotion.IsLeftCollision && _locomotion.HorizontalLook == -1))
-            {
-                // Jump
-                _isJump = true;
-            }
+            Collider2D collider = Physics2D.OverlapCircle(_target.position, _targetRange, _collisionLayerMask);
+            _isJump = collider == null ? false : true;
         }
 
         private void OnDrawGizmos()
@@ -220,6 +213,9 @@ namespace TheFrozenBanana
 
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, _aggressiveRadius);
+
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(_target.position, _targetRange);
         }
 
         //**************************************************\\
@@ -228,14 +224,16 @@ namespace TheFrozenBanana
 
         private struct TargetInfo
         {
-            public TargetInfo(Vector2 position, float errorMargin)
+            public TargetInfo(Vector2 position, float errorMargin, bool isEnemy = false)
             {
                 Position = position;
                 ErrorMargin = errorMargin;
+                IsEnemy = isEnemy;
             }
 
             public Vector2 Position;
             public float ErrorMargin;
+            public bool IsEnemy;
         }
 
         public float Horizontal { get { return _horizontal; } }

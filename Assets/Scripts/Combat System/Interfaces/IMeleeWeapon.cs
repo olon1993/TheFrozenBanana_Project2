@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IMeleeWeapon : IWeapon
+namespace TheFrozenBanana
 {
-    public float AttackRange { get; }
+    public interface IMeleeWeapon : IWeapon
+    {
+        public float AttackRange { get; }
+    }
 }

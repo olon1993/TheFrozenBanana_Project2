@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TheFrozenBanana;
 
 public class PlayerInfoScript : MonoBehaviour
 {
