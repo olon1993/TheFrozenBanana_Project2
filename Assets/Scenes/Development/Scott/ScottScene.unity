@@ -509,7 +509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3885952127342286946, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3885952127342286949, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
       propertyPath: m_CollisionDetection
@@ -1003,6 +1003,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1149409849607859944, guid: fe604967f1d31624793b58c114565027, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1149409849607859945, guid: fe604967f1d31624793b58c114565027, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1071,6 +1075,34 @@ PrefabInstance:
       propertyPath: _radiusOfInteraction
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4122660766120575669, guid: fe604967f1d31624793b58c114565027, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 7400000, guid: de7dcbb4b1f382e42a17a02e45add071, type: 2}
+    - target: {fileID: 4238485398792125032, guid: fe604967f1d31624793b58c114565027, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 139822bc93e2b774e8262072c1a17de6, type: 2}
+    - target: {fileID: 6836593017401013869, guid: fe604967f1d31624793b58c114565027, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 8a46b9ee252abed4e9f3ba3ec6b9b844, type: 2}
+    - target: {fileID: 7160827569747952622, guid: fe604967f1d31624793b58c114565027, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 273fbbb7ed70f0141b9a182d756e9e68, type: 2}
+    - target: {fileID: 7808566927484797245, guid: fe604967f1d31624793b58c114565027, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 7400000, guid: b9b7c278581c8b04791de110de36cbf6, type: 2}
+    - target: {fileID: 7808566927484797245, guid: fe604967f1d31624793b58c114565027, type: 3}
+      propertyPath: _canInterrupt
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005125223559113987, guid: fe604967f1d31624793b58c114565027, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 7400000, guid: bfe3422c9394ca24aa2cd98c60479edb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe604967f1d31624793b58c114565027, type: 3}
 --- !u!1 &822775324
@@ -11770,7 +11802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3885952127342286946, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3885952127342286949, guid: 459a67982904dd74aa2bc2d766351a5c, type: 3}
       propertyPath: m_CollisionDetection
@@ -12315,6 +12347,10 @@ PrefabInstance:
     - target: {fileID: 2344188918914379199, guid: b48b13cd69c7b744b9e6b2df90947822, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5059498214119480307, guid: b48b13cd69c7b744b9e6b2df90947822, type: 3}
+      propertyPath: _canInterrupt
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b48b13cd69c7b744b9e6b2df90947822, type: 3}

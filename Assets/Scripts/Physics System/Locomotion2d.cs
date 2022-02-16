@@ -34,6 +34,9 @@ namespace TheFrozenBanana
         [SerializeField] protected Vector2 _wallJumpOff;
         [SerializeField] protected Vector2 _wallLeap;
 
+        // Graphics
+        private float _horizontalLook = 1;
+
         //**************************************************\\
         //******************** Methods *********************\\
         //**************************************************\\
@@ -82,6 +85,7 @@ namespace TheFrozenBanana
             {
                 _velocity.x += _dashSpeed * HorizontalMovement;
             }
+
 
             Move(_velocity * Time.deltaTime);
 
@@ -397,7 +401,18 @@ namespace TheFrozenBanana
         //******************* Properties *******************\\
         //**************************************************\\
 
-        public float HorizontalLook { get; set; } = 1;
+        public float HorizontalLook 
+        {
+            get { return _horizontalLook; }
+            set
+            {
+                if(_horizontalLook != value)
+                {
+                    _horizontalLook = value;
+                    transform.localScale = new Vector3(_horizontalLook, 1, 1);
+                }
+            }
+        } 
 
         public float VerticalLook { get { throw new NotImplementedException(); } set { } }
 

@@ -133,13 +133,7 @@ namespace TheFrozenBanana
             }
 
             // Set horizontal movement and facing based on target location
-            float horizontal = Mathf.Sign(targetInfo.Position.x - transform.position.x);
-            _horizontal = horizontal;
-
-            if (_horizontal != 0 && (int)Mathf.Sign(_horizontal) != (int)Mathf.Sign(_target.localPosition.x))
-            {
-                _target.localPosition *= -1;
-            }
+            _horizontal = Mathf.Sign(targetInfo.Position.x - transform.position.x);
         }
 
         private TargetInfo GetTargetPositionAndErrorMargin()

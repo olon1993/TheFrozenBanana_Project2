@@ -38,8 +38,6 @@ namespace TheFrozenBanana
 
             _isAttack = Input.GetButtonDown("Fire1");
 
-            //CalculateAnimationState();
-
             if (_showDebugLog)
             {
                 Debug.Log("Horizontal: " + _horizontal);
@@ -50,6 +48,10 @@ namespace TheFrozenBanana
                 Debug.Log("IsAttacking: " + _isAttack);
             }
         }
+
+        //**************************************************\\
+        //******************* Properties *******************\\
+        //**************************************************\\
 
         public float Horizontal { get { return _horizontal; } }
 
