@@ -29,10 +29,14 @@ namespace TheFrozenBanana
             }
 
             _animationStates = GetComponents<IAnimationState>().ToList();
-            _animationStates.Sort();
+            
             if(_animationStates == null)
             {
                 Debug.LogError("No Animation States found on " + name);
+            }
+            else
+            {
+                _animationStates.Sort();
             }
 
         }
