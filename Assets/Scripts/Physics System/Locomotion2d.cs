@@ -33,6 +33,8 @@ namespace TheFrozenBanana
         [SerializeField] protected Vector2 _wallJumpClimb;
         [SerializeField] protected Vector2 _wallJumpOff;
         [SerializeField] protected Vector2 _wallLeap;
+        private int _wallDirectionX;
+        private bool _isWallSliding;
 
         // Graphics
         private float _horizontalLook = 1;
@@ -56,15 +58,38 @@ namespace TheFrozenBanana
         {
             base.Start();
 
+            InitialiseVariables();
+        }
+
+        void InitialiseVariables()
+        {
             _collisions.FaceDirection = 1;
             _gravityStrength = -(2 * _maxJumpHeight) / Mathf.Pow(_timeToJumpApex, 2);
             _maxJumpVelocity = Mathf.Abs(_gravityStrength) * _timeToJumpApex;
             _minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(_gravityStrength) * _minJumpHeight);
-
             _coyoteTime = -1f;
         }
 
         protected override void Update()
+        {
+            GetInput();
+
+            CalculateVelocity();
+
+            HandleWallSliding();
+
+            HandleJumping();
+
+            FaceDirectionMoving();
+
+            Dash();
+
+            Move(_velocity * Time.deltaTime);
+
+            VerticalCollisionAdjustment();
+        }
+
+        void GetInput()
         {
             HorizontalMovement = _inputManager.Horizontal;
             VerticalMovement = _inputManager.Vertical;
@@ -72,34 +97,6 @@ namespace TheFrozenBanana
             IsJumpCancelled = _inputManager.IsJumpCancelled;
             IsDashing = IsJumping ? false : _inputManager.IsDash;
             IsDashCancelled = IsDashing && Mathf.Abs(HorizontalMovement) <= Mathf.Epsilon;
-
-            CalculateVelocity();
-            HandleWallSliding();
-
-            if (_velocity.x != 0)
-            {
-                HorizontalLook = Mathf.Sign(_velocity.x);
-            }
-
-            if (IsDashing && IsGrounded)
-            {
-                _velocity.x += _dashSpeed * HorizontalMovement;
-            }
-
-
-            Move(_velocity * Time.deltaTime);
-
-            if (_collisions.Above || _collisions.Below)
-            {
-                if (_collisions.SlidingDownMaxSlope)
-                {
-                    _velocity.y += _collisions.SlopeNormal.y * -_gravityStrength * Time.deltaTime;
-                }
-                else
-                {
-                    _velocity.y = 0;
-                }
-            }
         }
 
         protected override void CalculateVelocity()
@@ -116,13 +113,13 @@ namespace TheFrozenBanana
 
         protected void HandleWallSliding()
         {
-            int wallDirectionX = (_collisions.Left) ? -1 : 1;
-            bool isWallSliding = false;
+            _wallDirectionX = (_collisions.Left) ? -1 : 1;
+            _isWallSliding = false;
 
             // Slide down wall
             if ((_collisions.Left || _collisions.Right) && !_collisions.Below && _velocity.y < 0)
             {
-                isWallSliding = true;
+                _isWallSliding = true;
 
                 if (_velocity.y < -_wallSlideSpeedMax)
                 {
@@ -135,7 +132,7 @@ namespace TheFrozenBanana
                     _velocityXSmoothing = 0;
                     _velocity.x = 0;
 
-                    if (HorizontalMovement != wallDirectionX && HorizontalMovement != 0)
+                    if (HorizontalMovement != _wallDirectionX && HorizontalMovement != 0)
                     {
                         _timeToWallUnstick -= Time.deltaTime;
                     }
@@ -148,29 +145,32 @@ namespace TheFrozenBanana
                 {
                     _timeToWallUnstick = _wallStickTime;
                 }
-            }
+            } 
+        }
 
+        void HandleJumping()
+        {
             if (IsJumping)
             {
                 // Wall Jumps
-                if (isWallSliding)
+                if (_isWallSliding)
                 {
                     // Jump towards wall that you're sliding down
-                    if (wallDirectionX == HorizontalMovement)
+                    if (_wallDirectionX == HorizontalMovement)
                     {
-                        _velocity.x = -wallDirectionX * _wallJumpClimb.x;
+                        _velocity.x = -_wallDirectionX * _wallJumpClimb.x;
                         _velocity.y = _wallJumpClimb.y;
                     }
                     // Jump off wall
                     else if (HorizontalMovement == 0)
                     {
-                        _velocity.x = -wallDirectionX * _wallJumpOff.x;
+                        _velocity.x = -_wallDirectionX * _wallJumpOff.x;
                         _velocity.y = _wallJumpOff.y;
                     }
                     // Jump away from wall
                     else
                     {
-                        _velocity.x = -wallDirectionX * _wallLeap.x;
+                        _velocity.x = -_wallDirectionX * _wallLeap.x;
                         _velocity.y = _wallLeap.y;
                     }
                 }
@@ -200,6 +200,37 @@ namespace TheFrozenBanana
                 if (_velocity.y > _minJumpVelocity)
                 {
                     _velocity.y = _minJumpVelocity;
+                }
+            }
+        }
+
+        void FaceDirectionMoving()
+        {
+            if (_velocity.x != 0)
+            {
+                HorizontalLook = Mathf.Sign(_velocity.x);
+            }
+        }
+
+        void Dash()
+        {
+            if (IsDashing && IsGrounded)
+            {
+                _velocity.x += _dashSpeed * HorizontalMovement;
+            }
+        }
+
+        void VerticalCollisionAdjustment()
+        {
+            if (_collisions.Above || _collisions.Below)
+            {
+                if (_collisions.SlidingDownMaxSlope)
+                {
+                    _velocity.y += _collisions.SlopeNormal.y * -_gravityStrength * Time.deltaTime;
+                }
+                else
+                {
+                    _velocity.y = 0;
                 }
             }
         }
