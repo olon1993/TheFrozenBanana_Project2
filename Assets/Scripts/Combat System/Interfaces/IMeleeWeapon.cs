@@ -6,6 +6,6 @@ namespace TheFrozenBanana
 {
     public interface IMeleeWeapon : IWeapon
     {
-        public float AttackRange { get; }
+        float AttackRange { get; }
     }
 }
