@@ -7,7 +7,7 @@ public class ArmCannon : MonoBehaviour
 {
 	// fields to setup
 	[SerializeField] private GameObject projectile;
-	[SerializeField] private Transform rotationalCenter, projectileSpawnPoint, target;
+	[SerializeField] private Transform rotationalCenter, PointOfOrigin, target;
 	[SerializeField] private Renderer weaponObject;
 	[SerializeField] private Camera cam;
 
@@ -98,8 +98,8 @@ public class ArmCannon : MonoBehaviour
 		if (_locomotion.HorizontalLook < 0) {
 			rot *= Quaternion.Euler(0,0,180);
 		}
-		GameObject proj = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity, null) as GameObject;
-		proj.GetComponent<PlayerProjectile>().Setup(gameObject.transform.position, target.position, rot);
+		GameObject proj = Instantiate(projectile, PointOfOrigin.position, Quaternion.identity, null) as GameObject;
+		proj.GetComponent<IProjectile>().Setup(gameObject.transform.position, target.position, rot);
 		Destroy(proj, 3f);
 	}
 }

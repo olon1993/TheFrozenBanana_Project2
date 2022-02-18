@@ -7,15 +7,19 @@ namespace TheFrozenBanana {
 
 	public class wProjectile : MonoBehaviour, IProjectile {
 
-		[SerializeField] private Damage _damage;
 		[SerializeField] private float _velocity;
 		[SerializeField] GameObject _child;
+		private Damage _damage;
 		private Vector3 _direction;
 		private bool _active;
 
 		private void Awake() {
+			_damage = gameObject.GetComponent<Damage>();
 			if (_child == null) {
 				Debug.LogError(gameObject.name + " is not properly setup! Missing Child!");
+			}
+			if (_damage == null) {
+				Debug.LogError(gameObject.name + " is not properly setup! Missing Damage!");
 			}
 		}
 
@@ -63,6 +67,7 @@ namespace TheFrozenBanana {
 			gameObject.SetActive(false);
 		}
 
+		// Getters and Setters from interface
 		public Damage damage {
 			get { return _damage; }
 			set { _damage = value; }

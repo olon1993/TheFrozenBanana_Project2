@@ -11434,7 +11434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48db935ea92f92f4aa4aeef8bb13cec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImmutableAnimationStates: 
 --- !u!114 &962005963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11556,7 +11555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 7464781323375529169, guid: 5894eaf48ddb059498f18ff20a22ff49, type: 3}
   rotationalCenter: {fileID: 1533180750}
-  projectileSpawnPoint: {fileID: 1254354397}
+  PointOfOrigin: {fileID: 0}
   target: {fileID: 1270059290}
   weaponObject: {fileID: 1431746975}
   cam: {fileID: 1203166357}
