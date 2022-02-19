@@ -9,12 +9,14 @@ namespace TheFrozenBanana {
 
 		// From IRRangedWeapon
 		[SerializeField] private GameObject _projectile;
-		[SerializeField] private Transform _rotationalCenter;
 		[SerializeField] private Transform _target;
+		[SerializeField] private Transform _aimTool;
 		[SerializeField] private Renderer _weaponObject;
 		[SerializeField] private Vector3 _localScale;
 		[SerializeField] private bool _canAim;
+		[SerializeField] private float _maxAngle;
 		[SerializeField] private float _projectileKillTime;
+		[SerializeField] private Camera _cam;
 
 		// From IWeapon
 		[SerializeField] private bool _isLimitedAmmo;
@@ -28,12 +30,18 @@ namespace TheFrozenBanana {
 		private ILocomotion _locomotion;
 
 		private void Awake() {
-			_locomotion = gameObject.GetComponent<ILocomotion>();
+			_locomotion = gameObject.GetComponentInParent<ILocomotion>();
 			if (_locomotion == null) {
 				Debug.LogError(gameObject.name + " has a ranged weapon that cannot find the owner's locomotion!");
 			}
-			if (_canAim && _target == null) {
+			if (_canAim && _aimTool == null) {
 				Debug.LogError(gameObject.name + "has a weapon that can aim but no target finder!");
+			}
+			if (_canAim) {
+				cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+				if (cam == null) {
+					Debug.LogError(gameObject.name + "has a weapon that can aim but no camera can be found to aim with!");
+				}
 			}
 			if (_localScale == Vector3.zero) {
 				_localScale = new Vector3(1,1,1);
@@ -44,7 +52,22 @@ namespace TheFrozenBanana {
 		}
 
 		public void Attack() {
+			SpawnProjectile();
+		}
 
+		private void Update() {
+			UpdateTargetLocation();
+			UpdateRotation();
+
+		}
+
+		private void UpdateTargetLocation() {
+			Vector2 mousePos = Input.mousePosition;
+			Vector3 pos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
+			aimTool.position = pos;
+			if (Vector2.Distance(gameObject.transform.position, aimTool.position) < 1) {
+				aimTool.position = gameObject.transform.position + new Vector3(_locomotion.HorizontalLook, 0, 0);
+			}
 		}
 
 		private void UpdateRotation() {
@@ -53,13 +76,16 @@ namespace TheFrozenBanana {
 			Vector2 vBase = new Vector2(_locomotion.HorizontalLook, 0);
 			float angle = 0;
 			if (canAim) {
-				Vector2 vDir = target.position - gameObject.transform.position;
+				Vector2 vDir = aimTool.position - gameObject.transform.position;
 				angle = Vector2.Angle(vBase, vDir) * _locomotion.HorizontalLook;
-				if (target.position.y < gameObject.transform.position.y) {
+				if (aimTool.position.y < gameObject.transform.position.y) {
 					angle = -angle;
 				}
+				if (Mathf.Abs(angle) > maxAngle) {
+					angle = maxAngle * Mathf.Sign(angle);
+				}
 			}
-			weaponObject.transform.localScale = new Vector3(_locomotion.HorizontalLook * localScale.x, localScale.y, localScale.z);
+			weaponObject.transform.localScale = new Vector3(localScale.x, localScale.y, localScale.z);
 			weaponObject.transform.rotation = Quaternion.Euler(0, 0, angle);
 		}
 
@@ -68,13 +94,13 @@ namespace TheFrozenBanana {
 			if (_locomotion.HorizontalLook < 0) {
 				rot *= Quaternion.Euler(0, 0, 180);
 			}
-			GameObject proj = Instantiate(projectile, PointOfOrigin.position, Quaternion.identity, null) as GameObject;
-			Vector3 fireTowards = new Vector3(_locomotion.HorizontalLook, 0,0);
+			Vector3 fireTowards = new Vector3(_locomotion.HorizontalLook, 0, 0);
 			if (canAim) {
 				fireTowards = target.position;
 			}
+			GameObject proj = Instantiate(projectile, PointOfOrigin.position, Quaternion.identity, null) as GameObject;
 			proj.GetComponent<IProjectile>().Setup(gameObject.transform.position, fireTowards, rot);
-			Destroy(proj, 3f);
+			Destroy(proj, projectileKillTime);
 		}
 
 
@@ -83,9 +109,10 @@ namespace TheFrozenBanana {
 		public GameObject projectile {
 			get { return _projectile; }
 		}
-
-		public Transform rotationalCenter {
-			get { return _rotationalCenter; }
+		
+		public Transform aimTool {
+			get { return _aimTool; }
+			set { _aimTool = value; }
 		}
 
 		public Transform target {
@@ -106,9 +133,19 @@ namespace TheFrozenBanana {
 			set { _canAim = value; }
 		}
 
+		public float maxAngle {
+			get { return _maxAngle; }
+			set { _maxAngle = value; }
+		}
+
 		public float projectileKillTime {
 			get { return _projectileKillTime; }
 			set { _projectileKillTime = value; }
+		}
+
+		public Camera cam {
+			get { return _cam; }
+			set { _cam = value; }
 		}
 
 		// IWeapon
