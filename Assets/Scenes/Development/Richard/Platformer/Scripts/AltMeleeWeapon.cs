@@ -45,7 +45,11 @@ public class AltMeleeWeapon : MonoBehaviour, IMeleeWeapon
         }
     }
 
-    public void Attack()
+	public void ToggleWeapon(bool on) {
+
+	}
+
+	public void Attack()
     {
         if (_showDebugLog)
         {

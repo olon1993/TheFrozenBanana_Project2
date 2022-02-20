@@ -11,7 +11,8 @@ public abstract class AnimationState : MonoBehaviour, IAnimationState
 
     [SerializeField] protected AnimationClip _animation;
     [SerializeField] protected int _priority;
-    [SerializeField] protected bool _canInterrupt = true;
+	[SerializeField] protected int _animationLayer;
+	[SerializeField] protected bool _canInterrupt = true;
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -53,4 +54,6 @@ public abstract class AnimationState : MonoBehaviour, IAnimationState
     }
 
     public virtual int Priority { get { return _priority; } }
+
+	public virtual int AnimationLayer { get { return _animationLayer; } }
 }

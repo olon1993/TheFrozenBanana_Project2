@@ -256,7 +256,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101056249}
-  m_LocalRotation: {x: 3e-45, y: -1e-45, z: 0, w: 1}
+  m_LocalRotation: {x: -1e-45, y: -1e-45, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11311,6 +11311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: e0270250cb7bfa045998c7a59daa4b01, type: 2}
   _priority: 0
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!95 &903578886
 Animator:
@@ -11396,6 +11397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: c76fb74ef83185c45b0bc66f2b1efe5a, type: 2}
   _priority: 0
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &903578889
 MonoBehaviour:
@@ -11411,6 +11413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: 6b49ab5ec09c02d4cad42c054c8c741b, type: 2}
   _priority: 0
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &903578890
 MonoBehaviour:
@@ -11426,6 +11429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 0}
   _priority: 0
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &903578891
 MonoBehaviour:
@@ -11441,6 +11445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 0}
   _priority: 0
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &903578892
 MonoBehaviour:
@@ -11456,6 +11461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: bc9e9a1cae77a894fbeb18d2b72aad98, type: 2}
   _priority: 0
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &903578893
 MonoBehaviour:
@@ -11471,6 +11477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: b9b7c278581c8b04791de110de36cbf6, type: 2}
   _priority: 0
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &903578894
 MonoBehaviour:
@@ -11646,6 +11653,7 @@ MonoBehaviour:
   _maxJumpHeight: 3.5
   _timeToJumpApex: 0.4
   _maxSlopeAngle: 30
+  _movementIsControllable: 1
   _walkSpeed: 8
   _dashSpeed: 11
   _wallSlideSpeedMax: 3
@@ -11656,6 +11664,9 @@ MonoBehaviour:
   _wallJumpClimb: {x: 7.5, y: 16}
   _wallJumpOff: {x: 8.5, y: 7}
   _wallLeap: {x: 18, y: 17}
+  _dashStaminaCost: 0
+  _staminaIdleReplenishAmount: 0
+  _staminaDrainFrequency: 0.1
 --- !u!114 &962005969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12047,7 +12058,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203166354}
-  m_LocalRotation: {x: 3e-45, y: -1e-45, z: 0, w: 1}
+  m_LocalRotation: {x: -1e-45, y: -1e-45, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -13027,6 +13038,7 @@ MonoBehaviour:
   _radiusOfInteraction: 0.5
   delayToHit: 0
   attackActionTime: 0.1
+  _animationLayer: 0
 --- !u!1001 &1927497499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13287,6 +13299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: 8a46b9ee252abed4e9f3ba3ec6b9b844, type: 2}
   _priority: 1
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &2344188917717025826
 MonoBehaviour:
@@ -13381,6 +13394,7 @@ MonoBehaviour:
   _maxJumpHeight: 3.5
   _timeToJumpApex: 0.4
   _maxSlopeAngle: 30
+  _movementIsControllable: 1
   _walkSpeed: 8
   _dashSpeed: 11
   _wallSlideSpeedMax: 3
@@ -13391,6 +13405,9 @@ MonoBehaviour:
   _wallJumpClimb: {x: 7.5, y: 16}
   _wallJumpOff: {x: 8.5, y: 7}
   _wallLeap: {x: 18, y: 17}
+  _dashStaminaCost: 0
+  _staminaIdleReplenishAmount: 0
+  _staminaDrainFrequency: 0.1
 --- !u!114 &2344188917717025831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13462,6 +13479,7 @@ MonoBehaviour:
   _radiusOfInteraction: 0.5
   delayToHit: 0
   attackActionTime: 0.1
+  _animationLayer: 0
 --- !u!1 &2344188918289302540
 GameObject:
   m_ObjectHideFlags: 0
@@ -13505,7 +13523,7 @@ Animator:
   m_GameObject: {fileID: 2344188918455247318}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c3f194f919acecd49be860466a6d1e43, type: 2}
+  m_Controller: {fileID: 9100000, guid: f2871dc495f0ce241916f349871a9015, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -13583,6 +13601,11 @@ GameObject:
   - component: {fileID: 2895765718826402730}
   - component: {fileID: 499279787375224047}
   - component: {fileID: 8795962819301228654}
+  - component: {fileID: 2344188918455247324}
+  - component: {fileID: 2344188918455247323}
+  - component: {fileID: 2344188918455247322}
+  - component: {fileID: 2344188918455247321}
+  - component: {fileID: 2344188918455247320}
   m_Layer: 7
   m_Name: Graphics
   m_TagString: Untagged
@@ -13604,6 +13627,86 @@ Transform:
   m_Father: {fileID: 2344188917717025829}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2344188918455247320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344188918455247318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af5be925ef79da45bd825f6eae2b418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation: {fileID: 7400000, guid: ea521959276f1d94d939feb733052707, type: 2}
+  _priority: 0
+  _animationLayer: 1
+  _canInterrupt: 1
+--- !u!114 &2344188918455247321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344188918455247318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d0524392cfd847bdcfc38b854d501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation: {fileID: 7400000, guid: b9ccfdc2c73f5d6429e1b8ad20a5e9e1, type: 2}
+  _priority: 1
+  _animationLayer: 1
+  _canInterrupt: 1
+--- !u!114 &2344188918455247322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344188918455247318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3addf8989f4cee4092a6cd9428c2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation: {fileID: 7400000, guid: 9c8c8d98b2b05524699d32f8e95413c3, type: 2}
+  _priority: 2
+  _animationLayer: 1
+  _canInterrupt: 1
+--- !u!114 &2344188918455247323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344188918455247318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2a5c5a1dafb244baf416750640667f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation: {fileID: 7400000, guid: ec6280a199aa3b941bd547f94b8c7f77, type: 2}
+  _priority: 3
+  _animationLayer: 1
+  _canInterrupt: 1
+--- !u!114 &2344188918455247324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344188918455247318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b36e52f95583a4998f670ab930750a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation: {fileID: 7400000, guid: a7893883e34afbb4c9f7d5a6653c6402, type: 2}
+  _priority: 4
+  _animationLayer: 1
+  _canInterrupt: 1
 --- !u!1 &2344188918709340564
 GameObject:
   m_ObjectHideFlags: 0
@@ -13741,6 +13844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: 139822bc93e2b774e8262072c1a17de6, type: 2}
   _priority: 2
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &3037487443059612377
 MonoBehaviour:
@@ -13768,6 +13872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: b9b7c278581c8b04791de110de36cbf6, type: 2}
   _priority: 5
+  _animationLayer: 0
   _canInterrupt: 0
 --- !u!114 &7536356926542837280
 MonoBehaviour:
@@ -13783,6 +13888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: bfe3422c9394ca24aa2cd98c60479edb, type: 2}
   _priority: 4
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &8007817777780414436
 MonoBehaviour:
@@ -13798,6 +13904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: 273fbbb7ed70f0141b9a182d756e9e68, type: 2}
   _priority: 3
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &8795962819301228654
 MonoBehaviour:
@@ -13813,4 +13920,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: de7dcbb4b1f382e42a17a02e45add071, type: 2}
   _priority: 0
+  _animationLayer: 0
   _canInterrupt: 1

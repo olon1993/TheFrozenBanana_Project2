@@ -17,10 +17,15 @@ namespace TheFrozenBanana
         [SerializeField] private IWeapon.AmmoType _ammoType;
 		[SerializeField] private int _animationLayer;
 
-        //**************************************************\\
-        //******************** Methods *********************\\
-        //**************************************************\\
-        public void Attack()
+		//**************************************************\\
+		//******************** Methods *********************\\
+		//**************************************************\\
+
+		public void ToggleWeapon(bool on) {
+
+		}
+
+		public void Attack()
         {
             if (IsLimitedAmmo)
             {

@@ -46,6 +46,10 @@ namespace TheFrozenBanana
                 Debug.LogError("Damage not found on " + gameObject.name);
             }
         }
+		
+		public void ToggleWeapon(bool on) {
+
+		}
 
         public void Attack()
         {

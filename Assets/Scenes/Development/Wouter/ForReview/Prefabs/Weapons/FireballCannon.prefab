@@ -60,6 +60,7 @@ MonoBehaviour:
   _ammoTypeDefinition: 0
   _pointOfOrigin: {fileID: 2578267749614658472}
   _attackActionTime: 0
+  _animationLayer: 1
 --- !u!1 &2578267749797439783
 GameObject:
   m_ObjectHideFlags: 0

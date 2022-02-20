@@ -13,8 +13,9 @@ namespace TheFrozenBanana
         Transform PointOfOrigin { get; set; }
         public float AttackActionTime { get; }
 		int AnimationLayer { get; set; }
+		void ToggleWeapon(bool on);
 
-        public enum DamageType
+		public enum DamageType
         {
             PHYSICAL, FIRE
         }

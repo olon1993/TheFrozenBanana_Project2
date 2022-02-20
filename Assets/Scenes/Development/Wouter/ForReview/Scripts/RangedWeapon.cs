@@ -50,6 +50,7 @@ namespace TheFrozenBanana {
 			if (projectileKillTime == 0) {
 				projectileKillTime = 3f;
 			}
+			ToggleWeapon(false);
 		}
 
 		public void Attack() {
@@ -101,6 +102,10 @@ namespace TheFrozenBanana {
 			GameObject proj = Instantiate(projectile, PointOfOrigin.position, Quaternion.identity, null) as GameObject;
 			proj.GetComponent<IProjectile>().Setup(gameObject.transform.position, fireTowards, rot);
 			Destroy(proj, projectileKillTime);
+		}
+
+		public void ToggleWeapon(bool on) {
+			_weaponObject.enabled = on;
 		}
 
 
