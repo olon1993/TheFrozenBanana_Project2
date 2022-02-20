@@ -17,7 +17,6 @@ namespace TheFrozenBanana
         private bool _isJump;
         private bool _isJumpCancelled;
         private bool _isDash;
-        private bool _isDashCancelled;
         private bool _isAttack;
 
         //**************************************************\\
@@ -34,7 +33,6 @@ namespace TheFrozenBanana
             _isJumpCancelled = Input.GetButtonUp("Jump");
 
             _isDash = Input.GetButton("Fire3");
-            _isDashCancelled = Input.GetButtonUp("Fire3");
 
             _isAttack = Input.GetButtonDown("Fire1");
 
@@ -62,8 +60,6 @@ namespace TheFrozenBanana
         public bool IsJumpCancelled { get { return _isJumpCancelled; } }
 
         public bool IsDash { get { return _isDash; } }
-
-        public bool IsDashCancelled { get { return _isDashCancelled; } }
 
         public bool IsAttack { get { return _isAttack; } }
     }

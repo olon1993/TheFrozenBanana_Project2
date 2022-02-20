@@ -18,6 +18,5 @@ namespace TheFrozenBanana
         bool IsRightCollision { get; }
         bool IsLeftCollision { get; }
         bool IsDashing { get; set; }
-        public bool IsDashCancelled { get; set; }
     }
 }

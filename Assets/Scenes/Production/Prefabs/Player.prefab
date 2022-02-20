@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 2344188918914379197}
   - component: {fileID: 2344188918914379196}
   - component: {fileID: 2344188918914379192}
+  - component: {fileID: 7028547389454124433}
   - component: {fileID: 2344188918914379193}
   m_Layer: 7
   m_Name: Player
@@ -157,8 +158,9 @@ MonoBehaviour:
   _maxJumpHeight: 3.5
   _timeToJumpApex: 0.4
   _maxSlopeAngle: 30
+  _movementIsControllable: 1
   _walkSpeed: 8
-  _dashSpeed: 11
+  _dashSpeed: 20
   _wallSlideSpeedMax: 3
   _terminalFallingVelocity: -45
   _minJumpHeight: 1
@@ -167,6 +169,9 @@ MonoBehaviour:
   _wallJumpClimb: {x: 7.5, y: 16}
   _wallJumpOff: {x: 8.5, y: 7}
   _wallLeap: {x: 18, y: 17}
+  _dashStaminaCost: 5
+  _staminaIdleReplenishAmount: 10
+  _staminaDrainFrequency: 0.1
 --- !u!114 &2344188918914379192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +184,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472aaede3656b7d4e86365f2121e5deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7028547389454124433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344188918914379187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2bda1806d892b4ea34d69861f9c5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxStamina: 50
+  staminaBar: {fileID: 0}
 --- !u!114 &2344188918914379193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +232,9 @@ GameObject:
   - component: {fileID: 5059498214119480307}
   - component: {fileID: 7536356928025386938}
   - component: {fileID: 8007817776562110078}
+  - component: {fileID: 7421384791600398244}
   - component: {fileID: 2895765720040532528}
+  - component: {fileID: 869676474928463627}
   - component: {fileID: 499279786714746229}
   - component: {fileID: 8795962818619533812}
   m_Layer: 7
@@ -332,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: b9b7c278581c8b04791de110de36cbf6, type: 2}
-  _priority: 5
+  _priority: 7
   _canInterrupt: 0
 --- !u!114 &7536356928025386938
 MonoBehaviour:
@@ -347,7 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: bfe3422c9394ca24aa2cd98c60479edb, type: 2}
-  _priority: 4
+  _priority: 6
   _canInterrupt: 1
 --- !u!114 &8007817776562110078
 MonoBehaviour:
@@ -362,7 +383,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: 273fbbb7ed70f0141b9a182d756e9e68, type: 2}
-  _priority: 3
+  _priority: 5
+  _canInterrupt: 1
+--- !u!114 &7421384791600398244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344188919115712588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843440432afb8a447b0c5ec23413ffbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation: {fileID: 7400000, guid: 139822bc93e2b774e8262072c1a17de6, type: 2}
+  _priority: 4
   _canInterrupt: 1
 --- !u!114 &2895765720040532528
 MonoBehaviour:
@@ -376,7 +412,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0494e726833ec64b8b53b70ba547de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animation: {fileID: 7400000, guid: 139822bc93e2b774e8262072c1a17de6, type: 2}
+  _animation: {fileID: 7400000, guid: cf12c1ff4f7bf4347a8bbfb7e8cc9dfa, type: 2}
+  _priority: 3
+  _canInterrupt: 1
+--- !u!114 &869676474928463627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344188919115712588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06024ba1e67289498fb7117cac2024b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation: {fileID: 7400000, guid: bc9e9a1cae77a894fbeb18d2b72aad98, type: 2}
   _priority: 2
   _canInterrupt: 1
 --- !u!114 &499279786714746229

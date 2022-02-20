@@ -11,6 +11,7 @@ namespace TheFrozenBanana
         //**************************************************\\
         //********************* Fields *********************\\
         //**************************************************\\
+        [SerializeField] bool _movementIsControllable = true;
 
         private IInputManager _inputManager;
 
@@ -36,6 +37,15 @@ namespace TheFrozenBanana
         private int _wallDirectionX;
         private bool _isWallSliding;
 
+        // Dash and Stamina
+        private Stamina _stamina;
+
+        [SerializeField] private float _dashStaminaCost;
+        [SerializeField] private float _staminaIdleReplenishAmount;
+        [SerializeField] private float _staminaDrainFrequency = 0.1f;
+        private float _staminaDrainTimer = 0;
+        private bool _wantsToDash;
+
         // Graphics
         private float _horizontalLook = 1;
 
@@ -47,10 +57,21 @@ namespace TheFrozenBanana
         {
             base.Awake();
 
+            GetDependencies();
+        }
+
+        private void GetDependencies()
+        {
             _inputManager = GetComponent<IInputManager>();
             if (_inputManager == null)
             {
                 Debug.Log("No Input Manager found on " + name);
+            }
+
+            _stamina = GetComponent<Stamina>();
+            if (_stamina == null)
+            {
+                print("Stamina component not found on " + name);
             }
         }
 
@@ -82,21 +103,24 @@ namespace TheFrozenBanana
 
             FaceDirectionMoving();
 
-            Dash();
+            HandleDash();
 
             Move(_velocity * Time.deltaTime);
 
             VerticalCollisionAdjustment();
+
+            Idle();
         }
 
         void GetInput()
         {
+            if (!_movementIsControllable) return;
+
             HorizontalMovement = _inputManager.Horizontal;
             VerticalMovement = _inputManager.Vertical;
             IsJumping = _inputManager.IsJump;
             IsJumpCancelled = _inputManager.IsJumpCancelled;
-            IsDashing = IsJumping ? false : _inputManager.IsDash;
-            IsDashCancelled = IsDashing && Mathf.Abs(HorizontalMovement) <= Mathf.Epsilon;
+            _wantsToDash = IsJumping ? false : _inputManager.IsDash;
         }
 
         protected override void CalculateVelocity()
@@ -212,12 +236,44 @@ namespace TheFrozenBanana
             }
         }
 
-        void Dash()
+        void HandleDash()
         {
+            // Already dashing
             if (IsDashing && IsGrounded)
             {
-                _velocity.x += _dashSpeed * HorizontalMovement;
+                // Not moving
+                if (Mathf.Abs(_velocity.x) <= Mathf.Epsilon)
+                {
+                    IsDashing = false;
+                    return;
+                }
+                if (_wantsToDash)
+                {
+                    if (_stamina == null || _staminaDrainTimer < _staminaDrainFrequency)
+                    {
+                        _velocity.x += _dashSpeed * HorizontalMovement;
+                        _staminaDrainTimer += Time.deltaTime;
+                        return;
+                    }
+                    if (_stamina.UseStamina(_dashStaminaCost))
+                    {
+                        _staminaDrainTimer = 0f;
+                        _velocity.x += _dashSpeed * HorizontalMovement;
+                        return;
+                    }
+                    IsDashing = false;
+                    return;
+                }
             }
+
+            if (_wantsToDash && IsGrounded && (_stamina == null || _stamina.UseStamina(_dashStaminaCost)))
+            {
+                IsDashing = true;
+                _velocity.x += _dashSpeed * HorizontalMovement;
+                return;
+            }
+
+            IsDashing = false;
         }
 
         void VerticalCollisionAdjustment()
@@ -232,6 +288,14 @@ namespace TheFrozenBanana
                 {
                     _velocity.y = 0;
                 }
+            }
+        }
+
+        void Idle()
+        {
+            if (_stamina != null && Mathf.Abs(_velocity.x) <= Mathf.Epsilon && Mathf.Abs(_velocity.y) <= Mathf.Epsilon)
+            {
+                _stamina.ReplenishStamina(_staminaIdleReplenishAmount * Time.deltaTime);
             }
         }
 
@@ -452,7 +516,5 @@ namespace TheFrozenBanana
         public bool IsJumpCancelled { get; set; }
 
         public bool IsDashing { get; set; }
-
-        public bool IsDashCancelled { get; set; }
     }
 }

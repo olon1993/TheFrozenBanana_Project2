@@ -43,7 +43,6 @@ namespace TheFrozenBanana
         private bool _isJump;
         private bool _isJumpCancelled;
         private bool _isDash;
-        private bool _isDashCancelled;
         private bool _isAttack;
 
         //**************************************************\\
@@ -239,8 +238,6 @@ namespace TheFrozenBanana
         public bool IsJumpCancelled { get { return _isJumpCancelled; } }
 
         public bool IsDash { get { return _isDash; } }
-
-        public bool IsDashCancelled { get { return _isDashCancelled; } }
 
         public bool IsAttack { get { return _isAttack; } }
     }

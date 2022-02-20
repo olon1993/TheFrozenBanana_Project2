@@ -30,7 +30,7 @@ namespace TheFrozenBanana
 
             _animationStates = GetComponents<IAnimationState>().ToList();
             
-            if(_animationStates == null)
+            if(_animationStates.Count == 0)
             {
                 Debug.LogError("No Animation States found on " + name);
             }

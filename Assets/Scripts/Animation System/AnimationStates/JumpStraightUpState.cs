@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheFrozenBanana
-{ 
-    public class DashState : AnimationState
+{
+    public class JumpStraightUpState : AnimationState
     {
 
         //**************************************************\\
@@ -35,7 +35,7 @@ namespace TheFrozenBanana
 
         public override bool ShouldPlay()
         {
-            if (_locomotion.IsDashing && Mathf.Abs(_locomotion.Velocity.x) > Mathf.Epsilon)
+            if (_locomotion.Velocity.y > Mathf.Epsilon && Mathf.Abs(_locomotion.Velocity.x) <= Mathf.Epsilon)
             {
                 return true;
             }
