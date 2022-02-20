@@ -5,7 +5,7 @@ using TheFrozenBanana;
 
 namespace TheFrozenBanana {
 
-	public class wProjectile : MonoBehaviour, IProjectile {
+	public class Projectile : MonoBehaviour, IProjectile {
 
 		[SerializeField] private float _velocity;
 		[SerializeField] GameObject _child;

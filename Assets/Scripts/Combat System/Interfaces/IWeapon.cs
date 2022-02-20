@@ -12,6 +12,7 @@ namespace TheFrozenBanana
         AmmoType AmmoTypeDefinition { get; set; }
         Transform PointOfOrigin { get; set; }
         public float AttackActionTime { get; }
+		int AnimationLayer { get; set; }
 
         public enum DamageType
         {

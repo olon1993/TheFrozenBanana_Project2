@@ -5,9 +5,9 @@ using TheFrozenBanana;
 
 namespace TheFrozenBanana {
 
-	public class wRangedWeapon : MonoBehaviour, IRangedWeapon {
+	public class RangedWeapon : MonoBehaviour, IRangedWeapon {
 
-		// From IRRangedWeapon
+		// From IRangedWeapon
 		[SerializeField] private GameObject _projectile;
 		[SerializeField] private Transform _target;
 		[SerializeField] private Transform _aimTool;
@@ -25,6 +25,7 @@ namespace TheFrozenBanana {
 		[SerializeField] private IWeapon.AmmoType _ammoTypeDefinition;
 		[SerializeField] private Transform _pointOfOrigin;
 		[SerializeField] private float _attackActionTime;
+		[SerializeField] private int _animationLayer;
 
 
 		private ILocomotion _locomotion;
@@ -176,6 +177,11 @@ namespace TheFrozenBanana {
 		public float AttackActionTime {
 			get { return _attackActionTime; }
 			set { _attackActionTime = value; }
+		}
+
+		public int AnimationLayer {
+			get { return _animationLayer; }
+			set { _animationLayer = value; }
 		}
 	}
 }

@@ -5,7 +5,7 @@ using TheFrozenBanana;
 
 namespace TheFrozenBanana {
 
-	public class wProjectileChild : MonoBehaviour {
+	public class ProjectileChild : MonoBehaviour {
 
 		[SerializeField] private IProjectile projectileParent;
 		private Collider2D myCollider;

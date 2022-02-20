@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TheFrozenBanana
 {
-    public class Projectile : MonoBehaviour
+    public class OldProjectile : MonoBehaviour
     {
         [SerializeField] private bool _showDebugLog = false;
 

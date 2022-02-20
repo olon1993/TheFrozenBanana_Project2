@@ -26,6 +26,8 @@ namespace TheFrozenBanana
         [SerializeField] float delayToHit = 0f;
         [SerializeField] float attackActionTime = 0.1f;
 
+		[SerializeField] private int _animationLayer;
+
         private bool _is2D = true;
 
         public float AttackActionTime
@@ -154,6 +156,11 @@ namespace TheFrozenBanana
         }
 
         public float AttackRange { get { return _radiusOfInteraction; } }
+
+		public int AnimationLayer {
+			get { return _animationLayer; }
+			set { _animationLayer = value; }
+		}
 
         void OnDrawGizmos()
         {

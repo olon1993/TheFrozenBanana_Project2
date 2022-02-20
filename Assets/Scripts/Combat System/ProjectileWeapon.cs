@@ -15,6 +15,7 @@ namespace TheFrozenBanana
         [SerializeField] private int _maxAmmo;
         [SerializeField] private int _currentAmmo;
         [SerializeField] private IWeapon.AmmoType _ammoType;
+		[SerializeField] private int _animationLayer;
 
         //**************************************************\\
         //******************** Methods *********************\\
@@ -81,5 +82,10 @@ namespace TheFrozenBanana
         }
 
         public float AttackActionTime { get; }
-    }
+
+		public int AnimationLayer {
+			get { return _animationLayer; }
+			set { _animationLayer = value; }
+		}
+	}
 }
