@@ -55,7 +55,7 @@ namespace TheFrozenBanana
         // Start is called before the first frame update
         void Start()
         {
-            IList<IWeapon> weapons = transform.GetComponents<IWeapon>().ToList();
+            IList<IWeapon> weapons = transform.GetComponentsInChildren<IWeapon>().ToList();
             foreach (IWeapon weapon in weapons)
             {
                 _weapons.Add(weapon);

@@ -62,11 +62,13 @@ namespace TheFrozenBanana {
 		}
 
 		private void UpdateTargetLocation() {
-			Vector2 mousePos = Input.mousePosition;
-			Vector3 pos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
-			aimTool.position = pos;
-			if (Vector2.Distance(gameObject.transform.position, aimTool.position) < 1) {
-				aimTool.position = gameObject.transform.position + new Vector3(_locomotion.HorizontalLook, 0, 0);
+			if (canAim) {
+				Vector2 mousePos = Input.mousePosition;
+				Vector3 pos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
+				aimTool.position = pos;
+				if (Vector2.Distance(gameObject.transform.position, aimTool.position) < 1) {
+					aimTool.position = gameObject.transform.position + new Vector3(_locomotion.HorizontalLook, 0, 0);
+				}
 			}
 		}
 
@@ -94,10 +96,7 @@ namespace TheFrozenBanana {
 			if (_locomotion.HorizontalLook < 0) {
 				rot *= Quaternion.Euler(0, 0, 180);
 			}
-			Vector3 fireTowards = new Vector3(_locomotion.HorizontalLook, 0, 0);
-			if (canAim) {
-				fireTowards = target.position;
-			}
+			Vector3 fireTowards = target.position;
 			GameObject proj = Instantiate(projectile, PointOfOrigin.position, Quaternion.identity, null) as GameObject;
 			proj.GetComponent<IProjectile>().Setup(gameObject.transform.position, fireTowards, rot);
 			Destroy(proj, projectileKillTime);
