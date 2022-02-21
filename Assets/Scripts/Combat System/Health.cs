@@ -1,98 +1,113 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour, IHealth
+namespace TheFrozenBanana
 {
-    [SerializeField] private bool _showDebugLog = false;
-
-    //**************************************************\\
-    //********************* Fields *********************\\
-    //**************************************************\\
-    [SerializeField] private int _maxHealth;
-    [SerializeField] private int _currentHealth;
-
-    [SerializeField] Image HealthBar;
-    [SerializeField] AudioSource HurtSoundEffect;
-    [SerializeField] AudioSource DieSoundEffect;
-    [SerializeField] List<Damage> DamageMultipliers;
-
-    //**************************************************\\
-    //******************** Methods *********************\\
-    //**************************************************\\
-
-    // Returns true if the Die method is called
-    public bool TakeDamage(Damage damage)
+    public class Health : MonoBehaviour, IHealth
     {
-        CurrentHealth -= damage.DamageAmount;
-        
-        if(HealthBar != null)
+        [SerializeField] private bool _showDebugLog = false;
+
+        //**************************************************\\
+        //********************* Fields *********************\\
+        //**************************************************\\
+        [SerializeField] private int _maxHealth;
+        [SerializeField] private int _currentHealth;
+
+        [SerializeField] Image HealthBar;
+        [SerializeField] AudioClip HurtSoundEffect;
+        [SerializeField] AudioClip DieSoundEffect;
+        [SerializeField] List<Damage> DamageMultipliers;
+
+        AudioManager audioManager;
+
+        //**************************************************\\
+        //******************** Methods *********************\\
+        //**************************************************\\
+
+        void Awake()
         {
-            HealthBar.fillAmount = (float)CurrentHealth / MaxHealth;
-        }
-        
-        if(CurrentHealth <= 0)
-        {
-            Die();
-            return true;
-        }
-        else if(CurrentHealth > MaxHealth)
-        {
-            CurrentHealth = MaxHealth;
-        }
-        else
-        {
-            if(HurtSoundEffect != null)
+            audioManager = FindObjectOfType<AudioManager>();
+            if (audioManager == null)
             {
-                HurtSoundEffect.Play();
+                Debug.Log("No AudioManager in scene");
             }
         }
 
-        return false;
-    }
+        // Returns true if the Die method is called
+        public bool TakeDamage(Damage damage)
+        {
+            CurrentHealth -= damage.DamageAmount;
 
-    private void Die()
-    {
-        if (_showDebugLog)
-        {
-            Debug.Log(gameObject.name + " has died!");
-        }
-
-        if(DieSoundEffect != null)
-        {
-            DieSoundEffect.Play();
-        }
-
-        if (gameObject.CompareTag("Player"))
-        {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            if(DieSoundEffect != null)
+            if (HealthBar != null)
             {
-                Destroy(gameObject, DieSoundEffect.clip.length);
+                HealthBar.fillAmount = (float)CurrentHealth / MaxHealth;
+            }
+
+            if (CurrentHealth <= 0)
+            {
+                Die();
+                return true;
+            }
+            else if (CurrentHealth > MaxHealth)
+            {
+                CurrentHealth = MaxHealth;
             }
             else
             {
-                Destroy(gameObject);
+                if (audioManager != null)
+                {
+                    audioManager.PlayClip(HurtSoundEffect);
+                }
+            }
+
+            return false;
+        }
+
+        private void Die()
+        {
+            if (_showDebugLog)
+            {
+                Debug.Log(gameObject.name + " has died!");
+            }
+
+            if (audioManager != null)
+            {
+                audioManager.PlayClip(DieSoundEffect);
+            }
+
+            if (gameObject.CompareTag("Player"))
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                if (audioManager != null)
+                {
+                    Destroy(gameObject, DieSoundEffect.length);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
-    }
 
-    //**************************************************\\
-    //******************* Properties *******************\\
-    //**************************************************\\
+        //**************************************************\\
+        //******************* Properties *******************\\
+        //**************************************************\\
 
-    public int MaxHealth 
-    {
-        get { return _maxHealth; }
-        set { _maxHealth = value; }
-    }
+        public int MaxHealth
+        {
+            get { return _maxHealth; }
+            set { _maxHealth = value; }
+        }
 
-    public int CurrentHealth
-    {
-        get { return _currentHealth; }
-        set { _currentHealth = value; }
+        public int CurrentHealth
+        {
+            get { return _currentHealth; }
+            set { _currentHealth = value; }
+        }
     }
 }

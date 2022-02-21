@@ -2,156 +2,175 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeWeapon : MonoBehaviour, IWeapon
+namespace TheFrozenBanana
 {
-    [SerializeField] private bool _showDebugLog = false;
-
-    //**************************************************\\
-    //********************* Fields *********************\\
-    //**************************************************\\
-
-    // Dependencies
-    [SerializeField] private Damage _damage;
-    [SerializeField] private IWeapon.AmmoType _ammoTypeDefinition;
-
-    [SerializeField] private bool _isLimitedAmmo;
-    [SerializeField] private int _maxAmmo;
-    [SerializeField] private int _currentAmmo;
-
-    [SerializeField] private Transform _pointOfOrigin;
-    [SerializeField] private float _radiusOfInteraction;
-
-    private bool _is2D = true;
-
-    //**************************************************\\
-    //******************** Methods *********************\\
-    //**************************************************\\
-
-    private void Start()
+    public class MeleeWeapon : MonoBehaviour, IMeleeWeapon
     {
-        if(_damage == null)
-        {
-            Debug.LogError("Damage not found on " + gameObject.name);
-        }
-    }
+        [SerializeField] protected bool _showDebugLog = false;
 
-    public void Attack()
-    {
-        if (_showDebugLog)
+        //**************************************************\\
+        //********************* Fields *********************\\
+        //**************************************************\\
+
+        // Dependencies
+        [SerializeField] private Damage _damage;
+        [SerializeField] private IWeapon.AmmoType _ammoTypeDefinition;
+
+        [SerializeField] private bool _isLimitedAmmo;
+        [SerializeField] private int _maxAmmo;
+        [SerializeField] private int _currentAmmo;
+
+        [SerializeField] protected Transform _pointOfOrigin;
+        [SerializeField] protected float _radiusOfInteraction;
+
+        [SerializeField] float delayToHit = 0f;
+        [SerializeField] float attackActionTime = 0.1f;
+
+		[SerializeField] private int _animationLayer;
+
+        private bool _is2D = true;
+
+        public float AttackActionTime
         {
-            Debug.Log("Attacking with " + name);
+            get { return attackActionTime; }
         }
 
-        if (_is2D)
-        {
-            HandleDamage2D();
-        }
-        else
-        {
-            HandleDamage();
-        }
-    }
+        //**************************************************\\
+        //******************** Methods *********************\\
+        //**************************************************\\
 
-    private void HandleDamage()
-    {
-        Collider[] colliders = Physics.OverlapSphere(_pointOfOrigin.position, _radiusOfInteraction);
-        foreach (Collider collider in colliders)
+        private void Start()
         {
-            IHealth health = collider.GetComponent<IHealth>();
-            if (health == null)
+            if (_damage == null)
             {
-                continue;
+                Debug.LogError("Damage not found on " + gameObject.name);
             }
+        }
+		
+		public void ToggleWeapon(bool on) {
 
+		}
+
+        public void Attack()
+        {
             if (_showDebugLog)
             {
-                Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
+                Debug.Log("Attacking with " + name);
             }
 
-            bool isDead = health.TakeDamage(Damage);
-
-            if (_showDebugLog)
+            // This should be broken out into a 2d and a 3d version of this mechanic
+            if (_is2D)
             {
-                if (isDead == false)
+                Invoke("HandleDamage2D", delayToHit);
+            }
+            else
+            {
+                HandleDamage();
+            }
+        }
+
+        private void HandleDamage()
+        {
+            Collider[] colliders = Physics.OverlapSphere(_pointOfOrigin.position, _radiusOfInteraction);
+            foreach (Collider collider in colliders)
+            {
+                IHealth health = collider.GetComponent<IHealth>();
+                if (health == null)
                 {
-                    Debug.Log(collider.gameObject.name + " health = " + health.CurrentHealth + " / " + health.MaxHealth);
+                    continue;
+                }
+
+                bool isDead = health.TakeDamage(Damage);
+
+                if (_showDebugLog)
+                {
+                    Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
+
+                    if (isDead == false)
+                    {
+                        Debug.Log(collider.gameObject.name + " health = " + health.CurrentHealth + " / " + health.MaxHealth);
+                    }
                 }
             }
         }
-    }
 
-    private void HandleDamage2D()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(_pointOfOrigin.position, _radiusOfInteraction);
-        foreach (Collider2D collider in colliders)
+        protected virtual void HandleDamage2D()
         {
-            IHealth health = collider.GetComponent<IHealth>();
-            if (health == null)
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(_pointOfOrigin.position, _radiusOfInteraction);
+            foreach (Collider2D collider in colliders)
             {
-                continue;
-            }
-
-            if (_showDebugLog)
-            {
-                Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
-            }
-
-            bool isDead = health.TakeDamage(Damage);
-
-            if (_showDebugLog)
-            {
-                if (isDead == false)
+                IHealth health = collider.GetComponent<IHealth>();
+                if (health == null)
                 {
-                    Debug.Log(collider.gameObject.name + " health = " + health.CurrentHealth + " / " + health.MaxHealth);
+                    continue;
+                }
+
+                bool isDead = health.TakeDamage(Damage);
+
+                if (_showDebugLog)
+                {
+                    Debug.Log(gameObject.name + " attacks dealing " + Damage.DamageAmount + " damage to " + collider.gameObject.name + "!");
+
+                    if (isDead == false)
+                    {
+                        Debug.Log(collider.gameObject.name + " health = " + health.CurrentHealth + " / " + health.MaxHealth);
+                    }
                 }
             }
         }
+
+        //**************************************************\\
+        //******************* Properties *******************\\
+        //**************************************************\\
+
+        public Damage Damage
+        {
+            get { return _damage; }
+            set { _damage = value; }
+        }
+
+        public bool IsLimitedAmmo
+        {
+            get { return _isLimitedAmmo; }
+            set { _isLimitedAmmo = value; }
+        }
+
+        public int MaxAmmo
+        {
+            get { return _maxAmmo; }
+            set { _maxAmmo = value; }
+        }
+
+        public int CurrentAmmo
+        {
+            get { return _currentAmmo; }
+            set { _currentAmmo = value; }
+        }
+
+        public IWeapon.AmmoType AmmoTypeDefinition
+        {
+            get { return _ammoTypeDefinition; }
+            set { _ammoTypeDefinition = value; }
+        }
+
+        public Transform PointOfOrigin
+        {
+            get { return _pointOfOrigin; }
+            set { _pointOfOrigin = value; }
+        }
+
+        public float AttackRange { get { return _radiusOfInteraction; } }
+
+		public int AnimationLayer {
+			get { return _animationLayer; }
+			set { _animationLayer = value; }
+		}
+
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(_pointOfOrigin.position, _radiusOfInteraction);
+        }
+
     }
-
-    //**************************************************\\
-    //******************* Properties *******************\\
-    //**************************************************\\
-
-    public Damage Damage 
-    {
-        get { return _damage; }
-        set { _damage = value; }
-    }
-
-    public bool IsLimitedAmmo 
-    {
-        get { return _isLimitedAmmo; }
-        set { _isLimitedAmmo = value; }
-    }
-
-    public int MaxAmmo 
-    {
-        get { return _maxAmmo; }
-        set { _maxAmmo = value; }
-    }
-
-    public int CurrentAmmo 
-    {
-        get { return _currentAmmo; }
-        set { _currentAmmo = value; }
-    }
-
-    public IWeapon.AmmoType AmmoTypeDefinition 
-    {
-        get { return _ammoTypeDefinition; }
-        set { _ammoTypeDefinition = value; }
-    }
-
-    public Transform PointOfOrigin
-    {
-        get { return _pointOfOrigin; }
-        set { _pointOfOrigin = value; }
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(_pointOfOrigin.position, _radiusOfInteraction);
-    }
-
 }

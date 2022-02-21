@@ -1,127 +1,66 @@
 using UnityEngine;
 
-public class PlayerInputManager : MonoBehaviour
+namespace TheFrozenBanana
 {
-    [SerializeField] private bool _showDebugLog = false;
-
-    //**************************************************\\
-    //********************* Fields *********************\\
-    //**************************************************\\
-
-    // Dependencies
-    private ILocomotion _locomotion;
-    private IAnimationManager _animationManager;
-    private ICombatant _combatant;
-    
-    // Movement
-    public bool IsMovementEnabled = true;
-
-    //**************************************************\\
-    //******************** Methods *********************\\
-    //**************************************************\\
-
-    // Start is called before the first frame update
-    void Awake()
+    public class PlayerInputManager : MonoBehaviour, IInputManager
     {
-        _locomotion = transform.GetComponent<ILocomotion>();
-        if (_locomotion == null)
+        [SerializeField] protected bool _showDebugLog = false;
+
+        //**************************************************\\
+        //********************* Fields *********************\\
+        //**************************************************\\
+
+        // Movement
+        public bool IsMovementEnabled = true;
+        private float _horizontal;
+        private float _vertical;
+        private bool _isJump;
+        private bool _isJumpCancelled;
+        private bool _isDash;
+        private bool _isAttack;
+
+        //**************************************************\\
+        //******************** Methods *********************\\
+        //**************************************************\\
+
+        // Update is called once per frame
+        void Update()
         {
-            Debug.LogError("ILocomotion not found on " + name);
-        }
+            _horizontal = Input.GetAxisRaw("Horizontal");
+            _vertical = Input.GetAxisRaw("Vertical");
 
-        _combatant = transform.GetComponent<ICombatant>();
-        if (_combatant == null)
-        {
-            Debug.LogError("ICombatant not found on " + name);
-        }
-        
-        _animationManager = transform.GetComponent<IAnimationManager>();
-        if (_animationManager == null)
-        {
-            Debug.LogError("IAnimationManager not found on " + name);
-        }
+            _isJump = Input.GetButtonDown("Jump");
+            _isJumpCancelled = Input.GetButtonUp("Jump");
 
-    }
+            _isDash = Input.GetButton("Fire3");
 
-    // Update is called once per frame
-    void Update()
-    {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+            _isAttack = Input.GetButtonDown("Fire1");
 
-        // Locomotion
-        _locomotion.HorizontalMovement = horizontal;
-        _locomotion.VerticalMovement = vertical;
-        _locomotion.IsJumping = Input.GetButtonDown("Jump");
-        _locomotion.IsJumpCancelled = Input.GetButtonUp("Jump");
-        _locomotion.IsDashing = _locomotion.IsJumping ? false : Input.GetButton("Fire3");
-        _locomotion.IsDashCancelled = _locomotion.IsDashing && Mathf.Abs(horizontal) <= Mathf.Epsilon;
-
-    // Animation
-        if(_locomotion.IsDashCancelled)
-        {
-            if(_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_RIGHT)
+            if (_showDebugLog)
             {
-                _animationManager.RequestStateChange(AnimationState.DASH_STOP_RIGHT);
-            }
-            else if(_animationManager.GetCurrentAnimationState() == AnimationState.DASH_START_LEFT)
-            {
-                _animationManager.RequestStateChange(AnimationState.DASH_STOP_LEFT);
-            }
-        }
-        else
-        {
-            if (horizontal != 0)
-            {
-                if(horizontal > 0)
-                {
-                    if(_locomotion.IsDashing && _locomotion.IsGrounded)
-                    {
-                        _animationManager.RequestStateChange(AnimationState.DASH_START_RIGHT);
-                    }
-                    else
-                    {
-                    _animationManager.RequestStateChange(AnimationState.WALK_RIGHT);
-                    }
-                }
-                else
-                {
-                    if (_locomotion.IsDashing && _locomotion.IsGrounded)
-                    {
-                        _animationManager.RequestStateChange(AnimationState.DASH_START_LEFT);
-                    }
-                    else
-                    {
-                        _animationManager.RequestStateChange(AnimationState.WALK_LEFT);
-                    }
-                }
-            }
-            else
-            {
-                if(_locomotion.HorizontalLook > 0)
-                {
-                    _animationManager.RequestStateChange(AnimationState.IDLE_RIGHT);
-                }
-                else
-                {
-                    _animationManager.RequestStateChange(AnimationState.IDLE_LEFT);
-                }
+                Debug.Log("Horizontal: " + _horizontal);
+                Debug.Log("Vertical: " + _vertical);
+                Debug.Log("IsJumping: " + _isJump);
+                Debug.Log("IsJumpCancelled: " + _isJumpCancelled);
+                Debug.Log("IsDashing: " + _isDash);
+                Debug.Log("IsAttacking: " + _isAttack);
             }
         }
 
-        // Combatant
-        _combatant.HorizontalFacingDirection = (int)horizontal;
-        _combatant.IsAttacking = Input.GetButtonDown("Fire1");
+        //**************************************************\\
+        //******************* Properties *******************\\
+        //**************************************************\\
 
-        if (_showDebugLog)
-        {
-            Debug.Log("Horizontal: " + _locomotion.HorizontalMovement);
-            Debug.Log("Vertical: " + _locomotion.VerticalMovement);
-            Debug.Log("IsJumping: " + _locomotion.IsJumping);
-            Debug.Log("IsJumpCancelled: " + _locomotion.IsJumpCancelled);
-            Debug.Log("IsDashing: " + _locomotion.IsDashing);
+        public float Horizontal { get { return _horizontal; } }
 
-            Debug.Log("IsAttacking: " + _combatant.IsAttacking);
-        }
+        public float Vertical { get { return _vertical; } }
+
+        public bool IsJump { get { return _isJump; } }
+
+        public bool IsJumpCancelled { get { return _isJumpCancelled; } }
+
+        public bool IsDash { get { return _isDash; } }
+
+        public bool IsAttack { get { return _isAttack; } }
     }
 }

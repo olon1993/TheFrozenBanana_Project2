@@ -1,25 +1,28 @@
 using UnityEngine;
 
-public class Damage : MonoBehaviour
+namespace TheFrozenBanana
 {
-    //**************************************************\\
-    //********************* Fields *********************\\
-    //**************************************************\\
-    [SerializeField] private int _damageAmount;
-    [SerializeField] private IWeapon.DamageType _damageType;
-
-    //**************************************************\\
-    //******************* Properties *******************\\
-    //**************************************************\\
-    public int DamageAmount 
+    public class Damage : MonoBehaviour
     {
-        get { return _damageAmount; }
-        set { _damageAmount = value; }
-    }
+        //**************************************************\\
+        //********************* Fields *********************\\
+        //**************************************************\\
+        [SerializeField] private int _damageAmount;
+        [SerializeField] private IWeapon.DamageType _damageType;
 
-    public IWeapon.DamageType DamageType
-    {
-        get { return _damageType; }
-        set { _damageType = value; }
+        //**************************************************\\
+        //******************* Properties *******************\\
+        //**************************************************\\
+        public int DamageAmount
+        {
+            get { return _damageAmount; }
+            set { _damageAmount = value; }
+        }
+
+        public IWeapon.DamageType DamageType
+        {
+            get { return _damageType; }
+            set { _damageType = value; }
+        }
     }
 }

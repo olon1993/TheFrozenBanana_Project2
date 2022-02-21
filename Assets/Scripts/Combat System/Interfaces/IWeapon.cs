@@ -2,24 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IWeapon 
+namespace TheFrozenBanana
 {
-    bool IsLimitedAmmo { get; set; }
-    int MaxAmmo { get; set; }
-    int CurrentAmmo { get; set; }
-    AmmoType AmmoTypeDefinition { get; set; }
-    Transform PointOfOrigin { get; set; }
-
-    public enum DamageType
+    public interface IWeapon
     {
-        PHYSICAL, FIRE
+        bool IsLimitedAmmo { get; set; }
+        int MaxAmmo { get; set; }
+        int CurrentAmmo { get; set; }
+        AmmoType AmmoTypeDefinition { get; set; }
+        Transform PointOfOrigin { get; set; }
+        public float AttackActionTime { get; }
+		int AnimationLayer { get; set; }
+		void ToggleWeapon(bool on);
+
+		public enum DamageType
+        {
+            PHYSICAL, FIRE
+        }
+
+        public enum AmmoType
+        {
+            NONE, MAGIC
+        }
+
+        void Attack();
+
     }
-
-    public enum AmmoType
-    {
-        NONE, MAGIC
-    }
-
-    void Attack();
-
 }

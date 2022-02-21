@@ -6,19 +6,21 @@ TagManager:
   tags:
   - PassableObstacle
   - Vehicle
+  - Enemy
+  - NPC
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Post process
   - Water
   - UI
   - Obstacles
   - Player
   - Vehicle
-  - 
-  - 
-  - 
+  - Breakable
+  - Enemy
+  - NPC
   - 
   - 
   - 
@@ -51,4 +53,10 @@ TagManager:
     locked: 0
   - name: Pedestrians
     uniqueID: 944745681
+    locked: 0
+  - name: Player
+    uniqueID: 535150603
+    locked: 0
+  - name: Platforms
+    uniqueID: 3403924215
     locked: 0

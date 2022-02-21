@@ -2,84 +2,87 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakablePlatformController : RaycastController
+namespace TheFrozenBanana
 {
-
-    //**************************************************\\
-    //********************* Fields *********************\\
-    //**************************************************\\
-
-    private Animator _animator;
-
-    [SerializeField] protected LayerMask _breakMask;
-    [TagSelector]
-    [SerializeField] private string[] _tagFilterArray = new string[] { };
-    [SerializeField] protected float _timeToBreak = 1f;
-    [SerializeField] protected float _rayLength = 0.25f;
-    private bool _isDestroyInvoked = false;
-
-    //**************************************************\\
-    //******************** Methods *********************\\
-    //**************************************************\\
-
-    protected override void Awake()
+    public class BreakablePlatformController : RaycastController
     {
-        base.Awake();
 
-        _animator = GetComponent<Animator>();
-        if (_animator == null)
+        //**************************************************\\
+        //********************* Fields *********************\\
+        //**************************************************\\
+
+        private Animator _animator;
+
+        [SerializeField] protected LayerMask _breakMask;
+        [TagSelector]
+        [SerializeField] private string[] _tagFilterArray = new string[] { };
+        [SerializeField] protected float _timeToBreak = 1f;
+        [SerializeField] protected float _rayLength = 0.25f;
+        private bool _isDestroyInvoked = false;
+
+        //**************************************************\\
+        //******************** Methods *********************\\
+        //**************************************************\\
+
+        protected override void Awake()
         {
-            Debug.Log("Animator not found on " + name);
-        }
-    }
+            base.Awake();
 
-    // Start is called before the first frame update
-    protected override void Start()
-    {
-        base.Start();
-        UpdateRacastOrigins();
-    }
-
-    protected virtual void Update()
-    {
-        if(_isDestroyInvoked == false)
-        {
-            for (int i = 0; i < _verticalRayCount; i++)
+            _animator = GetComponent<Animator>();
+            if (_animator == null)
             {
-                Vector2 rayOrigin = _raycastOrigins.TopLeft;
+                Debug.Log("Animator not found on " + name);
+            }
+        }
 
-                rayOrigin += Vector2.right * (_verticalRaySpacing * i);
-                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up, _rayLength, _breakMask);
+        // Start is called before the first frame update
+        protected override void Start()
+        {
+            base.Start();
+            UpdateRacastOrigins();
+        }
 
-                if (_showDebugLog)
+        protected virtual void Update()
+        {
+            if (_isDestroyInvoked == false)
+            {
+                for (int i = 0; i < _verticalRayCount; i++)
                 {
-                    Debug.DrawRay(rayOrigin, Vector2.up * _rayLength, Color.red);
-                }
+                    Vector2 rayOrigin = _raycastOrigins.TopLeft;
 
-                if (hit && hit.distance != 0)
-                {
-                    foreach (string tag in _tagFilterArray)
+                    rayOrigin += Vector2.right * (_verticalRaySpacing * i);
+                    RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up, _rayLength, _breakMask);
+
+                    if (_showDebugLog)
                     {
-                        if (hit.transform.CompareTag(tag))
-                        {
-                            if (_showDebugLog)
-                            {
-                                Debug.Log("Crumble invoked on " + name);
-                            }
+                        Debug.DrawRay(rayOrigin, Vector2.up * _rayLength, Color.red);
+                    }
 
-                            Invoke(nameof(BreakPlatform), _timeToBreak);
-                            _animator.Play("Break");
-                            _isDestroyInvoked = true;
-                            break;
+                    if (hit && hit.distance != 0)
+                    {
+                        foreach (string tag in _tagFilterArray)
+                        {
+                            if (hit.transform.CompareTag(tag))
+                            {
+                                if (_showDebugLog)
+                                {
+                                    Debug.Log("Crumble invoked on " + name);
+                                }
+
+                                Invoke(nameof(BreakPlatform), _timeToBreak);
+                                _animator.Play("Break");
+                                _isDestroyInvoked = true;
+                                break;
+                            }
                         }
                     }
                 }
             }
         }
-    }
 
-    private void BreakPlatform()
-    {
-        Destroy(gameObject);
+        private void BreakPlatform()
+        {
+            Destroy(gameObject);
+        }
     }
 }
