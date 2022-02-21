@@ -516,5 +516,7 @@ namespace TheFrozenBanana
         public bool IsJumpCancelled { get; set; }
 
         public bool IsDashing { get; set; }
+
+		public bool IsWallSliding { get { return _isWallSliding; } }
     }
 }
