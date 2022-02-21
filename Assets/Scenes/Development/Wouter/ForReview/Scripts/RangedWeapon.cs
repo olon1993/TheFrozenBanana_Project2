@@ -17,6 +17,7 @@ namespace TheFrozenBanana {
 		[SerializeField] private float _maxAngle;
 		[SerializeField] private float _projectileKillTime;
 		[SerializeField] private Camera _cam;
+		private float _dirSign;
 
 		// From IWeapon
 		[SerializeField] private bool _isLimitedAmmo;
@@ -63,6 +64,7 @@ namespace TheFrozenBanana {
 
 		}
 
+		// This is where the weapon picks up where to aim at.
 		private void UpdateTargetLocation() {
 			if (canAim) {
 				Vector2 mousePos = Input.mousePosition;
@@ -74,14 +76,20 @@ namespace TheFrozenBanana {
 			}
 		}
 
+		// This is where the weapon's renderer is rotated to point at where it's aiming.
 		private void UpdateRotation() {
 			// need 2 vectors: the base vector (which is the look vector of the player)
 			// and the vector to the target position
-			Vector2 vBase = new Vector2(_locomotion.HorizontalLook, 0);
+
+			dirSign = 1;
+			if (_locomotion.IsWallSliding) {
+				dirSign = -1;
+			}
+			Vector2 vBase = new Vector2(_locomotion.HorizontalLook * Mathf.Sign(dirSign), 0);
 			float angle = 0;
 			if (canAim) {
 				Vector2 vDir = aimTool.position - gameObject.transform.position;
-				angle = Vector2.Angle(vBase, vDir) * _locomotion.HorizontalLook;
+				angle = Vector2.Angle(vBase, vDir) * _locomotion.HorizontalLook * Mathf.Sign(dirSign);
 				if (aimTool.position.y < gameObject.transform.position.y) {
 					angle = -angle;
 				}
@@ -89,13 +97,17 @@ namespace TheFrozenBanana {
 					angle = maxAngle * Mathf.Sign(angle);
 				}
 			}
-			weaponObject.transform.localScale = new Vector3(localScale.x, localScale.y, localScale.z);
+			weaponObject.transform.localScale = new Vector3(localScale.x * Mathf.Sign(dirSign), localScale.y, localScale.z);
 			weaponObject.transform.rotation = Quaternion.Euler(0, 0, angle);
 		}
 
+		// This is where the weapon actually shoots
 		private void SpawnProjectile() {
 			Quaternion rot = weaponObject.transform.rotation;
 			if (_locomotion.HorizontalLook < 0) {
+				rot *= Quaternion.Euler(0, 0, 180);
+			}
+			if (dirSign < 0) {
 				rot *= Quaternion.Euler(0, 0, 180);
 			}
 			Vector3 fireTowards = target.position;
@@ -151,6 +163,11 @@ namespace TheFrozenBanana {
 		public Camera cam {
 			get { return _cam; }
 			set { _cam = value; }
+		}
+
+		public float dirSign {
+			get { return _dirSign; }
+			set { _dirSign = value; }
 		}
 
 		// IWeapon

@@ -16,5 +16,6 @@ namespace TheFrozenBanana {
 		float maxAngle { get; set; }
 		float projectileKillTime { get; set; }
 		Camera cam { get; set; }
+		float dirSign { get; set; }
 	}
 }
