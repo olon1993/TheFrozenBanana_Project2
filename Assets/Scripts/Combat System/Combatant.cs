@@ -63,14 +63,17 @@ namespace TheFrozenBanana
             }
         }
 
-        private void Update()
-        {
-            IsAttacking = _inputManager.IsAttack;
+		private void Update() {
+			IsAttacking = _inputManager.IsAttack;
 
-            if (IsAttacking)
-            {
-                CurrentWeapon.Attack();
-            }
+			if (IsAttacking) {
+				CurrentWeapon.Attack();
+			}
+
+			CheckWeaponToggle();
+		}
+
+		private void CheckWeaponToggle() { 
 
 			if (Input.GetKeyDown(KeyCode.Alpha1)) {
 				// Weapon 1 - Unarmed
