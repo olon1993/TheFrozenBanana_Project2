@@ -61,6 +61,7 @@ MonoBehaviour:
   _pointOfOrigin: {fileID: 2578267749614658472}
   _attackActionTime: 0
   _animationLayer: 1
+  fireAnimation: {fileID: 0}
 --- !u!1 &2578267749797439783
 GameObject:
   m_ObjectHideFlags: 0
