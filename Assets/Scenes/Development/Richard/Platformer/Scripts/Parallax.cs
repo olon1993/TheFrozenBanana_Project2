@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    private Camera cam;
-    private Vector3 previousCamPos;
-    [SerializeField] float parallaxEffect;
+    private Transform _camTransform;
+    private Vector3 _previousCamPos;
+    [SerializeField] Vector2 _parallaxEffect;
 
     private void Start()
     {
-        cam = Camera.main;
-        previousCamPos = cam.transform.position;
+        _camTransform = Camera.main.transform;
+        _previousCamPos = _camTransform.position;
     }
 
     private void LateUpdate()
     {
-        float dist = (cam.transform.position.x - previousCamPos.x) * parallaxEffect;
+        Vector3 deltaMovement = (_camTransform.position - _previousCamPos);
 
-        transform.position = new Vector3(transform.position.x + dist, transform.position.y, transform.position.z);
+        transform.position += new Vector3(deltaMovement.x * _parallaxEffect.x, deltaMovement.y * _parallaxEffect.y, 0);
 
-        previousCamPos = cam.transform.position;
+        _previousCamPos = _camTransform.transform.position;
     }
 }
