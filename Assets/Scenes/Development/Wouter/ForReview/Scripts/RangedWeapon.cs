@@ -28,10 +28,13 @@ namespace TheFrozenBanana {
 		[SerializeField] private float _attackActionTime;
 		[SerializeField] private int _animationLayer;
 
-
+		public bool firing;
+		private Animator cannonAC;
 		private ILocomotion _locomotion;
 
 		private void Awake() {
+			firing = false;
+			cannonAC = GetComponentInChildren<Animator>();
 			_locomotion = gameObject.GetComponentInParent<ILocomotion>();
 			if (_locomotion == null) {
 				Debug.LogError(gameObject.name + " has a ranged weapon that cannot find the owner's locomotion!");
@@ -55,7 +58,13 @@ namespace TheFrozenBanana {
 		}
 
 		public void Attack() {
-			SpawnProjectile();
+			if (firing) {
+				return;
+			}
+			firing = true;
+			cannonAC.Play("fireballcannon_shoot");
+			StartCoroutine(DelayedFiring());
+		//	SpawnProjectile();
 		}
 
 		private void Update() {
@@ -99,6 +108,17 @@ namespace TheFrozenBanana {
 			}
 			weaponObject.transform.localScale = new Vector3(localScale.x * Mathf.Sign(dirSign), localScale.y, localScale.z);
 			weaponObject.transform.rotation = Quaternion.Euler(0, 0, angle);
+		}
+
+		// The delayed firing routine is a test to see if the projectile spawning can be timed with the animation
+		private IEnumerator DelayedFiring() {
+			float timeA = AttackActionTime * (3f / 5f); // total time, then by the wait frames vs total frames of animation
+			float timeB = AttackActionTime - timeA; // the rest of the action time
+			Debug.Log("Timers: {A="+timeA+"; B="+timeB+"}");
+			yield return new WaitForSeconds(timeA);
+			SpawnProjectile();
+			yield return new WaitForSeconds(timeB);
+			firing = false;
 		}
 
 		// This is where the weapon actually shoots
