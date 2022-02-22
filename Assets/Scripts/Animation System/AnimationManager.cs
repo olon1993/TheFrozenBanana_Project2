@@ -12,7 +12,8 @@ namespace TheFrozenBanana
 
         // Dependencies
         private Animator _animator;
-        [SerializeField] private List<IAnimationState> _animationStates;
+		private Combatant _combatant;
+		[SerializeField] private List<IAnimationState> _animationStates;
 
         private IAnimationState _currentAnimationState;
 
@@ -26,9 +27,15 @@ namespace TheFrozenBanana
             if (_animator == null)
             {
                 Debug.LogError("Animator not found on " + gameObject.name);
-            }
+			}
 
-            _animationStates = GetComponents<IAnimationState>().ToList();
+			_combatant = GetComponentInParent<Combatant>();
+
+			if (_combatant == null) {
+				Debug.Log("The object '" + gameObject.name + "' has no combatant. only single layer animations will be run.");
+			}
+
+			_animationStates = GetComponents<IAnimationState>().ToList();
             
             if(_animationStates.Count == 0)
             {
@@ -57,12 +64,18 @@ namespace TheFrozenBanana
         {
             foreach (IAnimationState state in _animationStates)
             {
-                if (state.ShouldPlay())
-                {
-                    CurrentAnimationState = state;
-                    break;
-                }
-            }
+				if (state.ShouldPlay()) 
+				{
+					if (_combatant != null) 
+					{
+						if (state.AnimationLayer != _combatant.CurrentWeapon.AnimationLayer) {
+							continue;
+						}
+					}
+					CurrentAnimationState = state;
+					break;
+				}
+			}
         }
 
         //**************************************************\\
@@ -89,6 +102,5 @@ namespace TheFrozenBanana
                 }
             }
         }
-
     }
 }

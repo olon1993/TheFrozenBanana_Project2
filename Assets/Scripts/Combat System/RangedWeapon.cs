@@ -114,7 +114,6 @@ namespace TheFrozenBanana {
 		private IEnumerator DelayedFiring() {
 			float timeA = AttackActionTime * (3f / 5f); // total time, then by the wait frames vs total frames of animation
 			float timeB = AttackActionTime - timeA; // the rest of the action time
-			Debug.Log("Timers: {A="+timeA+"; B="+timeB+"}");
 			yield return new WaitForSeconds(timeA);
 			SpawnProjectile();
 			yield return new WaitForSeconds(timeB);
