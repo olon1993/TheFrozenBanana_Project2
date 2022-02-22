@@ -41,7 +41,6 @@ namespace TheFrozenBanana
 
         }
 
-        // Start is called before the first frame update
         private void Start()
         {
             _currentAnimationState = _animationStates[_animationStates.Count - 1];
