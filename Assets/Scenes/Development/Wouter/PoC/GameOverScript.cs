@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 
 public class GameOverScript : MonoBehaviour
 {
+	// RectTransform variant
 	[SerializeField] private Image blackScreen;
 	[SerializeField] private Text gameOverTextBox;
 	[SerializeField] private AudioSource gosAudio;
