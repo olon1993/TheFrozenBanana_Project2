@@ -17,7 +17,7 @@ public class DialogueInteract : Interactable
     protected override void Interact()
     {
         interactTextBox.SetActive(false);
-        interactTextActive = false;
+        interactTextIsActive = false;
         dialogueBox.SetActive(true);
     }
 }

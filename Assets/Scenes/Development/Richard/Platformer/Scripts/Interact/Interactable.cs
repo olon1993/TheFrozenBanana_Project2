@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour
     //**************************************************\\
     [SerializeField] protected GameObject interactTextBox;
 
-    protected bool interactTextActive;
+    protected bool interactTextIsActive;
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -19,20 +19,20 @@ public class Interactable : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Interact") && interactTextActive)
+        if (Input.GetButtonDown("Interact") && interactTextIsActive)
         {
             interactTextBox.SetActive(false);
-            interactTextActive = false;
+            interactTextIsActive = false;
             Interact();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !interactTextActive)
+        if (other.gameObject.CompareTag("Player") && !interactTextIsActive)
         {
             interactTextBox.SetActive(true);
-            interactTextActive = true;
+            interactTextIsActive = true;
         }
     }
 
@@ -41,7 +41,7 @@ public class Interactable : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             interactTextBox.SetActive(false);
-            interactTextActive = false;
+            interactTextIsActive = false;
         }
     }
 

@@ -61,6 +61,7 @@ public class Dialogue : MonoBehaviour
 
         {
             index = 0;
+            textComponent.text = string.Empty;
             gameObject.SetActive(false);
         }
     }
