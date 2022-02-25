@@ -478,18 +478,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4120220336905378224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
-  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
   DamageMultipliers: []
-  damageForce: 0
-  invincibleTime: 0
 --- !u!1 &4120220336934731047
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,18 +578,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4120220336934731047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
-  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
   DamageMultipliers: []
-  damageForce: 0
-  invincibleTime: 0
 --- !u!1 &4120220337061683449
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,18 +872,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4120220337170787507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
-  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
   DamageMultipliers: []
-  damageForce: 0
-  invincibleTime: 0
 --- !u!1 &4120220337357793715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,18 +1638,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4120220337603722856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
-  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
   DamageMultipliers: []
-  damageForce: 0
-  invincibleTime: 0
 --- !u!1 &4120220337608523473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,18 +1932,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4120220337864626127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
-  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
   DamageMultipliers: []
-  damageForce: 0
-  invincibleTime: 0
 --- !u!1 &4120220337882580377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,18 +2284,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4120220338089689691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
-  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
   DamageMultipliers: []
-  damageForce: 0
-  invincibleTime: 0
 --- !u!1 &4120220338157914134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3143,18 +3131,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4120220338327953252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
-  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
   DamageMultipliers: []
-  damageForce: 0
-  invincibleTime: 0
 --- !u!1 &4120220338462860653
 GameObject:
   m_ObjectHideFlags: 0
@@ -13129,7 +13115,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -891043081
-  m_SortingLayer: 5
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -14225,15 +14211,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4120220338816763215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4606bbdc5bed7f4985317057c2574a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   _maxHealth: 1
   _currentHealth: 1
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 8300000, guid: 00e09c301def0894d94a429e1a04a1b6, type: 3}
-  DieSoundEffect: {fileID: 8300000, guid: 7af362ac84e4a7240896079a86164478, type: 3}
+  HurtSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 0}
   DamageMultipliers: []
-  damageForce: 0
-  invincibleTime: 0
