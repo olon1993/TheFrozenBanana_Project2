@@ -73,36 +73,37 @@ namespace TheFrozenBanana
 			CheckWeaponToggle();
 		}
 
-		private void CheckWeaponToggle() { 
-
-			if (Input.GetKeyDown(KeyCode.Alpha1)) {
-				// Weapon 1 - Unarmed
-				try {
-					CurrentWeapon.ToggleWeapon(false);
-					CurrentWeapon = _weapons[0];
-					CurrentWeapon.ToggleWeapon(true);
-				} catch (ArgumentOutOfRangeException aoore) {
-					Debug.Log("Weapon 0 not found: " + aoore);
+		private void CheckWeaponToggle() {
+			if (gameObject.CompareTag("Player")) {
+				if (Input.GetKeyDown(KeyCode.Alpha1)) {
+					// Weapon 1 - Unarmed
+					try {
+						CurrentWeapon.ToggleWeapon(false);
+						CurrentWeapon = _weapons[0];
+						CurrentWeapon.ToggleWeapon(true);
+					} catch (ArgumentOutOfRangeException aoore) {
+						Debug.Log("Weapon 0 not found: " + aoore);
+					}
 				}
-			}
-			if (Input.GetKeyDown(KeyCode.Alpha2)) {
-				// Weapon 2 - Fireball Cannon
-				try {
-					CurrentWeapon.ToggleWeapon(false);
-					CurrentWeapon = _weapons[1];
-					CurrentWeapon.ToggleWeapon(true);
-				} catch (ArgumentOutOfRangeException aoore) {
-					Debug.Log("Weapon 1 not found: " + aoore);
+				if (Input.GetKeyDown(KeyCode.Alpha2)) {
+					// Weapon 2 - Fireball Cannon
+					try {
+						CurrentWeapon.ToggleWeapon(false);
+						CurrentWeapon = _weapons[1];
+						CurrentWeapon.ToggleWeapon(true);
+					} catch (ArgumentOutOfRangeException aoore) {
+						Debug.Log("Weapon 1 not found: " + aoore);
+					}
 				}
-			}
-			if (Input.GetKeyDown(KeyCode.Alpha3)) {
-				// Weapon 3 - Not yet added
-				try {
-					CurrentWeapon.ToggleWeapon(false);
-					CurrentWeapon = _weapons[2];
-					CurrentWeapon.ToggleWeapon(true);
-				} catch (ArgumentOutOfRangeException aoore) {
-					Debug.Log("Weapon 2 not found: " + aoore);
+				if (Input.GetKeyDown(KeyCode.Alpha3)) {
+					// Weapon 3 - Not yet added
+					try {
+						CurrentWeapon.ToggleWeapon(false);
+						CurrentWeapon = _weapons[2];
+						CurrentWeapon.ToggleWeapon(true);
+					} catch (ArgumentOutOfRangeException aoore) {
+						Debug.Log("Weapon 2 not found: " + aoore);
+					}
 				}
 			}
 		}

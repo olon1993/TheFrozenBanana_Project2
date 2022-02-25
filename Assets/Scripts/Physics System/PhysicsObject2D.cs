@@ -22,6 +22,7 @@ namespace TheFrozenBanana
 
         // Gravity
         protected float _gravityStrength = -2.98f;
+		[SerializeField] protected bool _useGravity;
 
         // Jumping
         [SerializeField] protected float _maxJumpHeight = 2f;

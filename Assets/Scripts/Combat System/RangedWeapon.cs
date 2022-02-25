@@ -32,25 +32,30 @@ namespace TheFrozenBanana {
 		[SerializeField] private int spawnProjectileAnimFrame;
 		[SerializeField] private int totalFiringAnimFrames;
 		[SerializeField] private AudioSource weaponAudioSource;
+		[SerializeField] private bool enemyWeapon;
+		[SerializeField] private string animationName;
+		[SerializeField] private string ownerTag;
 		private bool firing;
-		private Animator cannonAC;
+		private Animator weaponAC;
 		private ILocomotion _locomotion;
 
 		private void Awake() {
 			firing = false;
-			cannonAC = GetComponentInChildren<Animator>();
+			weaponAC = GetComponentInChildren<Animator>();
 			_locomotion = gameObject.GetComponentInParent<ILocomotion>();
 			if (_locomotion == null) {
 				Debug.LogError(gameObject.name + " has a ranged weapon that cannot find the owner's locomotion!");
 			}
-			if (_canAim && _aimTool == null) {
-				Debug.LogError(gameObject.name + "has a weapon that can aim but no target finder!");
-			}
-			if (_canAim) {
+			if (_canAim && !enemyWeapon) {
 				cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 				if (cam == null) {
 					Debug.LogError(gameObject.name + "has a weapon that can aim but no camera can be found to aim with!");
 				}
+			} else if (enemyWeapon) {
+				aimTool = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+			}
+			if (_canAim && _aimTool == null) {
+				Debug.LogError(gameObject.name + "has a weapon that can aim but no target finder!");
 			}
 			if (_localScale == Vector3.zero) {
 				_localScale = new Vector3(1,1,1);
@@ -66,15 +71,21 @@ namespace TheFrozenBanana {
 				return;
 			}
 			firing = true;
-			cannonAC.Play("fireballcannon_shoot");
+			if (weaponAC != null) {
+				weaponAC.Play(animationName);
+			}
 			StartCoroutine(DelayedFiring());
 		//	SpawnProjectile();
 		}
 
 		private void Update() {
-			UpdateTargetLocation();
-			UpdateRotation();
-
+			if (!enemyWeapon) {
+				UpdateTargetLocation();
+				UpdateRotation();
+			}
+			if (enemyWeapon) {
+				target = aimTool;
+			}
 		}
 
 		// This is where the weapon picks up where to aim at.
@@ -138,12 +149,14 @@ namespace TheFrozenBanana {
 			}
 			Vector3 fireTowards = target.position;
 			GameObject proj = Instantiate(projectile, PointOfOrigin.position, Quaternion.identity, null) as GameObject;
-			proj.GetComponent<IProjectile>().Setup(gameObject.transform.position, fireTowards, rot);
+			proj.GetComponent<IProjectile>().Setup(gameObject.transform.position, fireTowards, rot, ownerTag);
 			Destroy(proj, projectileKillTime);
 		}
 
 		public void ToggleWeapon(bool on) {
-			_weaponObject.enabled = on;
+			if (_weaponObject != null) {
+				_weaponObject.enabled = on;
+			}
 		}
 
 

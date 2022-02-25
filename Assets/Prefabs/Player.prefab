@@ -135,8 +135,9 @@ MonoBehaviour:
   _currentAmmo: 0
   _pointOfOrigin: {fileID: 388510136562352236}
   _radiusOfInteraction: 0.5
-  delayToHit: 0
-  attackActionTime: 0.1
+  _delayToHit: 0
+  _attackActionTime: 0.1
+  _damageForce: 250
   _animationLayer: 0
 --- !u!114 &388510137249779187
 MonoBehaviour:
@@ -600,6 +601,7 @@ MonoBehaviour:
   CollisionMask:
     serializedVersion: 2
     m_Bits: 1088
+  _useGravity: 1
   _maxJumpHeight: 3.5
   _timeToJumpApex: 0.4
   _maxSlopeAngle: 30

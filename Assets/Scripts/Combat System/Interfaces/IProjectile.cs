@@ -12,6 +12,6 @@ namespace TheFrozenBanana {
 		float velocity { get; set; }
 		bool active { get; set; }
 		void TriggerCollision(Collider2D col);
-		void Setup(Vector3 start, Vector3 target, Quaternion rotation);
+		void Setup(Vector3 start, Vector3 target, Quaternion rotation, string ownerTag);
 	}
 }

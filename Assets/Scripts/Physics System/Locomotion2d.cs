@@ -89,6 +89,10 @@ namespace TheFrozenBanana
             _maxJumpVelocity = Mathf.Abs(_gravityStrength) * _timeToJumpApex;
             _minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(_gravityStrength) * _minJumpHeight);
             _coyoteTime = -1f;
+			if (!_useGravity) {
+				_gravityStrength = 0;
+			}
+			
         }
 
         protected override void Update()

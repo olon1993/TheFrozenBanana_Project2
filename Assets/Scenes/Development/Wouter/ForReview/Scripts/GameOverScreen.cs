@@ -14,6 +14,7 @@ namespace TheFrozenBanana
 		[SerializeField] private AudioSource gosAudio;
 		[SerializeField] private AudioClip gosAudioClip;
 		private Transform playerTrans;
+		private IHealth _playerHealth;
 		private Vector3 gameOverLocation;
 
 		private Animator gosAC;
@@ -36,6 +37,15 @@ namespace TheFrozenBanana
 				yield return new WaitForSeconds(1);
 				playerTrans = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 			}
+			_playerHealth = playerTrans.GetComponent<IHealth>();
+			StartCoroutine(CheckIfPlayerIsDead());
+		}
+
+		private IEnumerator CheckIfPlayerIsDead() {
+			while (_playerHealth.CurrentHealth > 0) {
+				yield return new WaitForSeconds(1f);
+			}
+			RunGameOver();
 		}
 
 		private IEnumerator GameOver() {
@@ -52,6 +62,8 @@ namespace TheFrozenBanana
 			fadeColor = new Color(0, 0, 0, 1);
 			blackScreen.color = fadeColor;
 			gosAC.Play("GameOverAnimation");
+			gosAudio.clip = gosAudioClip;
+			gosAudio.Play();
 		}
 	}
 }

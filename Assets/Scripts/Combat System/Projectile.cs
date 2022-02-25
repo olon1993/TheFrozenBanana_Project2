@@ -9,6 +9,7 @@ namespace TheFrozenBanana {
 
 		[SerializeField] private float _velocity;
 		[SerializeField] GameObject _child;
+		private string _ownerTag;
 		private Damage _damage;
 		private Vector3 _direction;
 		private bool _active;
@@ -32,7 +33,7 @@ namespace TheFrozenBanana {
 			if (!active) {
 				return;
 			}
-			if (col.CompareTag("Player")) {
+			if (col.CompareTag(ownerTag)) {
 				return;
 			}
 			if (active) {
@@ -53,7 +54,8 @@ namespace TheFrozenBanana {
 		}
 
 		// Setup gives the target to go to and the rotation of the projectile renderer
-		public void Setup(Vector3 start, Vector3 target, Quaternion projectileRotation) {
+		public void Setup(Vector3 start, Vector3 target, Quaternion projectileRotation, string owner) {
+			ownerTag = owner;
 			direction = target - start;
 			child.transform.rotation = projectileRotation;
 			active = true;
@@ -76,6 +78,11 @@ namespace TheFrozenBanana {
 		public GameObject child {
 			get { return _child; }
 			set { _child = value; }
+		}
+
+		public string ownerTag {
+			get { return _ownerTag; }
+			set { _ownerTag = value; }
 		}
 
 		public Vector3 direction {

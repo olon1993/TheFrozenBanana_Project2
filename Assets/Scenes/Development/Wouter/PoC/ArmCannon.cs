@@ -10,6 +10,7 @@ public class ArmCannon : MonoBehaviour
 	[SerializeField] private Transform rotationalCenter, PointOfOrigin, target;
 	[SerializeField] private Renderer weaponObject;
 	[SerializeField] private Camera cam;
+	[SerializeField] private string ownerTag;
 
 	// values to setup
 	[SerializeField] private float firingCooldown;
@@ -99,7 +100,7 @@ public class ArmCannon : MonoBehaviour
 			rot *= Quaternion.Euler(0,0,180);
 		}
 		GameObject proj = Instantiate(projectile, PointOfOrigin.position, Quaternion.identity, null) as GameObject;
-		proj.GetComponent<IProjectile>().Setup(gameObject.transform.position, target.position, rot);
+		proj.GetComponent<IProjectile>().Setup(gameObject.transform.position, target.position, rot, ownerTag);
 		Destroy(proj, 3f);
 	}
 }
