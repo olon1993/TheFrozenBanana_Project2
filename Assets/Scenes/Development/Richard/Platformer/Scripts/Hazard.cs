@@ -20,7 +20,7 @@ namespace TheFrozenBanana
             {
                 other.GetComponent<IHealth>().TakeDamage(_damage);
                 float damageDirection = transform.position.x < other.transform.position.x ? 1 : -1;
-                StartCoroutine(other.GetComponent<IAffectedByDamageForce>().ApplyDamageForce(5, damageDirection));
+                StartCoroutine(other.GetComponent<ICanBeAffectedByDamageForce>().ApplyDamageForce(5, damageDirection));
                 Debug.Log(name + " did damage to " + other.name);
             }
         }
