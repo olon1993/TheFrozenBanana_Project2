@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TheFrozenBanana
 {
-    public class Locomotion2d : PhysicsObject2D, ILocomotion
+    public class Locomotion2d : PhysicsObject2D, ILocomotion, ICanBeAffectedByDamageForce
     {
 
         //**************************************************\\
@@ -490,6 +490,15 @@ namespace TheFrozenBanana
         protected void ResetFallingThroughPlatform()
         {
             _collisions.FallingThroughPlatform = false;
+        }
+
+        public IEnumerator ApplyDamageForce(float forceAmount, float direction)
+        {
+            Debug.Log("Applying Damage Force: " + gameObject.name);
+            _movementIsControllable = false;
+            HorizontalMovement = forceAmount * direction;
+            yield return new WaitForSeconds(0.05f);
+            _movementIsControllable = true;
         }
 
         //**************************************************\\
