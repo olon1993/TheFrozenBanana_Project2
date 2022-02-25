@@ -28,7 +28,11 @@ namespace TheFrozenBanana {
 		[SerializeField] private float _attackActionTime;
 		[SerializeField] private int _animationLayer;
 
-		public bool firing;
+		// Extras
+		[SerializeField] private int spawnProjectileAnimFrame;
+		[SerializeField] private int totalFiringAnimFrames;
+		[SerializeField] private AudioSource weaponAudioSource;
+		private bool firing;
 		private Animator cannonAC;
 		private ILocomotion _locomotion;
 
@@ -112,8 +116,8 @@ namespace TheFrozenBanana {
 
 		// The delayed firing routine is a test to see if the projectile spawning can be timed with the animation
 		private IEnumerator DelayedFiring() {
-			float timeA = AttackActionTime * (3f / 5f); // total time, then by the wait frames vs total frames of animation
-			float timeB = AttackActionTime - timeA; // the rest of the action time
+			float timeA = AttackActionTime * ((float) spawnProjectileAnimFrame / (float) totalFiringAnimFrames);
+			float timeB = AttackActionTime - timeA; 
 			yield return new WaitForSeconds(timeA);
 			SpawnProjectile();
 			yield return new WaitForSeconds(timeB);
@@ -121,7 +125,10 @@ namespace TheFrozenBanana {
 		}
 
 		// This is where the weapon actually shoots
-		private void SpawnProjectile() {
+		private void SpawnProjectile() { 
+			if (weaponAudioSource != null) {
+				weaponAudioSource.Play();
+			}
 			Quaternion rot = weaponObject.transform.rotation;
 			if (_locomotion.HorizontalLook < 0) {
 				rot *= Quaternion.Euler(0, 0, 180);
