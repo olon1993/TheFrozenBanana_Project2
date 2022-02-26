@@ -23,17 +23,13 @@ namespace TheFrozenBanana
         [SerializeField] protected Transform _pointOfOrigin;
         [SerializeField] protected float _radiusOfInteraction;
 
-        [SerializeField] float delayToHit = 0f;
-        [SerializeField] float attackActionTime = 0.1f;
+        [SerializeField] float _delayToHit = 0f;
+        [SerializeField] float _attackActionTime = 0.1f;
+        [SerializeField] float _damageForce = 250f;
 
 		[SerializeField] private int _animationLayer;
 
         private bool _is2D = true;
-
-        public float AttackActionTime
-        {
-            get { return attackActionTime; }
-        }
 
         //**************************************************\\
         //******************** Methods *********************\\
@@ -61,7 +57,7 @@ namespace TheFrozenBanana
             // This should be broken out into a 2d and a 3d version of this mechanic
             if (_is2D)
             {
-                Invoke("HandleDamage2D", delayToHit);
+                Invoke("HandleDamage2D", _delayToHit);
             }
             else
             {
@@ -99,6 +95,8 @@ namespace TheFrozenBanana
             Collider2D[] colliders = Physics2D.OverlapCircleAll(_pointOfOrigin.position, _radiusOfInteraction);
             foreach (Collider2D collider in colliders)
             {
+                HandleDamageForce(collider);
+
                 IHealth health = collider.GetComponent<IHealth>();
                 if (health == null)
                 {
@@ -116,6 +114,18 @@ namespace TheFrozenBanana
                         Debug.Log(collider.gameObject.name + " health = " + health.CurrentHealth + " / " + health.MaxHealth);
                     }
                 }
+            }
+        }
+
+        private void HandleDamageForce(Collider2D collider)
+        {
+            float damageDirection = transform.position.x < collider.transform.position.x ? 1 : -1;
+
+            ICanBeAffectedByDamageForce objectAffectedByDamageForce = collider.GetComponent<ICanBeAffectedByDamageForce>();
+
+            if (objectAffectedByDamageForce != null)
+            {
+                StartCoroutine(objectAffectedByDamageForce.ApplyDamageForce(_damageForce, damageDirection));
             }
         }
 
@@ -165,6 +175,11 @@ namespace TheFrozenBanana
 			get { return _animationLayer; }
 			set { _animationLayer = value; }
 		}
+
+        public float AttackActionTime
+        {
+            get { return _attackActionTime; }
+        }
 
         void OnDrawGizmos()
         {

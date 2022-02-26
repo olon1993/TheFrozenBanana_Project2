@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - PassableObstacle
-  - Vehicle
   - Enemy
   - NPC
   layers:
@@ -17,11 +16,11 @@ TagManager:
   - UI
   - Obstacles
   - Player
-  - Vehicle
+  - 
   - Breakable
   - Enemy
   - NPC
-  - 
+  - Hazards
   - 
   - 
   - 
@@ -42,17 +41,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3611725643
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Roads
-    uniqueID: 900042499
-    locked: 0
-  - name: Vehicles
-    uniqueID: 2260359535
-    locked: 0
-  - name: Pedestrians
-    uniqueID: 944745681
     locked: 0
   - name: Player
     uniqueID: 535150603

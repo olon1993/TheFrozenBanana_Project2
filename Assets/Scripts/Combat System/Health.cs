@@ -101,7 +101,7 @@ namespace TheFrozenBanana
             }
             else
             {
-                if (audioManager != null)
+                if (audioManager != null && DieSoundEffect != null)
                 {
                     Destroy(gameObject, DieSoundEffect.length);
                 }

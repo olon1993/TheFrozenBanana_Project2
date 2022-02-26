@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2bda1806d892b4ea34d69861f9c5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxStamina: 50
+  _maxStamina: 100
   staminaBar: {fileID: 0}
 --- !u!114 &2344188918914379193
 MonoBehaviour:
@@ -354,6 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: b9b7c278581c8b04791de110de36cbf6, type: 2}
   _priority: 7
+  _animationLayer: 0
   _canInterrupt: 0
 --- !u!114 &7536356928025386938
 MonoBehaviour:
@@ -369,6 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: bfe3422c9394ca24aa2cd98c60479edb, type: 2}
   _priority: 6
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &8007817776562110078
 MonoBehaviour:
@@ -384,6 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: 273fbbb7ed70f0141b9a182d756e9e68, type: 2}
   _priority: 5
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &7421384791600398244
 MonoBehaviour:
@@ -399,6 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: 139822bc93e2b774e8262072c1a17de6, type: 2}
   _priority: 4
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &2895765720040532528
 MonoBehaviour:
@@ -414,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: cf12c1ff4f7bf4347a8bbfb7e8cc9dfa, type: 2}
   _priority: 3
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &869676474928463627
 MonoBehaviour:
@@ -429,6 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: bc9e9a1cae77a894fbeb18d2b72aad98, type: 2}
   _priority: 2
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &499279786714746229
 MonoBehaviour:
@@ -444,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: 8a46b9ee252abed4e9f3ba3ec6b9b844, type: 2}
   _priority: 1
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!114 &8795962818619533812
 MonoBehaviour:
@@ -459,6 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animation: {fileID: 7400000, guid: de7dcbb4b1f382e42a17a02e45add071, type: 2}
   _priority: 0
+  _animationLayer: 0
   _canInterrupt: 1
 --- !u!1 &2344188919239191958
 GameObject:
@@ -515,6 +523,8 @@ MonoBehaviour:
   _radiusOfInteraction: 0.5
   delayToHit: 0
   attackActionTime: 0.1
+  _damageForce: 250
+  _animationLayer: 0
 --- !u!114 &2344188919239191952
 MonoBehaviour:
   m_ObjectHideFlags: 0
