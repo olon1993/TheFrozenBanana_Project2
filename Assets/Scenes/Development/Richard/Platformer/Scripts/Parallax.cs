@@ -14,7 +14,7 @@ public class Parallax : MonoBehaviour
         _previousCamPos = _camTransform.position;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         Vector3 deltaMovement = (_camTransform.position - _previousCamPos);
 
