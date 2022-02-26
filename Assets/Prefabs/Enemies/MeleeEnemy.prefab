@@ -110,6 +110,7 @@ MonoBehaviour:
   CollisionMask:
     serializedVersion: 2
     m_Bits: 704
+  _useGravity: 1
   _maxJumpHeight: 2
   _timeToJumpApex: 0.4
   _maxSlopeAngle: 80
@@ -158,6 +159,8 @@ MonoBehaviour:
   HurtSoundEffect: {fileID: 0}
   DieSoundEffect: {fileID: 0}
   DamageMultipliers: []
+  _enableOnDie: {fileID: 0}
+  _disableOnDie: {fileID: 0}
 --- !u!1 &4295322404794140535
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,8 +214,9 @@ MonoBehaviour:
   _currentAmmo: 0
   _pointOfOrigin: {fileID: 4295322405802704604}
   _radiusOfInteraction: 0.5
-  delayToHit: 0
-  attackActionTime: 0.1
+  _delayToHit: 0
+  _attackActionTime: 0.1
+  _damageForce: 25
   _animationLayer: 0
 --- !u!114 &4295322404794140533
 MonoBehaviour:
