@@ -82,7 +82,7 @@ namespace TheFrozenBanana
             InitialiseVariables();
         }
 
-        void InitialiseVariables()
+        private void InitialiseVariables()
         {
             _collisions.FaceDirection = 1;
             _gravityStrength = -(2 * _maxJumpHeight) / Mathf.Pow(_timeToJumpApex, 2);
@@ -93,6 +93,7 @@ namespace TheFrozenBanana
 
         protected override void Update()
         {
+
             GetInput();
 
             CalculateVelocity();
@@ -112,7 +113,7 @@ namespace TheFrozenBanana
             Idle();
         }
 
-        void GetInput()
+        private void GetInput()
         {
             if (!_movementIsControllable) return;
 
@@ -172,7 +173,7 @@ namespace TheFrozenBanana
             } 
         }
 
-        void HandleJumping()
+        private void HandleJumping()
         {
             if (IsJumping)
             {
@@ -228,7 +229,7 @@ namespace TheFrozenBanana
             }
         }
 
-        void FaceDirectionMoving()
+        private void FaceDirectionMoving()
         {
             if (_velocity.x != 0)
             {
@@ -236,7 +237,7 @@ namespace TheFrozenBanana
             }
         }
 
-        void HandleDash()
+        private void HandleDash()
         {
             // Already dashing
             if (IsDashing && IsGrounded)
@@ -276,7 +277,7 @@ namespace TheFrozenBanana
             IsDashing = false;
         }
 
-        void VerticalCollisionAdjustment()
+        private void VerticalCollisionAdjustment()
         {
             if (_collisions.Above || _collisions.Below)
             {
@@ -291,7 +292,7 @@ namespace TheFrozenBanana
             }
         }
 
-        void Idle()
+        private void Idle()
         {
             if (_stamina != null && Mathf.Abs(_velocity.x) <= Mathf.Epsilon && Mathf.Abs(_velocity.y) <= Mathf.Epsilon)
             {

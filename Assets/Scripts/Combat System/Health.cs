@@ -20,6 +20,9 @@ namespace TheFrozenBanana
         [SerializeField] AudioClip DieSoundEffect;
         [SerializeField] List<Damage> DamageMultipliers;
 
+        [SerializeField] GameObject _enableOnDie;
+        [SerializeField] GameObject _disableOnDie;
+
         AudioManager audioManager;
 
         //**************************************************\\
@@ -67,16 +70,31 @@ namespace TheFrozenBanana
 
         private void Die()
         {
+            // Log
             if (_showDebugLog)
             {
                 Debug.Log(gameObject.name + " has died!");
             }
 
+            // Die sound
             if (audioManager != null)
             {
                 audioManager.PlayClip(DieSoundEffect);
             }
 
+            // Enable
+            if (_enableOnDie != null)
+            {
+                _enableOnDie.SetActive(true);
+            }
+
+            // Disable
+            if (_disableOnDie != null)
+            {
+                _disableOnDie.SetActive(false);
+            }
+
+            // Destroy
             if (gameObject.CompareTag("Player"))
             {
                 gameObject.SetActive(false);
