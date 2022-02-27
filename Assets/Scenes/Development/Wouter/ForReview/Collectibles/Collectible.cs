@@ -41,7 +41,7 @@ namespace TheFrozenBanana
 		public void Collect(GameObject player) {
 			switch (_collectibleTypeDefinition) {
 				case ICollectible.CollectibleType.SHIPPART:
-					Debug.Log("Ship part collected. Now we just have to do something here");
+					EventBroker.CallShipPartFound();
 					break;
 				case ICollectible.CollectibleType.HEALTH:
 					player.GetComponent<IHealth>().AddHealth(5);
