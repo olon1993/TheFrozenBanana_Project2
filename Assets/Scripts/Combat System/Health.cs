@@ -68,6 +68,13 @@ namespace TheFrozenBanana
             return false;
         }
 
+		public void AddHealth(int hp) {
+			CurrentHealth += hp;
+			if (CurrentHealth > MaxHealth) {
+				CurrentHealth = MaxHealth;
+			}
+		}
+
         private void Die()
         {
             // Log

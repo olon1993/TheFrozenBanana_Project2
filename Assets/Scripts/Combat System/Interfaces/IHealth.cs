@@ -9,5 +9,6 @@ namespace TheFrozenBanana
         bool TakeDamage(Damage damage);
         int MaxHealth { get; set; }
         int CurrentHealth { get; set; }
+		void AddHealth(int hp);
     }
 }
