@@ -31,4 +31,11 @@ public class EventBroker
     {
         LevelCompleted?.Invoke();
     }
+
+    public static event Action PlayerDeath;
+
+    public static void CallPlayerDeath()
+    {
+        PlayerDeath?.Invoke();
+    }
 }

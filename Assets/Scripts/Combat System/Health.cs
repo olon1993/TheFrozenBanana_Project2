@@ -104,6 +104,7 @@ namespace TheFrozenBanana
             // Destroy
             if (gameObject.CompareTag("Player"))
             {
+                EventBroker.CallPlayerDeath();
                 gameObject.SetActive(false);
             }
             else

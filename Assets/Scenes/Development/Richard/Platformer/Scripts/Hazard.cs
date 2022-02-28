@@ -24,6 +24,18 @@ namespace TheFrozenBanana
                 Debug.Log(name + " did damage to " + other.name);
             }
         }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            Debug.Log(collision.gameObject.name + " collided with " + name);
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.gameObject.GetComponent<IHealth>().TakeDamage(_damage);
+                float damageDirection = collision.GetContact(0).point.x < collision.transform.position.x ? 1 : -1;
+                StartCoroutine(collision.gameObject.GetComponent<ICanBeAffectedByDamageForce>().ApplyDamageForce(5, damageDirection));
+                Debug.Log(name + " did damage to " + collision.gameObject.name);
+            }
+        }
     }
 }
 

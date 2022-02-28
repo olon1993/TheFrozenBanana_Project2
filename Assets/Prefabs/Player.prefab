@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc412adf619b5804c9988c670a4fa2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showDebugLog: 0
+  _showDebugLog: 1
   _damage: {fileID: 388510137249779187}
   _ammoTypeDefinition: 0
   _isLimitedAmmo: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   _radiusOfInteraction: 0.5
   _delayToHit: 0
   _attackActionTime: 0.1
-  _damageForce: 250
+  _damageForce: 5
   _animationLayer: 0
 --- !u!114 &388510137249779187
 MonoBehaviour:
@@ -600,7 +600,7 @@ MonoBehaviour:
   _showDebugLog: 1
   CollisionMask:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 5184
   _useGravity: 1
   _maxJumpHeight: 3.5
   _timeToJumpApex: 0.4
@@ -657,13 +657,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showDebugLog: 0
+  _showDebugLog: 1
   _maxHealth: 25
   _currentHealth: 25
   HealthBar: {fileID: 0}
   HurtSoundEffect: {fileID: 0}
   DieSoundEffect: {fileID: 0}
   DamageMultipliers: []
+  _enableOnDie: {fileID: 0}
+  _disableOnDie: {fileID: 0}
 --- !u!1 &5112194510965528584
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,8 @@ public class LevelExit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!alreadyInRange && collision.gameObject.CompareTag("Player"))
+        if (alreadyInRange) return;
+        if (collision.gameObject.CompareTag("Player"))
         {
             alreadyInRange = true;
             EventBroker.CallLevelExitReached();

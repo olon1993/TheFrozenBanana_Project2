@@ -25,7 +25,7 @@ namespace TheFrozenBanana
 
         [SerializeField] float _delayToHit = 0f;
         [SerializeField] float _attackActionTime = 0.1f;
-        [SerializeField] float _damageForce = 250f;
+        [SerializeField] float _damageForce = 5f;
 
 		[SerializeField] private int _animationLayer;
 

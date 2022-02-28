@@ -24,6 +24,12 @@ namespace TheFrozenBanana
             EventBroker.ShipPartFound += OnShipPartFound;
         }
 
+        private void OnDestroy()
+        {
+            EventBroker.LevelExitReached -= OnLevelExitReached;
+            EventBroker.ShipPartFound -= OnShipPartFound;
+        }
+
         private void Start()
         {
             shipParts = GameObject.FindGameObjectsWithTag("ShipPart");
@@ -49,5 +55,6 @@ namespace TheFrozenBanana
                 EventBroker.CallAllShipPartsFound();
             }
         }
+
     }
 }

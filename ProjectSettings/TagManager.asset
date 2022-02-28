@@ -7,6 +7,7 @@ TagManager:
   - PassableObstacle
   - Enemy
   - NPC
+  - ShipPart
   layers:
   - Default
   - TransparentFX
@@ -52,4 +53,7 @@ TagManager:
     locked: 0
   - name: Platforms
     uniqueID: 3403924215
+    locked: 0
+  - name: GameOverOverlay
+    uniqueID: 1654614503
     locked: 0
