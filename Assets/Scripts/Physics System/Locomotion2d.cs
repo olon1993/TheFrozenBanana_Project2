@@ -106,7 +106,7 @@ namespace TheFrozenBanana
 
             HandleJumping();
 
-            FaceDirectionMoving();
+            FaceDirectionBasedOnInput();
 
             HandleDash();
 
@@ -233,11 +233,11 @@ namespace TheFrozenBanana
             }
         }
 
-        private void FaceDirectionMoving()
+        private void FaceDirectionBasedOnInput()
         {
-            if (_velocity.x != 0)
+            if (_inputManager.Horizontal != 0 && !_isWallSliding)
             {
-                HorizontalLook = Mathf.Sign(_velocity.x);
+                HorizontalLook = Mathf.Sign(_inputManager.Horizontal);
             }
         }
 
