@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5319020587876361123}
   - component: {fileID: 1619938674}
   - component: {fileID: 56193184085159947}
+  - component: {fileID: 806337695581416549}
   m_Layer: 0
   m_Name: HPCollectible
   m_TagString: Untagged
@@ -198,6 +199,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &806337695581416549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7969709531172107531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c694d86f64fa9744f8d57f8df6bbfc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8089588052066759972
 GameObject:
   m_ObjectHideFlags: 0

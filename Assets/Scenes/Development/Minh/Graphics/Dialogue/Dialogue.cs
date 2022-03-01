@@ -2,20 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
-    public TextMeshProUGUI textComponent;
+	public TextMeshProUGUI textComponentTMPRO;
+	public Text textComponent;
     public string[] lines;
     public float textSpeed;
 
     public int index;
 
-    void Start()
+    void OnEnable()
     {
-        textComponent.text = string.Empty;
-        StartDialogue();
+		ToggleTextBox(true);
+		WriteText(string.Empty);
+		StartDialogue();
     }
+
+	void OnDisable() 
+	{
+		WriteText(string.Empty);
+		ToggleTextBox(false);
+	}
 
     void Update()
     {
@@ -42,10 +51,12 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+		string lineText = "";
         foreach (char c in lines[index].ToCharArray())
         {
-            textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
+			lineText += c;
+			WriteText(lineText);
+			yield return new WaitForSeconds(textSpeed);
         }
     }
 
@@ -54,18 +65,33 @@ public class Dialogue : MonoBehaviour
         if (index < lines.Length - 1)
         {
             index++;
-            textComponent.text = string.Empty;
+			WriteText(string.Empty);
             StartCoroutine(TypeLine());
         }
         else
 
         {
             index = 0;
-            textComponent.text = string.Empty;
+			WriteText(string.Empty);
             gameObject.SetActive(false);
         }
     }
 
+	private void ToggleTextBox(bool newState) {
+		if (textComponentTMPRO != null) {
+			textComponentTMPRO.gameObject.SetActive(newState);
+		} else if (textComponent != null) {
+			textComponent.gameObject.SetActive(newState);
+		}
+	}
+
+	private void WriteText(string str) {
+		if (textComponentTMPRO != null) {
+			textComponentTMPRO.text = str;
+		} else if (textComponent != null) {
+			textComponent.text = str;
+		}
+	}
 }
 
 

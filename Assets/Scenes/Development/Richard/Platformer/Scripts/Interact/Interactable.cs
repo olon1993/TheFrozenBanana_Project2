@@ -10,8 +10,9 @@ public class Interactable : MonoBehaviour
     //********************* Fields *********************\\
     //**************************************************\\
     [SerializeField] protected GameObject interactTextBox;
+	[SerializeField] protected GameObject interactibleObject;
 
-    protected bool interactTextIsActive;
+	protected bool interactible, interactTextIsActive, interactibleActive;
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -23,31 +24,44 @@ public class Interactable : MonoBehaviour
         {
             interactTextBox.SetActive(false);
             interactTextIsActive = false;
-            Interact();
-        }
-    }
+		} 
 
-    private void OnTriggerEnter2D(Collider2D other)
+		if (Input.GetButtonDown("Interact") && interactible) {
+			Interact();
+		}
+
+	}
+
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (other.gameObject.CompareTag("Player") && !interactTextIsActive)
+        if (col.gameObject.CompareTag("Player") && !interactTextIsActive)
         {
             interactTextBox.SetActive(true);
             interactTextIsActive = true;
+			interactible = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D col)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
             interactTextBox.SetActive(false);
             interactTextIsActive = false;
-        }
+			interactibleActive = false;
+			interactible = false;
+			if (interactibleObject != null) {
+				interactibleObject.SetActive(false);
+			}
+		}
     }
 
 
     protected virtual void Interact()
     { 
-
+		interactibleActive = !interactibleActive;
+		if (interactibleObject != null) {
+			interactibleObject.SetActive(interactibleActive);
+		}
     }
 }
