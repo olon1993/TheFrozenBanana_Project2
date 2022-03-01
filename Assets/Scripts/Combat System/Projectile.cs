@@ -39,7 +39,7 @@ namespace TheFrozenBanana {
 			if (active) {
 				Deactivate();
 			}
-			Health hpScript = col.GetComponent<Health>();
+			IHealth hpScript = col.GetComponent<IHealth>();
 			if (hpScript != null) {
 				// Do damage
 				hpScript.TakeDamage(_damage);

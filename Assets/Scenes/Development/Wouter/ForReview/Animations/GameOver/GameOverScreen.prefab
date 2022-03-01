@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 7074869798673655628}
   - component: {fileID: 7074869798673655630}
   - component: {fileID: 7074869798673655631}
+  - component: {fileID: 5436212807044396996}
   m_Layer: 0
   m_Name: GameOverScreen
   m_TagString: Untagged
@@ -330,3 +331,15 @@ MonoBehaviour:
   screenFadeTime: 2
   gosAudio: {fileID: 7074869798673655630}
   gosAudioClip: {fileID: 8300000, guid: 4f759237fc510aa4aa22acb91c5dab86, type: 3}
+--- !u!114 &5436212807044396996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7074869798673655629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c694d86f64fa9744f8d57f8df6bbfc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

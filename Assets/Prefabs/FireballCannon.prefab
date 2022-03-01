@@ -66,6 +66,8 @@ MonoBehaviour:
   totalFiringAnimFrames: 5
   weaponAudioSource: {fileID: 6578587613842290325}
   enemyWeapon: 0
+  animationName: 
+  ownerTag: Player
 --- !u!82 &6578587613842290325
 AudioSource:
   m_ObjectHideFlags: 0
