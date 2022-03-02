@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7066358243811135016}
   - component: {fileID: 6987673511629882865}
   - component: {fileID: 3067396410764332642}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plasmaball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 2094566820667424852}
   - component: {fileID: 6881823279944098613}
   - component: {fileID: 8788476730940117375}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlasmaballProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2998eb3380f4888438b801b02a09c6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 5
+  _damageAmount: 2
   _damageType: 0
 --- !u!50 &8788476730940117375
 Rigidbody2D:

@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - NPC
   - ShipPart
+  - Environment
   layers:
   - Default
   - TransparentFX
@@ -17,12 +18,12 @@ TagManager:
   - UI
   - Obstacles
   - Player
-  - 
+  - Projectiles
   - Breakable
   - Enemy
   - NPC
   - Hazards
-  - 
+  - Collectibles
   - 
   - 
   - 

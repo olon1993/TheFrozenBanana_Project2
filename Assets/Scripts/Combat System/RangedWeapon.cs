@@ -81,8 +81,9 @@ namespace TheFrozenBanana {
 		private void Update() {
 			if (!enemyWeapon) {
 				UpdateTargetLocation();
-				UpdateRotation();
 			}
+			UpdateRotation();
+			
 			if (enemyWeapon) {
 				target = aimTool;
 			}
