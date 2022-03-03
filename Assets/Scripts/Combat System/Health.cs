@@ -14,7 +14,8 @@ namespace TheFrozenBanana
         //**************************************************\\
         [SerializeField] private int _maxHealth;
         [SerializeField] private int _currentHealth;
-		private bool _dead;
+		private bool _isDead;
+        private bool _isHurt;
 
         [SerializeField] Image HealthBar;
         [SerializeField] AudioClip HurtSoundEffect;
@@ -32,7 +33,6 @@ namespace TheFrozenBanana
 
         void Awake()
         {
-			_dead = false;
             audioManager = FindObjectOfType<AudioManager>();
             if (audioManager == null)
             {
@@ -40,13 +40,19 @@ namespace TheFrozenBanana
             }
         }
 
+        void Update()
+        {
+            _isHurt = false;
+        }
+
         // Returns true if the Die method is called
         public bool TakeDamage(Damage damage)
         {
-			if (_dead) {
+			if (_isDead) {
 				return true;
 			}
             CurrentHealth -= damage.DamageAmount;
+            _isHurt = true;
 
             if (HealthBar != null)
             {
@@ -82,7 +88,7 @@ namespace TheFrozenBanana
 
         private void Die()
         {
-			_dead = true;
+            _isDead = true;
             // Log
             if (_showDebugLog)
             {
@@ -130,9 +136,8 @@ namespace TheFrozenBanana
         //******************* Properties *******************\\
         //**************************************************\\
 
-		public bool IsDead {
-			get {return _dead; }
-		}
+		public bool IsDead { get {return _isDead; } }
+        public bool IsHurt { get { return _isHurt; } }
 
         public int MaxHealth
         {

@@ -26,12 +26,6 @@ namespace TheFrozenBanana
             }
         }
 
-        public override void OnStateEnter() { }
-
-        public override void OnStateExecute() { }
-
-        public override void OnStateExit() { }
-
         public override bool ShouldPlay()
         {
             if (Mathf.Abs(_locomotion.Velocity.x) > 0)
