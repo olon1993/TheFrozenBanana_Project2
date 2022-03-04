@@ -499,7 +499,11 @@ namespace TheFrozenBanana
 
         public IEnumerator ApplyDamageForce(float forceAmount, float direction)
         {
-            Debug.Log("Applying Damage Force: " + gameObject.name);
+            if (_showDebugLog)
+            {
+                Debug.Log("Applying Damage Force: " + gameObject.name);
+            }
+
             _movementIsControllable = false;
             HorizontalMovement = forceAmount * direction;
             yield return new WaitForSeconds(0.05f);

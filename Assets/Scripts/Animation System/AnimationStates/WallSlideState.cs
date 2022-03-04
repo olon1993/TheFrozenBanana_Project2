@@ -27,12 +27,6 @@ namespace TheFrozenBanana
             }
         }
 
-        public override void OnStateEnter() { }
-
-        public override void OnStateExecute() { }
-
-        public override void OnStateExit() { }
-
         public override bool ShouldPlay()
         {
             if ((_locomotion.IsLeftCollision || _locomotion.IsRightCollision) && _locomotion.Velocity.y < -Mathf.Epsilon)

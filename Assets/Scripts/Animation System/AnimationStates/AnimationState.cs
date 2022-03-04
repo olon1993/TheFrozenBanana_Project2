@@ -33,11 +33,11 @@ public abstract class AnimationState : MonoBehaviour, IAnimationState
         CanInterrupt = canInterrupt;
     }
 
-    public abstract void OnStateEnter();
+    public virtual void OnStateEnter() { }
 
-    public abstract void OnStateExecute();
+    public virtual void OnStateExecute() { }
 
-    public abstract void OnStateExit();
+    public virtual void OnStateExit() { }
 
     public abstract bool ShouldPlay();
 

@@ -23,12 +23,6 @@ namespace TheFrozenBanana {
 			}
 		}
 
-		public override void OnStateEnter() { }
-
-		public override void OnStateExecute() { }
-
-		public override void OnStateExit() { }
-
 		public override bool ShouldPlay() {
 			if (_health.CurrentHealth <= 0f) {
 				return true;

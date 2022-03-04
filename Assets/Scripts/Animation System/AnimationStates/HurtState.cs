@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TheFrozenBanana
 {
-    public class JumpStraightUpState : AnimationState
+    public class HurtState : AnimationState
     {
 
         //**************************************************\\
@@ -12,7 +12,7 @@ namespace TheFrozenBanana
         //**************************************************\\
 
         // Dependencies
-        private ILocomotion _locomotion;
+        private IHealth _health;
 
         //**************************************************\\
         //******************** Methods *********************\\
@@ -20,16 +20,16 @@ namespace TheFrozenBanana
 
         private void Awake()
         {
-            _locomotion = GetComponentInParent<ILocomotion>();
-            if (_locomotion == null)
+            _health = GetComponentInParent<IHealth>();
+            if (_health == null)
             {
-                Debug.LogError("Locomotion not found on " + name);
+                Debug.LogError("Health not found on " + name);
             }
         }
 
         public override bool ShouldPlay()
         {
-            if (_locomotion.Velocity.y > Mathf.Epsilon && Mathf.Abs(_locomotion.Velocity.x) <= Mathf.Epsilon)
+            if (_health.IsHurt)
             {
                 return true;
             }
