@@ -393,8 +393,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 576
   _useGravity: 1
-  _maxJumpHeight: 1
-  _timeToJumpApex: 0.1
+  _maxJumpHeight: 0.5
+  _timeToJumpApex: 0.4
   _maxSlopeAngle: 60
   _movementIsControllable: 1
   _walkSpeed: 3
@@ -594,7 +594,7 @@ MonoBehaviour:
   _projectile: {fileID: 6549506913784378892, guid: 2857dbf438742384e8b6eaae2cfbf768, type: 3}
   _target: {fileID: 0}
   _aimTool: {fileID: 0}
-  _weaponObject: {fileID: 0}
+  _weaponObject: {fileID: 8451509625791059969}
   _localScale: {x: 0, y: 0, z: 0}
   _canAim: 1
   _maxAngle: 70

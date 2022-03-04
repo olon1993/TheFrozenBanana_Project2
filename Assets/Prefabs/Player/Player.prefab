@@ -137,7 +137,7 @@ MonoBehaviour:
   _radiusOfInteraction: 0.5
   _delayToHit: 0
   _attackActionTime: 0.1
-  _damageForce: 5
+  _damageForce: 8
   _animationLayer: 0
 --- !u!114 &388510137249779187
 MonoBehaviour:
@@ -553,7 +553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388510137705139664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.14, y: 10.76, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 388510137369585710}
@@ -675,8 +675,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugLog: 1
-  _maxHealth: 25
-  _currentHealth: 25
+  _maxHealth: 12
+  _currentHealth: 12
   HealthBar: {fileID: 0}
   HurtSoundEffect: {fileID: 0}
   DieSoundEffect: {fileID: 0}

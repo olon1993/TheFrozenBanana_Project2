@@ -52,9 +52,9 @@ namespace TheFrozenBanana {
 					Debug.LogError(gameObject.name + "has a weapon that can aim but no camera can be found to aim with!");
 				}
 			} else if (enemyWeapon) {
-				aimTool = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+				StartCoroutine(FindPlayer());
 			}
-			if (_canAim && _aimTool == null) {
+			if (_canAim && _aimTool == null && !enemyWeapon) {
 				Debug.LogError(gameObject.name + "has a weapon that can aim but no target finder!");
 			}
 			if (_localScale == Vector3.zero) {
@@ -64,6 +64,14 @@ namespace TheFrozenBanana {
 				projectileKillTime = 3f;
 			}
 			ToggleWeapon(false);
+		}
+
+		private IEnumerator FindPlayer() {
+			while (aimTool == null) {
+				yield return new WaitForSeconds(1f);
+
+				aimTool = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+			}
 		}
 
 		public void Attack() {
@@ -91,7 +99,7 @@ namespace TheFrozenBanana {
 
 		// This is where the weapon picks up where to aim at.
 		private void UpdateTargetLocation() {
-			if (canAim) {
+			if (canAim && aimTool != null) {
 				Vector2 mousePos = Input.mousePosition;
 				Vector3 pos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
 				aimTool.position = pos;
@@ -112,7 +120,7 @@ namespace TheFrozenBanana {
 			}
 			Vector2 vBase = new Vector2(_locomotion.HorizontalLook * Mathf.Sign(dirSign), 0);
 			float angle = 0;
-			if (canAim) {
+			if (canAim && aimTool != null) {
 				Vector2 vDir = aimTool.position - gameObject.transform.position;
 				angle = Vector2.Angle(vBase, vDir) * _locomotion.HorizontalLook * Mathf.Sign(dirSign);
 				if (aimTool.position.y < gameObject.transform.position.y) {
