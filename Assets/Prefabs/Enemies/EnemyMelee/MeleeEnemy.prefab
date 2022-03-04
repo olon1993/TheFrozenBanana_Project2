@@ -260,7 +260,7 @@ MonoBehaviour:
   _currentHealth: 3
   HealthBar: {fileID: 0}
   HurtSoundEffect: {fileID: 8300000, guid: 563601019c8844745bf0c34eaf26d776, type: 3}
-  DieSoundEffect: {fileID: 0}
+  DieSoundEffect: {fileID: 8300000, guid: 8b041665f6daa424aa92752b18f57f2e, type: 3}
   DamageMultipliers: []
   _enableOnDie: {fileID: 0}
   _disableOnDie: {fileID: 0}
@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 3114246226654492132}
   - component: {fileID: 3114246226654492131}
   - component: {fileID: 1238652263245264469}
+  - component: {fileID: 6905919861284158586}
   - component: {fileID: 3588036895884534952}
   - component: {fileID: 385180864524815596}
   - component: {fileID: 1584515444691787986}
@@ -428,6 +429,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48db935ea92f92f4aa4aeef8bb13cec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6905919861284158586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3114246226654492134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c414542e08bcc647a5811c439d93dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation: {fileID: 7400000, guid: 1b1bf47f0e7e4ac46b126068057499c6, type: 2}
+  _priority: 7
+  _animationLayer: 0
+  _canInterrupt: 0
 --- !u!114 &3588036895884534952
 MonoBehaviour:
   m_ObjectHideFlags: 0
