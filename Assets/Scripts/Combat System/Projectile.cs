@@ -40,6 +40,9 @@ namespace TheFrozenBanana {
 			if (active) {
 				Deactivate();
 			}
+			if (_hitEffect != null) {
+				Instantiate(_hitEffect, gameObject.transform.position, Quaternion.identity, null);
+			}
 			IHealth hpScript = col.GetComponent<IHealth>();
 			if (hpScript != null) {
 				// Do damage
@@ -66,9 +69,6 @@ namespace TheFrozenBanana {
 		// should it miss. calling destroy here as well will make destroy be called 
 		// twice and creating null reference exception. hence, deactivate.
 		private void Deactivate() {
-			if (_hitEffect != null) {
-				Instantiate(_hitEffect, gameObject.transform.position, Quaternion.identity, null);
-			}
 			active = false;
 			gameObject.SetActive(false);
 		}
