@@ -21,6 +21,7 @@ namespace TheFrozenBanana
         private int _numberOfLevels;
 
         private int _currentLevel = 1;
+        private int _highestLevelAvailable = 1;
 
         [SerializeField] Animator transitionAnimator;
         [SerializeField] string fadeOutTransitionTriggerName;
@@ -93,6 +94,8 @@ namespace TheFrozenBanana
         {
             print("Game Manager: Level completed");
             _currentLevel++;
+            if (_currentLevel > _highestLevelAvailable) _highestLevelAvailable = _currentLevel;
+
             if (_currentLevel <= _numberOfLevels)
             {
                 LoadHubScene();
@@ -130,6 +133,16 @@ namespace TheFrozenBanana
         public int CurrentLevel
         {
             get { return _currentLevel; }
+        }
+
+        public int HighestLevelAvailable
+        {
+            get { return _highestLevelAvailable; }
+        }
+
+        public int NumberOfLevels
+        {
+            get { return _numberOfLevels; }
         }
     }
 }
