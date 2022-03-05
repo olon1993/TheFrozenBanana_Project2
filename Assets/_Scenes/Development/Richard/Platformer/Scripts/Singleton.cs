@@ -20,7 +20,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {
         if (instance != null)
         {
-            Debug.LogError("[Singleton] Trying to instantiate a second instance of a singleton class: " + instance);
+            Debug.Log("[Singleton] Trying to instantiate a second instance of a singleton class: " + instance);
         }
         else
         {

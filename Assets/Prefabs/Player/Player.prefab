@@ -623,8 +623,8 @@ MonoBehaviour:
   _timeToJumpApex: 0.4
   _maxSlopeAngle: 45
   _movementIsControllable: 1
-  _walkSpeed: 8
-  _dashSpeed: 20
+  _walkSpeed: 12
+  _dashSpeed: 24
   _wallSlideSpeedMax: 3
   _terminalFallingVelocity: -45
   _minJumpHeight: 1
@@ -633,8 +633,8 @@ MonoBehaviour:
   _wallJumpClimb: {x: 7.5, y: 16}
   _wallJumpOff: {x: 8.5, y: 7}
   _wallLeap: {x: 18, y: 17}
-  _dashStaminaCost: 5
-  _staminaIdleReplenishAmount: 10
+  _dashStaminaCost: 3
+  _staminaIdleReplenishAmount: 30
   _staminaDrainFrequency: 0.1
 --- !u!114 &388510137705139675
 MonoBehaviour:

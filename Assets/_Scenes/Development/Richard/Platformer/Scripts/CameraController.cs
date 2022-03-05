@@ -27,7 +27,7 @@ namespace TheFrozenBanana
                 yield return new WaitForEndOfFrame();
             }
             cinemachineCamera.Follow = player.transform;
-            cinemachineCamera.LookAt = player.transform;
+            //cinemachineCamera.LookAt = player.transform;
         }
     }
 }

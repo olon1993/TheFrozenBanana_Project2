@@ -55,6 +55,9 @@ TagManager:
   - name: Platforms
     uniqueID: 3403924215
     locked: 0
+  - name: PopUpBox
+    uniqueID: 3068022295
+    locked: 0
   - name: GameOverOverlay
     uniqueID: 1654614503
     locked: 0

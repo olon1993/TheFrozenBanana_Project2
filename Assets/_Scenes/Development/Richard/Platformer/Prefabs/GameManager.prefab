@@ -46,10 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LEVEL_SCENE_NAMES:
   - DemoLevel 1
-  - DemoLevel 5
+  - Level_0
   - DemoLevel 4
   WIN_SCENE_NAME: WinScene
   GAME_OVER_SCENE_NAME: GameOver
+  HUB_SCENE_NAME: Alt HubScene
+  START_MENU_SCENE_NAME: StartScene
   transitionAnimator: {fileID: 9198288356817688554}
   fadeOutTransitionTriggerName: FadeOutScene
   fadeInTransitionTriggerName: FadeInScene

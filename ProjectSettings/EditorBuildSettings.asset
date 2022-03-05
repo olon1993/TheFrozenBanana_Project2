@@ -5,7 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/_Scenes/Development/Richard/Platformer/Scenes/StartScene.unity
+    guid: b029a74b9604bf3458b4e449ec5fa859
+  - enabled: 1
+    path: Assets/_Scenes/Development/Richard/Platformer/Scenes/DemoLevel 1.unity
+    guid: 364cf003d3fc33f4c9ed67c08c9631aa
+  - enabled: 1
+    path: Assets/_Scenes/Development/Scott/Level_0.unity
+    guid: bfb5793fa4fa27742befc40d6a2587c0
+  - enabled: 1
+    path: Assets/_Scenes/Development/Wouter/_Scenes/wBuildupScene.unity
+    guid: aa548c9bf30007b4c88f304b405de241
+  - enabled: 1
+    path: Assets/_Scenes/Development/Richard/Platformer/Scenes/WinScene.unity
+    guid: cdd2f3b7789b84349ada5eef73241a66
+  - enabled: 1
+    path: Assets/_Scenes/Development/Richard/Platformer/Scenes/GameOver.unity
+    guid: 9397c2936ba619649ac4f66ba2eff319
+  - enabled: 1
+    path: Assets/_Scenes/Development/Richard/Platformer/Scenes/Alt HubScene.unity
+    guid: 293546f7bd7a5034ebb5bab2ebb24815
   m_configObjects: {}

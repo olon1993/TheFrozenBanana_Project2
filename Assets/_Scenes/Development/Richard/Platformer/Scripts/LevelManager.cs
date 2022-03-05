@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace TheFrozenBanana
 {
@@ -9,6 +10,7 @@ namespace TheFrozenBanana
     {
         [SerializeField] GameObject _playerPrefab;
         [SerializeField] Transform _spawnLocation;
+        [SerializeField] TextMeshProUGUI _shipPartsCountText;
 
         GameObject[] shipParts;
         int numberOfShipPartsFound;
@@ -33,9 +35,16 @@ namespace TheFrozenBanana
         private void Start()
         {
             shipParts = GameObject.FindGameObjectsWithTag("ShipPart");
+            UpdateUI();
         }
 
-        public void OnLevelExitReached()
+        private void UpdateUI()
+        {
+            if(_shipPartsCountText != null)
+            _shipPartsCountText.text = numberOfShipPartsFound + "/" + shipParts.Length;
+        }
+
+        private void OnLevelExitReached()
         {
             print("Level exit reached");
             if (allShipPartsHaveBeenFound && !levelCompleted)
@@ -49,6 +58,7 @@ namespace TheFrozenBanana
         private void OnShipPartFound()
         {
             numberOfShipPartsFound++;
+            UpdateUI();
             if (numberOfShipPartsFound == shipParts.Length)
             {
                 allShipPartsHaveBeenFound = true;

@@ -15,10 +15,12 @@ namespace TheFrozenBanana
         [SerializeField] String[] LEVEL_SCENE_NAMES;
         [SerializeField] String WIN_SCENE_NAME;
         [SerializeField] String GAME_OVER_SCENE_NAME;
+        [SerializeField] String HUB_SCENE_NAME;
+        [SerializeField] String START_MENU_SCENE_NAME;
 
         private int _numberOfLevels;
 
-        private int _currentLevel;
+        private int _currentLevel = 1;
 
         [SerializeField] Animator transitionAnimator;
         [SerializeField] string fadeOutTransitionTriggerName;
@@ -59,12 +61,12 @@ namespace TheFrozenBanana
             LoadLevel(_currentLevel);
         }
 
-        public void RestartCurrentLevel()
+        public void LoadCurrentLevel()
         {
             LoadLevel(_currentLevel);
         }
 
-        private void LoadLevel(int levelNumber)
+        public void LoadLevel(int levelNumber)
         {
             StartCoroutine(LoadSceneCoroutine(LEVEL_SCENE_NAMES[levelNumber - 1]));
         }
@@ -93,7 +95,7 @@ namespace TheFrozenBanana
             _currentLevel++;
             if (_currentLevel <= _numberOfLevels)
             {
-                LoadLevel(_currentLevel);
+                LoadHubScene();
             }
             else
             {
@@ -109,6 +111,16 @@ namespace TheFrozenBanana
         private void OnPlayerDeath()
         {
             StartCoroutine(LoadSceneCoroutine(GAME_OVER_SCENE_NAME));
+        }
+
+        public void LoadHubScene()
+        {
+            StartCoroutine(LoadSceneCoroutine(HUB_SCENE_NAME));
+        }
+
+        public void ReloadGame()
+        {
+            StartCoroutine(LoadSceneCoroutine(START_MENU_SCENE_NAME));
         }
 
 

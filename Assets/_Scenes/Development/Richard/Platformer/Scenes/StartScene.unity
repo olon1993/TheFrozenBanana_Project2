@@ -352,11 +352,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2871542706818490516, guid: cfd59f395accaee4fa35dab3c13c4a56, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -1.3368e-41
+      value: -1.477e-41
       objectReference: {fileID: 0}
     - target: {fileID: 2871542706818490516, guid: cfd59f395accaee4fa35dab3c13c4a56, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1.3368e-41
+      value: -1.477e-41
       objectReference: {fileID: 0}
     - target: {fileID: 2871542706818490516, guid: cfd59f395accaee4fa35dab3c13c4a56, type: 3}
       propertyPath: m_LocalRotation.z
@@ -374,9 +374,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2871542706818490519, guid: cfd59f395accaee4fa35dab3c13c4a56, type: 3}
+      propertyPath: orthographic size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2871542706818490537, guid: cfd59f395accaee4fa35dab3c13c4a56, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871542707205375186, guid: cfd59f395accaee4fa35dab3c13c4a56, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfd59f395accaee4fa35dab3c13c4a56, type: 3}
@@ -656,6 +664,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 507122651177827754, guid: c48aa377d0dfdb74686c155a04aaaf68, type: 3}
+      propertyPath: LEVEL_SCENE_NAMES.Array.data[2]
+      value: wBuildupScene
+      objectReference: {fileID: 0}
     - target: {fileID: 507122651177827755, guid: c48aa377d0dfdb74686c155a04aaaf68, type: 3}
       propertyPath: m_RootOrder
       value: 1
