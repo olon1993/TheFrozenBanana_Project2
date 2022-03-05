@@ -9,6 +9,7 @@ namespace TheFrozenBanana {
 
 		[SerializeField] private float _velocity;
 		[SerializeField] GameObject _child;
+		[SerializeField] GameObject _hitEffect;
 		private string _ownerTag;
 		private Damage _damage;
 		private Vector3 _direction;
@@ -65,6 +66,9 @@ namespace TheFrozenBanana {
 		// should it miss. calling destroy here as well will make destroy be called 
 		// twice and creating null reference exception. hence, deactivate.
 		private void Deactivate() {
+			if (_hitEffect != null) {
+				Instantiate(_hitEffect, gameObject.transform.position, Quaternion.identity, null);
+			}
 			active = false;
 			gameObject.SetActive(false);
 		}
@@ -78,6 +82,10 @@ namespace TheFrozenBanana {
 		public GameObject child {
 			get { return _child; }
 			set { _child = value; }
+		}
+
+		public GameObject hitEffect {
+			get { return _hitEffect; }
 		}
 
 		public string ownerTag {

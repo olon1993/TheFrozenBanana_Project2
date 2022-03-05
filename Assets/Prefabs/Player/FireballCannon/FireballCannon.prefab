@@ -52,7 +52,7 @@ MonoBehaviour:
   _weaponObject: {fileID: 2578267750793537228}
   _localScale: {x: 0.2, y: 0.2, z: 0.2}
   _canAim: 1
-  _maxAngle: 50
+  _maxAngle: 80
   _projectileKillTime: 3
   _cam: {fileID: 0}
   _isLimitedAmmo: 0
@@ -60,13 +60,13 @@ MonoBehaviour:
   _currentAmmo: 0
   _ammoTypeDefinition: 0
   _pointOfOrigin: {fileID: 2578267749614658472}
-  _attackActionTime: 0.415
+  _attackActionTime: 0.2085
   _animationLayer: 1
-  spawnProjectileAnimFrame: 3
+  spawnProjectileAnimFrame: 4
   totalFiringAnimFrames: 5
   weaponAudioSource: {fileID: 6578587613842290325}
   enemyWeapon: 0
-  animationName: 
+  animationName: fireballcannon_shoot
   ownerTag: Player
 --- !u!82 &6578587613842290325
 AudioSource:
