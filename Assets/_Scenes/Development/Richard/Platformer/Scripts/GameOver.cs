@@ -13,6 +13,7 @@ namespace TheFrozenBanana
 		[SerializeField] private AudioSource gosAudio;
 		[SerializeField] private AudioClip gosAudioClip;
 		[SerializeField] private GameObject _continueTextGO;
+		[SerializeField] private float _continueTextDelay = 3.5f;
 		[SerializeField] private TextMeshProUGUI _countdownText;
 		[SerializeField] private int _countdownTime = 10;
 
@@ -36,7 +37,7 @@ namespace TheFrozenBanana
 			gosAudio.clip = gosAudioClip;
 			gosAudio.Play();
 
-			yield return new WaitForSeconds(5);
+			yield return new WaitForSeconds(_continueTextDelay);
 
 			StartCoroutine(ContinueCountdown());
 

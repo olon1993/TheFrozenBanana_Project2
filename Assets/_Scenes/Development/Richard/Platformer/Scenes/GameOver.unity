@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gosAudio: {fileID: 1350753288710699176}
-  gosAudioClip: {fileID: 0}
+  gosAudioClip: {fileID: 8300000, guid: 9a691e4bba97e4147b11fedd113b1595, type: 3}
   _continueTextGO: {fileID: 8906282459611083441}
   _countdownText: {fileID: 141423474}
   _countdownTime: 10
