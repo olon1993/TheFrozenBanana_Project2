@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6626998401060989412}
   - component: {fileID: 534043843950194635}
+  - component: {fileID: -1509516703029839287}
   - component: {fileID: 625843305629295763}
   - component: {fileID: 731303596}
   - component: {fileID: 250358495667591611}
@@ -52,10 +53,24 @@ MonoBehaviour:
   _collectionBox: {fileID: 625843305629295763}
   _spriteRenderer: {fileID: 495084658209657429}
   _collectionSprite: {fileID: 21300000, guid: 4a4fff61fe403c645a4f13eab065f0d0, type: 3}
-  _moveHorizontal: 0.1
-  _moveVertical: 0.2
-  _moveTime: 1
   _timeAfterCollectRemove: 2
+--- !u!114 &-1509516703029839287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2581225656350287981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc558f0fbd02d84f8ed531f2d339d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveHorizontal: 0.2
+  _moveVertical: 0.5
+  _moveTime: 1
+  _speedHorizontal: 2
+  _speedVertical: 1.5
 --- !u!61 &625843305629295763
 BoxCollider2D:
   m_ObjectHideFlags: 0

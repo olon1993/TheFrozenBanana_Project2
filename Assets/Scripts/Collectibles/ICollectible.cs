@@ -17,11 +17,7 @@ namespace TheFrozenBanana
 		AudioSource audioSource { get; }
 		bool collected { get; }
 		Vector3 centerLocation { get; }
-		float moveVertical { get; }
-		float moveHorizontal { get; }
-		float moveTime { get; }
 		float timeAfterCollectRemove { get; }
-		IEnumerator FloatMovement();
 		void Collect(GameObject player);
 	}
 }

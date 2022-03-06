@@ -11,9 +11,6 @@ namespace TheFrozenBanana
 		[SerializeField] private Collider2D _collectionBox;
 		[SerializeField] private SpriteRenderer _spriteRenderer;
 		[SerializeField] private Sprite _collectionSprite;
-		[SerializeField] private float _moveHorizontal;
-		[SerializeField] private float _moveVertical;
-		[SerializeField] private float _moveTime;
 		[SerializeField] private float _timeAfterCollectRemove;
 		private AudioSource _audioSource;
 		private Vector3 _centerLocation;
@@ -28,7 +25,6 @@ namespace TheFrozenBanana
 			}
 			_audioSource = gameObject.GetComponent<AudioSource>();
 			_centerLocation = gameObject.transform.position;
-			StartCoroutine(FloatMovement());
 		}
 
 		private void OnTriggerEnter2D(Collider2D col) {
@@ -60,35 +56,19 @@ namespace TheFrozenBanana
 			if (_audioSource != null) {
 				_audioSource.Play();
 			}
+			StartCoroutine(RotateCollectSprite());
 			Destroy(this.gameObject, _timeAfterCollectRemove);
 		}
 
-		public IEnumerator FloatMovement() {
-			float x = 0;
-			float y = 0;
-			float t = 0;
-			float sign = 1;
-			while (true) {
-				t += Mathf.Sign(sign) * (Time.deltaTime * _moveTime) / _moveTime;
-				if (t > 1) {
-					t = 1;
-					sign = -1;
-				} else if (t < 0) {
-					t = 0;
-					sign = 1;
-				}
-				x = Mathf.Lerp(-_moveHorizontal, _moveHorizontal, t);
-				y = Mathf.Lerp(-_moveVertical, _moveVertical, t);
-				gameObject.transform.position = new Vector3(_centerLocation.x + x, _centerLocation.y + y, _centerLocation.z);
-				if (_collected) {
-					gameObject.transform.Rotate(new Vector3(0,0,8));
-				}
+		private IEnumerator RotateCollectSprite() {
+			while (_collected) {
+				gameObject.transform.Rotate(new Vector3(0, 0, 8));
 				yield return new WaitForEndOfFrame();
 			}
-		} 
+		}
 
-		// interface getters and setters
-		public Collider2D collectionBox {
+	// interface getters and setters
+	public Collider2D collectionBox {
 			get { return _collectionBox; }
 		}
 
@@ -106,18 +86,6 @@ namespace TheFrozenBanana
 
 		public Vector3 centerLocation {
 			get { return _centerLocation; }
-		}
-
-		public float moveHorizontal {
-			get { return _moveHorizontal; }
-		}
-
-		public float moveVertical {
-			get { return _moveVertical; }
-		}
-
-		public float moveTime {
-			get { return _moveTime; }
 		}
 
 		public float timeAfterCollectRemove {
