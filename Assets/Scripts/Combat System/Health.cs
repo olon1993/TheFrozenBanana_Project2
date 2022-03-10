@@ -25,20 +25,9 @@ namespace TheFrozenBanana
         [SerializeField] GameObject _enableOnDie;
         [SerializeField] GameObject _disableOnDie;
 
-        AudioManager audioManager;
-
         //**************************************************\\
         //******************** Methods *********************\\
         //**************************************************\\
-
-        void Awake()
-        {
-            audioManager = FindObjectOfType<AudioManager>();
-            if (audioManager == null)
-            {
-                Debug.Log("No AudioManager in scene");
-            }
-        }
 
         void Update()
         {
