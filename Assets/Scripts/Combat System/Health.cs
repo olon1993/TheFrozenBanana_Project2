@@ -82,7 +82,7 @@ namespace TheFrozenBanana
             }
 
             // Die sound
-            if (audioManager != null)
+            if (DieSoundEffect != null)
             {
                 AudioEvents.CallPlaySoundClip(DieSoundEffect);
             }
