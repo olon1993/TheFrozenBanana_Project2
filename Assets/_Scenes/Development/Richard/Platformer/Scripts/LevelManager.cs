@@ -8,13 +8,18 @@ namespace TheFrozenBanana
 {
     public class LevelManager : MonoBehaviour
     {
+        // Player
         [SerializeField] GameObject _playerPrefab;
         [SerializeField] Transform _spawnLocation;
-        [SerializeField] TextMeshProUGUI _shipPartsCountText;
 
-        GameObject[] shipParts;
-        int numberOfShipPartsFound;
-        bool allShipPartsHaveBeenFound;
+        // Collectables
+        [SerializeField] TextMeshProUGUI _shipPartsCountText;
+        private GameObject[] shipParts;
+        private int numberOfShipPartsFound;
+        private bool allShipPartsHaveBeenFound;
+
+        // Music
+        [SerializeField] AudioClip _levelMusic;
 
         bool levelCompleted;
 
@@ -36,6 +41,7 @@ namespace TheFrozenBanana
         {
             shipParts = GameObject.FindGameObjectsWithTag("ShipPart");
             UpdateUI();
+            AudioEvents.CallPlaySoundClip(_levelMusic);
         }
 
         private void UpdateUI()

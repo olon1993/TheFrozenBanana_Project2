@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
-    AudioSource audioSource;
+    private AudioSource audioSource;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         audioSource = GetComponent<AudioSource>();
+        AudioEvents.PlaySoundClip += OnPlaySoundClip;
     }
 
-    public void PlayClip(AudioClip clip)
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        AudioEvents.PlaySoundClip -= OnPlaySoundClip;
+    }
+
+    public void OnPlaySoundClip(AudioClip clip)
     {
         if (clip == null) return;
         audioSource.PlayOneShot(clip);
