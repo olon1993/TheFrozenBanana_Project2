@@ -5662,6 +5662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireballCannon
       objectReference: {fileID: 0}
+    - target: {fileID: 2578267749614658473, guid: 99d93a7513116d04f90ad3b42d42a391, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2578267749614658475, guid: 99d93a7513116d04f90ad3b42d42a391, type: 3}
       propertyPath: _aimTool
       value: 

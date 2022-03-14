@@ -71,7 +71,7 @@ namespace TheFrozenBanana
             _stamina = GetComponent<Stamina>();
             if (_stamina == null)
             {
-                print("Stamina component not found on " + name);
+              //  print("Stamina component not found on " + name);
             }
         }
 

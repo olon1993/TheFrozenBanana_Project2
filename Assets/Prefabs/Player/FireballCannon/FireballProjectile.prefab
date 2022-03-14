@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431aff2cc37d9ca4b8d8f590f1b53316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocity: 12
+  _velocity: 15
   _child: {fileID: 2341883374798562875}
   _hitEffect: {fileID: 3347433046647465489, guid: b80c87e87399883428a03963697562c5, type: 3}
 --- !u!114 &5754162594083831249

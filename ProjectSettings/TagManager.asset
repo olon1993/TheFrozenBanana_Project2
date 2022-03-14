@@ -9,6 +9,8 @@ TagManager:
   - NPC
   - ShipPart
   - Environment
+  - Level
+  - NoParts
   layers:
   - Default
   - TransparentFX
