@@ -8,6 +8,7 @@ namespace TheFrozenBanana
 	public class Collectible : MonoBehaviour, ICollectible 
 	{
 		[SerializeField] private ICollectible.CollectibleType _collectibleTypeDefinition;
+		[SerializeField] private int _id;
 		[SerializeField] private Collider2D _collectionBox;
 		[SerializeField] private SpriteRenderer _spriteRenderer;
 		[SerializeField] private Sprite _collectionSprite;
@@ -15,6 +16,7 @@ namespace TheFrozenBanana
 		private AudioSource _audioSource;
 		private Vector3 _centerLocation;
 		private bool _collected = false;
+		private bool removeOnTouch;
 
 		private void Awake() {
 			if (_collectionBox == null) {
@@ -29,7 +31,6 @@ namespace TheFrozenBanana
 
 		private void OnTriggerEnter2D(Collider2D col) {
 			if (col.gameObject.CompareTag("Player") && !_collected) {
-				_collected = true;
 				Collect(col.gameObject);
 			}
 		}
@@ -41,34 +42,56 @@ namespace TheFrozenBanana
 					break;
 				case ICollectible.CollectibleType.HEALTH:
 					player.GetComponent<IHealth>().AddHealth(5);
+					removeOnTouch = true;
 					break;
 				case ICollectible.CollectibleType.STAMINA:
 					player.GetComponent<Stamina>().ReplenishStamina(30);
+					removeOnTouch = true;
 					break;
 				case ICollectible.CollectibleType.CD:
-					Debug.Log("CD collected. Now we just have to do something here");
+					GameObject.FindGameObjectWithTag("Level").GetComponent<ILevel>().Collect(gameObject);
+					removeOnTouch = true;
 					break;
 				default:
 					Debug.Log("Something is wrong with the collectible defitition of " + gameObject.name);
 					break;
 			}
-			_spriteRenderer.sprite = _collectionSprite;
-			if (_audioSource != null) {
-				_audioSource.Play();
+
+			if (removeOnTouch) {
+				_collected = true;
+				_spriteRenderer.sprite = _collectionSprite;
+				if (_audioSource != null) {
+					_audioSource.Play();
+				}
+				StartCoroutine(RotateCollectSprite());
 			}
-			StartCoroutine(RotateCollectSprite());
+		}
+
+		public void CollectShipPart() {
+			_collected = true;
 			Destroy(this.gameObject, _timeAfterCollectRemove);
 		}
 
 		private IEnumerator RotateCollectSprite() {
-			while (_collected) {
+			float t = 0;
+			while (t < _timeAfterCollectRemove) {
+				t += Time.deltaTime;
 				gameObject.transform.Rotate(new Vector3(0, 0, 8));
 				yield return new WaitForEndOfFrame();
 			}
+			gameObject.SetActive(false);
 		}
 
 	// interface getters and setters
-	public Collider2D collectionBox {
+		public ICollectible.CollectibleType collectibleTypeDefinition {
+			get { return _collectibleTypeDefinition; }
+		}
+
+		public int id {
+			get { return _id; }
+		}
+
+		public Collider2D collectionBox {
 			get { return _collectionBox; }
 		}
 
@@ -94,6 +117,7 @@ namespace TheFrozenBanana
 
 		public bool collected {
 			get { return _collected; }
+			set { _collected = value; }
 		}
 	}
 }

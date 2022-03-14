@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace TheFrozenBanana {
 		[SerializeField] private int _animationLayer;
 
 		// Extras
+		[SerializeField] private Transform startVector;
 		[SerializeField] private int spawnProjectileAnimFrame;
 		[SerializeField] private int totalFiringAnimFrames;
 		[SerializeField] private AudioSource weaponAudioSource;
@@ -69,8 +71,11 @@ namespace TheFrozenBanana {
 		private IEnumerator FindPlayer() {
 			while (aimTool == null) {
 				yield return new WaitForSeconds(1f);
-
-				aimTool = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+				try {
+					aimTool = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+				} catch (NullReferenceException nre) {
+					Debug.Log("Enemy has not (yet) found the player: " + nre);
+				}
 			}
 		}
 
@@ -158,7 +163,11 @@ namespace TheFrozenBanana {
 			}
 			Vector3 fireTowards = target.position;
 			GameObject proj = Instantiate(projectile, PointOfOrigin.position, Quaternion.identity, null) as GameObject;
-			proj.GetComponent<IProjectile>().Setup(gameObject.transform.position, fireTowards, rot, ownerTag);
+			Vector3 startDirection = gameObject.transform.position;
+			if (startVector != null) {
+				startDirection = startVector.position;
+			}
+			proj.GetComponent<IProjectile>().Setup(startDirection, fireTowards, rot, ownerTag);
 			Destroy(proj, projectileKillTime);
 		}
 

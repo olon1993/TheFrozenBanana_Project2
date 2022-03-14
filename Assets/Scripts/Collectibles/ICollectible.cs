@@ -11,13 +11,16 @@ namespace TheFrozenBanana
 		{
 			SHIPPART, CD, HEALTH, STAMINA
 		}
+		CollectibleType collectibleTypeDefinition { get; }
+		int id { get; }
 		Collider2D collectionBox { get; }
 		SpriteRenderer spriteRenderer { get; }
 		Sprite collectionSprite { get; }
 		AudioSource audioSource { get; }
-		bool collected { get; }
+		bool collected { get; set; }
 		Vector3 centerLocation { get; }
 		float timeAfterCollectRemove { get; }
 		void Collect(GameObject player);
+		void CollectShipPart();
 	}
 }
