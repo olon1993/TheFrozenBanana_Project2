@@ -25,20 +25,9 @@ namespace TheFrozenBanana
         [SerializeField] GameObject _enableOnDie;
         [SerializeField] GameObject _disableOnDie;
 
-        AudioManager audioManager;
-
         //**************************************************\\
         //******************** Methods *********************\\
         //**************************************************\\
-
-        void Awake()
-        {
-            audioManager = FindObjectOfType<AudioManager>();
-            if (audioManager == null)
-            {
-                Debug.Log("No AudioManager in scene");
-            }
-        }
 
         void Update()
         {
@@ -70,10 +59,7 @@ namespace TheFrozenBanana
             }
             else
             {
-                if (audioManager != null)
-                {
-                    audioManager.PlayClip(HurtSoundEffect);
-                }
+                AudioEvents.CallPlaySoundClip(HurtSoundEffect);
             }
 
             return false;
@@ -96,9 +82,9 @@ namespace TheFrozenBanana
             }
 
             // Die sound
-            if (audioManager != null)
+            if (DieSoundEffect != null)
             {
-                audioManager.PlayClip(DieSoundEffect);
+                AudioEvents.CallPlaySoundClip(DieSoundEffect);
             }
 
             // Enable
@@ -121,14 +107,8 @@ namespace TheFrozenBanana
             }
             else
             {
-                if (audioManager != null && DieSoundEffect != null)
-                {
-                    Destroy(gameObject, DieSoundEffect.length);
-                }
-                else
-                {
-                    Destroy(gameObject);
-                }
+                float delay = DieSoundEffect == null ? 0 : DieSoundEffect.length;
+                Destroy(gameObject, delay);
             }
         }
 
