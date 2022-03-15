@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collectibleTypeDefinition: 3
+  _id: 0
   _collectionBox: {fileID: 625843305629295763}
   _spriteRenderer: {fileID: 495084658209657429}
   _collectionSprite: {fileID: 21300000, guid: 4a4fff61fe403c645a4f13eab065f0d0, type: 3}
@@ -252,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 6936456210198006040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6626998401060989412}
   m_RootOrder: 0
@@ -297,7 +298,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b7e4b07c5bfb7c342b010fc23894958d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85ae8e187794b50478f20b51bf27795d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
