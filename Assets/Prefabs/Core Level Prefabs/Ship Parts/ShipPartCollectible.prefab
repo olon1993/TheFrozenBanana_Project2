@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collectibleTypeDefinition: 0
-  _id: 43518
+  _id: 1
   _collectionBox: {fileID: 7163087478565390318}
   _spriteRenderer: {fileID: 8489569997079344721}
   _collectionSprite: {fileID: 21300000, guid: 4a4fff61fe403c645a4f13eab065f0d0, type: 3}
