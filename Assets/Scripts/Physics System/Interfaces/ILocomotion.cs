@@ -19,5 +19,6 @@ namespace TheFrozenBanana
         bool IsLeftCollision { get; }
         bool IsDashing { get; set; }
 		bool IsWallSliding { get; }
+		void IsDead();
     }
 }

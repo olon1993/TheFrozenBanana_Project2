@@ -497,6 +497,10 @@ namespace TheFrozenBanana
             _collisions.FallingThroughPlatform = false;
         }
 
+		public void IsDead() {
+			_movementIsControllable = false;
+		}
+
         public IEnumerator ApplyDamageForce(float forceAmount, float direction)
         {
             if (_showDebugLog)

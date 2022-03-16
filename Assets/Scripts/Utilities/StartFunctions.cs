@@ -9,6 +9,7 @@ namespace TheFrozenBanana
 {
 	public class StartFunctions : MonoBehaviour {
 
+		[SerializeField] private bool skipIntro;
 		[SerializeField] private AudioSource titleAudioSource;
 		[SerializeField] private AudioClip titleCrashSound;
 		[SerializeField] private AudioClip titleMusic;
@@ -109,6 +110,10 @@ namespace TheFrozenBanana
 			startButton.SetActive(false);
 			creditsButton.SetActive(false);
 			titleText.SetActive(false);
+			if (skipIntro) {
+				wGameManager.gm.StartupGame();
+				return;
+			}
 			StartCoroutine(PlayIntro());
 		}
 
