@@ -235,13 +235,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c198d2adc667446bd2bb1c8184c2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: {fileID: 0}
   startSceneName: wStartScene
   hubSceneName: wHubScene
   levelSceneName: wLevelScene
   gameOverSceneName: wGameOverScene
   levels:
-  - {fileID: 4549589013002690090, guid: 1f6c22822884c2042a47af2a259b8c54, type: 3}
+  - {fileID: 2043743826210222458, guid: f776df534fc125841ae1bae759896863, type: 3}
   - {fileID: 2361202113937128557, guid: 9243c305e16be534cba0f5546bca123a, type: 3}
   - {fileID: 2361202113937128557, guid: 1d2435a11948bc845b825dc2df278e1d, type: 3}
   - {fileID: 2361202113937128557, guid: 01c123dd9e8205f4e9f909a2a22b1538, type: 3}
