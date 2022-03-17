@@ -12,7 +12,7 @@ namespace TheFrozenBanana
         [SerializeField] private Animator heac;
         [SerializeField] private string heAnimationName;
 
-        private void OnAwake()
+        private void Awake()
         {
             if (destroyTimer == 0f)
             {
