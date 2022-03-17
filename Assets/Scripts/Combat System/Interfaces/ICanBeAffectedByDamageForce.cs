@@ -6,7 +6,7 @@ namespace TheFrozenBanana
 {
     public interface ICanBeAffectedByDamageForce
     {
-        IEnumerator ApplyDamageForce(float forceAmount, float direction);
+        void ApplyDamageForce(float forceAmount, float direction);
     }
 }
 

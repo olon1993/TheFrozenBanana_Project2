@@ -125,7 +125,7 @@ namespace TheFrozenBanana
 
             if (objectAffectedByDamageForce != null)
             {
-                StartCoroutine(objectAffectedByDamageForce.ApplyDamageForce(_damageForce, damageDirection));
+                objectAffectedByDamageForce.ApplyDamageForce(_damageForce, damageDirection);
             }
         }
 

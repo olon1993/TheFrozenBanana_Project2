@@ -37,9 +37,6 @@ namespace TheFrozenBanana {
 			if (col.CompareTag(ownerTag)) {
 				return;
 			}
-			if (active) {
-				Deactivate();
-			}
 			if (_hitEffect != null) {
 				Instantiate(_hitEffect, gameObject.transform.position, Quaternion.identity, null);
 			}
@@ -47,6 +44,20 @@ namespace TheFrozenBanana {
 			if (hpScript != null) {
 				// Do damage
 				hpScript.TakeDamage(_damage);
+				HandleDamageForce(col);
+			}
+			if (active) {
+				Deactivate();
+			}
+		}
+
+		private void HandleDamageForce(Collider2D col) {
+			float damageDirection = transform.position.x < col.transform.position.x ? 1 : -1;
+
+			ICanBeAffectedByDamageForce objectAffectedByDamageForce = col.GetComponent<ICanBeAffectedByDamageForce>();
+
+			if (objectAffectedByDamageForce != null) {
+				objectAffectedByDamageForce.ApplyDamageForce(1, damageDirection);
 			}
 		}
 

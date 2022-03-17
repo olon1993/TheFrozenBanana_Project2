@@ -109,9 +109,7 @@ namespace TheFrozenBanana
                 float delay = DieSoundEffect == null ? 0 : DieSoundEffect.length;
                 Destroy(gameObject, delay);
             }
-			if (gameObject.GetComponent<ILocomotion>() != null) {
-				gameObject.GetComponent<ILocomotion>().IsDead();
-			}
+			
         }
 
 		private IEnumerator DelayDeath() {

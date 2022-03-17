@@ -20,7 +20,7 @@ namespace TheFrozenBanana
             {
                 other.GetComponent<IHealth>().TakeDamage(_damage);
                 float damageDirection = transform.position.x < other.transform.position.x ? 1 : -1;
-                StartCoroutine(other.GetComponent<ICanBeAffectedByDamageForce>().ApplyDamageForce(5, damageDirection));
+                other.GetComponent<ICanBeAffectedByDamageForce>().ApplyDamageForce(5, damageDirection);
                 Debug.Log(name + " did damage to " + other.name);
             }
         }
@@ -32,7 +32,7 @@ namespace TheFrozenBanana
             {
                 collision.gameObject.GetComponent<IHealth>().TakeDamage(_damage);
                 float damageDirection = collision.GetContact(0).point.x < collision.transform.position.x ? 1 : -1;
-                StartCoroutine(collision.gameObject.GetComponent<ICanBeAffectedByDamageForce>().ApplyDamageForce(5, damageDirection));
+                collision.gameObject.GetComponent<ICanBeAffectedByDamageForce>().ApplyDamageForce(5, damageDirection);
                 Debug.Log(name + " did damage to " + collision.gameObject.name);
             }
         }
