@@ -29038,6 +29038,7 @@ MonoBehaviour:
   _playerSpawnPoint: {fileID: 7441237784299432447}
   _teleportFieldLevelComplete: {fileID: 8962117500187311217, guid: ccebb301b7bbee34d9221b4102683796, type: 3}
   _levelCompleteTextBox: {fileID: 4647937576750269009}
+  _backgroundVerticalCorrection: 2
   _levelNumber: 1
   _collectibles:
   - {fileID: 5584041509023643520}

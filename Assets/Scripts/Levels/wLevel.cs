@@ -10,6 +10,7 @@ namespace TheFrozenBanana
 		[SerializeField] private GameObject _playerSpawnPoint;
 		[SerializeField] private GameObject _teleportFieldLevelComplete;
 		[SerializeField] private GameObject _levelCompleteTextBox;
+		[SerializeField] private float _backgroundVerticalCorrection;
 		[SerializeField] private int _levelNumber;
 		[SerializeField] private GameObject[] _collectibles;
 		[SerializeField] private GameObject teleportationEffect;
@@ -98,6 +99,9 @@ namespace TheFrozenBanana
 
 		public GameObject levelCompleteTextBox {
 			get { return _levelCompleteTextBox; }
+		}
+		public float backgroundVerticalCorrection {
+			get { return _backgroundVerticalCorrection; }
 		}
 
 		public bool levelComplete {

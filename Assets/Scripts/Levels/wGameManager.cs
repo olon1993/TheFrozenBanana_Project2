@@ -162,14 +162,16 @@ namespace TheFrozenBanana
 			yield return new WaitForSeconds(1f);
 			camTracker = Instantiate(mainCamPrefab) as GameObject;
 			audioTracker = Instantiate(audioManagerPrefab) as GameObject;
-			parallaxTracker = Instantiate(parallaxPrefab) as GameObject;
 			uiTracker = Instantiate(uiPrefab) as GameObject;
 			if (levelSelected == -1) {
 				levelTracker = Instantiate(hubLevel) as GameObject;
 			} else {
 				levelTracker = Instantiate(levels[levelSelected]) as GameObject;
 			}
-			levelTracker.GetComponent<ILevel>().StartupLevel();
+			ILevel tmpLevel = levelTracker.GetComponent<ILevel>();
+			tmpLevel.StartupLevel();
+			Vector3 parallaxStart = tmpLevel.playerSpawnPoint.transform.position + Vector3.up * tmpLevel.backgroundVerticalCorrection;
+			parallaxTracker = Instantiate(parallaxPrefab, parallaxStart, Quaternion.identity, null) as GameObject;
 			sceneReady = true;
 		}
 

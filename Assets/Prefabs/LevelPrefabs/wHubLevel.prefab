@@ -8506,6 +8506,7 @@ MonoBehaviour:
   _playerSpawnPoint: {fileID: 2370551125975263274}
   _teleportFieldLevelComplete: {fileID: 0}
   _levelCompleteTextBox: {fileID: 0}
+  _backgroundVerticalCorrection: 2
   _levelNumber: -1
   _collectibles: []
   teleportationEffect: {fileID: 4195827030139760371, guid: 12dd51d27ec1fd1418bbb4754e0552c2, type: 3}

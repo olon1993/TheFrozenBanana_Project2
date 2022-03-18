@@ -10,6 +10,7 @@ namespace TheFrozenBanana {
 		GameObject playerSpawnPoint { get; }
 		GameObject[] collectibles { get; }
 		GameObject levelCompleteTextBox { get; }
+		float backgroundVerticalCorrection { get; }
 		bool levelAccessible { get; set; }
 		bool levelComplete { get; set; }
 		void StartupLevel();
