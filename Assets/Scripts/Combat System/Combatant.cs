@@ -19,6 +19,7 @@ namespace TheFrozenBanana
         private IHealth _health;
         private IList<IWeapon> _weapons;
         private IWeapon _currentWeapon;
+        private int _currentWeaponIndex = 0;
 
         private int _horizontalFacingDirection = 1;
 
@@ -63,50 +64,67 @@ namespace TheFrozenBanana
             }
         }
 
-		private void Update() {
-			IsAttacking = _inputManager.IsAttack;
+        private void Update()
+        {
+            IsAttacking = _inputManager.IsAttack;
 
-			if (IsAttacking) {
-				CurrentWeapon.Attack();
-			}
+            if (IsAttacking)
+            {
+                CurrentWeapon.Attack();
+            }
 
-			CheckWeaponToggle();
-		}
+            CheckWeaponToggle();
+        }
 
-		private void CheckWeaponToggle() {
-			if (gameObject.CompareTag("Player")) {
-				if (Input.GetKeyDown(KeyCode.Alpha1)) {
-					// Weapon 1 - Unarmed
-					try {
-						CurrentWeapon.ToggleWeapon(false);
-						CurrentWeapon = _weapons[0];
-						CurrentWeapon.ToggleWeapon(true);
-					} catch (ArgumentOutOfRangeException aoore) {
-						Debug.Log("Weapon 0 not found: " + aoore);
-					}
-				}
-				if (Input.GetKeyDown(KeyCode.Alpha2)) {
-					// Weapon 2 - Fireball Cannon
-					try {
-						CurrentWeapon.ToggleWeapon(false);
-						CurrentWeapon = _weapons[1];
-						CurrentWeapon.ToggleWeapon(true);
-					} catch (ArgumentOutOfRangeException aoore) {
-						Debug.Log("Weapon 1 not found: " + aoore);
-					}
-				}
-				if (Input.GetKeyDown(KeyCode.Alpha3)) {
-					// Weapon 3 - Not yet added
-					try {
-						CurrentWeapon.ToggleWeapon(false);
-						CurrentWeapon = _weapons[2];
-						CurrentWeapon.ToggleWeapon(true);
-					} catch (ArgumentOutOfRangeException aoore) {
-						Debug.Log("Weapon 2 not found: " + aoore);
-					}
-				}
-			}
-		}
+        private void CheckWeaponToggle()
+        {
+            if (gameObject.CompareTag("Player"))
+            {
+                if (Input.GetKeyDown(KeyCode.Q))
+                    try
+                    {
+                        CurrentWeapon.ToggleWeapon(false);
+                        _currentWeaponIndex++;
+                        if (_currentWeaponIndex >= _weapons.Count) { _currentWeaponIndex = 0; }
+                        CurrentWeapon = _weapons[_currentWeaponIndex];
+                        CurrentWeapon.ToggleWeapon(true);
+                    }
+                    catch (ArgumentOutOfRangeException aoore)
+                    {
+                        Debug.Log("Weapon not found: " + aoore);
+                    }
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    // Weapon 1 - Unarmed
+                    try
+                    {
+                        CurrentWeapon.ToggleWeapon(false);
+                        _currentWeaponIndex = 0;
+                        CurrentWeapon = _weapons[_currentWeaponIndex];
+                        CurrentWeapon.ToggleWeapon(true);
+                    }
+                    catch (ArgumentOutOfRangeException aoore)
+                    {
+                        Debug.Log("Weapon 0 not found: " + aoore);
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    // Weapon 2 - Fireball Cannon
+                    try
+                    {
+                        CurrentWeapon.ToggleWeapon(false);
+                        _currentWeaponIndex = 1;
+                        CurrentWeapon = _weapons[_currentWeaponIndex];
+                        CurrentWeapon.ToggleWeapon(true);
+                    }
+                    catch (ArgumentOutOfRangeException aoore)
+                    {
+                        Debug.Log("Weapon 1 not found: " + aoore);
+                    }
+                }
+            }
+        }
 
         //**************************************************\\
         //******************* Properties *******************\\

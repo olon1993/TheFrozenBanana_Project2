@@ -71,7 +71,7 @@ namespace TheFrozenBanana
             _stamina = GetComponent<Stamina>();
             if (_stamina == null)
             {
-                print("Stamina component not found on " + name);
+              //  print("Stamina component not found on " + name);
             }
         }
 
@@ -497,18 +497,25 @@ namespace TheFrozenBanana
             _collisions.FallingThroughPlatform = false;
         }
 
-        public IEnumerator ApplyDamageForce(float forceAmount, float direction)
+		public void ApplyDamageForce(float forceAmount, float direction) {
+			StartCoroutine(RunDamageForce(forceAmount, direction));
+		}
+
+
+		private IEnumerator RunDamageForce(float forceAmount, float direction)
         {
             if (_showDebugLog)
             {
                 Debug.Log("Applying Damage Force: " + gameObject.name);
             }
-
-            _movementIsControllable = false;
-            HorizontalMovement = forceAmount * direction;
-            yield return new WaitForSeconds(0.05f);
-            _movementIsControllable = true;
-        }
+			_movementIsControllable = false;
+			HorizontalMovement = forceAmount * direction;
+			yield return new WaitForSeconds(0.05f);
+			HorizontalMovement = 0f;
+			if (!gameObject.GetComponent<IHealth>().IsDead) {
+	            _movementIsControllable = true;
+			}
+		}
 
         //**************************************************\\
         //******************* Properties *******************\\

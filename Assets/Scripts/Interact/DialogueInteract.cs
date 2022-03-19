@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TheFrozenBanana;
 
-public class DialogueInteract : Interactable
-{
-    //**************************************************\\
-    //********************* Fields *********************\\
-    //**************************************************\\
+namespace TheFrozenBanana {
+	public class DialogueInteract : Interactable {
+		//**************************************************\\
+		//********************* Fields *********************\\
+		//**************************************************\\
 
-    [SerializeField] GameObject dialogueBox;
+		[SerializeField] GameObject dialogueBox;
 
-    //**************************************************\\
-    //******************** Methods *********************\\
-    //**************************************************\\
+		//**************************************************\\
+		//******************** Methods *********************\\
+		//**************************************************\\
 
-    protected override void Interact()
-    {
-        interactTextBox.SetActive(false);
-        interactTextIsActive = false;
-        dialogueBox.SetActive(true);
-    }
+		protected override void Interact() {
+			interactTextBox.SetActive(false);
+			interactTextIsActive = false;
+			dialogueBox.SetActive(true);
+		}
+	}
 }

@@ -102,15 +102,21 @@ namespace TheFrozenBanana
             // Destroy
             if (gameObject.CompareTag("Player"))
             {
-                EventBroker.CallPlayerDeath();
-                gameObject.SetActive(false);
+				StartCoroutine(DelayDeath());
             }
             else
             {
                 float delay = DieSoundEffect == null ? 0 : DieSoundEffect.length;
                 Destroy(gameObject, delay);
             }
+			
         }
+
+		private IEnumerator DelayDeath() {
+			yield return new WaitForSeconds(1f);
+			wGameManager.gm.RunGameOver();
+			gameObject.SetActive(false);
+		}
 
         //**************************************************\\
         //******************* Properties *******************\\

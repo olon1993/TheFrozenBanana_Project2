@@ -597,7 +597,7 @@ MonoBehaviour:
   _weaponObject: {fileID: 8451509625791059969}
   _localScale: {x: 0, y: 0, z: 0}
   _canAim: 1
-  _maxAngle: 70
+  _maxAngle: 180
   _projectileKillTime: 5
   _cam: {fileID: 0}
   _isLimitedAmmo: 0
@@ -607,6 +607,7 @@ MonoBehaviour:
   _pointOfOrigin: {fileID: 8451509626945544006}
   _attackActionTime: 0.333
   _animationLayer: 0
+  startVector: {fileID: 0}
   spawnProjectileAnimFrame: 4
   totalFiringAnimFrames: 4
   weaponAudioSource: {fileID: 8451509626945544011}
