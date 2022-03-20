@@ -29,6 +29,10 @@ namespace TheFrozenBanana
 
 		[SerializeField] private int _animationLayer;
 
+		// Sound
+		[SerializeField] private AudioSource weaponAudioSource;
+		[SerializeField] private AudioClip[] weaponSounds;
+
         private bool _is2D = true;
 
         //**************************************************\\
@@ -93,6 +97,9 @@ namespace TheFrozenBanana
         protected virtual void HandleDamage2D()
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(_pointOfOrigin.position, _radiusOfInteraction);
+			if (colliders.Length > 0) {
+				HandleSound();
+			}
             foreach (Collider2D collider in colliders)
             {
                 HandleDamageForce(collider);
@@ -128,6 +135,16 @@ namespace TheFrozenBanana
                 objectAffectedByDamageForce.ApplyDamageForce(_damageForce, damageDirection);
             }
         }
+
+		private void HandleSound() {
+			if (weaponAudioSource == null) {
+				return;
+			}
+			if (weaponSounds.Length > 1) {
+				weaponAudioSource.clip = weaponSounds[Random.Range(0,weaponSounds.Length)];
+			}
+			weaponAudioSource.Play();
+		}
 
         //**************************************************\\
         //******************* Properties *******************\\
