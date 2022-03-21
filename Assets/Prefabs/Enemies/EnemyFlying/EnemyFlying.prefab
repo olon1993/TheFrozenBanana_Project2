@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 439119000780977845}
   - component: {fileID: 439119000780977844}
   - component: {fileID: 4901871217299403050}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyFlying
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -534,6 +534,7 @@ MonoBehaviour:
   _pointOfOrigin: {fileID: 8288176096839543097}
   _attackActionTime: 0.5
   _animationLayer: 0
+  startVector: {fileID: 0}
   spawnProjectileAnimFrame: 5
   totalFiringAnimFrames: 6
   weaponAudioSource: {fileID: 8288176096839543102}
