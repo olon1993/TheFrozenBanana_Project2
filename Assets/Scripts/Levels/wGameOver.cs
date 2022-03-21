@@ -55,10 +55,14 @@ namespace TheFrozenBanana
 		}
 		
 		public void PressRestart() {
+			ButtonReturnToHub.SetActive(false);
+			ButtonRestart.SetActive(false);
 			wGameManager.gm.RunLevel();
 		}
 
 		public void PressReturnToHub() {
+			ButtonReturnToHub.SetActive(false);
+			ButtonRestart.SetActive(false);
 			wGameManager.gm.ReturnToHub();
 		}
 	}
