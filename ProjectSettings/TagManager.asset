@@ -11,6 +11,7 @@ TagManager:
   - Environment
   - Level
   - NoParts
+  - CanPushButtons
   layers:
   - Default
   - TransparentFX
@@ -51,11 +52,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 535150603
-    locked: 0
   - name: Platforms
     uniqueID: 3403924215
+    locked: 0
+  - name: Player
+    uniqueID: 535150603
     locked: 0
   - name: PopUpBox
     uniqueID: 3068022295

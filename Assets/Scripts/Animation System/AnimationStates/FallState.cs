@@ -29,7 +29,7 @@ namespace TheFrozenBanana
 
         public override bool ShouldPlay()
         {
-            if (_locomotion.Velocity.y < -Mathf.Epsilon)
+            if (_locomotion.Velocity.y < -Mathf.Epsilon && !_locomotion.IsGrounded)
             {
                 return true;
             }

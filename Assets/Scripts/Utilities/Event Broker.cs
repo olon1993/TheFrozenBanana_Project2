@@ -37,5 +37,11 @@ public class EventBroker
     public static void CallPlayerDeath()
     {
         PlayerDeath?.Invoke();
+
+    }public static event Action EnemyKilled;
+
+    public static void CallEnemyKilled()
+    {
+        EnemyKilled?.Invoke();
     }
 }

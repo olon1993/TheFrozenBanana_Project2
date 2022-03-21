@@ -541,7 +541,8 @@ namespace TheFrozenBanana
         public bool IsJumpCancelled { get; set; }
 
         public bool IsDashing { get; set; }
+        public new bool IsGrounded { get { return _collisions.Below || Time.time <= _coyoteTime; } }
 
-		public bool IsWallSliding { get { return _isWallSliding; } }
+        public bool IsWallSliding { get { return _isWallSliding; } }
     }
 }

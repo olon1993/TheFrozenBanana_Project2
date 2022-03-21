@@ -274,6 +274,10 @@ namespace TheFrozenBanana
         //**************************************************\\
         //******************* Properties *******************\\
         //**************************************************\\
+        public float Speed
+        {
+            set { _speed = value; }
+        }
 
         protected struct PassengerMovement
         {
