@@ -67,6 +67,7 @@ namespace TheFrozenBanana
 			yield return new WaitForSeconds(pause);
 			StartCoroutine(MoveInItem(creditsButton, -1000, pause));
 			yield return new WaitForSeconds(pause);
+			yield return new WaitForSeconds(pause);
 			titleAudioSource.clip = titleMusic;
 			titleAudioSource.loop = true;
 			titleAudioSource.Play();

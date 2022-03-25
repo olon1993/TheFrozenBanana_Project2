@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gosAudio: {fileID: 1350753288710699176}
-  gosAudioClip: {fileID: 8300000, guid: 4f759237fc510aa4aa22acb91c5dab86, type: 3}
+  gosAudioClip: {fileID: 8300000, guid: 4e0d423413b613e45915a49cd5fb85d2, type: 3}
   gosAudioMusic: {fileID: 8300000, guid: 7b30cd0985b76394aa65f1ecf5906bcd, type: 3}
   buttonDelay: 3.5
   ButtonRestart: {fileID: 1237978688}

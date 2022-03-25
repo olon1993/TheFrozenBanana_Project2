@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TheFrozenBanana;
 
 namespace TheFrozenBanana
 {
@@ -67,7 +68,7 @@ namespace TheFrozenBanana
 			try {
 				GameObject testLevelExists = levels[lvl];
 			} catch (IndexOutOfRangeException e) {
-				Debug.Log("Level does not exist");
+				Debug.Log("Level does not exist: " + e);
 				levelExists = false;
 			}
 			return levelExists;

@@ -88,6 +88,8 @@ MonoBehaviour:
   _attackActionTime: 0.3
   _damageForce: 5
   _animationLayer: 0
+  weaponAudioSource: {fileID: 0}
+  weaponSounds: []
 --- !u!114 &3114246225210329812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,8 +261,8 @@ MonoBehaviour:
   _maxHealth: 3
   _currentHealth: 3
   HealthBar: {fileID: 0}
-  HurtSoundEffect: {fileID: 8300000, guid: 563601019c8844745bf0c34eaf26d776, type: 3}
-  DieSoundEffect: {fileID: 8300000, guid: 8b041665f6daa424aa92752b18f57f2e, type: 3}
+  HurtSoundEffect: {fileID: 8300000, guid: c9df32c3613149f43b1511c21480aac5, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: d21526602ee6b6344b37b35464f8c795, type: 3}
   DamageMultipliers: []
   _enableOnDie: {fileID: 0}
   _disableOnDie: {fileID: 0}

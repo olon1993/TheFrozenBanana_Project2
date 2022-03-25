@@ -55,7 +55,7 @@ MonoBehaviour:
   _currentHealth: 5
   HealthBar: {fileID: 0}
   HurtSoundEffect: {fileID: 0}
-  DieSoundEffect: {fileID: 8300000, guid: 58453d3fb87be3247929af8c521f84f9, type: 3}
+  DieSoundEffect: {fileID: 8300000, guid: 32d2d101bc2abb740a670d39e501d1c4, type: 3}
   DamageMultipliers: []
   _enableOnDie: {fileID: 0}
   _disableOnDie: {fileID: 0}
@@ -551,7 +551,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 59cb666093c0bf340ad837eba6c2f2a6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b0df94adc67a7c1448d844de2e8746c4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
   m_Pitch: 1

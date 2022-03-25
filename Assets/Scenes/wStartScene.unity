@@ -1766,8 +1766,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skipIntro: 0
   titleAudioSource: {fileID: 1650984496}
-  titleCrashSound: {fileID: 8300000, guid: b153b5f5ad881034b8701b4767604ae7, type: 3}
-  titleMusic: {fileID: 8300000, guid: de0ad8dbcdfc0b9489fd5326bf2c95d0, type: 3}
+  titleCrashSound: {fileID: 8300000, guid: 4f982c1849a52804f91bc138b41b06cd, type: 3}
+  titleMusic: {fileID: 8300000, guid: efbd727cc79fe514cbcda2fac8329c79, type: 3}
   titleScreen: {fileID: 510461194}
   titleText: {fileID: 940393444}
   startButton: {fileID: 1467148473}
