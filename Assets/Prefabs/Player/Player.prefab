@@ -138,7 +138,6 @@ MonoBehaviour:
   _radiusOfInteraction: 0.5
   _delayToHit: 0
   _attackActionTime: 0.1
-  _damageForce: 8
   _animationLayer: 0
   weaponAudioSource: {fileID: 3949107845128189486}
   weaponSounds:
@@ -159,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _damageType: 0
+  _damageForce: 5
 --- !u!82 &3949107845128189486
 AudioSource:
   m_ObjectHideFlags: 0
@@ -343,8 +343,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 535150603
+  m_SortingLayer: 2
   m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 12dd12e3a4a8c0f49a78a4abdfc418a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -712,7 +712,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.079036295}
+  m_Offset: {x: 0, y: -0.09663716}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -723,7 +723,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.1580726}
+  m_Size: {x: 1, y: 1.1932743}
   m_EdgeRadius: 0
 --- !u!114 &388510137705139678
 MonoBehaviour:
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615e2cdfec0532b46acab4653bec1ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showDebugLog: 1
+  _showDebugLog: 0
   CollisionMask:
     serializedVersion: 2
     m_Bits: 5184
@@ -811,7 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315f7e3412825254a88ee194811280f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showDebugLog: 1
+  _showDebugLog: 0
   _maxHealth: 12
   _currentHealth: 12
   HealthBar: {fileID: 0}
@@ -5806,6 +5806,18 @@ PrefabInstance:
       propertyPath: _aimTool
       value: 
       objectReference: {fileID: 4933527045027235676}
+    - target: {fileID: 2578267749614658475, guid: 99d93a7513116d04f90ad3b42d42a391, type: 3}
+      propertyPath: _maxAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2578267750793537228, guid: 99d93a7513116d04f90ad3b42d42a391, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2578267750793537228, guid: 99d93a7513116d04f90ad3b42d42a391, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 535150603
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d93a7513116d04f90ad3b42d42a391, type: 3}
 --- !u!4 &3262046766171848274 stripped

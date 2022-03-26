@@ -57,7 +57,7 @@ namespace TheFrozenBanana {
 			ICanBeAffectedByDamageForce objectAffectedByDamageForce = col.GetComponent<ICanBeAffectedByDamageForce>();
 
 			if (objectAffectedByDamageForce != null) {
-				objectAffectedByDamageForce.ApplyDamageForce(1, damageDirection);
+				objectAffectedByDamageForce.ApplyDamageForce(_damage.DamageForce, damageDirection);
 			}
 		}
 

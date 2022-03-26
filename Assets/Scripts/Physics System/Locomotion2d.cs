@@ -46,6 +46,10 @@ namespace TheFrozenBanana
         private float _staminaDrainTimer = 0;
         private bool _wantsToDash;
 
+        // Damage Force
+
+        private bool _handlingDamageForce;
+
         // Graphics
         private float _horizontalLook = 1;
 
@@ -93,18 +97,20 @@ namespace TheFrozenBanana
 
         protected override void Update()
         {
-
             GetInput();
 
             CalculateVelocity();
 
-            HandleWallSliding();
+            if (!_handlingDamageForce)
+            {
+                HandleWallSliding();
 
-            HandleJumping();
+                HandleJumping();
 
-            FaceDirectionBasedOnInput();
+                FaceDirectionBasedOnInput();
 
-            HandleDash();
+                HandleDash();
+            }
 
             Move(_velocity * Time.deltaTime);
 
@@ -504,15 +510,18 @@ namespace TheFrozenBanana
         {
             if (_showDebugLog)
             {
-                Debug.Log("Applying Damage Force: " + gameObject.name);
+                Debug.Log("Applying Damage Force: " + gameObject.name + " Direction: " + direction);
             }
 			_movementIsControllable = false;
-			HorizontalMovement = forceAmount * direction;
+            _handlingDamageForce = true;
+            HorizontalMovement = forceAmount * direction;
 			yield return new WaitForSeconds(0.05f);
 			HorizontalMovement = 0f;
-			if (!gameObject.GetComponent<IHealth>().IsDead) {
+            _handlingDamageForce = false;
+            if (!gameObject.GetComponent<IHealth>().IsDead) 
+            {
 	            _movementIsControllable = true;
-			}
+            }
 		}
 
         //**************************************************\\

@@ -15,6 +15,8 @@ namespace TheFrozenBanana
 		[SerializeField] private int _levelNumber;
 		[SerializeField] private GameObject[] _collectibles;
 		[SerializeField] private GameObject teleportationEffect;
+
+		[SerializeField] private AudioClip levelMusic;
 		private GameObject player;
 
 		private bool[] tmpStatusCollected;
@@ -29,6 +31,10 @@ namespace TheFrozenBanana
 			} else {
 				ShippartStatusCheck();
 			}
+			if(levelMusic != null)
+            {
+				AudioEvents.CallPlaySoundClip(levelMusic);
+            }
 		}
 
 		private void CollectibleStatusCheck() { 

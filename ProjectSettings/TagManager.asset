@@ -58,6 +58,9 @@ TagManager:
   - name: Player
     uniqueID: 535150603
     locked: 0
+  - name: Foreground
+    uniqueID: 4119133827
+    locked: 0
   - name: PopUpBox
     uniqueID: 3068022295
     locked: 0

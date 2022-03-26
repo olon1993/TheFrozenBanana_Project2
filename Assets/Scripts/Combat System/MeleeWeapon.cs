@@ -25,7 +25,6 @@ namespace TheFrozenBanana
 
         [SerializeField] float _delayToHit = 0f;
         [SerializeField] float _attackActionTime = 0.1f;
-        [SerializeField] float _damageForce = 5f;
 
 		[SerializeField] private int _animationLayer;
 
@@ -132,7 +131,7 @@ namespace TheFrozenBanana
 
             if (objectAffectedByDamageForce != null)
             {
-                objectAffectedByDamageForce.ApplyDamageForce(_damageForce, damageDirection);
+                objectAffectedByDamageForce.ApplyDamageForce(_damage.DamageForce, damageDirection);
             }
         }
 

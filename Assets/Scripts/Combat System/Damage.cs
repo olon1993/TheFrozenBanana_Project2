@@ -9,6 +9,7 @@ namespace TheFrozenBanana
         //**************************************************\\
         [SerializeField] private int _damageAmount;
         [SerializeField] private IWeapon.DamageType _damageType;
+        [SerializeField] private float _damageForce = 5f;
 
         //**************************************************\\
         //******************* Properties *******************\\
@@ -23,6 +24,11 @@ namespace TheFrozenBanana
         {
             get { return _damageType; }
             set { _damageType = value; }
+        }
+
+        public float DamageForce
+        {
+            get { return _damageForce; }
         }
     }
 }

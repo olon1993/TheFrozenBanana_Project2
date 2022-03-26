@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3562818231921071412}
   - component: {fileID: 3562818231921071409}
   - component: {fileID: 3562818231921071408}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 0
 --- !u!114 &3562818231921071408
 MonoBehaviour:
   m_ObjectHideFlags: 0
