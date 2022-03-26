@@ -18897,7 +18897,7 @@ MonoBehaviour:
   _shipEndFieldGameComplete: {fileID: 7419292410308355262, guid: c127c7f278bfd674cae96c490c99c7a5, type: 3}
   _levelCompleteTextBox: {fileID: 2181674226992270714}
   _backgroundVerticalCorrection: 2
-  _levelNumber: 3
+  _levelNumber: 2
   _collectibles:
   - {fileID: 6541470729068404223}
   teleportationEffect: {fileID: 4195827030139760371, guid: 12dd51d27ec1fd1418bbb4754e0552c2, type: 3}
