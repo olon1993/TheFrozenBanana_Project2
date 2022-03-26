@@ -29312,10 +29312,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6035742341030884961, guid: 49f925d1f462ee24c9885696c2c0ffd7, type: 3}
-      propertyPath: interactTextBox
-      value: 
-      objectReference: {fileID: 7824747994635062699}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49f925d1f462ee24c9885696c2c0ffd7, type: 3}
 --- !u!1 &740929375169312761 stripped
@@ -29532,10 +29528,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6035742341030884961, guid: 3a032a73153b8f54094d50ce67b845a0, type: 3}
-      propertyPath: interactTextBox
-      value: 
-      objectReference: {fileID: 7824747994635062699}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a032a73153b8f54094d50ce67b845a0, type: 3}
 --- !u!1 &9048195945354163786 stripped
