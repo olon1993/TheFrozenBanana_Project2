@@ -69,10 +69,6 @@ namespace TheFrozenBanana
             }
 
             _stamina = GetComponent<Stamina>();
-            if (_stamina == null)
-            {
-              //  print("Stamina component not found on " + name);
-            }
         }
 
         protected override void Start()
@@ -243,6 +239,8 @@ namespace TheFrozenBanana
 
         private void HandleDash()
         {
+            if (IsJumping) return;
+
             // Already dashing
             if (IsDashing && IsGrounded)
             {
@@ -541,7 +539,7 @@ namespace TheFrozenBanana
         public bool IsJumpCancelled { get; set; }
 
         public bool IsDashing { get; set; }
-        public new bool IsGrounded { get { return _collisions.Below || Time.time <= _coyoteTime; } }
+        public new bool IsGrounded { get { return _collisions.Below; } }
 
         public bool IsWallSliding { get { return _isWallSliding; } }
     }
