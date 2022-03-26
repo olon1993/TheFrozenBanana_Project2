@@ -16,8 +16,10 @@ namespace TheFrozenBanana
 		[SerializeField] private string hubSceneName;
 		[SerializeField] private string levelSceneName;
 		[SerializeField] private string gameOverSceneName;
+		[SerializeField] private string endSceneName;
 		[SerializeField] private GameObject[] levels;
 		[SerializeField] private GameObject hubLevel;
+		[SerializeField] private GameObject endLevel;
 		[SerializeField] private GameObject fadeScreen;
 
 		[SerializeField] private GameObject mainCamPrefab;
@@ -98,6 +100,10 @@ namespace TheFrozenBanana
 			SceneManager.LoadSceneAsync(gameOverSceneName);
 		}
 
+		public void RunEnd() {
+			levelSelected = -2;
+			StartCoroutine(SwitchScene(endSceneName));
+		}
 		// THE SCENE SWITCHER AND FADERS
 
 		private IEnumerator SwitchScene(string name) {
@@ -166,7 +172,9 @@ namespace TheFrozenBanana
 			uiTracker = Instantiate(uiPrefab) as GameObject;
 			if (levelSelected == -1) {
 				levelTracker = Instantiate(hubLevel) as GameObject;
-			} else {
+			} else if (levelSelected == -2) {
+				levelTracker = Instantiate(endLevel) as GameObject;
+			} else { 
 				levelTracker = Instantiate(levels[levelSelected]) as GameObject;
 			}
 			ILevel tmpLevel = levelTracker.GetComponent<ILevel>();
