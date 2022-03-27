@@ -739,6 +739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showDebugLog: 0
   IsMovementEnabled: 1
+  _isEnabled: 1
 --- !u!114 &388510137705139679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5655,7 +5656,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 535150603
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

@@ -62,6 +62,11 @@ namespace TheFrozenBanana
 
         private void EvaluateState()
         {
+            if(_animationStates.Select(x => x.IsAnimationOverride).Any())
+            {
+                Debug.Log("HERE");
+            }
+
             foreach (IAnimationState state in _animationStates)
             {
 				if (state.ShouldPlay()) 

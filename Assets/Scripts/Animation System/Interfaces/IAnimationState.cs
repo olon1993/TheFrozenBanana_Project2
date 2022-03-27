@@ -14,4 +14,5 @@ public interface IAnimationState : IComparable<IAnimationState>
     bool CanInterrupt { get; }
     int Priority { get; }
 	int AnimationLayer { get; }
+    bool IsAnimationOverride { get;  set; }
 }

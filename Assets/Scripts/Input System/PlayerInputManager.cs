@@ -18,6 +18,7 @@ namespace TheFrozenBanana
         private bool _isJumpCancelled;
         private bool _isDash;
         private bool _isAttack;
+        [SerializeField] private bool _isEnabled;
 
         //**************************************************\\
         //******************** Methods *********************\\
@@ -26,24 +27,36 @@ namespace TheFrozenBanana
         // Update is called once per frame
         void Update()
         {
-            _horizontal = Input.GetAxisRaw("Horizontal");
-            _vertical = Input.GetAxisRaw("Vertical");
-
-            _isJump = Input.GetButtonDown("Jump");
-            _isJumpCancelled = Input.GetButtonUp("Jump");
-
-            _isDash = Input.GetButton("Fire3");
-
-            _isAttack = Input.GetButtonDown("Fire1");
-
-            if (_showDebugLog)
+            if (IsEnabled)
             {
-                Debug.Log("Horizontal: " + _horizontal);
-                Debug.Log("Vertical: " + _vertical);
-                Debug.Log("IsJumping: " + _isJump);
-                Debug.Log("IsJumpCancelled: " + _isJumpCancelled);
-                Debug.Log("IsDashing: " + _isDash);
-                Debug.Log("IsAttacking: " + _isAttack);
+                _horizontal = Input.GetAxisRaw("Horizontal");
+                _vertical = Input.GetAxisRaw("Vertical");
+
+                _isJump = Input.GetButtonDown("Jump");
+                _isJumpCancelled = Input.GetButtonUp("Jump");
+
+                _isDash = Input.GetButton("Fire3");
+
+                _isAttack = Input.GetButtonDown("Fire1");
+
+                if (_showDebugLog)
+                {
+                    Debug.Log("Horizontal: " + _horizontal);
+                    Debug.Log("Vertical: " + _vertical);
+                    Debug.Log("IsJumping: " + _isJump);
+                    Debug.Log("IsJumpCancelled: " + _isJumpCancelled);
+                    Debug.Log("IsDashing: " + _isDash);
+                    Debug.Log("IsAttacking: " + _isAttack);
+                }
+            }
+            else
+            {
+                _horizontal = 0;
+                _vertical = 0;
+                _isJump = false;
+                _isJumpCancelled = false;
+                _isDash = false;
+                _isAttack = false;
             }
         }
 
@@ -62,5 +75,14 @@ namespace TheFrozenBanana
         public bool IsDash { get { return _isDash; } }
 
         public bool IsAttack { get { return _isAttack; } }
+
+        public bool IsEnabled 
+        {
+            get { return _isEnabled; }
+            set
+            {
+                _isEnabled = value;
+            }
+        }
     }
 }

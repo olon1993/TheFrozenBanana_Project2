@@ -13,6 +13,7 @@ public abstract class AnimationState : MonoBehaviour, IAnimationState
     [SerializeField] protected int _priority;
 	[SerializeField] protected int _animationLayer;
 	[SerializeField] protected bool _canInterrupt = true;
+    [SerializeField] protected bool _isAnimationOverride;
 
     //**************************************************\\
     //******************** Methods *********************\\
@@ -56,4 +57,17 @@ public abstract class AnimationState : MonoBehaviour, IAnimationState
     public virtual int Priority { get { return _priority; } }
 
 	public virtual int AnimationLayer { get { return _animationLayer; } }
+
+    public bool IsAnimationOverride 
+    {
+        get { return _isAnimationOverride; }
+        set
+        {
+            if(_isAnimationOverride != value)
+            {
+                _isAnimationOverride = value;
+            }
+        }
+    }
+
 }
