@@ -14,6 +14,7 @@ namespace TheFrozenBanana
 		[SerializeField] private Slider levelDifficulty;
 		private string confirmationText;
 		private string standardText;
+		private bool confirmWindowActive;
 		
 		private void Awake() {
 			standardText = "Are you sure you want to go to level ";
@@ -21,11 +22,13 @@ namespace TheFrozenBanana
 
 		private void OnEnable() {
 			confirmWindow.SetActive(false);
+			confirmWindowActive = false;
 		}
 
 		private void OnDisable() {
 			if (confirmWindow != null) {
 				confirmWindow.SetActive(false);
+				confirmWindowActive = false;
 			}
 		}
 
@@ -37,6 +40,9 @@ namespace TheFrozenBanana
 
 
 		void SelectionRay() {
+			if (confirmWindowActive) {
+				return;
+			}
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			// requires 3D collider to hit unfortunately...
@@ -49,6 +55,7 @@ namespace TheFrozenBanana
 		}
 
 		private void ActivateConfirmWindow(int lvlId, int difficulty) {
+			confirmWindowActive = true;
 			confirmationText = standardText + lvlId.ToString() + "?";
 			confirmTextBox.text = confirmationText;
 			collectibleTextBox.text = CheckCollectibles(lvlId);
@@ -65,6 +72,8 @@ namespace TheFrozenBanana
 		public void CloseConfirmWindow() {
 			wGameManager.gm.SelectLevel(-1);
 			confirmWindow.SetActive(false);
+			confirmWindowActive = false;
+
 		}
 
 
