@@ -2947,7 +2947,7 @@ TextureImporter:
     second: tileset_decor 1_253
   - first:
       213: 6692002326240969577
-    second: tileset_decor 1_254
+    second: smallRock2
   - first:
       213: -3688744736315359148
     second: tileset_decor 1_255
@@ -3163,7 +3163,7 @@ TextureImporter:
     second: tileset_decor 1_325
   - first:
       213: 6920446145193405321
-    second: tileset_decor 1_326
+    second: small rock1
   - first:
       213: -5826355572880220178
     second: tileset_decor 1_327
@@ -3397,7 +3397,7 @@ TextureImporter:
     second: tileset_decor 1_403
   - first:
       213: 3438968058344135456
-    second: tileset_decor 1_404
+    second: mushrooom_tall
   - first:
       213: 8952290381888525943
     second: tileset_decor 1_405
@@ -3427,7 +3427,7 @@ TextureImporter:
     second: tileset_decor 1_413
   - first:
       213: -6686281600323935138
-    second: tileset_decor 1_414
+    second: tinyrock2
   - first:
       213: -5127028526711741121
     second: tileset_decor 1_415
@@ -3625,7 +3625,7 @@ TextureImporter:
     second: tileset_decor 1_479
   - first:
       213: 2642453845043770098
-    second: tileset_decor 1_480
+    second: tinyrock1
   - first:
       213: -3066727566231407380
     second: tileset_decor 1_481
@@ -4129,7 +4129,7 @@ TextureImporter:
     second: tileset_decor 1_647
   - first:
       213: -8271812736827352854
-    second: tileset_decor 1_648
+    second: grass3
   - first:
       213: 242703267015908457
     second: tileset_decor 1_649
@@ -4138,7 +4138,7 @@ TextureImporter:
     second: tileset_decor 1_650
   - first:
       213: -7849485356393785408
-    second: tileset_decor 1_651
+    second: grass4
   - first:
       213: 7924945809421875346
     second: tileset_decor 1_652
@@ -4276,10 +4276,10 @@ TextureImporter:
     second: tileset_decor 1_696
   - first:
       213: -6021352958034030915
-    second: tileset_decor 1_697
+    second: mushroom1`
   - first:
       213: -3435194129771389749
-    second: tileset_decor 1_698
+    second: mushroom2
   - first:
       213: 1192300779772036861
     second: tileset_decor 1_699
@@ -4306,7 +4306,7 @@ TextureImporter:
     second: tileset_decor 1_706
   - first:
       213: 9171694993509437781
-    second: tileset_decor 1_707
+    second: grass2
   - first:
       213: 255064343274806679
     second: tileset_decor 1_708
@@ -4315,7 +4315,7 @@ TextureImporter:
     second: tileset_decor 1_709
   - first:
       213: 7523542563730890800
-    second: tileset_decor 1_710
+    second: grass1
   - first:
       213: 6420864280031632416
     second: tileset_decor 1_711
@@ -4798,10 +4798,10 @@ TextureImporter:
       name: tileset_decor 1_11
       rect:
         serializedVersion: 2
-        x: 16
-        y: 352
-        width: 16
-        height: 16
+        x: 176
+        y: 288
+        width: 9
+        height: 79
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5113,10 +5113,10 @@ TextureImporter:
       name: tileset_decor 1_26
       rect:
         serializedVersion: 2
-        x: 336
-        y: 352
-        width: 16
-        height: 16
+        x: 272
+        y: 192
+        width: 111
+        height: 91
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5659,10 +5659,10 @@ TextureImporter:
       name: tileset_decor 1_52
       rect:
         serializedVersion: 2
-        x: 192
-        y: 336
-        width: 16
-        height: 16
+        x: 243
+        y: 321
+        width: 75
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6079,10 +6079,10 @@ TextureImporter:
       name: tileset_decor 1_72
       rect:
         serializedVersion: 2
-        x: 528
-        y: 336
-        width: 16
-        height: 16
+        x: 530
+        y: 225
+        width: 45
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -8327,9 +8327,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 288
-        width: 16
-        height: 16
+        y: 296
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9460,10 +9460,10 @@ TextureImporter:
       name: tileset_decor 1_233
       rect:
         serializedVersion: 2
-        x: 176
-        y: 256
-        width: 16
-        height: 16
+        x: 179
+        y: 192
+        width: 9
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9898,13 +9898,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_254
+      name: smallRock2
       rect:
         serializedVersion: 2
-        x: 528
-        y: 256
-        width: 16
-        height: 16
+        x: 530
+        y: 225
+        width: 45
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11410,13 +11410,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_326
+      name: small rock1
       rect:
         serializedVersion: 2
         x: 480
-        y: 224
-        width: 16
-        height: 16
+        y: 192
+        width: 47
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11938,10 +11938,10 @@ TextureImporter:
       name: tileset_decor 1_351
       rect:
         serializedVersion: 2
-        x: 480
-        y: 208
-        width: 16
-        height: 16
+        x: 456
+        y: 192
+        width: 72
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -12127,10 +12127,10 @@ TextureImporter:
       name: tileset_decor 1_360
       rect:
         serializedVersion: 2
-        x: 112
-        y: 192
-        width: 16
-        height: 16
+        x: 100
+        y: 195
+        width: 72
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -12465,7 +12465,7 @@ TextureImporter:
         serializedVersion: 2
         x: 400
         y: 192
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -12694,10 +12694,10 @@ TextureImporter:
       name: tileset_decor 1_387
       rect:
         serializedVersion: 2
-        x: 32
-        y: 176
-        width: 16
-        height: 16
+        x: 36
+        y: 188
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -12883,10 +12883,10 @@ TextureImporter:
       name: tileset_decor 1_396
       rect:
         serializedVersion: 2
-        x: 256
-        y: 176
-        width: 16
-        height: 16
+        x: 264
+        y: 184
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -12904,10 +12904,10 @@ TextureImporter:
       name: tileset_decor 1_397
       rect:
         serializedVersion: 2
-        x: 288
-        y: 176
-        width: 16
-        height: 16
+        x: 293
+        y: 185
+        width: 15
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -12946,10 +12946,10 @@ TextureImporter:
       name: tileset_decor 1_399
       rect:
         serializedVersion: 2
-        x: 592
-        y: 176
-        width: 16
-        height: 16
+        x: 604
+        y: 180
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -13048,13 +13048,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_404
+      name: mushrooom_tall
       rect:
         serializedVersion: 2
-        x: 112
-        y: 160
-        width: 16
-        height: 16
+        x: 96
+        y: 48
+        width: 32
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -13258,12 +13258,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_414
+      name: tinyrock2
       rect:
         serializedVersion: 2
-        x: 272
+        x: 279
         y: 160
-        width: 16
+        width: 27
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -13325,9 +13325,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 160
-        width: 16
-        height: 16
+        y: 168
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -13345,10 +13345,10 @@ TextureImporter:
       name: tileset_decor 1_418
       rect:
         serializedVersion: 2
-        x: 352
-        y: 160
-        width: 16
-        height: 16
+        x: 336
+        y: 86
+        width: 81
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -14143,10 +14143,10 @@ TextureImporter:
       name: BigRock
       rect:
         serializedVersion: 2
-        x: 486
-        y: 8
-        width: 154
-        height: 161
+        x: 484
+        y: 9
+        width: 156
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -14162,13 +14162,25 @@ TextureImporter:
         - {x: -35, y: -80.5}
         - {x: 77, y: -80.5}
         - {x: 77, y: 80.5}
-      - - {x: -77, y: 46.5}
+      - - {x: -77, y: 50.5}
         - {x: -77, y: 24.5}
         - {x: -73, y: 24.5}
         - {x: -70, y: 26.5}
         - {x: -70, y: 43.5}
         - {x: -71, y: 46.5}
-      physicsShape: []
+      physicsShape:
+      - - {x: -28, y: 80.5}
+        - {x: -77, y: 74.5}
+        - {x: -77, y: 51.5}
+        - {x: -72.36365, y: 48.006485}
+        - {x: -70, y: 34.5}
+        - {x: -75, y: 20.5}
+        - {x: -77, y: -21.5}
+        - {x: -25, y: -80.5}
+        - {x: 71, y: -80.5}
+        - {x: 77, y: -49.5}
+        - {x: 77, y: 79.5}
+        - {x: 72, y: 80.5}
       tessellationDetail: 0
       bones: []
       spriteID: 66c7a69b437e3e000800000000000000
@@ -14661,13 +14673,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_480
+      name: tinyrock1
       rect:
         serializedVersion: 2
         x: 272
         y: 128
-        width: 16
-        height: 16
+        width: 32
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -16785,7 +16797,7 @@ TextureImporter:
       name: tileset_decor 1_581
       rect:
         serializedVersion: 2
-        x: 96
+        x: 97
         y: 80
         width: 16
         height: 16
@@ -18189,12 +18201,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_648
+      name: grass3
       rect:
         serializedVersion: 2
         x: 208
         y: 48
-        width: 16
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -18252,13 +18264,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_651
+      name: grass4
       rect:
         serializedVersion: 2
         x: 272
         y: 48
-        width: 16
-        height: 16
+        width: 46
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -18318,10 +18330,10 @@ TextureImporter:
       name: tileset_decor 1_654
       rect:
         serializedVersion: 2
-        x: 336
-        y: 48
-        width: 16
-        height: 16
+        x: 328
+        y: 0
+        width: 156
+        height: 78
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -19218,13 +19230,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_697
+      name: mushroom1`
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
+        x: 17
+        y: 15
+        width: 31
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -19239,12 +19251,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_698
+      name: mushroom2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 49
         y: 16
-        width: 16
+        width: 30
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -19285,9 +19297,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 16
-        width: 16
-        height: 16
+        y: 15
+        width: 62
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -19368,10 +19380,10 @@ TextureImporter:
       name: tileset_decor 1_704
       rect:
         serializedVersion: 2
-        x: 160
+        x: 163
         y: 16
-        width: 16
-        height: 16
+        width: 11
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -19391,8 +19403,8 @@ TextureImporter:
         serializedVersion: 2
         x: 176
         y: 16
-        width: 16
-        height: 16
+        width: 14
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -19410,10 +19422,10 @@ TextureImporter:
       name: tileset_decor 1_706
       rect:
         serializedVersion: 2
-        x: 192
+        x: 195
         y: 16
-        width: 16
-        height: 16
+        width: 10
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -19428,12 +19440,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_707
+      name: grass2
       rect:
         serializedVersion: 2
         x: 208
         y: 16
-        width: 16
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -19452,10 +19464,10 @@ TextureImporter:
       name: tileset_decor 1_708
       rect:
         serializedVersion: 2
-        x: 224
+        x: 210
         y: 16
-        width: 16
-        height: 16
+        width: 46
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -19491,12 +19503,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_decor 1_710
+      name: grass1
       rect:
         serializedVersion: 2
         x: 272
         y: 16
-        width: 16
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -19515,10 +19527,10 @@ TextureImporter:
       name: tileset_decor 1_711
       rect:
         serializedVersion: 2
-        x: 288
+        x: 273
         y: 16
-        width: 16
-        height: 16
+        width: 46
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -20229,10 +20241,10 @@ TextureImporter:
       name: tileset_decor 1_745
       rect:
         serializedVersion: 2
-        x: 512
+        x: 514
         y: 0
-        width: 16
-        height: 16
+        width: 28
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

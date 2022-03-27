@@ -12587,6 +12587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &2345757763653723372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12881,6 +12882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370089600244054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13040,6 +13042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370089666581173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13199,6 +13202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370089677615491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13358,6 +13362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370089985263729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13517,6 +13522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090002981457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13676,6 +13682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090107792528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13835,6 +13842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090135929361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13994,6 +14002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090171701515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14153,6 +14162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090242136912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14312,6 +14322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090383734062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14471,6 +14482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090462741097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14630,6 +14642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090561304299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14789,6 +14802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090629223858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14948,6 +14962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090639403709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15107,6 +15122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090702329890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15266,6 +15282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090711424648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15425,6 +15442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090720824087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15584,6 +15602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090798778036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15743,6 +15762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090836542324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15902,6 +15922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370090997043320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16061,6 +16082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091067231757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16220,6 +16242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091073702078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16379,6 +16402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091112969237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16538,6 +16562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091131503658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16697,6 +16722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091140431601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16856,6 +16882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091146596030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17015,6 +17042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091213997668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17174,6 +17202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091232623825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17333,6 +17362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091327535113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17492,6 +17522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091414520808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17651,6 +17682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1000
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &4600370091475572173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18206,10 +18238,11 @@ MonoBehaviour:
   _teleportFieldLevelComplete: {fileID: 8962117500187311217, guid: ccebb301b7bbee34d9221b4102683796, type: 3}
   _levelCompleteTextBox: {fileID: 3471746298130201883}
   _backgroundVerticalCorrection: 2
-  _levelNumber: 3
+  _levelNumber: 2
   _collectibles:
   - {fileID: 4936268305372746290}
   teleportationEffect: {fileID: 4195827030139760371, guid: 12dd51d27ec1fd1418bbb4754e0552c2, type: 3}
+  levelMusic: {fileID: 8300000, guid: 08857f065914b934388b21c6b3b93d09, type: 3}
 --- !u!1 &7803491901144743708
 GameObject:
   m_ObjectHideFlags: 0
@@ -18771,6 +18804,10 @@ PrefabInstance:
     - target: {fileID: 439119000780977843, guid: 68f215e4f3a9eed4c8047fd416d89141, type: 3}
       propertyPath: m_Name
       value: EnemyFlying
+      objectReference: {fileID: 0}
+    - target: {fileID: 439119000780977843, guid: 68f215e4f3a9eed4c8047fd416d89141, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68f215e4f3a9eed4c8047fd416d89141, type: 3}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TheFrozenBanana;
 
 namespace TheFrozenBanana
 {
@@ -15,8 +16,10 @@ namespace TheFrozenBanana
 		[SerializeField] private string hubSceneName;
 		[SerializeField] private string levelSceneName;
 		[SerializeField] private string gameOverSceneName;
+		[SerializeField] private string endSceneName;
 		[SerializeField] private GameObject[] levels;
 		[SerializeField] private GameObject hubLevel;
+		[SerializeField] private GameObject endLevel;
 		[SerializeField] private GameObject fadeScreen;
 
 		[SerializeField] private GameObject mainCamPrefab;
@@ -49,7 +52,7 @@ namespace TheFrozenBanana
 			LoadTitle();
 		}
 
-		private void LoadTitle() {
+		public void LoadTitle() {
 			SceneManager.LoadSceneAsync(startSceneName);
 			StartCoroutine(FadeToTransparent());
 		}
@@ -67,7 +70,7 @@ namespace TheFrozenBanana
 			try {
 				GameObject testLevelExists = levels[lvl];
 			} catch (IndexOutOfRangeException e) {
-				Debug.Log("Level does not exist");
+				Debug.Log("Level does not exist: " + e);
 				levelExists = false;
 			}
 			return levelExists;
@@ -93,11 +96,25 @@ namespace TheFrozenBanana
 
 		public void RunGameOver() {
 			pd.PlayerDied();
-			Destroy(levelTracker);
-			SceneManager.LoadSceneAsync(gameOverSceneName);
+			StartCoroutine(SwitchToGameOver());
 		}
 
+		public void RunEnd() {
+			levelSelected = -2;
+			StartCoroutine(SwitchScene(endSceneName));
+		}
 		// THE SCENE SWITCHER AND FADERS
+
+		private IEnumerator SwitchToGameOver() {
+			StartCoroutine(FadeToBlack());
+			while (!faded) {
+				yield return new WaitForEndOfFrame();
+			}
+			Destroy(levelTracker);
+			SceneManager.LoadSceneAsync(gameOverSceneName);
+			yield return new WaitForSeconds(1f);
+			UpdateFadeScreen(0);
+		}
 
 		private IEnumerator SwitchScene(string name) {
 			StartCoroutine(FadeToBlack());
@@ -162,11 +179,13 @@ namespace TheFrozenBanana
 			yield return new WaitForSeconds(1f);
 			camTracker = Instantiate(mainCamPrefab) as GameObject;
 			audioTracker = Instantiate(audioManagerPrefab) as GameObject;
-			uiTracker = Instantiate(uiPrefab) as GameObject;
 			if (levelSelected == -1) {
 				levelTracker = Instantiate(hubLevel) as GameObject;
-			} else {
+			} else if (levelSelected == -2) {
+				levelTracker = Instantiate(endLevel) as GameObject;
+			} else { 
 				levelTracker = Instantiate(levels[levelSelected]) as GameObject;
+				uiTracker = Instantiate(uiPrefab) as GameObject;
 			}
 			ILevel tmpLevel = levelTracker.GetComponent<ILevel>();
 			tmpLevel.StartupLevel();

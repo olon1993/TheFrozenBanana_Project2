@@ -7,6 +7,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4351526633244289536, guid: 149a050ae1a10fb45a37e9ecc04a61c5, type: 3}
+      propertyPath: _speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351526633244289536, guid: 149a050ae1a10fb45a37e9ecc04a61c5, type: 3}
+      propertyPath: _targetRange
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351526633244289536, guid: 149a050ae1a10fb45a37e9ecc04a61c5, type: 3}
+      propertyPath: _aggressiveRadius
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351526633244289536, guid: 149a050ae1a10fb45a37e9ecc04a61c5, type: 3}
+      propertyPath: _enemyErrorMargin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351526633244289536, guid: 149a050ae1a10fb45a37e9ecc04a61c5, type: 3}
+      propertyPath: _localWaypoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351526633244289536, guid: 149a050ae1a10fb45a37e9ecc04a61c5, type: 3}
+      propertyPath: _localWaypoints.Array.data[1].x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4351526633244289542, guid: 149a050ae1a10fb45a37e9ecc04a61c5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -55,5 +79,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: VariantRangedEnemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4351526633244289564, guid: 149a050ae1a10fb45a37e9ecc04a61c5, type: 3}
+      propertyPath: _walkSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149a050ae1a10fb45a37e9ecc04a61c5, type: 3}
+--- !u!1 &2648771197502479261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4351526633244289543, guid: 149a050ae1a10fb45a37e9ecc04a61c5, type: 3}
+  m_PrefabInstance: {fileID: 1774956138434310554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2286353891498459860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2648771197502479261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230328238afb0b948988b6c649b634ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

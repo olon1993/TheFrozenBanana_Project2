@@ -30,14 +30,14 @@ public class PlayerInfoScript : MonoBehaviour
 					hpBar.minValue = 0;
 					hpBar.maxValue = refPlayerHealth.MaxHealth;
 				} catch (Exception e) {
-					Debug.Log("Player has no Health script");
+					Debug.Log("Player has no Health script:\n" + e);
 				}
 				try {
 					refPlayerStamina = player.GetComponent<Stamina>();
 					staminaBar.minValue = 0;
 					staminaBar.maxValue = refPlayerStamina.MaxStamina;
 				} catch (Exception e) {
-					Debug.Log("Player has no Stamina script");
+					Debug.Log("Player has no Stamina script:\n" + e);
 				}
 			}
 			yield return new WaitForEndOfFrame();

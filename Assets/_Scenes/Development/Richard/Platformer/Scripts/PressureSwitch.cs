@@ -7,6 +7,7 @@ namespace TheFrozenBanana
     public class PressureSwitch : MonoBehaviour
     {
         [SerializeField] GameObject movingPlatform;
+        [SerializeField] GameObject[] movingPlatforms;
         [SerializeField] float platformSpeed = 3;
 
         PlatformController platformController;
@@ -17,8 +18,8 @@ namespace TheFrozenBanana
         void Awake()
         {
             buttonAnimator = GetComponent<Animator>();
-            platformController = movingPlatform.GetComponent<PlatformController>();
-            platformController.Speed = 0;
+            if (movingPlatform != null) platformController = movingPlatform.GetComponent<PlatformController>();
+            SetPlatformSpeed(0);
         }
 
         void OnTriggerEnter2D(Collider2D other)
@@ -26,8 +27,8 @@ namespace TheFrozenBanana
             if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("CanPushButtons") || other.gameObject.CompareTag("Enemy"))
             {
                 print("pressure switch activated");
-                platformController.Speed = platformSpeed;
                 buttonAnimator.SetTrigger("ButtonDown");
+                SetPlatformSpeed(platformSpeed);
             }
         }
 
@@ -38,9 +39,22 @@ namespace TheFrozenBanana
                 buttonAnimator.SetTrigger("ButtonUp");
                 if(offToDeactivate)
                 {
-                    platformController.Speed = 0;
+                    SetPlatformSpeed(0);
                 }
             }
+        }
+
+        void SetPlatformSpeed(float speed)
+        {
+            if (movingPlatforms.Length > 0)
+            {
+                foreach (GameObject platform in movingPlatforms)
+                {
+                    platform.GetComponent<PlatformController>().Speed = speed;
+                }
+                return;
+            }
+            platformController.Speed = speed;
         }
     }
 }

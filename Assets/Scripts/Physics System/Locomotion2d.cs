@@ -46,6 +46,10 @@ namespace TheFrozenBanana
         private float _staminaDrainTimer = 0;
         private bool _wantsToDash;
 
+        // Damage Force
+
+        private bool _handlingDamageForce;
+
         // Graphics
         private float _horizontalLook = 1;
 
@@ -69,10 +73,6 @@ namespace TheFrozenBanana
             }
 
             _stamina = GetComponent<Stamina>();
-            if (_stamina == null)
-            {
-              //  print("Stamina component not found on " + name);
-            }
         }
 
         protected override void Start()
@@ -97,18 +97,20 @@ namespace TheFrozenBanana
 
         protected override void Update()
         {
-
             GetInput();
 
             CalculateVelocity();
 
-            HandleWallSliding();
+            if (!_handlingDamageForce)
+            {
+                HandleWallSliding();
 
-            HandleJumping();
+                HandleJumping();
 
-            FaceDirectionBasedOnInput();
+                FaceDirectionBasedOnInput();
 
-            HandleDash();
+                HandleDash();
+            }
 
             Move(_velocity * Time.deltaTime);
 
@@ -243,6 +245,8 @@ namespace TheFrozenBanana
 
         private void HandleDash()
         {
+            if (IsJumping) return;
+
             // Already dashing
             if (IsDashing && IsGrounded)
             {
@@ -506,15 +510,18 @@ namespace TheFrozenBanana
         {
             if (_showDebugLog)
             {
-                Debug.Log("Applying Damage Force: " + gameObject.name);
+                Debug.Log("Applying Damage Force: " + gameObject.name + " Direction: " + direction);
             }
 			_movementIsControllable = false;
-			HorizontalMovement = forceAmount * direction;
+            _handlingDamageForce = true;
+            HorizontalMovement = forceAmount * direction;
 			yield return new WaitForSeconds(0.05f);
 			HorizontalMovement = 0f;
-			if (!gameObject.GetComponent<IHealth>().IsDead) {
+            _handlingDamageForce = false;
+            if (!gameObject.GetComponent<IHealth>().IsDead) 
+            {
 	            _movementIsControllable = true;
-			}
+            }
 		}
 
         //**************************************************\\
@@ -541,7 +548,7 @@ namespace TheFrozenBanana
         public bool IsJumpCancelled { get; set; }
 
         public bool IsDashing { get; set; }
-        public new bool IsGrounded { get { return _collisions.Below || Time.time <= _coyoteTime; } }
+        public new bool IsGrounded { get { return _collisions.Below; } }
 
         public bool IsWallSliding { get { return _isWallSliding; } }
     }

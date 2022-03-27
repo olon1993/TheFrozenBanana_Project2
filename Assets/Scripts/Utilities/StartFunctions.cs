@@ -18,6 +18,7 @@ namespace TheFrozenBanana
 		[SerializeField] private GameObject titleText;
 		[SerializeField] private GameObject startButton;
 		[SerializeField] private GameObject creditsButton;
+		[SerializeField] private GameObject creditsPage;
 		[SerializeField] private Sprite startButtonDefault;
 		[SerializeField] private Sprite startButtonHover;
 		[SerializeField] private Sprite creditsButtonDefault;
@@ -67,6 +68,7 @@ namespace TheFrozenBanana
 			yield return new WaitForSeconds(pause);
 			StartCoroutine(MoveInItem(creditsButton, -1000, pause));
 			yield return new WaitForSeconds(pause);
+			yield return new WaitForSeconds(pause);
 			titleAudioSource.clip = titleMusic;
 			titleAudioSource.loop = true;
 			titleAudioSource.Play();
@@ -115,6 +117,10 @@ namespace TheFrozenBanana
 				return;
 			}
 			StartCoroutine(PlayIntro());
+		}
+
+		public void CreditsButton(bool activate) {
+			creditsPage.SetActive(activate);
 		}
 
 		public void HoverStartButton(bool mouseIn) {

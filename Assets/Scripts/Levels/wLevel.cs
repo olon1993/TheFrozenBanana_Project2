@@ -9,11 +9,13 @@ namespace TheFrozenBanana
 		[SerializeField] private GameObject _playerPrefab;
 		[SerializeField] private GameObject _playerSpawnPoint;
 		[SerializeField] private GameObject _teleportFieldLevelComplete;
+		[SerializeField] private GameObject _shipEndFieldGameComplete;
 		[SerializeField] private GameObject _levelCompleteTextBox;
 		[SerializeField] private float _backgroundVerticalCorrection;
 		[SerializeField] private int _levelNumber;
 		[SerializeField] private GameObject[] _collectibles;
 		[SerializeField] private GameObject teleportationEffect;
+
 		private GameObject player;
 
 		private bool[] tmpStatusCollected;
@@ -21,10 +23,12 @@ namespace TheFrozenBanana
 		private bool _levelAccessible;
 		private GameObject _teleportField;
 
-		public void StartupLevel() {
+		public virtual void StartupLevel() {
 			player = Instantiate(_playerPrefab, _playerSpawnPoint.transform.position, Quaternion.identity, null) as GameObject;
 			if (_levelNumber > -1) {
 				CollectibleStatusCheck();
+			} else {
+				ShippartStatusCheck();
 			}
 		}
 
@@ -60,6 +64,22 @@ namespace TheFrozenBanana
 					}
 				}
 			}
+		}
+
+		private void ShippartStatusCheck() {
+			bool[][] collected = wGameManager.pd.RetrieveAllStatus();
+			ICollectible.CollectibleType[][] types = wGameManager.pd.RetrieveAllTypes();
+			for (int i = 0; i < types.Length; i++) {
+				for (int j = 0; j < types[i].Length; j++) {
+					if (types[i][j] == ICollectible.CollectibleType.SHIPPART) { 
+						if (!collected[i][j]) {
+							return;
+						}
+					}
+				}
+			}
+			_shipEndFieldGameComplete.SetActive(true);
+
 		}
 
 		public void ExitLevel() {

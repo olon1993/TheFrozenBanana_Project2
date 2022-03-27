@@ -7,7 +7,6 @@ namespace TheFrozenBanana
     public class Hazard : MonoBehaviour
     {
         Damage _damage;
-        [SerializeField] float damageForce = 5f;
 
         private void Awake()
         {
@@ -16,12 +15,22 @@ namespace TheFrozenBanana
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-
-            if (other.gameObject.CompareTag("Player"))
+            IHealth otherHealth = other.GetComponent<IHealth>();
+            if (otherHealth != null)
             {
-                other.GetComponent<IHealth>().TakeDamage(_damage);
+                otherHealth.TakeDamage(_damage);
+            }   
+
+            HandleDamageForce(other);
+        }
+
+        private void HandleDamageForce(Collider2D other)
+        {
+            var affectedByDamageForce = other.GetComponent<ICanBeAffectedByDamageForce>();
+            if (affectedByDamageForce != null)
+            {
                 float damageDirection = transform.position.x < other.transform.position.x ? 1 : -1;
-                other.GetComponent<ICanBeAffectedByDamageForce>().ApplyDamageForce(damageForce, damageDirection);
+                affectedByDamageForce.ApplyDamageForce(_damage.DamageForce, damageDirection);
             }
         }
     }

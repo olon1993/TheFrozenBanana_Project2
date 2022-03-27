@@ -41,7 +41,8 @@ namespace TheFrozenBanana
 					EventBroker.CallShipPartFound();
 					break;
 				case ICollectible.CollectibleType.HEALTH:
-					player.GetComponent<IHealth>().AddHealth(5);
+					IHealth playerHealth = player.GetComponent<IHealth>();
+					playerHealth.AddHealth(playerHealth.MaxHealth);
 					removeOnTouch = true;
 					break;
 				case ICollectible.CollectibleType.STAMINA:
