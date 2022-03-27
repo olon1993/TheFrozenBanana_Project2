@@ -7432,8 +7432,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Pixel Art\t- Minh Doan\r\n\nAnimation - Minh Doan\r\n\nSound - Brian Malito\r\n\nProgrammers
-    - Scott Batey, Richard Oates, Wouter Hiemstra\r\n\nGame Design - Scott, Wouter,
-    Richard, Minh\r"
+    - Scott Batey, Richard Oates, Wouter Hiemstra\r\n\nGame Design - Scott Batey,
+    Richard Oates, Wouter Hiemstra\r, Minh Doan\r"
 --- !u!1 &732616131667194841
 GameObject:
   m_ObjectHideFlags: 0
@@ -7637,8 +7637,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Pixel Art\t- Minh Doan\r\n\nAnimation - Minh Doan\r\n\nSound - Brian Malito\r\n\nProgrammers
-    - Scott Batey, Richard Oates, Wouter Hiemstra\r\n\nGame Design - Scott, Wouter,
-    Richard, Minh\r"
+    - Scott Batey, Richard Oates, Wouter Hiemstra\r\n\nGame Design - Scott Batey,
+    Richard Oates, Wouter Hiemstra\r, Minh Doan\r"
 --- !u!1 &3084725832206808115
 GameObject:
   m_ObjectHideFlags: 0
@@ -10647,8 +10647,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Pixel Art\t- Minh Doan\r\n\nAnimation - Minh Doan\r\n\nSound - Brian Malito\r\n\nProgrammers
-    - Scott Batey, Richard Oates, Wouter Hiemstra\r\n\nGame Design - Scott, Wouter,
-    Richard, Minh\r"
+    - Scott Batey, Richard Oates, Wouter Hiemstra\r\n\nGame Design - Scott Batey,
+    Richard Oates, Wouter Hiemstra\r, Minh Doan\r"
 --- !u!1 &7285373970339100732
 GameObject:
   m_ObjectHideFlags: 0
