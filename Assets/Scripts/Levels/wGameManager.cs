@@ -169,13 +169,13 @@ namespace TheFrozenBanana
 			yield return new WaitForSeconds(1f);
 			camTracker = Instantiate(mainCamPrefab) as GameObject;
 			audioTracker = Instantiate(audioManagerPrefab) as GameObject;
-			uiTracker = Instantiate(uiPrefab) as GameObject;
 			if (levelSelected == -1) {
 				levelTracker = Instantiate(hubLevel) as GameObject;
 			} else if (levelSelected == -2) {
 				levelTracker = Instantiate(endLevel) as GameObject;
 			} else { 
 				levelTracker = Instantiate(levels[levelSelected]) as GameObject;
+				uiTracker = Instantiate(uiPrefab) as GameObject;
 			}
 			ILevel tmpLevel = levelTracker.GetComponent<ILevel>();
 			tmpLevel.StartupLevel();
