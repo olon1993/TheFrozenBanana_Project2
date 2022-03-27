@@ -16234,7 +16234,7 @@ MonoBehaviour:
   _shipEndFieldGameComplete: {fileID: 0}
   _levelCompleteTextBox: {fileID: 4647937576750269009}
   _backgroundVerticalCorrection: 2
-  _levelNumber: 2
+  _levelNumber: 1
   _collectibles:
   - {fileID: 2953171820474178044}
   - {fileID: 8862935604311745950}

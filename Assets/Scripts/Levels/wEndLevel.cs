@@ -16,9 +16,10 @@ namespace TheFrozenBanana
 		[SerializeField] private Sprite endSpriteB;
 		[SerializeField] private GameObject creditsText;
 		[SerializeField] private GameObject endScoreBox;
-
+		[SerializeField] private GameObject returnToTitleButton;
 
 		public override void StartupLevel() {
+			returnToTitleButton.SetActive(false);
 			StartCoroutine(RunEndCanvas());
 		}
 
@@ -77,6 +78,7 @@ namespace TheFrozenBanana
 				t -= Time.deltaTime;
 			}
 			ShowEndScore();
+			EnableReturnToTitle();
 		}
 
 		private void ShowEndScore() {
@@ -108,6 +110,14 @@ namespace TheFrozenBanana
 		private void UpdateRenderColor(float a) {
 			Color trans = new Color(1, 1, 1, a);
 			bookRendererB.color = trans;
+		}
+
+		private void EnableReturnToTitle() {
+			returnToTitleButton.SetActive(true);
+		}
+
+		public void ReturnToTitleScreen() {
+			wGameManager.gm.LoadTitle();
 		}
 	}
 }

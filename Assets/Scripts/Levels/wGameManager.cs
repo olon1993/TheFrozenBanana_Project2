@@ -52,7 +52,7 @@ namespace TheFrozenBanana
 			LoadTitle();
 		}
 
-		private void LoadTitle() {
+		public void LoadTitle() {
 			SceneManager.LoadSceneAsync(startSceneName);
 			StartCoroutine(FadeToTransparent());
 		}
