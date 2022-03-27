@@ -2057,7 +2057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef8fb46e7ae54345af2506ee9bdd3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipIntro: 0
+  skipIntro: 1
   titleAudioSource: {fileID: 1650984496}
   titleCrashSound: {fileID: 8300000, guid: 4f982c1849a52804f91bc138b41b06cd, type: 3}
   titleMusic: {fileID: 8300000, guid: efbd727cc79fe514cbcda2fac8329c79, type: 3}

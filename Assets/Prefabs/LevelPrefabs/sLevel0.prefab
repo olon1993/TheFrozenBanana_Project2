@@ -44221,9 +44221,10 @@ MonoBehaviour:
   _playerPrefab: {fileID: 388510137705139664, guid: 4a2f0c03f2726e94ba5ad007afe1e634, type: 3}
   _playerSpawnPoint: {fileID: 4494357667034076711}
   _teleportFieldLevelComplete: {fileID: 8962117500187311217, guid: ccebb301b7bbee34d9221b4102683796, type: 3}
+  _shipEndFieldGameComplete: {fileID: 0}
   _levelCompleteTextBox: {fileID: 500313109347031189}
   _backgroundVerticalCorrection: 0
-  _levelNumber: 0
+  _levelNumber: 5
   _collectibles:
   - {fileID: 3563707257929879167}
   teleportationEffect: {fileID: 4195827030139760371, guid: 12dd51d27ec1fd1418bbb4754e0552c2, type: 3}

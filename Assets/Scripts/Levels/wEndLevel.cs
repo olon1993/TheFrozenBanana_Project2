@@ -70,7 +70,7 @@ namespace TheFrozenBanana
 			yield return new WaitForEndOfFrame();
 			creditsText.SetActive(true);
 			yield return new WaitForSeconds(1f);
-			float t = 8;
+			float t = 15;
 			float moveFactor = 666 * 2 / t;
 			while (t > 0) {
 				creditsText.transform.localPosition += Vector3.up * moveFactor * Time.deltaTime;
