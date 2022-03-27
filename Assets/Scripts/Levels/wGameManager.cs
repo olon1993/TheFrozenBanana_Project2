@@ -96,8 +96,7 @@ namespace TheFrozenBanana
 
 		public void RunGameOver() {
 			pd.PlayerDied();
-			Destroy(levelTracker);
-			SceneManager.LoadSceneAsync(gameOverSceneName);
+			StartCoroutine(SwitchToGameOver());
 		}
 
 		public void RunEnd() {
@@ -105,6 +104,17 @@ namespace TheFrozenBanana
 			StartCoroutine(SwitchScene(endSceneName));
 		}
 		// THE SCENE SWITCHER AND FADERS
+
+		private IEnumerator SwitchToGameOver() {
+			StartCoroutine(FadeToBlack());
+			while (!faded) {
+				yield return new WaitForEndOfFrame();
+			}
+			Destroy(levelTracker);
+			SceneManager.LoadSceneAsync(gameOverSceneName);
+			yield return new WaitForSeconds(1f);
+			UpdateFadeScreen(0);
+		}
 
 		private IEnumerator SwitchScene(string name) {
 			StartCoroutine(FadeToBlack());
