@@ -9,8 +9,10 @@ namespace TheFrozenBanana {
 		[SerializeField] private Animator screenAC;
 		[SerializeField] private string animationName;
 		[SerializeField] private GameObject[] markers;
+		[SerializeField] private GameObject displayText;
 		private Transform trans;
 		private Transform focalPoint;
+		private bool screenOn;
 
 		private void Awake() {
 			trans = this.gameObject.transform;
@@ -23,6 +25,7 @@ namespace TheFrozenBanana {
 			focalPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 			trans.position = focalPoint.position;
 			trans.localScale = new Vector3(0.1f, 0.1f, 1f);
+			screenOn = true;
 			StartCoroutine(StartupScreen());
 		}
 
@@ -31,6 +34,8 @@ namespace TheFrozenBanana {
 			foreach (GameObject marker in markers) {
 				marker.SetActive(false);
 			}
+			displayText.SetActive(false);
+			screenOn = false;
 		}
 
 		private IEnumerator StartupScreen() {
@@ -74,6 +79,7 @@ namespace TheFrozenBanana {
 				}
 				markers[i].SetActive(true);
 			}
+			StartCoroutine(RunDisplayText());
 		}
 
 		private bool IsLevelComplete(int level) {
@@ -102,6 +108,15 @@ namespace TheFrozenBanana {
 				}
 			}
 			return shipPartsCollected;
+		}
+
+		private IEnumerator RunDisplayText() {
+			bool switcher = false;
+			while (screenOn) {
+				yield return new WaitForSeconds(0.5f);
+				switcher = !switcher;
+				displayText.SetActive(switcher);
+			}
 		}
 	}
 }
