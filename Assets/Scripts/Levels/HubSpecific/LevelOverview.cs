@@ -22,8 +22,8 @@ namespace TheFrozenBanana {
 		}
 
 		void OnEnable() {
-			focalPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-			trans.position = focalPoint.position;
+			focalPoint = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
+			trans.position = new Vector3(focalPoint.position.x,focalPoint.position.y, 0);
 			trans.localScale = new Vector3(0.1f, 0.1f, 1f);
 			screenOn = true;
 			StartCoroutine(StartupScreen());
