@@ -8013,8 +8013,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 535150603
-  m_SortingLayer: 2
+  m_SortingLayerID: -1226945001
+  m_SortingLayer: 4
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 6b641f8bf536ca74f865b548cc5c8a7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8551,6 +8551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2370551124521532919}
   - component: {fileID: 2370551124521532920}
+  - component: {fileID: 6869116663882387116}
   m_Layer: 6
   m_Name: wHubLevel
   m_TagString: Level
@@ -8592,10 +8593,23 @@ MonoBehaviour:
   _teleportFieldLevelComplete: {fileID: 0}
   _shipEndFieldGameComplete: {fileID: 4615353310140625697}
   _levelCompleteTextBox: {fileID: 0}
-  _backgroundVerticalCorrection: 2
+  _backgroundVerticalCorrection: 0
   _levelNumber: -1
   _collectibles: []
   teleportationEffect: {fileID: 4195827030139760371, guid: 12dd51d27ec1fd1418bbb4754e0552c2, type: 3}
+--- !u!114 &6869116663882387116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2370551124521532918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63024394884fe614dbb9661c35769298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamOffset: {x: 0, y: 4, z: 0}
 --- !u!1 &2370551124585107749
 GameObject:
   m_ObjectHideFlags: 0
