@@ -18584,8 +18584,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 535150603
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 50c43717fe7310547a2d439fbc27ce98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18645,6 +18645,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2181674227466799152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18661,6 +18662,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2181674227466799155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18677,6 +18679,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &2181674227482549839
 GameObject:
   m_ObjectHideFlags: 0
@@ -18894,14 +18897,13 @@ MonoBehaviour:
   _playerPrefab: {fileID: 388510137705139664, guid: 4a2f0c03f2726e94ba5ad007afe1e634, type: 3}
   _playerSpawnPoint: {fileID: 8218312498694366770}
   _teleportFieldLevelComplete: {fileID: 8962117500187311217, guid: ccebb301b7bbee34d9221b4102683796, type: 3}
-  _shipEndFieldGameComplete: {fileID: 7419292410308355262, guid: c127c7f278bfd674cae96c490c99c7a5, type: 3}
+  _shipEndFieldGameComplete: {fileID: 0}
   _levelCompleteTextBox: {fileID: 2181674226992270714}
   _backgroundVerticalCorrection: 2
   _levelNumber: 2
   _collectibles:
   - {fileID: 6541470729068404223}
   teleportationEffect: {fileID: 4195827030139760371, guid: 12dd51d27ec1fd1418bbb4754e0552c2, type: 3}
-  levelMusic: {fileID: 8300000, guid: 08857f065914b934388b21c6b3b93d09, type: 3}
 --- !u!1 &2181674227582688037
 GameObject:
   m_ObjectHideFlags: 0
@@ -19026,6 +19028,7 @@ MonoBehaviour:
   _target: {fileID: 2181674227582688218}
   _targetRange: 5
   _attackWaitTime: 3
+  _isEnabled: 0
 --- !u!114 &2181674227582688217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19466,6 +19469,7 @@ MonoBehaviour:
   _target: {fileID: 2181674227942420946}
   _targetRange: 5
   _attackWaitTime: 3
+  _isEnabled: 0
 --- !u!114 &2181674227942420945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19589,8 +19593,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 535150603
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 50c43717fe7310547a2d439fbc27ce98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -19650,6 +19654,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2181674227955618395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19666,6 +19671,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2181674227955618394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19682,6 +19688,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &2181674228166016768
 GameObject:
   m_ObjectHideFlags: 0
@@ -20154,8 +20161,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 535150603
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 50c43717fe7310547a2d439fbc27ce98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -20215,6 +20222,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2181674228608433718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20231,6 +20239,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2181674228608433713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20247,6 +20256,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &2181674228614744621
 GameObject:
   m_ObjectHideFlags: 0
@@ -20433,6 +20443,7 @@ MonoBehaviour:
   _target: {fileID: 2181674228973567717}
   _targetRange: 5
   _attackWaitTime: 3
+  _isEnabled: 0
 --- !u!114 &2181674228973567640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33036,8 +33047,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 535150603
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 50c43717fe7310547a2d439fbc27ce98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -33097,6 +33108,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &4094619787288962771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33113,6 +33125,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &4094619787288962770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33129,6 +33142,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &4094619787355483271
 GameObject:
   m_ObjectHideFlags: 0
@@ -33253,6 +33267,7 @@ MonoBehaviour:
   _target: {fileID: 4094619787355483269}
   _targetRange: 20
   _attackWaitTime: 3
+  _isEnabled: 0
 --- !u!114 &4094619787355483265
 MonoBehaviour:
   m_ObjectHideFlags: 0
