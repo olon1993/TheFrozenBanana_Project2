@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/wStartScene.unity
     guid: 7c38823439981104f94cda97af9f973e
+  - enabled: 1
+    path: Assets/Scenes/wEndScene.unity
+    guid: e0208f6286133374b8152ee091e515a7
   m_configObjects: {}
