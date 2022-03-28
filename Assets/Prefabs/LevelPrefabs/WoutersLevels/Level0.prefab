@@ -24406,7 +24406,8 @@ MonoBehaviour:
   textComponentTMPRO: {fileID: 0}
   textComponent: {fileID: 8193941168949544774}
   lines:
-  - This guy flies! Time to grab my gun! (Press "Q" to switch weapons)
+  - This guy flies! Time to grab my gun! (Press "Q" to switch weapons - use the mouse
+    to aim and shoot)
   textSpeed: 0.01
   index: 0
 --- !u!1 &7979080416280534560

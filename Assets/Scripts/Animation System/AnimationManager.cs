@@ -64,7 +64,7 @@ namespace TheFrozenBanana
         {
             if(_animationStates.Select(x => x.IsAnimationOverride).Any())
             {
-                Debug.Log("HERE");
+            //    Debug.Log("HERE");
             }
 
             foreach (IAnimationState state in _animationStates)
