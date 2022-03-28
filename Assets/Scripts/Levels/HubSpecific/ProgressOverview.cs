@@ -27,7 +27,7 @@ namespace TheFrozenBanana
 		void OnEnable() {
 			RetrieveData();
 			focalPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-			trans.position = focalPoint.position + 4*Vector3.right;
+			trans.position = focalPoint.position + 4*Vector3.right + 2*Vector3.up;
 			trans.localScale = new Vector3(0.1f, 0.1f, 1f);
 			StartCoroutine(StartupScreen());
 		}
