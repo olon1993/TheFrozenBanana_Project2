@@ -95,6 +95,7 @@ MonoBehaviour:
   _target: {fileID: 863752965559844880}
   _targetRange: 0.5
   _attackWaitTime: 1
+  _isEnabled: 0
 --- !u!114 &863752963796058499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +270,7 @@ MonoBehaviour:
   _target: {fileID: 863752965590424928}
   _targetRange: 0.5
   _attackWaitTime: 1
+  _isEnabled: 0
 --- !u!114 &863752963826834675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +489,7 @@ MonoBehaviour:
   _priority: 7
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &1229456602400004106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,6 +506,7 @@ MonoBehaviour:
   _priority: 6
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &2710255735630557262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,6 +523,7 @@ MonoBehaviour:
   _priority: 5
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &3835369963037105264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +540,7 @@ MonoBehaviour:
   _priority: 4
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &3071744911750967965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,6 +557,7 @@ MonoBehaviour:
   _priority: 3
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &8292104411460537115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +574,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &1666661872335275806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +591,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &8140250946609329094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,6 +608,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &863752964254257116
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +725,6 @@ MonoBehaviour:
   _radiusOfInteraction: 0.5
   _delayToHit: 0.2
   _attackActionTime: 0.3
-  _damageForce: 5
   _animationLayer: 0
   weaponAudioSource: {fileID: 0}
   weaponSounds: []
@@ -733,6 +742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _damageType: 0
+  _damageForce: 5
 --- !u!1 &863752964447691979
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +798,6 @@ MonoBehaviour:
   _radiusOfInteraction: 0.5
   _delayToHit: 0.2
   _attackActionTime: 0.3
-  _damageForce: 5
   _animationLayer: 0
   weaponAudioSource: {fileID: 0}
   weaponSounds: []
@@ -806,6 +815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _damageType: 0
+  _damageForce: 5
 --- !u!1 &863752964452403133
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +986,7 @@ MonoBehaviour:
   _priority: 7
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &1229456603584547509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,6 +1003,7 @@ MonoBehaviour:
   _priority: 6
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &2710255734663979761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,6 +1020,7 @@ MonoBehaviour:
   _priority: 5
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &3835369964204871375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,6 +1037,7 @@ MonoBehaviour:
   _priority: 4
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &3071744910888689698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,6 +1054,7 @@ MonoBehaviour:
   _priority: 3
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &8292104410195810724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1056,6 +1071,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &1666661871083492769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,6 +1088,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &8140250945558307193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,6 +1105,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &863752964921869963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,6 +1245,7 @@ MonoBehaviour:
   _priority: 7
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &1229456603548080069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1243,6 +1262,7 @@ MonoBehaviour:
   _priority: 6
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &2710255734633480065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,6 +1279,7 @@ MonoBehaviour:
   _priority: 5
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &3835369964176790463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,6 +1296,7 @@ MonoBehaviour:
   _priority: 4
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &3071744910860614994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,6 +1313,7 @@ MonoBehaviour:
   _priority: 3
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &8292104410167526612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,6 +1330,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &1666661871052720337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,6 +1347,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &8140250945597340681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,6 +1364,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &863752964944367191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,6 +1460,7 @@ MonoBehaviour:
   _target: {fileID: 863752964254257119}
   _targetRange: 0.5
   _attackWaitTime: 1
+  _isEnabled: 0
 --- !u!114 &863752964944367180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1568,7 +1595,6 @@ MonoBehaviour:
   _radiusOfInteraction: 0.5
   _delayToHit: 0.2
   _attackActionTime: 0.3
-  _damageForce: 5
   _animationLayer: 0
   weaponAudioSource: {fileID: 0}
   weaponSounds: []
@@ -1586,6 +1612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _damageType: 0
+  _damageForce: 5
 --- !u!1 &863752965398566146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 4
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &7098485886976436499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1837,7 +1865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbbc0610e0b0e347ac02ba3ff423e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageForce: 5
 --- !u!1 &1444750495446735845
 GameObject:
   m_ObjectHideFlags: 0
@@ -11150,6 +11177,7 @@ MonoBehaviour:
   _target: {fileID: 6164697770837218243}
   _targetRange: 8
   _attackWaitTime: 2
+  _isEnabled: 0
 --- !u!114 &2064643852271772096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11387,6 +11415,7 @@ MonoBehaviour:
   _priority: 7
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &8369116054200120326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11403,6 +11432,7 @@ MonoBehaviour:
   _priority: 6
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &3659033000492933058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11419,6 +11449,7 @@ MonoBehaviour:
   _priority: 5
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &2477618280168092668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11435,6 +11466,7 @@ MonoBehaviour:
   _priority: 4
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &4466088290099846417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11451,6 +11483,7 @@ MonoBehaviour:
   _priority: 3
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &7226242328831681687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11467,6 +11500,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &34498550609094802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11483,6 +11517,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &7470423949982489674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11499,6 +11534,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &2361202111999680229
 GameObject:
   m_ObjectHideFlags: 0
@@ -11526,6 +11562,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1555647980043919560}
   - {fileID: 5752933070151645551}
   - {fileID: 2218139659427908350}
   - {fileID: 1162805030031750744}
@@ -36392,6 +36429,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2800320498127216765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36408,6 +36446,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2800320498127216764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36424,6 +36463,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &2800320498194524713
 GameObject:
   m_ObjectHideFlags: 0
@@ -36548,6 +36588,7 @@ MonoBehaviour:
   _target: {fileID: 2800320498194524715}
   _targetRange: 6
   _attackWaitTime: 3
+  _isEnabled: 0
 --- !u!114 &2800320498194524719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36722,6 +36763,7 @@ MonoBehaviour:
   _target: {fileID: 2800320498904756365}
   _targetRange: 6
   _attackWaitTime: 3
+  _isEnabled: 0
 --- !u!114 &2800320498904756361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36906,6 +36948,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2800320499103136475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36922,6 +36965,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2800320499103136474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36938,6 +36982,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &2808690094981445097
 GameObject:
   m_ObjectHideFlags: 0
@@ -37574,6 +37619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 4
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &8659092162564777151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37586,7 +37632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbbc0610e0b0e347ac02ba3ff423e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageForce: 5
 --- !u!1 &4274079493151585694
 GameObject:
   m_ObjectHideFlags: 0
@@ -38428,6 +38473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _damageType: 0
+  _damageForce: 5
 --- !u!82 &6164697769699513495
 AudioSource:
   m_ObjectHideFlags: 0
@@ -38922,6 +38968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 4
   _damageType: 0
+  _damageForce: 5
 --- !u!114 &2745826368529806507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38934,7 +38981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbbc0610e0b0e347ac02ba3ff423e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageForce: 5
 --- !u!1 &7441237784299432447
 GameObject:
   m_ObjectHideFlags: 0
@@ -39339,7 +39385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5607491932478568296, guid: 7045c67d0f63ee84d90d80bcea5ce882, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5607491932478568296, guid: 7045c67d0f63ee84d90d80bcea5ce882, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39387,14 +39433,14 @@ PrefabInstance:
       objectReference: {fileID: 7824747994635062699}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7045c67d0f63ee84d90d80bcea5ce882, type: 3}
---- !u!4 &5752933070151645551 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5607491932478568296, guid: 7045c67d0f63ee84d90d80bcea5ce882, type: 3}
-  m_PrefabInstance: {fileID: 146180167327059463}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3625364371409164906 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3479232637372978285, guid: 7045c67d0f63ee84d90d80bcea5ce882, type: 3}
+  m_PrefabInstance: {fileID: 146180167327059463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5752933070151645551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5607491932478568296, guid: 7045c67d0f63ee84d90d80bcea5ce882, type: 3}
   m_PrefabInstance: {fileID: 146180167327059463}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1486815498346829191
@@ -39406,7 +39452,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5282444632382623960, guid: 505747066fb7d39408da05e2d48a7d3f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5282444632382623960, guid: 505747066fb7d39408da05e2d48a7d3f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39472,6 +39518,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5282444632382623960, guid: 505747066fb7d39408da05e2d48a7d3f, type: 3}
   m_PrefabInstance: {fileID: 1486815498346829191}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5658422532353460053
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2361202111999680228}
+    m_Modifications:
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969709531172107531, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+      propertyPath: m_Name
+      value: HPCollectible
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+--- !u!4 &1555647980043919560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6561749915124164509, guid: fe2bd0ef46fd8c44cbd8ddc088fb9cff, type: 3}
+  m_PrefabInstance: {fileID: 5658422532353460053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5988022201744948630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39485,7 +39593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5607491932478568296, guid: 7f064c2a136f6f0408964d3dc03597c3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5607491932478568296, guid: 7f064c2a136f6f0408964d3dc03597c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39533,14 +39641,14 @@ PrefabInstance:
       objectReference: {fileID: 7824747994635062699}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f064c2a136f6f0408964d3dc03597c3, type: 3}
---- !u!4 &2218139659427908350 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5607491932478568296, guid: 7f064c2a136f6f0408964d3dc03597c3, type: 3}
-  m_PrefabInstance: {fileID: 5988022201744948630}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7156516474497477115 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3479232637372978285, guid: 7f064c2a136f6f0408964d3dc03597c3, type: 3}
+  m_PrefabInstance: {fileID: 5988022201744948630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2218139659427908350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5607491932478568296, guid: 7f064c2a136f6f0408964d3dc03597c3, type: 3}
   m_PrefabInstance: {fileID: 5988022201744948630}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6769698797985759536
@@ -39556,7 +39664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5607491932478568296, guid: 50ecf3fb639242c4090c95fc00dcad0d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5607491932478568296, guid: 50ecf3fb639242c4090c95fc00dcad0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39735,7 +39843,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5282444632382623960, guid: 505747066fb7d39408da05e2d48a7d3f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5282444632382623960, guid: 505747066fb7d39408da05e2d48a7d3f, type: 3}
       propertyPath: m_LocalPosition.x
