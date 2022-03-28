@@ -404,6 +404,7 @@ MonoBehaviour:
   _priority: 9
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &2012882309489655496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +421,7 @@ MonoBehaviour:
   _priority: 9
   _animationLayer: 1
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &8561362323593139467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +438,7 @@ MonoBehaviour:
   _priority: 8
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &8916879152953701241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +455,7 @@ MonoBehaviour:
   _priority: 7
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &4876102004536195378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +472,7 @@ MonoBehaviour:
   _priority: 6
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &3271028186546508101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +489,7 @@ MonoBehaviour:
   _priority: 5
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &2113812711340713783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +506,7 @@ MonoBehaviour:
   _priority: 4
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &8104672708025575160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +523,7 @@ MonoBehaviour:
   _priority: 3
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &5537465261464959838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,6 +540,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &3751939622704543609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,6 +557,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &834805610743462711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +574,7 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &4747235362434745063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,6 +591,7 @@ MonoBehaviour:
   _priority: 6
   _animationLayer: 1
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &7821825371282878460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +608,7 @@ MonoBehaviour:
   _priority: 5
   _animationLayer: 1
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &8228779328410541926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +625,7 @@ MonoBehaviour:
   _priority: 4
   _animationLayer: 1
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &6597913298817737183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,6 +642,7 @@ MonoBehaviour:
   _priority: 3
   _animationLayer: 1
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &7774591921664219382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,6 +659,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 1
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &8916736357246552721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,6 +676,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 1
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!1 &388510137705139664
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +783,7 @@ MonoBehaviour:
   _wallSlideSpeedMax: 3
   _terminalFallingVelocity: -45
   _minJumpHeight: 1
-  _coyoteTimeMargin: 0.25
+  _coyoteTimeMargin: 0.15
   _wallStickTime: 0.25
   _wallJumpClimb: {x: 7.5, y: 16}
   _wallJumpOff: {x: 8.5, y: 7}
