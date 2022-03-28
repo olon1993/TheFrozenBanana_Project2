@@ -247,7 +247,7 @@ MonoBehaviour:
   - {fileID: 2361202113937128557, guid: 8848a058e228ad145a189a7daa80ec1c, type: 3}
   - {fileID: 2361202113937128557, guid: 01c123dd9e8205f4e9f909a2a22b1538, type: 3}
   - {fileID: 7552892032391914687, guid: 6317aa30f0aae5240a15f25fd7bccd58, type: 3}
-  - {fileID: 2043743826210222458, guid: f776df534fc125841ae1bae759896863, type: 3}
+  - {fileID: 2043743826210222458, guid: 6801ca9b63edd14428539e83f8828f0d, type: 3}
   hubLevel: {fileID: 2370551124521532918, guid: aa31720db9d711347a2cc86b0e9cdfcd, type: 3}
   endLevel: {fileID: 3084725832650906508, guid: c127c7f278bfd674cae96c490c99c7a5, type: 3}
   fadeScreen: {fileID: 525503995}
