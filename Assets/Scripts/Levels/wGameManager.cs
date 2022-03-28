@@ -46,7 +46,6 @@ namespace TheFrozenBanana
 			} else {
 				Destroy(this.gameObject);
 			}
-			initializing = true;
 			pd = gameObject.GetComponent<PlayerData>();
 			DontDestroyOnLoad(this);
 			LoadTitle();
@@ -58,7 +57,7 @@ namespace TheFrozenBanana
 		}
 
 		public void StartupGame() {
-			
+			initializing = true;
 			StartCoroutine(SwitchScene(levelSceneName));
 		}
 
