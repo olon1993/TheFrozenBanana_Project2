@@ -86,7 +86,6 @@ MonoBehaviour:
   _radiusOfInteraction: 0.5
   _delayToHit: 0.2
   _attackActionTime: 0.3
-  _damageForce: 5
   _animationLayer: 0
   weaponAudioSource: {fileID: 0}
   weaponSounds: []
@@ -104,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 1
   _damageType: 0
-  _damageForce: 5
+  _damageForce: 2
 --- !u!1 &3114246225563349749
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +199,7 @@ MonoBehaviour:
   _target: {fileID: 3114246226219774845}
   _targetRange: 0.5
   _attackWaitTime: 1
+  _isEnabled: 0
 --- !u!114 &3114246225563349742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +448,7 @@ MonoBehaviour:
   _priority: 7
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &3588036895884534952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,6 +465,7 @@ MonoBehaviour:
   _priority: 6
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &385180864524815596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +482,7 @@ MonoBehaviour:
   _priority: 5
   _animationLayer: 0
   _canInterrupt: 0
+  _isAnimationOverride: 0
 --- !u!114 &1584515444691787986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,6 +499,7 @@ MonoBehaviour:
   _priority: 4
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &749193440775458367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,6 +516,7 @@ MonoBehaviour:
   _priority: 3
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &6041532482886629305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +533,7 @@ MonoBehaviour:
   _priority: 2
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &4027767190802774972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,6 +550,7 @@ MonoBehaviour:
   _priority: 1
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0
 --- !u!114 &5779059317572456292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,3 +567,4 @@ MonoBehaviour:
   _priority: 0
   _animationLayer: 0
   _canInterrupt: 1
+  _isAnimationOverride: 0

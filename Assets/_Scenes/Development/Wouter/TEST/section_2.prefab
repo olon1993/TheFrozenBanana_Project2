@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501375376078057057}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -155.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -152,10 +152,10 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  _aggressiveRadius: 20
-  _enemyErrorMargin: 15
+  _aggressiveRadius: 6
+  _enemyErrorMargin: 6
   _target: {fileID: 3015598244357611839}
-  _targetRange: 5
+  _targetRange: 7
   _attackWaitTime: 3
   _isEnabled: 0
 --- !u!114 &5291906668432502864
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  _aggressiveRadius: 15
+  _aggressiveRadius: 12
   _enemyErrorMargin: 10
   _target: {fileID: 5238147409765330071}
   _targetRange: 10
@@ -19756,10 +19756,10 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  _aggressiveRadius: 20
-  _enemyErrorMargin: 15
+  _aggressiveRadius: 6
+  _enemyErrorMargin: 6
   _target: {fileID: 7936606391681023735}
-  _targetRange: 5
+  _targetRange: 7
   _attackWaitTime: 3
   _isEnabled: 0
 --- !u!114 &7936606391681023626
@@ -20658,10 +20658,10 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  _aggressiveRadius: 20
-  _enemyErrorMargin: 15
+  _aggressiveRadius: 6
+  _enemyErrorMargin: 6
   _target: {fileID: 7936606392400141256}
-  _targetRange: 5
+  _targetRange: 7
   _attackWaitTime: 3
   _isEnabled: 0
 --- !u!114 &7936606392400141259
@@ -21104,10 +21104,10 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  _aggressiveRadius: 20
-  _enemyErrorMargin: 15
+  _aggressiveRadius: 6
+  _enemyErrorMargin: 6
   _target: {fileID: 7936606392843760064}
-  _targetRange: 5
+  _targetRange: 7
   _attackWaitTime: 3
   _isEnabled: 0
 --- !u!114 &7936606392843760067
@@ -21448,10 +21448,10 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  _aggressiveRadius: 20
-  _enemyErrorMargin: 15
+  _aggressiveRadius: 6
+  _enemyErrorMargin: 6
   _target: {fileID: 7244753226871620669}
-  _targetRange: 5
+  _targetRange: 7
   _attackWaitTime: 3
   _isEnabled: 0
 --- !u!114 &869333840101304793
