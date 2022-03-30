@@ -68,9 +68,15 @@ namespace TheFrozenBanana {
 			ToggleWeapon(false);
 		}
 
+		private void OnEnable() {
+			if (enemyWeapon) {
+				StartCoroutine(FindPlayer());
+			}
+		}
+
 		private IEnumerator FindPlayer() {
 			while (aimTool == null) {
-				yield return new WaitForSeconds(1f);
+				yield return new WaitForSeconds(0.1f);
 				try {
 					aimTool = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 				} catch (NullReferenceException nre) {
