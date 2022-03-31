@@ -53,14 +53,19 @@ namespace TheFrozenBanana
 
 		// Startup of game: creates all items to create library
 		public void CreateCollectibleData() {
+			StartCoroutine(CollectibleDataCreation());
+		}
+
+		private IEnumerator CollectibleDataCreation() { 
 			allCollectibleTypes = new ICollectible.CollectibleType[0][];
 			allCollectibleStatus = new bool[0][];
 
 			GameObject[] allLevels = wGameManager.gm.RetrieveLevels();
 			foreach (GameObject level in allLevels) {
+				yield return new WaitForSeconds(0.1f);
 				GameObject tmpLevel = Instantiate(level) as GameObject;
 				CreateNewCollectibleArray(tmpLevel.GetComponent<ILevel>().collectibles);
-				Destroy(tmpLevel, 1f);
+				Destroy(tmpLevel, 0.1f);
 			}
 			/**TESTING COUNT**/
 			int countCD = 0;

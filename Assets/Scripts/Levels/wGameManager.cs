@@ -123,6 +123,7 @@ namespace TheFrozenBanana
 			if (initializing) {
 				pd.CreateCollectibleData();
 				initializing = false;
+				yield return new WaitForSeconds(1f);
 			}
 			StartCoroutine(LoadSceneAndObjects(name));
 			while (!sceneReady) {
