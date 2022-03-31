@@ -25,9 +25,16 @@ namespace TheFrozenBanana
         [SerializeField] GameObject _enableOnDie;
         [SerializeField] GameObject _disableOnDie;
 
+        private IOnDeath onDeath;
+
         //**************************************************\\
         //******************** Methods *********************\\
         //**************************************************\\
+
+        void Awake()
+        {
+            onDeath = GetComponent<IOnDeath>();
+        }
 
         void Update()
         {
@@ -107,6 +114,11 @@ namespace TheFrozenBanana
             else
             {
                 float delay = DieSoundEffect == null ? 0 : DieSoundEffect.length;
+                if (onDeath != null) 
+                { 
+                    onDeath.DoThisOnDeath();
+                    return;
+                }
                 Destroy(gameObject, delay);
             }
 			
