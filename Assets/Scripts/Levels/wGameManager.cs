@@ -17,6 +17,7 @@ namespace TheFrozenBanana
 		[SerializeField] private string levelSceneName;
 		[SerializeField] private string gameOverSceneName;
 		[SerializeField] private string endSceneName;
+		[SerializeField] private GameObject[] loadLevels;
 		[SerializeField] private GameObject[] levels;
 		[SerializeField] private GameObject hubLevel;
 		[SerializeField] private GameObject endLevel;
@@ -57,7 +58,9 @@ namespace TheFrozenBanana
 		}
 
 		public void StartupGame() {
+			levelSelected = 0;
 			initializing = true;
+			levels = loadLevels;
 			StartCoroutine(SwitchScene(levelSceneName));
 		}
 

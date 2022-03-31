@@ -12801,7 +12801,7 @@ MonoBehaviour:
   textComponentTMPRO: {fileID: 0}
   textComponent: {fileID: 5168059233683849947}
   lines:
-  - All the parts are collected, we can take off!
+  - All the parts are collected, we can take off!  (Press "E" to end the game)
   textSpeed: 0.03
   index: 0
 --- !u!1 &8793552084780086379
