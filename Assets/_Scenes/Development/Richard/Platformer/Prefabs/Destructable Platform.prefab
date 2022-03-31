@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1532248871640160035}
   - component: {fileID: 2194221342691672010}
   - component: {fileID: 2194221344111003881}
+  - component: {fileID: 8719966420352879306}
   m_Layer: 6
   m_Name: Destructable Platform
   m_TagString: Untagged
@@ -102,6 +103,19 @@ MonoBehaviour:
   DamageMultipliers: []
   _enableOnDie: {fileID: 0}
   _disableOnDie: {fileID: 0}
+--- !u!114 &8719966420352879306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532248871640160039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545fdbf502d2e4344841f16a8351b67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEffectPrefab: {fileID: 7668046537351739133, guid: 026c4fe533ba31140a6fe12263ff8152, type: 3}
 --- !u!1 &1532248873021337492
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +185,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -891043081
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 36452d4fd0009874db494f598515fab7, type: 3}
   m_Color: {r: 0.75, g: 0.76139677, b: 1, a: 1}
