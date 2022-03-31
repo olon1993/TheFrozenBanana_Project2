@@ -1057,7 +1057,7 @@ MonoBehaviour:
   _teleportFieldLevelComplete: {fileID: 8962117500187311217, guid: ccebb301b7bbee34d9221b4102683796, type: 3}
   _shipEndFieldGameComplete: {fileID: 0}
   _levelCompleteTextBox: {fileID: 4647937576750269009}
-  _backgroundVerticalCorrection: 2
+  _backgroundVerticalCorrection: 0
   _levelNumber: 3
   _collectibles:
   - {fileID: 740929375169312761}
