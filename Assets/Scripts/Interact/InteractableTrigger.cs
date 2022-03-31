@@ -34,6 +34,7 @@ namespace TheFrozenBanana {
 				return;
 			}
 			if (col.gameObject.CompareTag("Player") && !interactTextIsActive) {
+				if (col.gameObject.GetComponent<Health>().IsDead) return;
 				timesTriggered++;
 				interactTextBox.SetActive(true);
 				interactTextIsActive = true;
