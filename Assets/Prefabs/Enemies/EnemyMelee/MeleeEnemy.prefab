@@ -83,7 +83,7 @@ MonoBehaviour:
   _maxAmmo: 0
   _currentAmmo: 0
   _pointOfOrigin: {fileID: 3114246226219774845}
-  _radiusOfInteraction: 0.5
+  _radiusOfInteraction: 0.2
   _delayToHit: 0.2
   _attackActionTime: 0.3
   _animationLayer: 0
@@ -303,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3114246226219774846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1, y: 0, z: 0}
+  m_LocalPosition: {x: 0.813, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3114246225210329813}
