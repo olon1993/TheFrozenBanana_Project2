@@ -242,6 +242,13 @@ MonoBehaviour:
   levelSceneName: wLevelScene
   gameOverSceneName: wGameOverScene
   endSceneName: wEndScene
+  loadLevels:
+  - {fileID: 4549589013002690090, guid: c75b125df6d789243844b0fdd50605a8, type: 3}
+  - {fileID: 2361202113937128557, guid: 9243c305e16be534cba0f5546bca123a, type: 3}
+  - {fileID: 2361202113937128557, guid: 8848a058e228ad145a189a7daa80ec1c, type: 3}
+  - {fileID: 2361202113937128557, guid: 01c123dd9e8205f4e9f909a2a22b1538, type: 3}
+  - {fileID: 7552892032391914687, guid: 6317aa30f0aae5240a15f25fd7bccd58, type: 3}
+  - {fileID: 2043743826210222458, guid: 6801ca9b63edd14428539e83f8828f0d, type: 3}
   levels:
   - {fileID: 4549589013002690090, guid: c75b125df6d789243844b0fdd50605a8, type: 3}
   - {fileID: 2361202113937128557, guid: 9243c305e16be534cba0f5546bca123a, type: 3}
