@@ -14,6 +14,11 @@ namespace TheFrozenBanana {
 			StartCoroutine(CheckEnemies());
 		}
 
+		private void OnEnable() {
+			foreach (GameObject enemy in enemiesInCondition) {
+				enemy.transform.parent = null;
+			}
+		}
 
 		private IEnumerator CheckEnemies() {
 			while (enemiesToCheck.Length > 0) {
