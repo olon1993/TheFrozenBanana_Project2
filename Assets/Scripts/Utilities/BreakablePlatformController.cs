@@ -70,7 +70,7 @@ namespace TheFrozenBanana
                                 }
 
                                 Invoke(nameof(BreakPlatform), _timeToBreak);
-                                _animator.Play("Break");
+                                _animator.SetTrigger("Break");
                                 _isDestroyInvoked = true;
                                 break;
                             }
@@ -82,6 +82,9 @@ namespace TheFrozenBanana
 
         private void BreakPlatform()
         {
+            IOnDeath onDeath = GetComponent<IOnDeath>();
+            if (onDeath != null)
+                onDeath.DoThisOnDeath();
             Destroy(gameObject);
         }
     }
