@@ -56,7 +56,7 @@ public class Dialogue : MonoBehaviour
         {
 			lineText += c;
 			WriteText(lineText);
-			yield return new WaitForSeconds(textSpeed);
+			yield return new WaitForSecondsRealtime(textSpeed);
         }
     }
 

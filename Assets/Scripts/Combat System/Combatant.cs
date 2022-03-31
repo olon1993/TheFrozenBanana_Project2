@@ -80,7 +80,7 @@ namespace TheFrozenBanana
         {
             if (gameObject.CompareTag("Player"))
             {
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetButtonDown("WeaponToggle"))
                     try
                     {
                         CurrentWeapon.ToggleWeapon(false);

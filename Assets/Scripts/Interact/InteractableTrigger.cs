@@ -12,18 +12,21 @@ namespace TheFrozenBanana {
 		//********************* Fields *********************\\
 		//**************************************************\\
 		[SerializeField] private int triggerAmount;
+		[SerializeField] bool _pauseUntilDismissed;
+		[SerializeField] string _buttonToDismissDialogue;
 		private int timesTriggered;
 
 		//**************************************************\\
 		//******************** Methods *********************\\
 		//**************************************************\\
 
-		protected override void Update() {
-			if (Input.GetButtonDown("Interact") && interactTextIsActive) {
+		protected override void Update()
+		{
+			if (Input.GetButtonDown("Interact") && interactTextIsActive)
+			{
 				interactTextBox.SetActive(false);
 				interactTextIsActive = false;
 			}
-
 		}
 
 		protected override void OnTriggerEnter2D(Collider2D col) {
@@ -34,8 +37,29 @@ namespace TheFrozenBanana {
 				timesTriggered++;
 				interactTextBox.SetActive(true);
 				interactTextIsActive = true;
+				if (_pauseUntilDismissed)
+                {
+					StartCoroutine(PauseGameUntilKeyPressed());
+                }
 				Interact();
 			}
+		}
+
+		private IEnumerator PauseGameUntilKeyPressed()
+        {
+			EventBroker.CallPauseGame();
+			bool keyPressed = false;
+			while (!keyPressed)
+            {
+				yield return new WaitForEndOfFrame();
+				if (Input.GetButton(_buttonToDismissDialogue))
+				{
+					EventBroker.CallUnpauseGame();
+					keyPressed = true;
+				}
+			}
+			interactTextBox.SetActive(false);
+			interactTextIsActive = false;
 		}
 
 		protected override void OnTriggerExit2D(Collider2D col) {

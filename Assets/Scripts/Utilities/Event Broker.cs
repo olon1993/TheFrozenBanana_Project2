@@ -38,10 +38,24 @@ public class EventBroker
     {
         PlayerDeath?.Invoke();
 
-    }public static event Action EnemyKilled;
+    }
+    
+    public static event Action EnemyKilled;
 
     public static void CallEnemyKilled()
     {
         EnemyKilled?.Invoke();
+    }
+
+    public static event Action PauseGame;
+    public static void CallPauseGame()
+    {
+        PauseGame?.Invoke();
+    }
+    
+    public static event Action UnpauseGame;
+    public static void CallUnpauseGame()
+    {
+        UnpauseGame?.Invoke();
     }
 }

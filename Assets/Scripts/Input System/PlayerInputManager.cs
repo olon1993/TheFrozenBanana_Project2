@@ -24,9 +24,10 @@ namespace TheFrozenBanana
         //******************** Methods *********************\\
         //**************************************************\\
 
-        // Update is called once per frame
         void Update()
         {
+            if (PauseGameState.Instance !=null && PauseGameState.Instance.GamePaused) { return; }
+
             if (IsEnabled)
             {
                 _horizontal = Input.GetAxisRaw("Horizontal");

@@ -97,6 +97,8 @@ namespace TheFrozenBanana
 
         protected override void Update()
         {
+            if (PauseGameState.Instance != null && PauseGameState.Instance.GamePaused) { return; }
+
             GetInput();
 
             CalculateVelocity();

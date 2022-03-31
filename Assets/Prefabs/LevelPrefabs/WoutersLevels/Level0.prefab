@@ -496,7 +496,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.3533516, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -507,7 +507,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15, y: 8}
+  m_Size: {x: 14.293297, y: 8}
   m_EdgeRadius: 0
 --- !u!50 &7411742868109211071
 Rigidbody2D:
@@ -545,6 +545,8 @@ MonoBehaviour:
   interactTextBox: {fileID: 7950213621194600780}
   interactibleObject: {fileID: 8452939705222850775}
   triggerAmount: 1
+  _pauseUntilDismissed: 1
+  _buttonToDismissDialogue: WeaponToggle
 --- !u!1 &769232153651458459
 GameObject:
   m_ObjectHideFlags: 0
@@ -16397,7 +16399,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1882019, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16408,7 +16410,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15, y: 8}
+  m_Size: {x: 14.623596, y: 8}
   m_EdgeRadius: 0
 --- !u!50 &312466153252726784
 Rigidbody2D:
@@ -16446,6 +16448,8 @@ MonoBehaviour:
   interactTextBox: {fileID: 3544221473756443355}
   interactibleObject: {fileID: 3261368601728465419}
   triggerAmount: 1
+  _pauseUntilDismissed: 1
+  _buttonToDismissDialogue: Fire1
 --- !u!1 &3261368601728465419
 GameObject:
   m_ObjectHideFlags: 0
