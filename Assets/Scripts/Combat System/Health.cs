@@ -113,6 +113,14 @@ namespace TheFrozenBanana
             }
             else
             {
+                BoxCollider2D col = gameObject.GetComponent<BoxCollider2D>();
+                Locomotion2d loco = gameObject.GetComponent<Locomotion2d>();
+                if (col != null) {
+                    col.enabled = false;
+				}
+                if (loco != null) {
+                    loco.enabled = false;
+				}
                 float delay = DieSoundEffect == null ? 0 : DieSoundEffect.length;
                 if (onDeath != null) 
                 { 
