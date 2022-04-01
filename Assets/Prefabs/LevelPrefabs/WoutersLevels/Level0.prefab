@@ -1467,7 +1467,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you can read this in game, I fucked something up
+  m_Text: Error
 --- !u!1 &1847254847547598314
 GameObject:
   m_ObjectHideFlags: 0
@@ -16065,7 +16065,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you can read this in game, I fucked something up
+  m_Text: Error
 --- !u!1 &3544221473756443355
 GameObject:
   m_ObjectHideFlags: 0
@@ -16159,8 +16159,8 @@ MonoBehaviour:
   textComponentTMPRO: {fileID: 0}
   textComponent: {fileID: 5489973679602773674}
   lines:
-  - 'Time to fight! Let me punch this ''thing'' silly. (Press Attack: "Left Ctrl"
-    or "Left Mouse Button")'
+  - 'Time to fight! Let me punch this ''thing'' silly. (Press Attack: "Left Mouse
+    Button")'
   textSpeed: 0.01
   index: 0
 --- !u!1 &3571412761223041686
@@ -21179,7 +21179,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you can read this in game, I fucked something up
+  m_Text: Error
 --- !u!1 &5683417209872753207
 GameObject:
   m_ObjectHideFlags: 0
@@ -21289,7 +21289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you can read this in game, I fucked something up
+  m_Text: Error
 --- !u!1 &5959846277789281939
 GameObject:
   m_ObjectHideFlags: 0
@@ -21592,7 +21592,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you can read this in game, I fucked something up
+  m_Text: Error
 --- !u!1 &6616113236094689448
 GameObject:
   m_ObjectHideFlags: 0
@@ -21686,8 +21686,7 @@ MonoBehaviour:
   textComponentTMPRO: {fileID: 0}
   textComponent: {fileID: 1551838463883265517}
   lines:
-  - I should find a way to get back to my ship. (Move with Left and Right Arrows
-    or "A" and "D")
+  - I should find a way to get back to my ship. (Move with "A" and "D")
   textSpeed: 0.01
   index: 0
 --- !u!1 &6706479413708666229
@@ -22245,7 +22244,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you can read this in game, I fucked something up
+  m_Text: Error
 --- !u!1 &7678582775615602049
 GameObject:
   m_ObjectHideFlags: 0
@@ -22418,7 +22417,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you can read this in game, I fucked something up
+  m_Text: Error
 --- !u!1 &7749449237524451168
 GameObject:
   m_ObjectHideFlags: 0
@@ -22497,7 +22496,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you can read this in game, I fucked something up
+  m_Text: Error
 --- !u!1 &7761613714189057728
 GameObject:
   m_ObjectHideFlags: 0
@@ -22591,7 +22590,7 @@ MonoBehaviour:
   textComponentTMPRO: {fileID: 0}
   textComponent: {fileID: 8288278466943500191}
   lines:
-  - What a long flat piece of land. I can run through this easily. (Hold "Shift"
+  - What a long flat piece of land. I can run through this easily. (Hold "Left Shift"
     to dash)
   textSpeed: 0.01
   index: 0
@@ -33203,7 +33202,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you can read this in game, I fucked something up
+  m_Text: Error
 --- !u!1 &8611366588701207490
 GameObject:
   m_ObjectHideFlags: 0
@@ -33621,7 +33620,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you can read this in game, I fucked something up
+  m_Text: Error
 --- !u!1 &8631682120281705414
 GameObject:
   m_ObjectHideFlags: 0

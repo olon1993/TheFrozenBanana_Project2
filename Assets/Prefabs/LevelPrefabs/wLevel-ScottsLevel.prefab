@@ -57638,6 +57638,14 @@ PrefabInstance:
       propertyPath: CollisionMask.m_Bits
       value: 1600
       objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
       value: 0
@@ -58576,6 +58584,14 @@ PrefabInstance:
       propertyPath: CollisionMask.m_Bits
       value: 1600
       objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
       value: 0
@@ -58661,6 +58677,14 @@ PrefabInstance:
     - target: {fileID: 3114246225563349742, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: CollisionMask.m_Bits
       value: 1600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
@@ -58810,6 +58834,14 @@ PrefabInstance:
       propertyPath: CollisionMask.m_Bits
       value: 1600
       objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
       value: 0
@@ -58891,6 +58923,14 @@ PrefabInstance:
     - target: {fileID: 3114246225563349742, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: CollisionMask.m_Bits
       value: 1600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
@@ -59044,6 +59084,14 @@ PrefabInstance:
     - target: {fileID: 3114246225563349742, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: CollisionMask.m_Bits
       value: 1600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
@@ -59260,6 +59308,14 @@ PrefabInstance:
       propertyPath: CollisionMask.m_Bits
       value: 1600
       objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
       value: 0
@@ -59408,6 +59464,14 @@ PrefabInstance:
       propertyPath: CollisionMask.m_Bits
       value: 1600
       objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
       value: 0
@@ -59552,6 +59616,14 @@ PrefabInstance:
       propertyPath: CollisionMask.m_Bits
       value: 1600
       objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
       value: 0
@@ -59637,6 +59709,14 @@ PrefabInstance:
     - target: {fileID: 3114246225563349742, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: CollisionMask.m_Bits
       value: 1600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
@@ -59856,6 +59936,14 @@ PrefabInstance:
     - target: {fileID: 3114246225563349742, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: CollisionMask.m_Bits
       value: 1600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
@@ -60078,6 +60166,14 @@ PrefabInstance:
     - target: {fileID: 3114246225563349742, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: CollisionMask.m_Bits
       value: 1600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _maxHealth
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114246225563349745, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
+      propertyPath: _currentHealth
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 3114246225563349746, guid: e1eb85921749f1541be81cb38ea0183a, type: 3}
       propertyPath: _speed
